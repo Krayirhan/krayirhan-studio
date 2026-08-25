@@ -10,7 +10,7 @@ export function Footer() {
           {/* Studio Brand */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-amber-500 via-indigo-600 to-cyan-500 text-white">
                 <Box className="h-5 w-5" />
               </div>
               <span className="text-lg font-bold tracking-wider text-white uppercase">
@@ -21,7 +21,7 @@ export function Footer() {
               {STUDIO_INFO.tagline}
             </p>
             <div className="pt-2 text-xs text-slate-500">
-              📍 {STUDIO_INFO.location} · Bağımsız Mobil Uygulama & Yazılım Stüdyosu
+              📍 {STUDIO_INFO.location} · Bağımsız Mobil Oyun & Uygulama Geliştirme Stüdyosu
             </div>
           </div>
 
@@ -32,8 +32,13 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/products/blok-dunyasi" className="hover:text-amber-400 transition-colors font-medium">
+                  Blok Dünyası (Oyun)
+                </Link>
+              </li>
+              <li>
                 <Link href="/products/lingorise" className="hover:text-cyan-400 transition-colors font-medium">
-                  LingoRise
+                  LingoRise (Uygulama)
                 </Link>
               </li>
               <li>
@@ -60,6 +65,17 @@ export function Footer() {
               Bağlantılar
             </h4>
             <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+                >
+                  <span>Blok Dünyası (Google Play)</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
               <li>
                 <a
                   href={STUDIO_INFO.founder.portfolioUrl}

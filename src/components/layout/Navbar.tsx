@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ExternalLink, Sparkles, Smartphone, Box } from "lucide-react";
+import { Menu, X, ExternalLink, Sparkles, Box, Gamepad2, Smartphone } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
+    { name: "Blok Dünyası", href: "/products/blok-dunyasi" },
     { name: "LingoRise", href: "/products/lingorise" },
     { name: "Tüm Ürünler", href: "/products" },
     { name: "Press Kit", href: "/press" },
@@ -21,7 +22,7 @@ export function Navbar() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 text-white shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-500 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
             <Box className="h-6 w-6" />
           </div>
           <div className="flex flex-col">
@@ -29,13 +30,13 @@ export function Navbar() {
               {STUDIO_INFO.name}
             </span>
             <span className="text-[10px] font-semibold tracking-widest text-cyan-400 uppercase">
-              Digital Products Studio
+              Games & Digital Products
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -61,12 +62,15 @@ export function Navbar() {
             <ExternalLink className="h-3 w-3 text-slate-400" />
           </a>
 
-          <Link
-            href="/products/lingorise"
-            className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-indigo-600 to-cyan-600 px-4 py-2 text-xs font-semibold text-white hover:opacity-90 shadow-md shadow-cyan-600/20 transition-all"
+          <a
+            href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3.5 py-2 text-xs font-bold text-white hover:bg-emerald-500 shadow-md shadow-emerald-600/20 transition-all"
           >
-            LingoRise
-          </Link>
+            <span>Play Store</span>
+            <ExternalLink className="h-3 w-3" />
+          </a>
         </div>
 
         {/* Mobile Menu Button */}

@@ -1,6 +1,46 @@
 import { Product } from "@/types/game";
 
 export const PRODUCTS: Product[] = [
+  // --- OYUNLAR (GAMES) ---
+  {
+    id: "blok-dunyasi",
+    slug: "blok-dunyasi",
+    type: "game",
+    title: "Blok Dünyası",
+    tagline: "Renkli blokları eşleştirin, çizgileri patlatın ve en yüksek skora ulaşın!",
+    category: ["Bulmaca", "Mobil Oyun", "Casual", "Arcade"],
+    status: "Released",
+    releaseDate: "Google Play'de Yayında",
+    shortDescription:
+      "Blok Dünyası; klasik blok bulmaca mekaniklerini meyve ve dikiş temalı göz alıcı görsellerle, akıcı kontrollerle ve hedef bazlı seviye modlarıyla buluşturan eğlenceli bir mobil oyundur.",
+    fullDescription:
+      "Blok Dünyası'nda amacınız ızgara üzerine verilen farklı şekillerdeki blokları stratejik olarak yerleştirmek, yatay ve dikey sıraları tamamlayarak temizlemektir.\n\n" +
+      "🧩 Stratejik Hamleler: Her hamlenizi önceden planlayın, ızgarayı doldurmadan kombolar yapın.\n\n" +
+      "🎨 Çeşitli Görsel Temalar: İster taze meyve blokları ister el yapımı kumaş ve düğme desenleriyle oynayın.\n\n" +
+      "🏆 Skor Yarışı: Kendi en iyi rekorlarınızı kırın ve arkadaşlarınızla yarışın!",
+    features: [
+      "Canlı ve Renkli Temalar: Meyve blokları, dikiş-kumaş desenleri ve dinamik patlama efektleri.",
+      "Hedef Puan Modları: Belirlenen seviye hedeflerine ulaşarak yeni rekorlara koşun.",
+      "Akıcı Dokunmatik Kontroller: Mobil cihazlar için hassas, gecikmesiz blok sürükleme deneyimi.",
+      "Kayıt & Skor Sistemi: En iyi puanlarınızı takip edin ve istediğiniz zaman oyuna devam edin.",
+      "İnternetsiz Oynama: Dilediğiniz her yerde tamamen offline oynanabilirlik.",
+    ],
+    platforms: ["Google Play", "Android" as any],
+    techStack: ["Unity Engine (C#)", "DOTween", "Universal Render Pipeline (URP)"],
+    links: {
+      playStore: "https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi",
+    },
+    coverImage: "/games/blok-dunyasi/cover.jpg",
+    bannerImage: "/games/blok-dunyasi/cover.jpg",
+    screenshots: [
+      "/games/blok-dunyasi/cover.jpg",
+      "/games/blok-dunyasi/gameplay-1.jpg",
+      "/games/blok-dunyasi/gameplay-2.jpg",
+    ],
+    featured: true,
+  },
+
+  // --- UYGULAMALAR (APPS) ---
   {
     id: "lingorise",
     slug: "lingorise",
