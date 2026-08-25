@@ -2,7 +2,7 @@ import Link from "next/link";
 import { HeroSection } from "@/components/home/HeroSection";
 import { FeaturedProductSlider } from "@/components/home/FeaturedProductSlider";
 import { PRODUCTS } from "@/data/games";
-import { ArrowRight, Download, Gamepad2, Smartphone, Sparkles, Shield, Palette } from "lucide-react";
+import { ArrowRight, Download, Gamepad2, Smartphone, Sparkles, Shield, Palette, CheckCircle2 } from "lucide-react";
 
 export default function HomePage() {
   // Map distinct 2 screens for each product
@@ -32,7 +32,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="pb-24 space-y-28 sm:space-y-36">
+    <div className="pb-24 space-y-24 sm:space-y-32">
       {/* 1. Monumental Studio Hero */}
       <HeroSection />
 
@@ -184,82 +184,84 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Experience & Studio Principles */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-20">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">
-            Deneyim İlkelerimiz
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight font-display">
-            Neden Krayirhan Studio Yapımları?
-          </h2>
-          <p className="text-base text-zinc-400 leading-relaxed">
-            Kullanıcıların elinden bırakamayacağı, sade, eğlenceli ve günlük hayata değer katan mobil deneyimler inşa ediyoruz.
-          </p>
-        </div>
+      {/* 4. Unified Studio Vision & Core Principles Stage (Compact & Modern) */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative rounded-[2.8rem] border border-white/10 bg-gradient-to-b from-[#141418] via-[#0f0f13] to-[#09090b] p-8 sm:p-14 lg:p-16 overflow-hidden shadow-2xl shadow-black">
+          {/* Ambient Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-orange-500/10 via-emerald-500/10 to-sky-500/10 blur-[130px] pointer-events-none" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div className="space-y-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 border border-white/15 text-white">
-              <Palette className="h-6 w-6" />
+          <div className="relative space-y-12">
+            
+            {/* Top: Manifesto & Direct Action */}
+            <div className="max-w-3xl mx-auto text-center space-y-5">
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-zinc-300">
+                <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+                <span>Stüdyo Felsefesi</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
+                Sade tasarımlar, dürüst yapımlar.
+              </h2>
+
+              <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+                Krayirhan Studio çatısı altında tek bir kuralımız var: Kendimizin de her gün keyifle kullanacağı veya oynayacağı samimi mobil yapımları sizlerle buluşturmak.
+              </p>
+
+              <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 hover:bg-zinc-200 transition-all shadow-xl shadow-white/10 hover:scale-105"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Google Play&apos;de Oyna</span>
+                </a>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 text-sm font-semibold text-zinc-200 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"
+                >
+                  <span>Tüm Kataloğu İncele</span>
+                  <ArrowRight className="h-4 w-4 text-zinc-400" />
+                </Link>
+              </div>
             </div>
-            <h3 className="text-xl font-bold text-white font-display">Özgün Tasarım & Canlı Temalar</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed">
-              Her oyunumuzda ve uygulamamızda göz yormayan, estetik ve samimi görsel dünyalar tasarlayarak kullanım keyfini zirveye çıkarıyoruz.
-            </p>
-          </div>
 
-          <div className="space-y-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 border border-white/15 text-white">
-              <Gamepad2 className="h-6 w-6" />
+            {/* Bottom: 3 Core Experience Bento Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-6 border-t border-white/10">
+              
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 space-y-3 hover:border-white/20 transition-colors">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400">
+                  <Palette className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-bold text-white font-display">Canlı & Özgün Temalar</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Göz yormayan estetik renkler, meyve ve kumaş dokularıyla her an keyifli bir görsel deneyim.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 space-y-3 hover:border-white/20 transition-colors">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                  <Gamepad2 className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-bold text-white font-display">Sürükleyici Mekanikler</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Zihni dinlendiren, tek parmakla akıcı ve başarı hissi veren ödüllendirici oyun kurguları.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 space-y-3 hover:border-white/20 transition-colors">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                  <Shield className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-bold text-white font-display">%100 Çevrimdışı & Gizlilik</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Verilerinize saygı duyan güvenli yapı ve internet olmadan metroda, seyahatte tam özgürlük.
+                </p>
+              </div>
+
             </div>
-            <h3 className="text-xl font-bold text-white font-display">Sürükleyici Oyun Mekanikleri</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed">
-              Klasik blok bulmacalardan kelime öğrenme bahçelerine kadar, oyuncuyu motive eden ve zihnini dinlendiren ödüllendirici mekanikler.
-            </p>
-          </div>
 
-          <div className="space-y-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 border border-white/15 text-white">
-              <Shield className="h-6 w-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white font-display">Gizlilik & Kesintisiz Özgürlük</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed">
-              Kullanıcıyı boğmayan temiz bir deneyim, verilerinize saygı duyan altyapı ve dilediğiniz her yerde internetsiz tam çalışma güvencesi.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Studio Manifesto & Catalog Gateway */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center pt-8 border-t border-white/10">
-        <div className="space-y-6 max-w-3xl mx-auto">
-          <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">
-            Stüdyo Felsefesi
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight font-display">
-            Sade tasarımlar, dürüst yapımlar.
-          </h2>
-          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
-            Krayirhan Studio çatısı altında ürettiğimiz tüm oyun ve uygulamalarda tek bir kuralımız var: Kendimizin de her gün keyifle kullanacağı veya oynayacağı yapımları sizlerle buluşturmak.
-          </p>
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-4 text-sm font-bold text-zinc-950 hover:bg-zinc-200 transition-all shadow-2xl shadow-white/10 hover:scale-105"
-            >
-              <Download className="h-4 w-4" />
-              <span>Google Play&apos;de Oyna</span>
-            </a>
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-4 text-sm font-semibold text-zinc-200 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"
-            >
-              <span>Tüm Kataloğu İncele</span>
-              <ArrowRight className="h-4 w-4 text-zinc-400" />
-            </Link>
           </div>
         </div>
       </section>
