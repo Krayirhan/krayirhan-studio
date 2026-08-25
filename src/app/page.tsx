@@ -2,7 +2,6 @@ import Link from "next/link";
 import { HeroSection } from "@/components/home/HeroSection";
 import { GameCard } from "@/components/games/GameCard";
 import { StudioStats } from "@/components/home/StudioStats";
-import { MiniPlayground } from "@/components/interactive/MiniPlayground";
 import { StudioRoadmap } from "@/components/home/StudioRoadmap";
 import { PRODUCTS } from "@/data/games";
 import { Sparkles, Smartphone, ShieldCheck, Mail, ArrowRight, Award, BookOpen, Layers } from "lucide-react";
@@ -16,10 +15,7 @@ export default function HomePage() {
       {/* 2. Live Studio Milestones & Stats */}
       <StudioStats />
 
-      {/* 3. Interactive Web Playground (Mini Blok Dünyası + LingoRise Garden) */}
-      <MiniPlayground />
-
-      {/* 4. Products Section (Blok Dünyası, LingoRise, Benim Notlarım) */}
+      {/* 3. Products Section (Blok Dünyası, LingoRise, Benim Notlarım) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 border-b border-slate-800/80 pb-6">
           <div>
@@ -47,7 +43,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Engineering & Design Philosophy */}
+      {/* 4. Engineering & Design Philosophy */}
       <section className="border-y border-slate-800/80 bg-[#0a0e17]/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -81,7 +77,7 @@ export default function HomePage() {
             </div>
 
             <div className="rounded-3xl border border-slate-800 bg-[#0e1422] p-8 space-y-4 shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-600/20 text-purple-400 border border-purple-500/30">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-600/20 text-purple-400 border border-purple-500/30">
                 <Layers className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-bold text-white">Offline-First & Çapraz Platform</h3>
@@ -93,10 +89,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Interactive Studio Roadmap & Upvoting */}
+      {/* 5. Interactive Studio Roadmap & Upvoting */}
       <StudioRoadmap />
 
-      {/* 7. Contact CTA */}
+      {/* 6. Contact CTA */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-cyan-500/30 bg-gradient-to-r from-indigo-950/60 via-[#0d121d] to-cyan-950/40 p-8 sm:p-12 lg:p-16 shadow-2xl">
           <div className="max-w-2xl">

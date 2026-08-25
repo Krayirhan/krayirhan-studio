@@ -4,7 +4,6 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { STUDIO_INFO } from "@/data/studioInfo";
 import { SoundProvider } from "@/components/effects/SoundEffects";
-import { CursorSpotlight } from "@/components/effects/CursorSpotlight";
 
 export const metadata: Metadata = {
   title: `${STUDIO_INFO.name} | Bağımsız Oyunlar & Dijital Uygulamalar`,
@@ -41,7 +40,6 @@ export default function RootLayout({
     <html lang="tr" className="dark">
       <body className="min-h-screen bg-[#07090e] text-slate-100 antialiased flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
         <SoundProvider>
-          <CursorSpotlight />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
