@@ -1,25 +1,22 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { PRODUCTS } from "@/data/games";
 import { Product } from "@/types/game";
 import { Download, Star, ArrowRight, Gamepad2, Smartphone } from "lucide-react";
 import { QrDownloadButton } from "@/components/ui/QrDownloadModal";
 
-const SLIDE_DURATION = 5000; // 5.0 seconds per slide
-const TICK_INTERVAL = 50; // 50ms smooth tick
+const SLIDE_DURATION = 4000; // Exactly 4.0 seconds per slide
+const TICK_INTERVAL = 40; // 40ms continuous tick
 
 export function FeaturedProductSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const totalSlides = PRODUCTS.length;
 
-  // Single synchronized timer loop
+  // Uninterrupted, reliable, clockwork slider loop
   useEffect(() => {
-    if (isPaused) return;
-
     const interval = setInterval(() => {
       setProgress((prev) => {
         const next = prev + (TICK_INTERVAL / SLIDE_DURATION) * 100;
@@ -32,7 +29,7 @@ export function FeaturedProductSlider() {
     }, TICK_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [isPaused, totalSlides]);
+  }, [totalSlides]);
 
   const handleTabClick = (idx: number) => {
     setCurrentIndex(idx);
@@ -162,11 +159,7 @@ export function FeaturedProductSlider() {
       </div>
 
       {/* 2. Borderless Cinematic Showcase Stage */}
-      <div
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
-      >
+      <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Dynamic Full-Bleed Ambient Aura Behind Phones */}
         <div
           className={`absolute -right-10 top-1/2 -translate-y-1/2 w-[600px] h-[550px] bg-gradient-to-tr ${getAuraColor(
@@ -175,7 +168,7 @@ export function FeaturedProductSlider() {
         />
 
         {/* Left Column: Content with Keyed Smooth Transition */}
-        <div key={`info-${product.id}`} className="lg:col-span-6 space-y-6 z-10 animate-[fadeIn_0.4s_ease-out]">
+        <div key={`info-${product.id}`} className="lg:col-span-6 space-y-6 z-10 animate-[fadeIn_0.35s_ease-out]">
           {getTagBadge(product)}
 
           <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.08] font-display">
@@ -233,7 +226,7 @@ export function FeaturedProductSlider() {
         </div>
 
         {/* Right Column: Floating 3D Phones with Keyed Smooth Transition */}
-        <div key={`phones-${product.id}`} className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10 animate-[fadeIn_0.5s_ease-out]">
+        <div key={`phones-${product.id}`} className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10 animate-[fadeIn_0.35s_ease-out]">
           {/* Phone 1: Main Menu / Garden */}
           <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black -rotate-3 hover:-rotate-1 hover:scale-105 transition-all duration-500">
             <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-16 rounded-full bg-black/90 z-20 flex items-center justify-center">
