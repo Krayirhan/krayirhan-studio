@@ -12,34 +12,46 @@ export default function HomePage() {
         return {
           primary: "/games/blok-dunyasi/cover.jpg",
           secondary: "/games/blok-dunyasi/gameplay-1.jpg",
+          accentGlow: "bg-orange-500",
+          tag: "Bulmaca Oyunu",
+          colorClass: "text-orange-400 border-orange-500/20 bg-orange-500/10",
         };
       case "lingorise":
         return {
           primary: "/apps/lingorise/home-garden.png",
           secondary: "/apps/lingorise/practice-session.png",
+          accentGlow: "bg-emerald-500",
+          tag: "Dil Öğrenme",
+          colorClass: "text-emerald-400 border-emerald-500/20 bg-emerald-500/10",
         };
       case "benim-notlarim":
         return {
           primary: "/apps/benim-notlarim/cover.jpg",
           secondary: "/apps/benim-notlarim/editor.jpg",
+          accentGlow: "bg-sky-500",
+          tag: "Not Defteri",
+          colorClass: "text-sky-400 border-sky-500/20 bg-sky-500/10",
         };
       default:
         return {
           primary: "/games/blok-dunyasi/cover.jpg",
           secondary: "/games/blok-dunyasi/gameplay-1.jpg",
+          accentGlow: "bg-white",
+          tag: "Mobil Ürün",
+          colorClass: "text-zinc-300 border-white/20 bg-white/10",
         };
     }
   };
 
   return (
     <div className="pb-24 space-y-28 sm:space-y-36">
-      {/* 1. Monumental Centered Studio Hero */}
+      {/* 1. Monumental Studio Hero */}
       <HeroSection />
 
       {/* 2. Interactive Borderless Cinematic Product Stage */}
       <FeaturedProductSlider />
 
-      {/* 3. All Products Catalog — Pixel-Perfect Dual-Phone Showcases */}
+      {/* 3. Expansive Linear / Apple Style Showcase Story Cards */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6 mb-12">
           <div>
@@ -56,132 +68,134 @@ export default function HomePage() {
             href="/products"
             className="text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white flex items-center gap-1.5 transition-colors"
           >
-            <span>Katalog Sayfasına Git</span>
+            <span>Tüm Kataloğu İncele</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        {/* 3-Column Visual Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {PRODUCTS.map((product) => {
+        {/* Stacked Expansive Showcase Cards */}
+        <div className="space-y-10 sm:space-y-12">
+          {PRODUCTS.map((product, index) => {
             const isBlokDunyasi = product.id === "blok-dunyasi";
             const isLingorise = product.id === "lingorise";
             const isNotlarim = product.id === "benim-notlarim";
-
-            const screens = getScreens(product.id);
+            const meta = getScreens(product.id);
 
             return (
               <div
                 key={product.id}
-                className="group relative flex flex-col justify-between rounded-[2.2rem] border border-white/10 bg-[#111114] overflow-hidden hover:border-white/25 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-black"
+                className="group relative rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-12 lg:p-14 overflow-hidden hover:border-white/20 transition-all duration-500 shadow-2xl shadow-black/80"
               >
-                {/* Top Visual Showcase: Pixel-Perfect Dual-Phone Simulator (True 9:19.5 Proportions, Zero Distortion) */}
-                <Link
-                  href={`/products/${product.slug}`}
-                  className="relative h-72 sm:h-80 w-full overflow-hidden bg-gradient-to-b from-[#18181c] to-[#0c0c0f] flex items-center justify-center p-4 group-hover:from-[#202028] transition-colors duration-500 border-b border-white/5"
-                >
-                  {/* Ambient Colored Aura */}
-                  <div
-                    className={`absolute w-60 h-60 rounded-full blur-[80px] opacity-25 group-hover:opacity-50 transition-all duration-700 pointer-events-none ${
-                      isBlokDunyasi
-                        ? "bg-orange-500"
-                        : isLingorise
-                        ? "bg-emerald-500"
-                        : "bg-sky-500"
-                    }`}
-                  />
+                {/* Ambient Soft Glow Background */}
+                <div
+                  className={`absolute right-10 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-[110px] opacity-20 group-hover:opacity-35 transition-all duration-700 pointer-events-none ${meta.accentGlow}`}
+                />
 
-                  {/* Dual Phone Showcase (True Phone Width & Height without Flex Stretch) */}
-                  <div className="relative flex items-center justify-center h-full py-2">
-                    
-                    {/* Phone 1: Main Menu / Garden */}
-                    <div className="relative w-[125px] sm:w-[135px] aspect-[9/19.5] rounded-[1.8rem] p-1.5 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-950 border border-white/25 shadow-2xl shadow-black -rotate-6 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-500 z-10">
-                      <div className="relative h-full w-full overflow-hidden rounded-[1.4rem] bg-black">
-                        <img
-                          src={screens.primary}
-                          alt={`${product.title} Ekran 1`}
-                          className="h-full w-full object-cover object-top"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
-                      </div>
-                    </div>
-
-                    {/* Phone 2: Gameplay / Editor / Practice */}
-                    <div className="relative w-[125px] sm:w-[135px] aspect-[9/19.5] rounded-[1.8rem] p-1.5 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-950 border border-white/25 shadow-2xl shadow-black rotate-6 group-hover:rotate-2 group-hover:scale-105 transition-all duration-500 mt-6 -ml-5 sm:-ml-6 z-20">
-                      <div className="relative h-full w-full overflow-hidden rounded-[1.4rem] bg-black">
-                        <img
-                          src={screens.secondary}
-                          alt={`${product.title} Ekran 2`}
-                          className="h-full w-full object-cover object-top"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
-                      </div>
-                    </div>
-
-                  </div>
-                </Link>
-
-                {/* Content Section */}
-                <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 space-y-5">
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-bold text-zinc-300">
+                <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                  
+                  {/* Left Column: Product Information & Direct Actions (7 cols) */}
+                  <div className="lg:col-span-7 space-y-6">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold ${meta.colorClass}`}>
                         {product.type === "game" ? (
-                          <Gamepad2 className="h-3 w-3 text-orange-400" />
+                          <Gamepad2 className="h-3.5 w-3.5" />
                         ) : (
-                          <Smartphone className="h-3 w-3 text-emerald-400" />
+                          <Smartphone className="h-3.5 w-3.5" />
                         )}
-                        <span>{product.type === "game" ? "Bulmaca Oyunu" : "Mobil Uygulama"}</span>
+                        <span>{meta.tag}</span>
                       </span>
 
-                      <span className="text-[11px] font-semibold text-zinc-400">
-                        {product.status === "Released" ? "Google Play" : product.status}
+                      <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs font-medium text-zinc-300">
+                        {product.status === "Released" ? "Google Play'de Yayında" : product.status}
                       </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white group-hover:text-zinc-100 transition-colors font-display">
-                      <Link href={`/products/${product.slug}`}>{product.title}</Link>
-                    </h3>
+                    <div className="space-y-3">
+                      <h3 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
+                        <Link href={`/products/${product.slug}`} className="hover:text-zinc-200 transition-colors">
+                          {product.title}
+                        </Link>
+                      </h3>
+                      <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed max-w-xl">
+                        {product.shortDescription}
+                      </p>
+                    </div>
 
-                    <p className="text-sm text-zinc-400 leading-relaxed">
-                      {isBlokDunyasi &&
-                        "Renkli meyve ve kumaş temalarıyla 8x8 ızgarada internetsiz klasik blok bulmaca keyfi."}
-                      {isLingorise &&
-                        "Aralıklı tekrar algoritması ve 'Learning Garden' görsel bahçe metaforuyla kalıcı İngilizce."}
-                      {isNotlarim &&
-                        "Material You dinamik renk uyumu, zengin metin düzenleme ve %100 yerel gizlilik odaklı not defteri."}
-                    </p>
-                  </div>
+                    {/* Highlight Feature Pills */}
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {product.features?.slice(0, 3).map((feat, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-medium text-zinc-300 backdrop-blur-md"
+                        >
+                          <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                          <span>{feat.split(":")[0]}</span>
+                        </div>
+                      ))}
+                    </div>
 
-                  {/* Actions */}
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
-                    {product.links.playStore ? (
-                      <a
-                        href={product.links.playStore}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-xl bg-white px-4 py-2.5 text-xs font-bold text-zinc-950 hover:bg-zinc-200 transition-all shadow-md hover:scale-105"
-                      >
-                        <Download className="h-3.5 w-3.5" />
-                        <span>Google Play</span>
-                      </a>
-                    ) : (
+                    {/* Action Buttons */}
+                    <div className="pt-4 flex flex-wrap items-center gap-4">
+                      {product.links.playStore ? (
+                        <a
+                          href={product.links.playStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 hover:bg-zinc-200 transition-all shadow-xl shadow-white/10 hover:scale-105"
+                        >
+                          <Download className="h-4 w-4" />
+                          <span>Google Play&apos;den İndir</span>
+                        </a>
+                      ) : (
+                        <Link
+                          href={`/products/${product.slug}`}
+                          className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-bold text-zinc-950 hover:bg-zinc-200 transition-all shadow-xl shadow-white/10 hover:scale-105"
+                        >
+                          <span>Uygulamayı İncele</span>
+                        </Link>
+                      )}
+
                       <Link
                         href={`/products/${product.slug}`}
-                        className="inline-flex items-center gap-1.5 rounded-xl bg-white/10 border border-white/15 px-4 py-2.5 text-xs font-bold text-zinc-200 hover:bg-white/20 transition-all"
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-zinc-200 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"
                       >
-                        <span>İncele</span>
+                        <span>Detaylar & Galeri</span>
+                        <ArrowRight className="h-4 w-4 text-zinc-400" />
                       </Link>
-                    )}
-
-                    <Link
-                      href={`/products/${product.slug}`}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-400 hover:text-white group-hover:translate-x-1 transition-all"
-                    >
-                      <span>Detaylar</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+                    </div>
                   </div>
+
+                  {/* Right Column: Large, Scaled 3D Dual-Phone Showcase (5 cols) */}
+                  <div className="lg:col-span-5 flex items-center justify-center lg:justify-end py-4">
+                    <div className="relative flex items-center justify-center">
+                      
+                      {/* Phone 1: Main Menu / Garden */}
+                      <div className="relative w-[135px] sm:w-[155px] aspect-[9/19.5] rounded-[2rem] p-1.5 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-950 border border-white/25 shadow-2xl shadow-black -rotate-6 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-500 z-10">
+                        <div className="relative h-full w-full overflow-hidden rounded-[1.6rem] bg-black">
+                          <img
+                            src={meta.primary}
+                            alt={`${product.title} Ekran 1`}
+                            className="h-full w-full object-cover object-top"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
+                        </div>
+                      </div>
+
+                      {/* Phone 2: Gameplay / Editor / Practice */}
+                      <div className="relative w-[135px] sm:w-[155px] aspect-[9/19.5] rounded-[2rem] p-1.5 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-950 border border-white/25 shadow-2xl shadow-black rotate-6 group-hover:rotate-2 group-hover:scale-105 transition-all duration-500 mt-8 -ml-8 sm:-ml-10 z-20">
+                        <div className="relative h-full w-full overflow-hidden rounded-[1.6rem] bg-black">
+                          <img
+                            src={meta.secondary}
+                            alt={`${product.title} Ekran 2`}
+                            className="h-full w-full object-cover object-top"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
               </div>
             );
