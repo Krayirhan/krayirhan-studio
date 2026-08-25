@@ -81,6 +81,44 @@ export const PRODUCTS: Product[] = [
     ],
     featured: true,
   },
+  {
+    id: "benim-notlarim",
+    slug: "benim-notlarim",
+    type: "app",
+    title: "Benim Notlarım",
+    tagline: "Material You dinamik teması, zengin metin editörü ve gizlilik odaklı akıllı not uygulaması.",
+    category: ["Üretkenlik", "Not Alma", "Material You", "Android"],
+    status: "Released",
+    releaseDate: "Google Play'de Yayında",
+    shortDescription:
+      "Benim Notlarım; Material 3 dinamik renk paleti, zengin biçimlendirme araçları (Rich Text), arşiv/çöp kutusu sistemi ve yüksek kontrast moduyla sade ve güçlü bir Android not alma deneyimi sunar.",
+    fullDescription:
+      "Benim Notlarım, fikirlerinizi, planlarınızı ve hatırlatmalarınızı en hızlı ve modern şekilde kaydetmeniz için geliştirildi.\n\n" +
+      "🎨 Material You & Dinamik Renk: Cihazınızın duvar kağıdına uyum sağlayan akıllı renk paletleri ve tam karanlık tema desteği.\n\n" +
+      "✍️ Zengin Metin Düzenleyici: Kalın, italik, altı çizili, kod blokları, vurgulama ve kontrol listeleriyle (Checklist) notlarınızı özgürce biçimlendirin.\n\n" +
+      "🔒 Gizlilik & Çevrimdışı: Tüm notlarınız cihazınızda yerel ve güvenli bir şekilde saklanır.",
+    features: [
+      "Material You Dinamik Renkler: Duvar kağıdınızdan otomatik üretilen şık renk paletleri.",
+      "Zengin Metin Formatlama: Kalın, italik, vurgu, kod blokları, kontrol listeleri ve maddeleme.",
+      "Arşiv ve Çöp Kutusu: Silinen notları kolayca kurtarma ve önemli notları arşivleme desteği.",
+      "Kişiselleştirme: Yüksek kontrast modu, yazı tipi boyutu ve tema geçişleri.",
+      "Sıralama & Arama: Son düzenleme, oluşturulma tarihi veya alfabetik başlık sıralaması.",
+      "%100 Çevrimdışı & Gizlilik Odaklı: Verileriniz üçüncü şahıslarla paylaşılmaz, cihazınızda kalır.",
+    ],
+    platforms: ["Google Play", "Android" as any],
+    techStack: ["Kotlin", "Jetpack Compose", "Material 3", "Room Database", "Coroutines"],
+    links: {
+      playStore: "https://play.google.com/store/apps/details?id=com.benimnotlarim.app",
+    },
+    coverImage: "/apps/benim-notlarim/cover.jpg",
+    bannerImage: "/apps/benim-notlarim/cover.jpg",
+    screenshots: [
+      "/apps/benim-notlarim/cover.jpg",
+      "/apps/benim-notlarim/editor.jpg",
+      "/apps/benim-notlarim/settings.png",
+    ],
+    featured: false,
+  },
 ];
 
 // Helper exports
