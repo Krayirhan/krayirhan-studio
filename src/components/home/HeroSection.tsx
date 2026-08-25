@@ -12,7 +12,7 @@ export function HeroSection() {
           <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
           <span>Krayirhan Studio</span>
           <span className="text-zinc-600">/</span>
-          <span>İstanbul</span>
+          <span>Ankara</span>
           <span className="text-zinc-600">/</span>
           <span>3 Canlı Yapım</span>
         </div>

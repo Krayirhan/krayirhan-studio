@@ -2,14 +2,14 @@ import { StudioInfo } from "@/types/game";
 
 export const STUDIO_INFO: StudioInfo = {
   name: "Krayirhan Studio",
-  tagline: "Yenilikçi mobil uygulamalar, yapay zeka çözümleri ve dijital deneyimler geliştiriyoruz.",
+  tagline: "Bağımsız mobil oyunlar ve kullanıcı odaklı dijital uygulamalar geliştiriyoruz.",
   description:
-    "Krayirhan Studio; yüksek performanslı mobil ve web uygulama mühendisliğini bir araya getiren bağımsız bir teknoloji stüdyosudur. iOS, Android ve modern web platformları için kullanıcı odaklı, ölçeklenebilir ürünler üretiyoruz.",
+    "Krayirhan Studio; bağımsız mobil oyunlar ve pratik dijital uygulamalar geliştiren Ankara merkezli bir teknoloji stüdyosudur. Gereksiz karmaşadan uzak, sade ve keyifli ürünler üretiyoruz.",
   foundedYear: "2024",
-  location: "İstanbul, Türkiye",
+  location: "Ankara, Türkiye",
   founder: {
-    name: "Krayirhan",
-    role: "Kurucu & Lead Engineer",
+    name: "Muhsin Furkan Turan",
+    role: "Kurucu & Geliştirici",
     portfolioUrl: "https://krayirhan.com",
   },
   socials: {

@@ -32,11 +32,11 @@ export default function PressKitPage() {
             <h2 className="text-2xl font-bold text-white">Hızlı Bilgiler (Factsheet)</h2>
             <div className="divide-y divide-white/10 text-sm">
               {[
-                { label: "Stüdyo Adı", value: "Krayirhan Studio" },
+                { label: "Stüdyo Adı", value: STUDIO_INFO.name },
                 { label: "Faaliyet Alanı", value: "Bağımsız Oyunlar & Dijital Uygulamalar" },
-                { label: "Kurucu", value: "Krayirhan" },
-                { label: "Kuruluş Yılı", value: "2024" },
-                { label: "Lokasyon", value: "İstanbul, Türkiye" },
+                { label: "Kurucu", value: STUDIO_INFO.founder.name },
+                { label: "Kuruluş Yılı", value: STUDIO_INFO.foundedYear },
+                { label: "Lokasyon", value: STUDIO_INFO.location },
                 { label: "Web Sitesi", value: "https://studio.krayirhan.com" },
                 { label: "Basın İletişim", value: "press@krayirhan.com" },
                 { label: "Platformlar", value: "Google Play (Android), Web" },
