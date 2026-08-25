@@ -43,20 +43,16 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
   return (
     <div className="pb-24">
       {/* Back button & Hero Banner */}
-      <div className="relative w-full h-[50vh] min-h-[380px] bg-slate-950 overflow-hidden">
-        <Image
-          src={product.bannerImage}
-          alt={product.title}
-          fill
-          priority
-          className="object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#07090e] via-[#07090e]/60 to-black/50" />
+      <div className="relative w-full py-12 sm:py-16 border-b border-slate-800/80 bg-gradient-to-b from-[#0e1626] via-[#090d16] to-[#07090e] overflow-hidden">
+        {/* Ambient Glows & Grid */}
+        <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
 
-        <div className="relative mx-auto max-w-7xl h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-between py-8">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-lg border border-slate-700/50 w-fit transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-lg border border-slate-700/60 w-fit transition-colors shadow-sm"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Tüm Kataloğa Dön</span>
