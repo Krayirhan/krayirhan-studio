@@ -39,7 +39,7 @@ export default function HomePage() {
       {/* 2. Interactive Borderless Cinematic Product Stage */}
       <FeaturedProductSlider />
 
-      {/* 3. All Products Catalog — Bold & Scaled Dual-Phone Showcases */}
+      {/* 3. All Products Catalog — Pixel-Perfect Dual-Phone Showcases */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6 mb-12">
           <div>
@@ -75,14 +75,14 @@ export default function HomePage() {
                 key={product.id}
                 className="group relative flex flex-col justify-between rounded-[2.2rem] border border-white/10 bg-[#111114] overflow-hidden hover:border-white/25 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-black"
               >
-                {/* Top Visual Showcase: Expansive, Bold & Scaled Dual-Phone Mockup */}
+                {/* Top Visual Showcase: Pixel-Perfect Dual-Phone Simulator (True 9:19.5 Proportions, Zero Distortion) */}
                 <Link
                   href={`/products/${product.slug}`}
-                  className="relative h-80 sm:h-96 w-full overflow-hidden bg-gradient-to-b from-[#18181c] to-[#0c0c0f] flex items-center justify-center p-3 group-hover:from-[#202028] transition-colors duration-500 border-b border-white/5"
+                  className="relative h-72 sm:h-80 w-full overflow-hidden bg-gradient-to-b from-[#18181c] to-[#0c0c0f] flex items-center justify-center p-4 group-hover:from-[#202028] transition-colors duration-500 border-b border-white/5"
                 >
                   {/* Ambient Colored Aura */}
                   <div
-                    className={`absolute w-64 h-64 rounded-full blur-[90px] opacity-30 group-hover:opacity-55 transition-all duration-700 pointer-events-none ${
+                    className={`absolute w-60 h-60 rounded-full blur-[80px] opacity-25 group-hover:opacity-50 transition-all duration-700 pointer-events-none ${
                       isBlokDunyasi
                         ? "bg-orange-500"
                         : isLingorise
@@ -91,12 +91,12 @@ export default function HomePage() {
                     }`}
                   />
 
-                  {/* Dual Phone Showcase Container (Optimized Size & Filling) */}
-                  <div className="relative flex items-center justify-center gap-2 sm:gap-3 w-full max-w-[320px] sm:max-w-[340px] h-full py-2">
+                  {/* Dual Phone Showcase (True Phone Width & Height without Flex Stretch) */}
+                  <div className="relative flex items-center justify-center h-full py-2">
                     
-                    {/* Phone 1: Main Menu / Garden Screen */}
-                    <div className="relative w-1/2 h-full max-h-[265px] aspect-[9/19] rounded-[2rem] p-1 bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-900 border border-white/30 shadow-2xl -rotate-6 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-500">
-                      <div className="relative h-full w-full overflow-hidden rounded-[1.7rem] bg-black">
+                    {/* Phone 1: Main Menu / Garden */}
+                    <div className="relative w-[125px] sm:w-[135px] aspect-[9/19.5] rounded-[1.8rem] p-1.5 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-950 border border-white/25 shadow-2xl shadow-black -rotate-6 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-500 z-10">
+                      <div className="relative h-full w-full overflow-hidden rounded-[1.4rem] bg-black">
                         <img
                           src={screens.primary}
                           alt={`${product.title} Ekran 1`}
@@ -106,9 +106,9 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    {/* Phone 2: Gameplay / Editor / Practice Screen */}
-                    <div className="relative w-1/2 h-full max-h-[265px] aspect-[9/19] rounded-[2rem] p-1 bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-900 border border-white/30 shadow-2xl rotate-6 group-hover:rotate-2 group-hover:scale-105 transition-all duration-500 mt-6">
-                      <div className="relative h-full w-full overflow-hidden rounded-[1.7rem] bg-black">
+                    {/* Phone 2: Gameplay / Editor / Practice */}
+                    <div className="relative w-[125px] sm:w-[135px] aspect-[9/19.5] rounded-[1.8rem] p-1.5 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-950 border border-white/25 shadow-2xl shadow-black rotate-6 group-hover:rotate-2 group-hover:scale-105 transition-all duration-500 mt-6 -ml-5 sm:-ml-6 z-20">
+                      <div className="relative h-full w-full overflow-hidden rounded-[1.4rem] bg-black">
                         <img
                           src={screens.secondary}
                           alt={`${product.title} Ekran 2`}
