@@ -114,7 +114,7 @@ export function FeaturedProductSlider() {
   return (
     <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
       
-      {/* 1. Top Interactive Switcher Tabs (Linear & Apple Style) */}
+      {/* 1. Top Interactive Switcher Tabs with Sleek Flowing Progress Timer */}
       <div className="flex flex-wrap items-center justify-center gap-3 mb-12 sm:mb-16">
         {PRODUCTS.map((item, idx) => {
           const isActive = currentIndex === idx;
@@ -140,9 +140,15 @@ export function FeaturedProductSlider() {
                 </span>
               </div>
 
-              {/* Animated Progress Bar under active tab */}
-              {isActive && !isPaused && (
-                <div className="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-white via-zinc-200 to-white/40 animate-[marquee_4.5s_linear_infinite]" />
+              {/* Sleek Animated Duration Fill Line under Active Tab */}
+              {isActive && (
+                <div className="absolute bottom-0 left-0 h-[2.5px] w-full bg-white/15 rounded-full overflow-hidden">
+                  <div
+                    key={`${item.id}-${currentIndex}`}
+                    style={{ animationPlayState: isPaused ? "paused" : "running" }}
+                    className="h-full bg-gradient-to-r from-zinc-200 via-white to-zinc-100 shadow-[0_0_8px_rgba(255,255,255,0.8)] animate-progress-fill"
+                  />
+                </div>
               )}
             </button>
           );
