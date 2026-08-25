@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HeroSection } from "@/components/home/HeroSection";
 import { PRODUCTS } from "@/data/games";
-import { ArrowRight, Download, ExternalLink, Sparkles, Star, Zap, Smartphone, Check } from "lucide-react";
+import { ArrowRight, Download, Star } from "lucide-react";
 import { QrDownloadButton } from "@/components/ui/QrDownloadModal";
 
 export default function HomePage() {
@@ -11,7 +11,7 @@ export default function HomePage() {
 
   return (
     <div className="pb-24 space-y-20 sm:space-y-28">
-      {/* 1. Human Studio Hero with Ambient Aurora */}
+      {/* 1. Studio Hero */}
       <HeroSection />
 
       {/* 2. Primary Featured Game Showcase: Blok Dünyası */}
@@ -19,7 +19,7 @@ export default function HomePage() {
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-12 lg:p-16 hover:border-orange-500/30 transition-all duration-500">
             
-            {/* 1. Ambient Warm Citrus Background Aura */}
+            {/* Ambient Warm Citrus Background Aura */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/[0.08] blur-[120px] rounded-full pointer-events-none group-hover:bg-orange-500/[0.14] transition-all duration-700" />
             <div className="absolute bottom-0 left-1/4 w-[350px] h-[350px] bg-yellow-500/[0.04] blur-[100px] rounded-full pointer-events-none" />
 
@@ -27,15 +27,14 @@ export default function HomePage() {
               
               {/* Left Info */}
               <div className="lg:col-span-6 space-y-6">
-                <div className="flex flex-wrap items-center gap-2.5 font-mono text-xs text-zinc-400 uppercase tracking-wider">
+                <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-300">
                   <span className="rounded-full bg-orange-500/15 border border-orange-500/30 px-3 py-1 font-bold text-orange-400">
-                    Öne Çıkan Oyun
+                    Öne Çıkan Mobil Oyun
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-zinc-300">
                     <Star className="h-3 w-3 text-amber-400 fill-amber-400" />
-                    <span>4.8+ Oyuncu Puanı</span>
+                    <span>4.8+ Google Play Puanı</span>
                   </span>
-                  <span className="text-emerald-400 font-semibold">● Google Play'de Yayında</span>
                 </div>
 
                 <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight group-hover:text-zinc-100 transition-colors">
@@ -46,7 +45,7 @@ export default function HomePage() {
                   Klasik blok bulmaca mantığını meyve ve el yapımı kumaş temalarıyla buluşturan, oynaması akıcı ve tamamen internetsiz bir mobil bulmaca oyunu.
                 </p>
 
-                {/* Bullets with subtle accents */}
+                {/* Bullets */}
                 <div className="space-y-2.5 pt-2 text-sm text-zinc-300 font-medium">
                   <div className="flex items-center gap-2.5">
                     <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold">✓</span>
@@ -94,7 +93,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right Images (Dual Interactive 3D Phone Showcase) */}
+              {/* Right Images (Dual Phone Showcase) */}
               <div className="lg:col-span-6 flex items-center justify-center gap-4 sm:gap-6">
                 
                 {/* Phone 1 */}
@@ -105,7 +104,6 @@ export default function HomePage() {
                       alt="Blok Dünyası Menü"
                       className="h-full w-full object-cover object-top"
                     />
-                    {/* Glass Glare */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
                   </div>
                 </div>
@@ -118,7 +116,6 @@ export default function HomePage() {
                       alt="Blok Dünyası Oynanış"
                       className="h-full w-full object-cover object-top"
                     />
-                    {/* Glass Glare */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
                   </div>
                 </div>
@@ -130,11 +127,11 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* 3. Secondary Products Grid with Emerald and Sky Blue Auras */}
+      {/* 3. Secondary Products Grid */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6">
           <div>
-            <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest block mb-2">
+            <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block mb-2">
               Uygulama Portföyümüz
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
@@ -153,18 +150,17 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          {/* Card: LingoRise with Nature Emerald Aura */}
+          {/* Card: LingoRise */}
           {lingorise && (
             <div className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-10 flex flex-col justify-between space-y-8 hover:border-emerald-500/30 transition-all duration-500">
-              {/* Emerald Ambient Background */}
               <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-emerald-500/[0.08] blur-[100px] rounded-full pointer-events-none group-hover:bg-emerald-500/[0.14] transition-all duration-700" />
 
               <div className="relative z-10 space-y-4">
-                <div className="flex items-center justify-between font-mono text-xs text-zinc-400">
+                <div className="flex items-center justify-between text-xs text-zinc-400">
                   <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 font-bold text-emerald-400">
                     Kelime & Dil Bahçesi
                   </span>
-                  <span className="text-emerald-300/80 font-semibold">● Beta Aşamasında</span>
+                  <span className="text-emerald-400 font-semibold">Mobil Uygulama</span>
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-zinc-100 transition-colors">
@@ -176,7 +172,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* 3D Mockup with Glare */}
+              {/* Mockup with Glare */}
               <div className="relative z-10 flex justify-center py-2">
                 <div className="w-full max-w-[210px] rounded-[2.2rem] p-2 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/15 shadow-xl group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500">
                   <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem] bg-black">
@@ -207,18 +203,17 @@ export default function HomePage() {
             </div>
           )}
 
-          {/* Card: Benim Notlarım with Sky Blue Aura */}
+          {/* Card: Benim Notlarım */}
           {benimNotlarim && (
             <div className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-10 flex flex-col justify-between space-y-8 hover:border-sky-500/30 transition-all duration-500">
-              {/* Sky Blue Ambient Background */}
               <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-sky-500/[0.08] blur-[100px] rounded-full pointer-events-none group-hover:bg-sky-500/[0.14] transition-all duration-700" />
 
               <div className="relative z-10 space-y-4">
-                <div className="flex items-center justify-between font-mono text-xs text-zinc-400">
+                <div className="flex items-center justify-between text-xs text-zinc-400">
                   <span className="rounded-full bg-sky-500/15 border border-sky-500/30 px-3 py-1 font-bold text-sky-400">
                     Not & Üretkenlik
                   </span>
-                  <span className="text-emerald-400 font-semibold">● Google Play'de Yayında</span>
+                  <span className="text-sky-400 font-semibold">Google Play</span>
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-zinc-100 transition-colors">
@@ -230,7 +225,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* 3D Mockup with Glare */}
+              {/* Mockup with Glare */}
               <div className="relative z-10 flex justify-center py-2">
                 <div className="w-full max-w-[210px] rounded-[2.2rem] p-2 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/15 shadow-xl group-hover:scale-105 group-hover:rotate-1 transition-all duration-500">
                   <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem] bg-black">
@@ -271,7 +266,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-b from-[#141418] to-[#0d0d10] p-8 sm:p-12 lg:p-16">
           <div className="max-w-3xl space-y-6">
-            <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest">
+            <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
               Stüdyo Felsefesi
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
