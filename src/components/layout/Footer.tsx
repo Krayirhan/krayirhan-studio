@@ -1,16 +1,16 @@
 import Link from "next/link";
-import { Box, Heart, ExternalLink } from "lucide-react";
+import { Heart, ExternalLink } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-800/80 bg-[#05070a] text-slate-400">
+    <footer className="border-t border-amber-500/15 bg-[#06070a] text-slate-400">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Studio Brand */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-full overflow-hidden border border-slate-700 bg-white p-0.5 shadow-md">
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-full overflow-hidden border border-amber-500/40 bg-white p-0.5 shadow-md">
                 <img
                   src="/brand/logo.png"
                   alt="Krayirhan Studio Logo"
@@ -31,7 +31,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold tracking-widest text-slate-200 uppercase">
+            <h4 className="text-xs font-bold tracking-widest text-amber-400 uppercase">
               Ürünler & Sayfalar
             </h4>
             <ul className="space-y-2 text-sm">
@@ -41,23 +41,23 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/products/lingorise" className="hover:text-cyan-400 transition-colors font-medium">
+                <Link href="/products/lingorise" className="hover:text-amber-300 transition-colors font-medium">
                   LingoRise (Uygulama)
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="hover:text-indigo-400 transition-colors">
-                  Tüm Ürünler
+                <Link href="/products/benim-notlarim" className="hover:text-amber-300 transition-colors font-medium">
+                  Benim Notlarım (Uygulama)
                 </Link>
               </li>
               <li>
-                <Link href="/press" className="hover:text-indigo-400 transition-colors">
+                <Link href="/products" className="hover:text-amber-400 transition-colors">
+                  Tüm Ürün Kataloğu
+                </Link>
+              </li>
+              <li>
+                <Link href="/press" className="hover:text-amber-400 transition-colors">
                   Press Kit & Basın
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-indigo-400 transition-colors">
-                  Stüdyo Hakkında
                 </Link>
               </li>
             </ul>
@@ -65,7 +65,7 @@ export function Footer() {
 
           {/* Founder & Crosslink */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold tracking-widest text-slate-200 uppercase">
+            <h4 className="text-xs font-bold tracking-widest text-amber-400 uppercase">
               Bağlantılar
             </h4>
             <ul className="space-y-2 text-sm">
@@ -74,9 +74,20 @@ export function Footer() {
                   href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+                  className="flex items-center gap-1.5 text-amber-400 hover:text-amber-300 transition-colors font-medium"
                 >
                   <span>Blok Dünyası (Google Play)</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.benimnotlarim.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-amber-400 hover:text-amber-300 transition-colors font-medium"
+                >
+                  <span>Benim Notlarım (Google Play)</span>
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
@@ -85,14 +96,14 @@ export function Footer() {
                   href={STUDIO_INFO.founder.portfolioUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300 transition-colors font-medium"
+                  className="flex items-center gap-1.5 text-slate-300 hover:text-amber-300 transition-colors font-medium"
                 >
                   <span>Kurucu Portfolyosu (krayirhan.com)</span>
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-cyan-400 transition-colors">
+                <Link href="/contact" className="hover:text-amber-400 transition-colors">
                   İş Birliği & İletişim
                 </Link>
               </li>
@@ -104,7 +115,7 @@ export function Footer() {
         <div className="mt-10 border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} {STUDIO_INFO.name}. Tüm hakları saklıdır.</p>
           <p className="flex items-center gap-1">
-            Engineered with <Heart className="h-3.5 w-3.5 text-rose-500 inline fill-rose-500" /> by {STUDIO_INFO.founder.name}
+            Nordic Craft with <Heart className="h-3.5 w-3.5 text-amber-500 inline fill-amber-500" /> by {STUDIO_INFO.founder.name}
           </p>
         </div>
       </div>

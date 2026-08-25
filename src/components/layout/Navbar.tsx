@@ -19,11 +19,11 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-[#07090e]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-amber-500/15 bg-[#090a0f]/90 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative flex h-11 w-11 items-center justify-center rounded-full overflow-hidden border border-slate-700 bg-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 group-hover:border-cyan-400 transition-all p-0.5">
+          <div className="relative flex h-11 w-11 items-center justify-center rounded-full overflow-hidden border border-amber-500/40 bg-white shadow-lg shadow-amber-500/10 group-hover:scale-105 group-hover:border-amber-400 group-hover:shadow-amber-500/30 transition-all p-0.5">
             <img
               src="/brand/logo.png"
               alt="Krayirhan Studio Logo"
@@ -31,10 +31,10 @@ export function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold tracking-wider text-xl text-white group-hover:text-indigo-300 transition-colors uppercase">
+            <span className="font-extrabold tracking-wider text-xl text-white group-hover:text-amber-300 transition-colors uppercase">
               {STUDIO_INFO.name}
             </span>
-            <span className="text-[10px] font-semibold tracking-widest text-cyan-400 uppercase">
+            <span className="text-[10px] font-bold tracking-widest text-amber-400/90 uppercase">
               Games & Digital Products
             </span>
           </div>
@@ -46,7 +46,7 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors tracking-wide hover:underline decoration-cyan-500 underline-offset-8"
+              className="text-sm font-medium text-slate-300 hover:text-white transition-colors tracking-wide hover:underline decoration-amber-400 underline-offset-8"
             >
               {link.name}
             </Link>
@@ -61,19 +61,19 @@ export function Navbar() {
             href={STUDIO_INFO.founder.portfolioUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-lg border border-slate-700/80 bg-slate-900/60 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:border-indigo-500 hover:bg-slate-800/80 transition-all"
+            className="flex items-center gap-1.5 rounded-xl border border-slate-800 bg-slate-900/80 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:border-amber-500/50 hover:bg-slate-800/80 transition-all"
             title="Kişisel Portfolio ve CV Sitesine Git"
           >
-            <Sparkles className="h-3.5 w-3.5 text-indigo-400" />
+            <Sparkles className="h-3.5 w-3.5 text-amber-400" />
             <span>Kişisel CV</span>
-            <ExternalLink className="h-3 w-3 text-slate-400" />
+            <ExternalLink className="h-3 w-3 text-slate-500" />
           </a>
 
           <a
             href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3.5 py-2 text-xs font-bold text-white hover:bg-emerald-500 shadow-md shadow-emerald-600/20 transition-all"
+            className="flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-amber-600 to-yellow-600 px-4 py-2 text-xs font-bold text-slate-950 hover:from-amber-500 hover:to-yellow-500 shadow-md shadow-amber-600/25 transition-all"
           >
             <span>Play Store</span>
             <ExternalLink className="h-3 w-3" />

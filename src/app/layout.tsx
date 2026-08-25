@@ -38,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className="dark">
-      <body className="min-h-screen bg-[#07090e] text-slate-100 antialiased flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
+      <body className="min-h-screen bg-[#090a0f] text-slate-100 antialiased flex flex-col justify-between selection:bg-amber-500 selection:text-slate-950">
         <SoundProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
