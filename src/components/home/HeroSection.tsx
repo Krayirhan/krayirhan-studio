@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
-import { Sparkles, Smartphone, Gamepad2, ArrowRight, Download, CheckCircle2, Star, Zap } from "lucide-react";
+import { Sparkles, Smartphone, Gamepad2, ArrowRight, Download, Zap } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 import { GAMES, APPS } from "@/data/games";
+import { QrDownloadButton } from "@/components/ui/QrDownloadModal";
 
 export function HeroSection() {
   const featuredGame = GAMES.find((g) => g.featured) || GAMES[0];
@@ -84,9 +87,19 @@ export function HeroSection() {
                         className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-3 text-xs font-bold text-white hover:from-emerald-500 hover:to-teal-500 shadow-lg shadow-emerald-600/30 hover:scale-105 transition-all"
                       >
                         <Download className="h-4 w-4" />
-                        <span>Google Play'de Oyna</span>
+                        <span>Play Store</span>
                       </a>
                     )}
+
+                    {featuredGame.links.playStore && (
+                      <QrDownloadButton
+                        title={featuredGame.title}
+                        url={featuredGame.links.playStore}
+                        coverImage={featuredGame.coverImage}
+                        category="Mobil Oyun"
+                      />
+                    )}
+
                     <Link
                       href={`/products/${featuredGame.slug}`}
                       className="rounded-xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-xs font-semibold text-slate-300 hover:text-white hover:border-slate-500 transition-all"
@@ -156,6 +169,7 @@ export function HeroSection() {
                       <Zap className="h-4 w-4" />
                       <span>Uygulamayı İncele</span>
                     </Link>
+
                     <Link
                       href="/press"
                       className="rounded-xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-xs font-semibold text-slate-300 hover:text-white hover:border-slate-500 transition-all"

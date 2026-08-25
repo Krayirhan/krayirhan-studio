@@ -3,22 +3,23 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { STUDIO_INFO } from "@/data/studioInfo";
+import { SoundProvider } from "@/components/effects/SoundEffects";
+import { CursorSpotlight } from "@/components/effects/CursorSpotlight";
 
 export const metadata: Metadata = {
   title: `${STUDIO_INFO.name} | Bağımsız Oyunlar & Dijital Uygulamalar`,
   description: STUDIO_INFO.tagline,
   keywords: [
     "Krayirhan Studio",
-    "Indie Game Studio",
-    "Mobil Uygulama Geliştirme",
+    "Blok Dünyası",
+    "LingoRise",
+    "Benim Notlarım",
+    "Mobil Oyun Geliştirme",
     "Yazılım Şirketi",
-    "Steam Games",
-    "iOS Apps",
     "Android Apps",
     "React Native",
-    "Unity",
-    "Nexus Focus",
-    "Aether Protocol",
+    "Unity Engine",
+    "Kotlin",
   ],
   authors: [{ name: STUDIO_INFO.founder.name, url: STUDIO_INFO.founder.portfolioUrl }],
   openGraph: {
@@ -38,10 +39,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className="dark">
-      <body className="min-h-screen bg-[#07090e] text-slate-100 antialiased flex flex-col justify-between selection:bg-indigo-600 selection:text-white">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className="min-h-screen bg-[#07090e] text-slate-100 antialiased flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
+        <SoundProvider>
+          <CursorSpotlight />
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SoundProvider>
       </body>
     </html>
   );

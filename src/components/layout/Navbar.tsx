@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, ExternalLink, Sparkles, Box, Gamepad2, Smartphone } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
+import { SoundToggle } from "@/components/effects/SoundEffects";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -48,8 +49,10 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Action Buttons & Portfolio Backlink */}
+        {/* Action Buttons, Sound Toggle & Portfolio Backlink */}
         <div className="hidden md:flex items-center gap-3">
+          <SoundToggle />
+
           <a
             href={STUDIO_INFO.founder.portfolioUrl}
             target="_blank"
