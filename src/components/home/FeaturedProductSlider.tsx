@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { PRODUCTS } from "@/data/games";
 import { Product } from "@/types/game";
-import { Download, ChevronLeft, ChevronRight, Star, ExternalLink, ArrowRight, Gamepad2, Smartphone, Sparkles } from "lucide-react";
+import { Download, Star, ArrowRight, Gamepad2, Smartphone } from "lucide-react";
 import { QrDownloadButton } from "@/components/ui/QrDownloadModal";
 
 export function FeaturedProductSlider() {
@@ -15,10 +15,6 @@ export function FeaturedProductSlider() {
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
   // Auto-advance every 4.5 seconds
@@ -34,6 +30,34 @@ export function FeaturedProductSlider() {
   }, [isPaused, nextSlide, currentIndex]);
 
   const product = PRODUCTS[currentIndex];
+
+  // Distinct second screen mapping
+  const getScreens = (id: string) => {
+    switch (id) {
+      case "blok-dunyasi":
+        return {
+          primary: "/games/blok-dunyasi/cover.jpg",
+          secondary: "/games/blok-dunyasi/gameplay-1.jpg",
+        };
+      case "lingorise":
+        return {
+          primary: "/apps/lingorise/home-garden.png",
+          secondary: "/apps/lingorise/practice-session.png",
+        };
+      case "benim-notlarim":
+        return {
+          primary: "/apps/benim-notlarim/cover.jpg",
+          secondary: "/apps/benim-notlarim/editor.jpg",
+        };
+      default:
+        return {
+          primary: "/games/blok-dunyasi/cover.jpg",
+          secondary: "/games/blok-dunyasi/gameplay-1.jpg",
+        };
+    }
+  };
+
+  const screens = getScreens(product.id);
 
   // Accent aura colors for background
   const getAuraColor = (id: string) => {
@@ -163,7 +187,7 @@ export function FeaturedProductSlider() {
             ))}
           </div>
 
-          {/* Actions & Navigation Controls */}
+          {/* Actions */}
           <div className="pt-6 flex flex-wrap items-center gap-4">
             {product.links.playStore && (
               <a
@@ -194,32 +218,11 @@ export function FeaturedProductSlider() {
               <ArrowRight className="h-4 w-4 text-zinc-400" />
             </Link>
           </div>
-
-          {/* Manual Arrow Controls */}
-          <div className="pt-4 flex items-center gap-3">
-            <button
-              onClick={prevSlide}
-              aria-label="Önceki Ürün"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white hover:bg-white hover:text-zinc-950 transition-all cursor-pointer shadow-lg active:scale-95"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <span className="text-xs font-mono text-zinc-400">
-              {currentIndex + 1} / {totalSlides}
-            </span>
-            <button
-              onClick={nextSlide}
-              aria-label="Sonraki Ürün"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white hover:bg-white hover:text-zinc-950 transition-all cursor-pointer shadow-lg active:scale-95"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
         </div>
 
-        {/* Right Column: Massive Floating 3D Phones (Borderless in Space) */}
+        {/* Right Column: Massive Floating 3D Phones (Borderless in Space with 2 DISTINCT Screens) */}
         <div className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10">
-          {/* Phone 1: Main Menu / Cover */}
+          {/* Phone 1: Main Menu / Garden */}
           <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black -rotate-3 hover:-rotate-1 hover:scale-105 transition-all duration-500">
             {/* Top Dynamic Island */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-16 rounded-full bg-black/90 z-20 flex items-center justify-center">
@@ -229,7 +232,7 @@ export function FeaturedProductSlider() {
 
             <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2.2rem] bg-black">
               <img
-                src={product.coverImage}
+                src={screens.primary}
                 alt={`${product.title} Ekran 1`}
                 className="h-full w-full object-cover object-top"
               />
@@ -237,7 +240,7 @@ export function FeaturedProductSlider() {
             </div>
           </div>
 
-          {/* Phone 2: Gameplay / Interior Screen */}
+          {/* Phone 2: Gameplay / Practice / Editor (DIFFERENT IMAGE) */}
           <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black rotate-3 hover:rotate-1 hover:scale-105 transition-all duration-500 mt-10 sm:mt-16">
             {/* Top Dynamic Island */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-16 rounded-full bg-black/90 z-20 flex items-center justify-center">
@@ -247,7 +250,7 @@ export function FeaturedProductSlider() {
 
             <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2.2rem] bg-black">
               <img
-                src={product.screenshots?.[0] || product.coverImage}
+                src={screens.secondary}
                 alt={`${product.title} Ekran 2`}
                 className="h-full w-full object-cover object-top"
               />
