@@ -1,6 +1,5 @@
 import { PRODUCTS } from "@/data/games";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { ProductGallery } from "@/components/products/ProductGallery";
 import { ArrowLeft, CheckCircle2, ExternalLink, Sparkles, Smartphone, Gamepad2, Download } from "lucide-react";
@@ -45,15 +44,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   return (
     <div className="pb-24">
       {/* Back button & Hero Banner */}
-      <div className="relative w-full py-12 sm:py-16 border-b border-amber-500/15 bg-gradient-to-b from-[#18140f] via-[#11131a] to-[#090a0f] overflow-hidden">
-        {/* Ambient Glows & Grid */}
-        <div className="absolute inset-0 grid-pattern-nordic opacity-40 pointer-events-none" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+      <div className="relative w-full py-12 sm:py-16 border-b border-white/10 bg-gradient-to-b from-[#141418] via-[#0f0f12] to-[#09090b] overflow-hidden">
+        <div className="absolute inset-0 grid-pattern-clean opacity-40 pointer-events-none" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-800 hover:border-amber-500/50 w-fit transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-300 hover:text-white bg-white/5 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 hover:border-white/30 w-fit transition-colors shadow-sm"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Tüm Kataloğa Dön</span>
@@ -61,13 +58,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
           <div className="space-y-3">
             <div className="flex flex-wrap gap-2 items-center">
-              <span
-                className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-bold ${
-                  product.type === "game"
-                    ? "bg-amber-950/80 text-amber-300 border border-amber-500/40"
-                    : "bg-slate-900 text-amber-200 border border-slate-700"
-                }`}
-              >
+              <span className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-bold bg-white/10 text-zinc-200 border border-white/15">
                 {product.type === "game" ? (
                   <Gamepad2 className="h-3.5 w-3.5" />
                 ) : (
@@ -76,12 +67,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 {product.type === "game" ? "Oyun" : "Uygulama"}
               </span>
 
-              <span className="rounded-full bg-slate-800/80 border border-slate-700 px-3 py-1 text-xs font-semibold text-slate-200">
+              <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs font-semibold text-zinc-300">
                 {product.status}
               </span>
 
               {product.releaseDate && (
-                <span className="rounded-full bg-amber-950/40 border border-amber-500/30 px-3 py-1 text-xs font-medium text-amber-300">
+                <span className="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-medium text-white">
                   {product.releaseDate}
                 </span>
               )}
@@ -90,7 +81,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
               {product.title}
             </h1>
-            <p className="text-lg text-slate-300 max-w-2xl">{product.tagline}</p>
+            <p className="text-lg text-zinc-400 max-w-2xl">{product.tagline}</p>
           </div>
         </div>
       </div>
@@ -103,7 +94,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             {/* Overview */}
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-white">Hakkında</h2>
-              <div className="prose prose-invert max-w-none text-slate-300 text-base leading-relaxed space-y-4 whitespace-pre-line">
+              <div className="prose prose-invert max-w-none text-zinc-300 text-base leading-relaxed space-y-4 whitespace-pre-line">
                 {product.fullDescription}
               </div>
             </div>
@@ -116,9 +107,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   {product.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 rounded-2xl border border-amber-500/15 bg-[#11131a] p-4 text-slate-200"
+                      className="flex items-start gap-3 rounded-2xl border border-white/10 bg-[#121215] p-4 text-zinc-200"
                     >
-                      <CheckCircle2 className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="h-5 w-5 text-white shrink-0 mt-0.5" />
                       <span className="text-sm sm:text-base leading-relaxed">{feature}</span>
                     </div>
                   ))}
@@ -131,7 +122,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <h2 className="text-2xl font-bold text-white">Arayüz & Ekran Görüntüleri</h2>
-                  <span className="text-xs text-slate-400">Büyütmek için görsele tıklayın</span>
+                  <span className="text-xs text-zinc-400">Büyütmek için görsele tıklayın</span>
                 </div>
                 <ProductGallery title={product.title} screenshots={product.screenshots} />
               </div>
@@ -140,7 +131,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
           {/* Right Column: Platform Links Sidebar */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="rounded-3xl border border-amber-500/20 bg-[#11131a] p-6 sm:p-8 space-y-6 sticky top-28 shadow-xl">
+            <div className="rounded-3xl border border-white/10 bg-[#121215] p-6 sm:p-8 space-y-6 sticky top-28 shadow-xl">
               <h3 className="text-lg font-bold text-white">Hemen İndirin & Deneyin</h3>
 
               <div className="space-y-3">
@@ -149,7 +140,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     href={product.links.playStore}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/25 hover:from-amber-400 hover:to-yellow-400 transition-all"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-white py-3.5 text-sm font-bold text-zinc-950 shadow-xl shadow-white/5 hover:bg-zinc-200 transition-all"
                   >
                     <Download className="h-4 w-4" />
                     <span>Google Play'den İndir</span>
@@ -162,7 +153,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     href={product.links.appStore}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 border border-slate-700 py-3.5 text-sm font-bold text-white hover:bg-slate-800 transition-all"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-white/5 border border-white/10 py-3.5 text-sm font-bold text-white hover:bg-white/10 transition-all"
                   >
                     <span>App Store</span>
                     <ExternalLink className="h-4 w-4" />
@@ -174,7 +165,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     href={product.links.webApp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 border border-slate-700 py-3.5 text-sm font-bold text-white hover:bg-slate-800 transition-all"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-white/5 border border-white/10 py-3.5 text-sm font-bold text-white hover:bg-white/10 transition-all"
                   >
                     <span>Web Uygulaması</span>
                     <ExternalLink className="h-4 w-4" />
@@ -183,14 +174,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </div>
 
               {/* Quick Specs */}
-              <div className="border-t border-slate-800/80 pt-6 space-y-3 text-xs sm:text-sm text-slate-400">
+              <div className="border-t border-white/10 pt-6 space-y-3 text-xs sm:text-sm text-zinc-400">
                 <div className="flex justify-between">
                   <span>Geliştirici & Yayıncı:</span>
                   <span className="font-semibold text-white">Krayirhan Studio</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Platformlar:</span>
-                  <span className="font-semibold text-amber-300">{product.platforms.join(", ")}</span>
+                  <span className="font-semibold text-white">{product.platforms.join(", ")}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Kategoriler:</span>
@@ -202,10 +193,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 </div>
               </div>
 
-              <div className="border-t border-slate-800/80 pt-4">
+              <div className="border-t border-white/10 pt-4">
                 <Link
                   href="/press"
-                  className="flex items-center justify-center gap-1.5 text-xs text-amber-400 hover:underline"
+                  className="flex items-center justify-center gap-1.5 text-xs text-zinc-400 hover:text-white hover:underline"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                   <span>Basın & Medya kiti varlıklarını incele</span>

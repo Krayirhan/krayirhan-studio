@@ -2,13 +2,10 @@
 
 @layer base {
   :root {
-    --background: #090a0f;
-    --foreground: #f8fafc;
-    --card: #11131a;
-    --card-border: #1c202d;
-    --accent: #f59e0b;
-    --accent-glow: rgba(245, 158, 11, 0.25);
-    --gold-subtle: rgba(217, 119, 6, 0.15);
+    --background: #09090b;
+    --foreground: #fafafa;
+    --card: #121215;
+    --card-border: rgba(255, 255, 255, 0.08);
   }
 
   body {
@@ -19,37 +16,30 @@
   }
 
   ::selection {
-    background-color: #f59e0b;
-    color: #090a0f;
+    background-color: #ffffff;
+    color: #09090b;
   }
 }
 
-/* Nordic Obsidian & Cyber Gold Glows */
-.gold-card-glow {
+/* Ultra-Clean Monochrome Glass & Glows */
+.clean-card-glow {
   position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gold-card-glow:hover {
+.clean-card-glow:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px -10px rgba(245, 158, 11, 0.2), 0 0 24px 2px rgba(217, 119, 6, 0.12);
-  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 20px 1px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
-.gold-neon-border {
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  background: linear-gradient(180deg, rgba(17, 19, 26, 0.85) 0%, rgba(9, 10, 15, 0.95) 100%);
-  backdrop-filter: blur(12px);
+.hero-clean-glow {
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.05), transparent 60%),
+              radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.03), transparent 50%);
 }
 
-.hero-gold-glow {
-  background: radial-gradient(circle at 50% 25%, rgba(245, 158, 11, 0.14), transparent 65%),
-              radial-gradient(circle at 80% 50%, rgba(217, 119, 6, 0.08), transparent 55%),
-              radial-gradient(circle at 20% 60%, rgba(251, 191, 36, 0.06), transparent 50%);
-}
-
-.grid-pattern-nordic {
-  background-size: 44px 44px;
-  background-image: linear-gradient(to right, rgba(245, 158, 11, 0.03) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+.grid-pattern-clean {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }

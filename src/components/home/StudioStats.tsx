@@ -36,18 +36,18 @@ export function StudioStats() {
           return (
             <div
               key={idx}
-              className="relative overflow-hidden rounded-3xl border border-amber-500/15 bg-[#11131a] p-6 shadow-xl hover:border-amber-500/40 hover:shadow-amber-500/10 transition-all group"
+              className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#121215] p-6 shadow-xl hover:border-white/25 transition-all group"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-2xl border border-amber-500/30 bg-amber-950/30 text-amber-400">
+                <div className="p-3 rounded-2xl border border-white/15 bg-white/5 text-white">
                   <Icon className="h-5 w-5" />
                 </div>
-                <span className="text-2xl font-black text-amber-300 tracking-tight group-hover:scale-105 transition-transform">
+                <span className="text-2xl font-black text-white tracking-tight group-hover:scale-105 transition-transform">
                   {pillar.value}
                 </span>
               </div>
               <h3 className="text-sm font-bold text-white">{pillar.label}</h3>
-              <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">{pillar.desc}</p>
+              <p className="mt-1.5 text-xs text-zinc-400 leading-relaxed">{pillar.desc}</p>
             </div>
           );
         })}

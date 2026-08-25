@@ -15,25 +15,25 @@ export default function ProductsPage() {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-12">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-950/30 px-3.5 py-1 text-xs font-semibold text-amber-300 mb-4">
-          <Sparkles className="h-4 w-4 text-amber-400" />
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1 text-xs font-semibold text-zinc-300 mb-4">
+          <Sparkles className="h-4 w-4 text-white" />
           <span>Ürün Portföyümüz</span>
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
           Tüm Oyunlar & Uygulamalar
         </h1>
-        <p className="mt-4 text-slate-300 text-base sm:text-lg">
+        <p className="mt-4 text-zinc-400 text-base sm:text-lg">
           Krayirhan Studio bünyesinde geliştirilen tüm bağımsız mobil oyunlar, uygulamalar ve dijital çözümler.
         </p>
 
         {/* Filter Switcher */}
-        <div className="mt-8 inline-flex rounded-2xl border border-amber-500/20 bg-[#11131a] p-1.5 shadow-xl">
+        <div className="mt-8 inline-flex rounded-2xl border border-white/10 bg-[#121215] p-1.5 shadow-xl">
           <button
             onClick={() => setFilter("all")}
             className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               filter === "all"
-                ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 shadow-md shadow-amber-500/20 scale-105"
-                : "text-slate-400 hover:text-white"
+                ? "bg-white text-zinc-950 shadow-md scale-105"
+                : "text-zinc-400 hover:text-white"
             }`}
           >
             <Layers className="h-4 w-4" />
@@ -43,8 +43,8 @@ export default function ProductsPage() {
             onClick={() => setFilter("game")}
             className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               filter === "game"
-                ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 shadow-md shadow-amber-500/20 scale-105"
-                : "text-slate-400 hover:text-white"
+                ? "bg-white text-zinc-950 shadow-md scale-105"
+                : "text-zinc-400 hover:text-white"
             }`}
           >
             <Gamepad2 className="h-4 w-4" />
@@ -54,8 +54,8 @@ export default function ProductsPage() {
             onClick={() => setFilter("app")}
             className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
               filter === "app"
-                ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 shadow-md shadow-amber-500/20 scale-105"
-                : "text-slate-400 hover:text-white"
+                ? "bg-white text-zinc-950 shadow-md scale-105"
+                : "text-zinc-400 hover:text-white"
             }`}
           >
             <Smartphone className="h-4 w-4" />
