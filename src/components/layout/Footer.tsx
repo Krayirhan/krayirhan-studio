@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Gamepad2, Heart, ExternalLink } from "lucide-react";
+import { Box, Heart, ExternalLink } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 
 export function Footer() {
@@ -10,8 +10,8 @@ export function Footer() {
           {/* Studio Brand */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-600 text-white">
-                <Gamepad2 className="h-5 w-5" />
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white">
+                <Box className="h-5 w-5" />
               </div>
               <span className="text-lg font-bold tracking-wider text-white uppercase">
                 {STUDIO_INFO.name}
@@ -21,19 +21,29 @@ export function Footer() {
               {STUDIO_INFO.tagline}
             </p>
             <div className="pt-2 text-xs text-slate-500">
-              📍 {STUDIO_INFO.location} · Bağımsız Oyun Geliştirme Stüdyosu
+              📍 {STUDIO_INFO.location} · Bağımsız Oyun & Uygulama Geliştirme Stüdyosu
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold tracking-widest text-slate-200 uppercase">
-              Navigasyon
+              Ürünler & Sayfalar
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/products" className="hover:text-indigo-400 transition-colors">
+                  Tüm Ürünler
+                </Link>
+              </li>
+              <li>
                 <Link href="/games" className="hover:text-indigo-400 transition-colors">
-                  Oyun Vitrini
+                  Oyun Kataloğu
+                </Link>
+              </li>
+              <li>
+                <Link href="/apps" className="hover:text-cyan-400 transition-colors">
+                  Mobil & Web Uygulamaları
                 </Link>
               </li>
               <li>
@@ -44,11 +54,6 @@ export function Footer() {
               <li>
                 <Link href="/about" className="hover:text-indigo-400 transition-colors">
                   Stüdyo Hakkında
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-indigo-400 transition-colors">
-                  Yayıncı & İletişim
                 </Link>
               </li>
             </ul>
@@ -91,6 +96,11 @@ export function Footer() {
                   Discord Topluluğu
                 </a>
               </li>
+              <li>
+                <Link href="/contact" className="hover:text-cyan-400 transition-colors">
+                  İş Birliği & İletişim
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -99,7 +109,7 @@ export function Footer() {
         <div className="mt-10 border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} {STUDIO_INFO.name}. Tüm hakları saklıdır.</p>
           <p className="flex items-center gap-1">
-            Developed with <Heart className="h-3.5 w-3.5 text-rose-500 inline fill-rose-500" /> by {STUDIO_INFO.founder.name}
+            Engineered with <Heart className="h-3.5 w-3.5 text-rose-500 inline fill-rose-500" /> by {STUDIO_INFO.founder.name}
           </p>
         </div>
       </div>

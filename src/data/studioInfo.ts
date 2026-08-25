@@ -2,14 +2,14 @@ import { StudioInfo } from "@/types/game";
 
 export const STUDIO_INFO: StudioInfo = {
   name: "Krayirhan Studio",
-  tagline: "Unutulmaz hikayeler, derin mekanikler ve atmosferik oyun deneyimleri üretiyoruz.",
+  tagline: "Yenilikçi oyunlar, akıllı mobil uygulamalar ve yeni nesil dijital ürünler geliştiriyoruz.",
   description:
-    "Krayirhan Studio, oyunculara sadece eğlence değil, akılda kalıcı atmosferler ve derin oyun mekanikleri sunmayı hedefleyen bağımsız (indie) bir oyun geliştirme stüdyosudur. PC, konsol ve yeni nesil platformlar için yenilikçi projeler üretiyoruz.",
+    "Krayirhan Studio; bağımsız oyun geliştirme ile yüksek performanslı mobil ve web uygulama mühendisliğini bir araya getiren bağımsız bir teknoloji ve eğlence stüdyosudur. Steam, iOS, Android ve modern web platformları için kullanıcı odaklı, ölçeklenebilir ürünler üretiyoruz.",
   foundedYear: "2024",
   location: "İstanbul, Türkiye",
   founder: {
     name: "Krayirhan",
-    role: "Kurucu & Lead Game Developer",
+    role: "Kurucu & Lead Engineer / Game Designer",
     portfolioUrl: "https://krayirhan.com",
   },
   socials: {
@@ -18,7 +18,8 @@ export const STUDIO_INFO: StudioInfo = {
     twitter: "https://twitter.com",
     youtube: "https://youtube.com",
     github: "https://github.com",
-    itch: "https://itch.io",
+    appStore: "https://apple.com/app-store",
+    playStore: "https://play.google.com",
   },
   contactEmail: "contact@krayirhan.com",
   pressEmail: "press@krayirhan.com",

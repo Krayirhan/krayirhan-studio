@@ -1,6 +1,16 @@
-export type GameStatus = "Released" | "Early Access" | "In Development" | "Prototype";
+export type ProductType = "game" | "app";
 
-export type Platform = "Steam" | "Epic Games" | "itch.io" | "PlayStation" | "Xbox" | "Nintendo Switch" | "Web" | "Mobile";
+export type ProductStatus = "Released" | "Early Access" | "In Development" | "Beta" | "Prototype";
+
+export type Platform =
+  | "Steam"
+  | "Epic Games"
+  | "App Store"
+  | "Google Play"
+  | "Web App"
+  | "Windows"
+  | "macOS"
+  | "itch.io";
 
 export interface SystemRequirements {
   os?: string;
@@ -10,23 +20,29 @@ export interface SystemRequirements {
   storage?: string;
 }
 
-export interface Game {
+export interface Product {
   id: string;
   slug: string;
+  type: ProductType;
   title: string;
   tagline: string;
-  genre: string[];
-  status: GameStatus;
+  category: string[];
+  status: ProductStatus;
   releaseDate?: string;
   shortDescription: string;
   fullDescription: string;
   features: string[];
   platforms: Platform[];
-  engine: "Unity" | "Unreal Engine 5" | "Godot" | "Custom / WebGL";
-  steamUrl?: string;
-  epicUrl?: string;
-  itchUrl?: string;
-  trailerEmbedUrl?: string;
+  techStack: string[];
+  links: {
+    steam?: string;
+    epic?: string;
+    appStore?: string;
+    playStore?: string;
+    webApp?: string;
+    github?: string;
+    itch?: string;
+  };
   coverImage: string;
   bannerImage: string;
   screenshots: string[];
@@ -54,7 +70,8 @@ export interface StudioInfo {
     twitter?: string;
     youtube?: string;
     github?: string;
-    itch?: string;
+    appStore?: string;
+    playStore?: string;
   };
   contactEmail: string;
   pressEmail: string;
@@ -62,7 +79,7 @@ export interface StudioInfo {
 
 export interface PressAsset {
   title: string;
-  type: "Logo" | "Screenshots" | "Key Art" | "Full Press Kit";
+  type: "Logo" | "Screenshots" | "Key Art" | "App Assets" | "Full Press Kit";
   format: string;
   fileSize: string;
   downloadUrl: string;

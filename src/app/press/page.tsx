@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Press Kit & Medya | Krayirhan Studio",
-  description: "Krayirhan Studio basın bültenleri, logoları, yüksek çözünürlüklü görselleri ve medya kiti.",
+  description: "Krayirhan Studio basın bültenleri, logoları, oyun & uygulama medya kiti.",
 };
 
 export default function PressKitPage() {
@@ -21,7 +21,7 @@ export default function PressKitPage() {
           Press Kit
         </h1>
         <p className="mt-4 text-slate-400 text-base sm:text-lg">
-          Oyun basını, yayıncılar, içerik üreticileri ve partnerlerimiz için resmi medya varlıkları ve stüdyo bilgileri.
+          Oyun basını, teknoloji yayıncıları, içerik üreticileri ve partnerlerimiz için resmi medya varlıkları ve stüdyo bilgileri.
         </p>
       </div>
 
@@ -32,7 +32,16 @@ export default function PressKitPage() {
           <div className="rounded-2xl border border-slate-800 bg-[#0d121d] p-8 space-y-6">
             <h2 className="text-2xl font-bold text-white">Hızlı Bilgiler (Factsheet)</h2>
             <div className="divide-y divide-slate-800 text-sm">
-              {PRESS_FACTS.map((fact, i) => (
+              {[
+                { label: "Stüdyo Adı", value: "Krayirhan Studio" },
+                { label: "Faaliyet Alanı", value: "Bağımsız Oyunlar & Dijital Uygulamalar" },
+                { label: "Kurucu", value: "Krayirhan" },
+                { label: "Kuruluş Yılı", value: "2024" },
+                { label: "Lokasyon", value: "İstanbul, Türkiye" },
+                { label: "Web Sitesi", value: "https://studio.krayirhan.com" },
+                { label: "Basın İletişim", value: "press@krayirhan.com" },
+                { label: "Platformlar", value: "PC (Steam), iOS, Android, Web" },
+              ].map((fact, i) => (
                 <div key={i} className="py-3 flex justify-between gap-4">
                   <span className="text-slate-400">{fact.label}</span>
                   <span className="font-semibold text-slate-200 text-right">{fact.value}</span>
@@ -52,9 +61,9 @@ export default function PressKitPage() {
         {/* Right: Downloadable Media Assets */}
         <div className="lg:col-span-6 space-y-8">
           <div className="rounded-2xl border border-slate-800 bg-[#0d121d] p-8 space-y-6">
-            <h2 className="text-2xl font-bold text-white">İndirilebilir Basın Paketleri</h2>
+            <h2 className="text-2xl font-bold text-white">İndirilebilir Medya Paketleri</h2>
             <p className="text-sm text-slate-400">
-              Aşağıdaki paketler şeffaf logolar, yüksek çözünürlüklü 4K afişler ve resmi oyun ekran görüntülerini içerir.
+              Aşağıdaki paketler şeffaf logolar, yüksek çözünürlüklü 4K afişler, uygulama mockupları ve oyun ekran görüntülerini içerir.
             </p>
 
             <div className="space-y-4">
@@ -88,10 +97,10 @@ export default function PressKitPage() {
           <div className="rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-950/20 to-[#0d121d] p-8 space-y-4">
             <h3 className="text-lg font-bold text-white flex items-center gap-2">
               <Mail className="h-5 w-5 text-cyan-400" />
-              <span>İnceleme Kodu & Röportaj Talepleri</span>
+              <span>İnceleme Kodu & Basın Talepleri</span>
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Erken erişim inceleme anahtarları (Steam Key) veya röportaj istekleri için lütfen doğrudan basın e-posta adresimize ulaşın:
+              Erken erişim oyun anahtarları (Steam Key), uygulama beta test erişimleri veya röportaj talepleri için:
             </p>
             <div className="pt-2">
               <a

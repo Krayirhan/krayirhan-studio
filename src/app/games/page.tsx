@@ -18,7 +18,7 @@ export default function GamesPage() {
           <span>Oyun Kataloğu</span>
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-          Tüm Projelerimiz
+          Tüm Oyun Projelerimiz
         </h1>
         <p className="mt-4 text-slate-400 text-base sm:text-lg">
           Farklı türlerde, özgün mekaniklerle tasarladığımız yayınlanmış ve geliştirilme aşamasındaki oyunlarımız.
@@ -28,7 +28,7 @@ export default function GamesPage() {
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {GAMES.map((game) => (
-          <GameCard key={game.id} game={game} />
+          <GameCard key={game.id} product={game} />
         ))}
       </div>
     </div>

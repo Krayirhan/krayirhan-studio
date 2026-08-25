@@ -5,22 +5,24 @@ import { Footer } from "@/components/layout/Footer";
 import { STUDIO_INFO } from "@/data/studioInfo";
 
 export const metadata: Metadata = {
-  title: `${STUDIO_INFO.name} | Bağımsız Oyun Geliştirme Stüdyosu`,
+  title: `${STUDIO_INFO.name} | Bağımsız Oyunlar & Dijital Uygulamalar`,
   description: STUDIO_INFO.tagline,
   keywords: [
     "Krayirhan Studio",
     "Indie Game Studio",
-    "Oyun Geliştirme",
-    "Game Developer",
+    "Mobil Uygulama Geliştirme",
+    "Yazılım Şirketi",
     "Steam Games",
+    "iOS Apps",
+    "Android Apps",
+    "React Native",
     "Unity",
-    "Unreal Engine",
+    "Nexus Focus",
     "Aether Protocol",
-    "Void Drifter",
   ],
   authors: [{ name: STUDIO_INFO.founder.name, url: STUDIO_INFO.founder.portfolioUrl }],
   openGraph: {
-    title: `${STUDIO_INFO.name} | Indie Games`,
+    title: `${STUDIO_INFO.name} | Games & Apps`,
     description: STUDIO_INFO.tagline,
     url: "https://studio.krayirhan.com",
     siteName: STUDIO_INFO.name,

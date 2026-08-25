@@ -1,11 +1,11 @@
 import { STUDIO_INFO } from "@/data/studioInfo";
 import Link from "next/link";
-import { Gamepad2, Sparkles, ExternalLink, Code2, Users, Flame } from "lucide-react";
+import { Gamepad2, Sparkles, ExternalLink, Code2, Users, Flame, Smartphone, Layers } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Stüdyo Hakkında | Krayirhan Studio",
-  description: "Krayirhan Studio hikayesi, vizyonu, oyun geliştirme felsefesi ve kurucusu.",
+  description: "Krayirhan Studio hikayesi, vizyonu, oyun ve uygulama geliştirme felsefesi.",
 };
 
 export default function AboutPage() {
@@ -18,10 +18,10 @@ export default function AboutPage() {
           <span>Biz Kimiz?</span>
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-          Tutkuyla Üretilen Oyunlar
+          Oyunlar & Geleceğin Uygulamaları
         </h1>
         <p className="mt-4 text-slate-400 text-base sm:text-lg">
-          Oyun geliştirmenin saf yaratıcılık ve titiz mühendisliğin buluştuğu bir sanat olduğuna inanıyoruz.
+          Oyun geliştirmenin saf yaratıcılığı ile modern yazılım mühendisliğinin gücünü tek bir stüdyo çatısı altında birleştiriyoruz.
         </p>
       </div>
 
@@ -29,22 +29,26 @@ export default function AboutPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6 text-slate-300 leading-relaxed">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-            Hikayemiz ve Vizyonumuz
+            Hikayemiz ve Çift Odaklı Vizyonumuz
           </h2>
           <p>
-            Krayirhan Studio, oyuncuların saatlerce içinde kaybolmak isteyeceği derin dünyalar ve unutulmaz mekanikler üretmek amacıyla kuruldu.
+            Krayirhan Studio; bağımsız oyunların özgür ruhu ile mobil/web dünyasının üretkenlik odaklı gücünü aynı potada eritmek amacıyla kuruldu.
           </p>
           <p>
-            Büyük bütçeli AAA oyunların güvenli formüllerine sıkışmak yerine; yenilikçi fikirleri, cesur oynanış deneyimlerini ve karanlık/atmosferik sanat tasarımlarını ön plana çıkarıyoruz.
+            Bir yanda PC ve konsollar için saatlerce içinde kaybolunacak derin atmosferli oyunlar geliştirirken; diğer yanda yapay zeka destekli üretkenlik araçları ve ses teknolojileri inşa ediyoruz.
           </p>
-          <div className="pt-4 grid grid-cols-2 gap-4 text-center">
+          <div className="pt-4 grid grid-cols-3 gap-4 text-center">
             <div className="rounded-xl border border-slate-800 bg-[#0d121d] p-4">
               <div className="text-2xl font-black text-indigo-400">{STUDIO_INFO.foundedYear}</div>
               <div className="text-xs text-slate-400 mt-1">Kuruluş Yılı</div>
             </div>
             <div className="rounded-xl border border-slate-800 bg-[#0d121d] p-4">
-              <div className="text-2xl font-black text-cyan-400">PC & Konsol</div>
-              <div className="text-xs text-slate-400 mt-1">Hedef Platformlar</div>
+              <div className="text-2xl font-black text-cyan-400">Steam & Epic</div>
+              <div className="text-xs text-slate-400 mt-1">Oyun Dağıtımı</div>
+            </div>
+            <div className="rounded-xl border border-slate-800 bg-[#0d121d] p-4">
+              <div className="text-2xl font-black text-purple-400">iOS & Android</div>
+              <div className="text-xs text-slate-400 mt-1">Mobil Ekosistem</div>
             </div>
           </div>
         </div>
@@ -52,7 +56,7 @@ export default function AboutPage() {
         {/* Founder Spotlight */}
         <div className="rounded-3xl border border-indigo-500/30 bg-gradient-to-b from-[#0e1422] to-[#07090e] p-8 sm:p-10 space-y-6 shadow-2xl">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600 text-white font-extrabold text-2xl shadow-lg shadow-indigo-600/40">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white font-extrabold text-2xl shadow-lg shadow-indigo-600/40">
               K
             </div>
             <div>
@@ -87,12 +91,21 @@ export default function AboutPage() {
             <span>Kullandığımız Teknolojiler</span>
           </h2>
           <p className="text-sm text-slate-400">
-            Projelerimizde en yüksek kararlılık ve performansı sunan oyun motorları ve geliştirme araçları.
+            Oyun motorları ve modern mobil & bulut yazılım teknolojileri.
           </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          {["Unity Engine (C#)", "Unreal Engine 5", "Godot Engine", "Blender & Shaders"].map((tech) => (
+          {[
+            "Unity (C#)",
+            "React Native (iOS/Android)",
+            "Next.js & TypeScript",
+            "Unreal Engine 5",
+            "Godot Engine",
+            "Node.js & Go",
+            "Tailwind CSS",
+            "PostgreSQL & Redis",
+          ].map((tech) => (
             <div key={tech} className="p-4 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-200 font-medium text-sm">
               {tech}
             </div>
