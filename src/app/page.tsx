@@ -2,7 +2,7 @@ import Link from "next/link";
 import { HeroSection } from "@/components/home/HeroSection";
 import { FeaturedProductSlider } from "@/components/home/FeaturedProductSlider";
 import { PRODUCTS } from "@/data/games";
-import { ArrowRight, Download, Gamepad2, Smartphone, Sparkles, Shield, Palette, MessageSquare, ExternalLink } from "lucide-react";
+import { ArrowRight, Download, Gamepad2, Smartphone, Sparkles, Shield, Palette, MessageSquare } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -13,7 +13,7 @@ export default function HomePage() {
       {/* 2. Interactive Borderless Cinematic Product Stage */}
       <FeaturedProductSlider />
 
-      {/* 3. All Products Catalog — Premium Visual Showcases */}
+      {/* 3. All Products Catalog — Perfectly Fitted Visual Showcases */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6 mb-12">
           <div>
@@ -45,16 +45,16 @@ export default function HomePage() {
             return (
               <div
                 key={product.id}
-                className="group relative flex flex-col justify-between rounded-[2rem] border border-white/10 bg-[#111114] overflow-hidden hover:border-white/25 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-black"
+                className="group relative flex flex-col justify-between rounded-[2.2rem] border border-white/10 bg-[#111114] overflow-hidden hover:border-white/25 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-black"
               >
-                {/* Top Visual Showcase (Large & Vivid) */}
+                {/* Top Visual Showcase: Perfectly Centered & Fully Visible Floating Phone */}
                 <Link
                   href={`/products/${product.slug}`}
-                  className="relative aspect-[16/11] w-full overflow-hidden bg-gradient-to-b from-zinc-800 to-zinc-950 flex items-center justify-center p-6"
+                  className="relative h-64 sm:h-72 w-full overflow-hidden bg-gradient-to-b from-[#18181c] to-[#0d0d10] flex items-center justify-center p-5 group-hover:from-[#1e1e24] transition-colors duration-500 border-b border-white/5"
                 >
-                  {/* Ambient Lighting */}
+                  {/* Ambient Lighting Behind Phone */}
                   <div
-                    className={`absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 blur-2xl ${
+                    className={`absolute w-36 h-36 rounded-full blur-3xl opacity-25 group-hover:opacity-50 transition-all duration-700 pointer-events-none ${
                       isBlokDunyasi
                         ? "bg-orange-500"
                         : isLingorise
@@ -63,19 +63,25 @@ export default function HomePage() {
                     }`}
                   />
 
-                  {/* Phone Mockup (Bold & Scaled) */}
-                  <div className="relative w-full max-w-[170px] rounded-[1.8rem] p-1.5 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-900 border border-white/20 shadow-2xl group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500">
-                    <div className="relative aspect-[9/19] w-full overflow-hidden rounded-[1.4rem] bg-black">
+                  {/* 3D Phone Mockup (100% Fully Visible, No Cutoffs) */}
+                  <div className="relative h-full aspect-[9/19.5] rounded-[2rem] p-1.5 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-950 border border-white/25 shadow-2xl shadow-black group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500">
+                    
+                    {/* Top Dynamic Notch/Island */}
+                    <div className="absolute top-2.5 left-1/2 -translate-x-1/2 h-2 w-10 rounded-full bg-black z-20" />
+
+                    <div className="relative h-full w-full overflow-hidden rounded-[1.6rem] bg-black">
                       <img
                         src={product.coverImage}
                         alt={product.title}
                         className="h-full w-full object-cover object-top"
                       />
+                      {/* Subtle Screen Reflection Glare */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.06] pointer-events-none" />
                     </div>
                   </div>
                 </Link>
 
-                {/* Content Section (Complete Natural Human Copy) */}
+                {/* Content Section */}
                 <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 space-y-5">
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
@@ -190,7 +196,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Studio Manifesto & Player Support (Consumer Product Studio Voice) */}
+      {/* 5. Studio Manifesto & Player Support */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center pt-8 border-t border-white/10">
         <div className="space-y-6 max-w-3xl mx-auto">
           <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">
