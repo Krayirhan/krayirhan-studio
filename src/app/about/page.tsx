@@ -88,10 +88,10 @@ export default function AboutPage() {
             </a>
 
             <Link
-              href="/contact"
+              href="/products"
               className="rounded-xl bg-white px-5 py-2.5 text-xs font-bold text-zinc-950 hover:bg-zinc-200 transition-all shadow-md"
             >
-              Destek & İletişim
+              Ürünleri İncele
             </Link>
           </div>
         </div>

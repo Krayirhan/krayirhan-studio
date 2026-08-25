@@ -259,11 +259,11 @@ export default function HomePage() {
               <span>Google Play&apos;de Oyna</span>
             </a>
             <Link
-              href="/contact"
+              href="/products"
               className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-4 text-sm font-semibold text-zinc-200 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"
             >
-              <MessageSquare className="h-4 w-4 text-zinc-400" />
-              <span>Oyuncu & Kullanıcı Desteği</span>
+              <span>Tüm Kataloğu İncele</span>
+              <ArrowRight className="h-4 w-4 text-zinc-400" />
             </Link>
           </div>
         </div>

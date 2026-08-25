@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Mail } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 
 export function Footer() {
@@ -106,9 +106,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Destek & Topluluk
-                </Link>
+                <a
+                  href={`mailto:${STUDIO_INFO.contactEmail}`}
+                  className="flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
+                >
+                  <Mail className="h-3 w-3" />
+                  <span>{STUDIO_INFO.contactEmail}</span>
+                </a>
               </li>
             </ul>
           </div>

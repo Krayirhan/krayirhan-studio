@@ -16,7 +16,6 @@ export function Navbar() {
     { name: "Benim Notlarım", href: "/products/benim-notlarim" },
     { name: "Tüm Ürünler", href: "/products" },
     { name: "Stüdyo Hakkında", href: "/about" },
-    { name: "Destek", href: "/contact" },
   ];
 
   return (
