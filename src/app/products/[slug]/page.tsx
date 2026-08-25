@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ProductGallery } from "@/components/products/ProductGallery";
-import { ArrowLeft, CheckCircle2, Monitor, ExternalLink, Sparkles, Smartphone, Gamepad2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ExternalLink, Sparkles, Smartphone, Gamepad2, Download } from "lucide-react";
 import type { Metadata } from "next";
 
 interface ProductPageProps {
@@ -23,16 +23,18 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const product = PRODUCTS.find((p) => p.slug === slug);
 
   if (!product) {
-    return { title: "Ürün Bulunamadı | Krayirhan Studio" };
+    return {
+      title: "Ürün Bulunamadı | Krayirhan Studio",
+    };
   }
 
   return {
-    title: `${product.title} | Krayirhan Studio`,
+    title: `${product.title} - ${product.tagline} | Krayirhan Studio`,
     description: product.shortDescription,
   };
 }
 
-export default async function SingleProductPage({ params }: ProductPageProps) {
+export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = PRODUCTS.find((p) => p.slug === slug);
 
@@ -43,16 +45,15 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
   return (
     <div className="pb-24">
       {/* Back button & Hero Banner */}
-      <div className="relative w-full py-12 sm:py-16 border-b border-slate-800/80 bg-gradient-to-b from-[#0e1626] via-[#090d16] to-[#07090e] overflow-hidden">
+      <div className="relative w-full py-12 sm:py-16 border-b border-amber-500/15 bg-gradient-to-b from-[#18140f] via-[#11131a] to-[#090a0f] overflow-hidden">
         {/* Ambient Glows & Grid */}
-        <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 grid-pattern-nordic opacity-40 pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-lg border border-slate-700/60 w-fit transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-800 hover:border-amber-500/50 w-fit transition-colors shadow-sm"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Tüm Kataloğa Dön</span>
@@ -61,8 +62,10 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
           <div className="space-y-3">
             <div className="flex flex-wrap gap-2 items-center">
               <span
-                className={`inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-semibold text-white ${
-                  product.type === "game" ? "bg-indigo-600" : "bg-cyan-600"
+                className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-bold ${
+                  product.type === "game"
+                    ? "bg-amber-950/80 text-amber-300 border border-amber-500/40"
+                    : "bg-slate-900 text-amber-200 border border-slate-700"
                 }`}
               >
                 {product.type === "game" ? (
@@ -73,12 +76,12 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
                 {product.type === "game" ? "Oyun" : "Uygulama"}
               </span>
 
-              <span className="rounded-md bg-slate-800/80 px-2.5 py-1 text-xs font-semibold text-slate-200">
+              <span className="rounded-full bg-slate-800/80 border border-slate-700 px-3 py-1 text-xs font-semibold text-slate-200">
                 {product.status}
               </span>
 
               {product.releaseDate && (
-                <span className="rounded-md bg-slate-800/80 px-2.5 py-1 text-xs font-medium text-slate-300">
+                <span className="rounded-full bg-amber-950/40 border border-amber-500/30 px-3 py-1 text-xs font-medium text-amber-300">
                   {product.releaseDate}
                 </span>
               )}
@@ -99,24 +102,24 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
           <div className="lg:col-span-8 space-y-12">
             {/* Overview */}
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Genel Bakış</h2>
-              <p className="text-slate-300 text-base leading-relaxed whitespace-pre-line">
+              <h2 className="text-2xl font-bold text-white">Hakkında</h2>
+              <div className="prose prose-invert max-w-none text-slate-300 text-base leading-relaxed space-y-4 whitespace-pre-line">
                 {product.fullDescription}
-              </p>
+              </div>
             </div>
 
             {/* Key Features */}
             {product.features && product.features.length > 0 && (
-              <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-white">Öne Çıkan Yetenekler</h2>
+              <div className="space-y-6">
+                <h2 className="text-2xl font-bold text-white">Öne Çıkan Özellikler</h2>
                 <div className="grid grid-cols-1 gap-3">
                   {product.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 rounded-xl border border-slate-800 bg-[#0d121d] p-4 text-slate-300"
+                      className="flex items-start gap-3 rounded-2xl border border-amber-500/15 bg-[#11131a] p-4 text-slate-200"
                     >
-                      <CheckCircle2 className="h-5 w-5 text-cyan-400 shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base">{feature}</span>
+                      <CheckCircle2 className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base leading-relaxed">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -133,80 +136,24 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
                 <ProductGallery title={product.title} screenshots={product.screenshots} />
               </div>
             )}
-
-            {/* System Requirements (If applicable) */}
-            {product.systemRequirements && (
-              <div className="space-y-4 border-t border-slate-800 pt-8">
-                <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-                  <Monitor className="h-6 w-6 text-indigo-400" />
-                  <span>Sistem Gereksinimleri</span>
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {product.systemRequirements.minimum && (
-                    <div className="rounded-xl border border-slate-800 bg-[#0d121d] p-6 space-y-2 text-xs sm:text-sm text-slate-300">
-                      <h3 className="font-bold text-slate-100 uppercase tracking-wider mb-3 text-indigo-400">
-                        Minimum
-                      </h3>
-                      {product.systemRequirements.minimum.os && (
-                        <p><strong className="text-slate-400">İşletim Sistemi:</strong> {product.systemRequirements.minimum.os}</p>
-                      )}
-                      {product.systemRequirements.minimum.processor && (
-                        <p><strong className="text-slate-400">İşlemci:</strong> {product.systemRequirements.minimum.processor}</p>
-                      )}
-                      {product.systemRequirements.minimum.memory && (
-                        <p><strong className="text-slate-400">Bellek:</strong> {product.systemRequirements.minimum.memory}</p>
-                      )}
-                      {product.systemRequirements.minimum.graphics && (
-                        <p><strong className="text-slate-400">Ekran Kartı:</strong> {product.systemRequirements.minimum.graphics}</p>
-                      )}
-                      {product.systemRequirements.minimum.storage && (
-                        <p><strong className="text-slate-400">Depolama:</strong> {product.systemRequirements.minimum.storage}</p>
-                      )}
-                    </div>
-                  )}
-
-                  {product.systemRequirements.recommended && (
-                    <div className="rounded-xl border border-slate-800 bg-[#0d121d] p-6 space-y-2 text-xs sm:text-sm text-slate-300">
-                      <h3 className="font-bold text-slate-100 uppercase tracking-wider mb-3 text-cyan-400">
-                        Önerilen
-                      </h3>
-                      {product.systemRequirements.recommended.os && (
-                        <p><strong className="text-slate-400">İşletim Sistemi:</strong> {product.systemRequirements.recommended.os}</p>
-                      )}
-                      {product.systemRequirements.recommended.processor && (
-                        <p><strong className="text-slate-400">İşlemci:</strong> {product.systemRequirements.recommended.processor}</p>
-                      )}
-                      {product.systemRequirements.recommended.memory && (
-                        <p><strong className="text-slate-400">Bellek:</strong> {product.systemRequirements.recommended.memory}</p>
-                      )}
-                      {product.systemRequirements.recommended.graphics && (
-                        <p><strong className="text-slate-400">Ekran Kartı:</strong> {product.systemRequirements.recommended.graphics}</p>
-                      )}
-                      {product.systemRequirements.recommended.storage && (
-                        <p><strong className="text-slate-400">Depolama:</strong> {product.systemRequirements.recommended.storage}</p>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Right Column: Platform Links Sidebar */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="rounded-2xl border border-slate-800 bg-[#0d121d] p-6 space-y-6 sticky top-28 shadow-xl">
-              <h3 className="text-lg font-bold text-white">Erişim & İndirme</h3>
+            <div className="rounded-3xl border border-amber-500/20 bg-[#11131a] p-6 sm:p-8 space-y-6 sticky top-28 shadow-xl">
+              <h3 className="text-lg font-bold text-white">Hemen İndirin & Deneyin</h3>
 
               <div className="space-y-3">
-                {product.links.steam && (
+                {product.links.playStore && (
                   <a
-                    href={product.links.steam}
+                    href={product.links.playStore}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3.5 text-sm font-bold text-white hover:bg-indigo-500 shadow-lg shadow-indigo-600/30 transition-all"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/25 hover:from-amber-400 hover:to-yellow-400 transition-all"
                   >
-                    <span>Steam'de Görüntüle</span>
-                    <ExternalLink className="h-4 w-4" />
+                    <Download className="h-4 w-4" />
+                    <span>Google Play'den İndir</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
                   </a>
                 )}
 
@@ -215,21 +162,9 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
                     href={product.links.appStore}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 border border-slate-700 px-4 py-3.5 text-sm font-bold text-white hover:bg-slate-700 transition-all"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 border border-slate-700 py-3.5 text-sm font-bold text-white hover:bg-slate-800 transition-all"
                   >
-                    <span>App Store'dan İndir</span>
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                )}
-
-                {product.links.playStore && (
-                  <a
-                    href={product.links.playStore}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3.5 text-sm font-bold text-white hover:bg-emerald-600 transition-all"
-                  >
-                    <span>Google Play'den İndir</span>
+                    <span>App Store</span>
                     <ExternalLink className="h-4 w-4" />
                   </a>
                 )}
@@ -239,41 +174,41 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
                     href={product.links.webApp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-600 px-4 py-3.5 text-sm font-bold text-white hover:bg-cyan-500 shadow-lg shadow-cyan-600/30 transition-all"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 border border-slate-700 py-3.5 text-sm font-bold text-white hover:bg-slate-800 transition-all"
                   >
-                    <span>Web Uygulamasını Aç</span>
+                    <span>Web Uygulaması</span>
                     <ExternalLink className="h-4 w-4" />
                   </a>
                 )}
               </div>
 
               {/* Quick Specs */}
-              <div className="border-t border-slate-800 pt-6 space-y-3 text-xs sm:text-sm text-slate-400">
+              <div className="border-t border-slate-800/80 pt-6 space-y-3 text-xs sm:text-sm text-slate-400">
                 <div className="flex justify-between">
-                  <span>Geliştirici:</span>
+                  <span>Geliştirici & Yayıncı:</span>
                   <span className="font-semibold text-white">Krayirhan Studio</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Teknoloji Yığını:</span>
-                  <span className="font-semibold text-white">{product.techStack.join(", ")}</span>
-                </div>
-                <div className="flex justify-between">
                   <span>Platformlar:</span>
-                  <span className="font-semibold text-white">{product.platforms.join(", ")}</span>
+                  <span className="font-semibold text-amber-300">{product.platforms.join(", ")}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Kategoriler:</span>
                   <span className="font-semibold text-white">{product.category.join(", ")}</span>
                 </div>
+                <div className="flex justify-between">
+                  <span>Yayın Durumu:</span>
+                  <span className="font-semibold text-emerald-400">{product.status}</span>
+                </div>
               </div>
 
-              <div className="border-t border-slate-800 pt-4">
+              <div className="border-t border-slate-800/80 pt-4">
                 <Link
                   href="/press"
-                  className="flex items-center justify-center gap-1.5 text-xs text-cyan-400 hover:underline"
+                  className="flex items-center justify-center gap-1.5 text-xs text-amber-400 hover:underline"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
-                  <span>Basın & Medya kiti varlıklarını indir</span>
+                  <span>Basın & Medya kiti varlıklarını incele</span>
                 </Link>
               </div>
             </div>

@@ -2,9 +2,8 @@ import Link from "next/link";
 import { HeroSection } from "@/components/home/HeroSection";
 import { GameCard } from "@/components/games/GameCard";
 import { StudioStats } from "@/components/home/StudioStats";
-import { StudioRoadmap } from "@/components/home/StudioRoadmap";
 import { PRODUCTS } from "@/data/games";
-import { Sparkles, Smartphone, Heart, Mail, ArrowRight, Palette, Gamepad2, Shield } from "lucide-react";
+import { Smartphone, Heart, Mail, ArrowRight, Palette, Gamepad2, Shield } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -93,10 +92,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Interactive Studio Roadmap & Upvoting */}
-      <StudioRoadmap />
-
-      {/* 6. Contact CTA */}
+      {/* 5. Contact CTA */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-amber-500/30 bg-gradient-to-r from-[#18140f] via-[#11131a] to-[#090a0f] p-8 sm:p-12 lg:p-16 shadow-2xl">
           <div className="max-w-2xl">
