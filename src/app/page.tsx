@@ -13,7 +13,7 @@ export default function HomePage() {
       {/* 2. Interactive Borderless Cinematic Product Stage */}
       <FeaturedProductSlider />
 
-      {/* 3. All Products Catalog — Perfectly Fitted Visual Showcases */}
+      {/* 3. All Products Catalog — Bold Dual-Phone Showcases (Büyük & Dolu Görseller) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6 mb-12">
           <div>
@@ -42,19 +42,22 @@ export default function HomePage() {
             const isLingorise = product.id === "lingorise";
             const isNotlarim = product.id === "benim-notlarim";
 
+            const primaryImg = product.coverImage;
+            const secondaryImg = product.screenshots?.[0] || product.coverImage;
+
             return (
               <div
                 key={product.id}
                 className="group relative flex flex-col justify-between rounded-[2.2rem] border border-white/10 bg-[#111114] overflow-hidden hover:border-white/25 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-black"
               >
-                {/* Top Visual Showcase: Perfectly Centered & Fully Visible Floating Phone */}
+                {/* Top Visual Showcase: Expansive Dual-Phone Mockup (Fills width, looks massive & 3D) */}
                 <Link
                   href={`/products/${product.slug}`}
-                  className="relative h-64 sm:h-72 w-full overflow-hidden bg-gradient-to-b from-[#18181c] to-[#0d0d10] flex items-center justify-center p-5 group-hover:from-[#1e1e24] transition-colors duration-500 border-b border-white/5"
+                  className="relative h-72 sm:h-80 w-full overflow-hidden bg-gradient-to-b from-[#18181c] to-[#0c0c0f] flex items-center justify-center p-4 group-hover:from-[#202028] transition-colors duration-500 border-b border-white/5"
                 >
-                  {/* Ambient Lighting Behind Phone */}
+                  {/* Ambient Colored Aura */}
                   <div
-                    className={`absolute w-36 h-36 rounded-full blur-3xl opacity-25 group-hover:opacity-50 transition-all duration-700 pointer-events-none ${
+                    className={`absolute w-56 h-56 rounded-full blur-[80px] opacity-25 group-hover:opacity-50 transition-all duration-700 pointer-events-none ${
                       isBlokDunyasi
                         ? "bg-orange-500"
                         : isLingorise
@@ -63,21 +66,33 @@ export default function HomePage() {
                     }`}
                   />
 
-                  {/* 3D Phone Mockup (100% Fully Visible, No Cutoffs) */}
-                  <div className="relative h-full aspect-[9/19.5] rounded-[2rem] p-1.5 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-950 border border-white/25 shadow-2xl shadow-black group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500">
+                  {/* Dual Phone Showcase Container */}
+                  <div className="relative flex items-center justify-center gap-3 sm:gap-4 w-full max-w-[280px] h-full py-3">
                     
-                    {/* Top Dynamic Notch/Island */}
-                    <div className="absolute top-2.5 left-1/2 -translate-x-1/2 h-2 w-10 rounded-full bg-black z-20" />
-
-                    <div className="relative h-full w-full overflow-hidden rounded-[1.6rem] bg-black">
-                      <img
-                        src={product.coverImage}
-                        alt={product.title}
-                        className="h-full w-full object-cover object-top"
-                      />
-                      {/* Subtle Screen Reflection Glare */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.06] pointer-events-none" />
+                    {/* Phone 1: Main Menu Screen */}
+                    <div className="relative w-1/2 h-full max-h-[220px] aspect-[9/19] rounded-[1.6rem] p-1 bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-900 border border-white/25 shadow-2xl -rotate-6 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-500">
+                      <div className="relative h-full w-full overflow-hidden rounded-[1.3rem] bg-black">
+                        <img
+                          src={primaryImg}
+                          alt={`${product.title} Menü`}
+                          className="h-full w-full object-cover object-top"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
+                      </div>
                     </div>
+
+                    {/* Phone 2: Gameplay / Interior Screen */}
+                    <div className="relative w-1/2 h-full max-h-[220px] aspect-[9/19] rounded-[1.6rem] p-1 bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-900 border border-white/25 shadow-2xl rotate-6 group-hover:rotate-2 group-hover:scale-105 transition-all duration-500 mt-4">
+                      <div className="relative h-full w-full overflow-hidden rounded-[1.3rem] bg-black">
+                        <img
+                          src={secondaryImg}
+                          alt={`${product.title} Ekran`}
+                          className="h-full w-full object-cover object-top"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
+                      </div>
+                    </div>
+
                   </div>
                 </Link>
 
