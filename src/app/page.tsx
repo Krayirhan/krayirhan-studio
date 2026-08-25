@@ -5,6 +5,32 @@ import { PRODUCTS } from "@/data/games";
 import { ArrowRight, Download, Gamepad2, Smartphone, Sparkles, Shield, Palette, MessageSquare } from "lucide-react";
 
 export default function HomePage() {
+  // Map distinct 2 screens for each product
+  const getScreens = (id: string) => {
+    switch (id) {
+      case "blok-dunyasi":
+        return {
+          primary: "/games/blok-dunyasi/cover.jpg",
+          secondary: "/games/blok-dunyasi/gameplay-1.jpg",
+        };
+      case "lingorise":
+        return {
+          primary: "/apps/lingorise/home-garden.png",
+          secondary: "/apps/lingorise/practice-session.png",
+        };
+      case "benim-notlarim":
+        return {
+          primary: "/apps/benim-notlarim/cover.jpg",
+          secondary: "/apps/benim-notlarim/editor.jpg",
+        };
+      default:
+        return {
+          primary: "/games/blok-dunyasi/cover.jpg",
+          secondary: "/games/blok-dunyasi/gameplay-1.jpg",
+        };
+    }
+  };
+
   return (
     <div className="pb-24 space-y-28 sm:space-y-36">
       {/* 1. Monumental Centered Studio Hero */}
@@ -13,7 +39,7 @@ export default function HomePage() {
       {/* 2. Interactive Borderless Cinematic Product Stage */}
       <FeaturedProductSlider />
 
-      {/* 3. All Products Catalog — Bold Dual-Phone Showcases (Büyük & Dolu Görseller) */}
+      {/* 3. All Products Catalog — Bold Dual-Phone Showcases with 2 Distinct Screens */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6 mb-12">
           <div>
@@ -42,15 +68,14 @@ export default function HomePage() {
             const isLingorise = product.id === "lingorise";
             const isNotlarim = product.id === "benim-notlarim";
 
-            const primaryImg = product.coverImage;
-            const secondaryImg = product.screenshots?.[0] || product.coverImage;
+            const screens = getScreens(product.id);
 
             return (
               <div
                 key={product.id}
                 className="group relative flex flex-col justify-between rounded-[2.2rem] border border-white/10 bg-[#111114] overflow-hidden hover:border-white/25 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-black"
               >
-                {/* Top Visual Showcase: Expansive Dual-Phone Mockup (Fills width, looks massive & 3D) */}
+                {/* Top Visual Showcase: Expansive Dual-Phone Mockup with 2 DIFFERENT Screens */}
                 <Link
                   href={`/products/${product.slug}`}
                   className="relative h-72 sm:h-80 w-full overflow-hidden bg-gradient-to-b from-[#18181c] to-[#0c0c0f] flex items-center justify-center p-4 group-hover:from-[#202028] transition-colors duration-500 border-b border-white/5"
@@ -69,24 +94,24 @@ export default function HomePage() {
                   {/* Dual Phone Showcase Container */}
                   <div className="relative flex items-center justify-center gap-3 sm:gap-4 w-full max-w-[280px] h-full py-3">
                     
-                    {/* Phone 1: Main Menu Screen */}
+                    {/* Phone 1: Main Menu / Garden Screen */}
                     <div className="relative w-1/2 h-full max-h-[220px] aspect-[9/19] rounded-[1.6rem] p-1 bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-900 border border-white/25 shadow-2xl -rotate-6 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-500">
                       <div className="relative h-full w-full overflow-hidden rounded-[1.3rem] bg-black">
                         <img
-                          src={primaryImg}
-                          alt={`${product.title} Menü`}
+                          src={screens.primary}
+                          alt={`${product.title} Ekran 1`}
                           className="h-full w-full object-cover object-top"
                         />
                         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
                       </div>
                     </div>
 
-                    {/* Phone 2: Gameplay / Interior Screen */}
+                    {/* Phone 2: Gameplay / Editor / Practice Screen (DIFFERENT IMAGE) */}
                     <div className="relative w-1/2 h-full max-h-[220px] aspect-[9/19] rounded-[1.6rem] p-1 bg-gradient-to-b from-zinc-500 via-zinc-700 to-zinc-900 border border-white/25 shadow-2xl rotate-6 group-hover:rotate-2 group-hover:scale-105 transition-all duration-500 mt-4">
                       <div className="relative h-full w-full overflow-hidden rounded-[1.3rem] bg-black">
                         <img
-                          src={secondaryImg}
-                          alt={`${product.title} Ekran`}
+                          src={screens.secondary}
+                          alt={`${product.title} Ekran 2`}
                           className="h-full w-full object-cover object-top"
                         />
                         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
