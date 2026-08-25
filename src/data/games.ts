@@ -9,7 +9,7 @@ export const PRODUCTS: Product[] = [
     title: "Blok Dünyası",
     tagline: "Renkli blokları eşleştirin, çizgileri patlatın ve en yüksek skora ulaşın!",
     category: ["Bulmaca", "Mobil Oyun", "Eğlence"],
-    status: "Released",
+    status: "Yayında",
     releaseDate: "Google Play'de Yayında",
     shortDescription:
       "Blok Dünyası; klasik blok bulmaca keyfini renkli meyve ve kumaş temalarıyla buluşturan, oynaması akıcı ve tamamen internetsiz bir mobil oyundur.",
@@ -48,7 +48,7 @@ export const PRODUCTS: Product[] = [
     title: "LingoRise",
     tagline: "İngilizce kelimeleri unutmadan, eğlenerek ve bahçenizi büyüterek öğrenin.",
     category: ["Eğitim", "Dil Öğrenme", "Mobil"],
-    status: "Beta",
+    status: "Beta Yayında",
     releaseDate: "Beta Yayında",
     shortDescription:
       "LingoRise; İngilizce kelime bilginizi unutmayı engelleyen akıllı hatırlatma sistemi ve büyüyen görsel bahçe metaforuyla kalıcı hale getiren modern bir mobil uygulamadır.",
@@ -64,7 +64,7 @@ export const PRODUCTS: Product[] = [
       "Görsel İlerleme Takibi: Kaç kelimeyi tam olarak öğrendiğinizi net bir şekilde görün.",
       "İnternetsiz Kullanım: Dilediğiniz her yerde bağlantı olmadan rahatça kelime pratikleri yapın.",
     ],
-    platforms: ["App Store", "Google Play", "Web App"],
+    platforms: ["Google Play", "Android", "Web"],
     techStack: ["Mobil Uygulama"],
     links: {},
     coverImage: "/apps/lingorise/home-garden.png",
@@ -83,7 +83,7 @@ export const PRODUCTS: Product[] = [
     title: "Benim Notlarım",
     tagline: "Şık, sade ve tamamen gizlilik odaklı Android not defteriniz.",
     category: ["Üretkenlik", "Not Defteri", "Mobil"],
-    status: "Released",
+    status: "Yayında",
     releaseDate: "Google Play'de Yayında",
     shortDescription:
       "Benim Notlarım; telefonunuzun duvar kağıdıyla otomatik uyum sağlayan renkleri, zengin metin düzenleme araçları ve %100 gizlilik odaklı yapısıyla sade bir not alma deneyimi sunar.",

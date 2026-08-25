@@ -38,7 +38,7 @@ export function Navbar() {
               {STUDIO_INFO.name}
             </span>
             <span className="text-[10px] font-semibold tracking-widest text-zinc-400 uppercase">
-              Games & Digital Products
+              Mobil Oyun & Uygulamalar
             </span>
           </div>
         </Link>

@@ -1,6 +1,14 @@
 export type ProductType = "game" | "app";
 
-export type ProductStatus = "Released" | "Early Access" | "In Development" | "Beta" | "Prototype";
+export type ProductStatus =
+  | "Yayında"
+  | "Beta Yayında"
+  | "Geliştirme Aşamasında"
+  | "Released"
+  | "Early Access"
+  | "In Development"
+  | "Beta"
+  | "Prototype";
 
 export type Platform =
   | "Steam"
@@ -8,7 +16,9 @@ export type Platform =
   | "App Store"
   | "Google Play"
   | "Web App"
+  | "Web"
   | "Android"
+  | "iOS"
   | "Windows"
   | "macOS"
   | "itch.io";
