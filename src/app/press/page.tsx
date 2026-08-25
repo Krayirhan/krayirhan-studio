@@ -1,4 +1,5 @@
 import { STUDIO_INFO } from "@/data/studioInfo";
+import Image from "next/image";
 import { FileArchive, Mail, Download } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -62,12 +63,12 @@ export default function PressKitPage() {
           <div className="rounded-3xl border border-white/10 bg-[#121215] p-8 space-y-6 shadow-xl">
             <h2 className="text-2xl font-bold text-white">Medya Varlıkları & Logo</h2>
             <p className="text-sm text-zinc-400">
-              Yüksek çözünürlüklü vektörel ve raster amblemler, banner'lar ve ürün ekran görüntüleri.
+              Yüksek çözünürlüklü vektörel ve raster amblemler, banner&apos;lar ve ürün ekran görüntüleri.
             </p>
 
             <div className="flex items-center gap-4 p-4 rounded-2xl border border-white/10 bg-black/40">
               <div className="relative flex h-16 w-16 items-center justify-center rounded-full overflow-hidden border border-white/20 bg-white p-1">
-                <img src="/brand/logo.png" alt="Logo" className="h-full w-full object-cover rounded-full" />
+                <Image src="/brand/logo.png" alt="Krayirhan Studio logosu" fill sizes="64px" className="rounded-full object-cover" />
               </div>
               <div className="flex-1">
                 <h4 className="text-sm font-bold text-white">Resmi Stüdyo Amblemi</h4>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, createContext, useContext } from "react";
+import { useRef, useState, createContext, useContext } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
 interface SoundContextType {
@@ -16,24 +16,24 @@ const SoundContext = createContext<SoundContextType>({
 });
 
 export function SoundProvider({ children }: { children: React.ReactNode }) {
-  const [soundEnabled, setSoundEnabled] = useState(false);
-  const [audioCtx, setAudioCtx] = useState<AudioContext | null>(null);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("studio_sound_enabled");
-    if (saved === "true") setSoundEnabled(true);
-  }, []);
+  const [soundEnabled, setSoundEnabled] = useState(
+    () => typeof window !== "undefined" && window.localStorage.getItem("studio_sound_enabled") === "true"
+  );
+  const audioContextRef = useRef<AudioContext | null>(null);
 
   const getAudioContext = () => {
-    if (!audioCtx) {
-      const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
-      setAudioCtx(ctx);
+    if (!audioContextRef.current) {
+      const audioWindow = window as Window & { webkitAudioContext?: typeof AudioContext };
+      const AudioContextConstructor = window.AudioContext ?? audioWindow.webkitAudioContext;
+      if (!AudioContextConstructor) return null;
+      const ctx = new AudioContextConstructor();
+      audioContextRef.current = ctx;
       return ctx;
     }
-    if (audioCtx.state === "suspended") {
-      audioCtx.resume();
+    if (audioContextRef.current.state === "suspended") {
+      void audioContextRef.current.resume();
     }
-    return audioCtx;
+    return audioContextRef.current;
   };
 
   const toggleSound = () => {
@@ -42,6 +42,7 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("studio_sound_enabled", String(next));
     if (next) {
       const ctx = getAudioContext();
+      if (!ctx) return;
       // Play a quick test chime
       playTone(ctx, 587.33, 0.08, "sine"); // D5
       setTimeout(() => playTone(ctx, 880, 0.12, "sine"), 80); // A5
@@ -76,6 +77,7 @@ export function SoundProvider({ children }: { children: React.ReactNode }) {
   const playSound = (type: "click" | "pop" | "sparkle" | "combo" | "flip") => {
     if (!soundEnabled) return;
     const ctx = getAudioContext();
+    if (!ctx) return;
 
     switch (type) {
       case "click":

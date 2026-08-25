@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Product } from "@/types/game";
 import { ArrowRight, Layers, Smartphone, Gamepad2 } from "lucide-react";
 
@@ -49,10 +50,13 @@ export function GameCard({ product }: ProductCardProps) {
 
       {/* Center Display: Sleek Phone Preview */}
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-zinc-950 p-4 border border-white/10 flex items-center justify-center mb-6">
-        <img
+        <Image
           src={product.coverImage}
           alt={product.title}
-          className="max-h-[145px] w-auto object-contain rounded-xl shadow-lg border border-zinc-800 group-hover:scale-105 transition-transform duration-300"
+          width={180}
+          height={145}
+          sizes="(max-width: 768px) 55vw, 180px"
+          className="max-h-[145px] w-auto rounded-xl border border-zinc-800 object-contain shadow-lg transition-transform duration-300 group-hover:scale-105"
         />
       </div>
 

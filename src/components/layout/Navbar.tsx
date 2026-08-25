@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, ExternalLink } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
@@ -25,10 +26,12 @@ export function Navbar() {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3.5 group">
           <div className="relative flex h-11 w-11 items-center justify-center rounded-full overflow-hidden border border-white/20 bg-white shadow-md group-hover:scale-105 group-hover:border-white transition-all p-0.5">
-            <img
+            <Image
               src="/brand/logo.png"
-              alt="Krayirhan Studio Logo"
-              className="h-full w-full object-cover rounded-full"
+              alt="Krayirhan Studio logosu"
+              fill
+              sizes="44px"
+              className="object-cover rounded-full"
             />
           </div>
           <div className="flex flex-col">
@@ -42,7 +45,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+        <nav className="hidden lg:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -64,7 +67,7 @@ export function Navbar() {
         </nav>
 
         {/* Action Buttons & Sound Toggle */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <SoundToggle />
 
           <a
@@ -81,8 +84,10 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="rounded-xl p-2 text-zinc-400 hover:bg-white/10 hover:text-white md:hidden"
-          aria-label="Toggle Menu"
+          className="rounded-xl p-2 text-zinc-400 hover:bg-white/10 hover:text-white lg:hidden"
+          aria-label={mobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -90,7 +95,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[#08080a] px-4 pt-4 pb-6 space-y-3">
+        <div id="mobile-navigation" className="lg:hidden border-t border-white/10 bg-[#08080a] px-4 pt-4 pb-6 space-y-3">
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <Link
@@ -120,7 +125,7 @@ export function Navbar() {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-xl bg-white py-3 text-xs font-bold text-zinc-950"
             >
-              <span>Google Play'de Oyna</span>
+              <span>Google Play&apos;de Oyna</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>

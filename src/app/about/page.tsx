@@ -1,6 +1,7 @@
 import { STUDIO_INFO } from "@/data/studioInfo";
 import Link from "next/link";
-import { Sparkles, ExternalLink, Flame } from "lucide-react";
+import Image from "next/image";
+import { ExternalLink, Flame } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -57,10 +58,12 @@ export default function AboutPage() {
         <div className="rounded-[2.5rem] border border-white/10 bg-[#121215] p-8 sm:p-10 space-y-6 shadow-2xl">
           <div className="flex items-center gap-4">
             <div className="relative flex h-16 w-16 items-center justify-center rounded-full overflow-hidden border border-white/20 bg-white p-0.5 shadow-lg">
-              <img
+              <Image
                 src="/brand/logo.png"
-                alt="Krayirhan Studio Logo"
-                className="h-full w-full object-cover rounded-full"
+                alt="Krayirhan Studio logosu"
+                fill
+                sizes="64px"
+                className="rounded-full object-cover"
               />
             </div>
             <div>

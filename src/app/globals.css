@@ -15,6 +15,10 @@
     overflow-x: hidden;
   }
 
+  html {
+    scroll-padding-top: 6rem;
+  }
+
   h1, h2, h3, h4, .font-display {
     font-family: var(--font-display), var(--font-sans), sans-serif;
     letter-spacing: -0.03em;
@@ -23,6 +27,11 @@
   ::selection {
     background-color: #ffffff;
     color: #08080a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
   }
 }
 
@@ -71,4 +80,15 @@
 .phone-card-3d:hover {
   transform: translateY(-6px) rotateX(4deg) rotateY(-4deg) scale(1.02);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px 2px rgba(255, 255, 255, 0.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

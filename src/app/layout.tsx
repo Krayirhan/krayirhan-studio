@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { STUDIO_INFO } from "@/data/studioInfo";
 import { SoundProvider } from "@/components/effects/SoundEffects";
+import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -19,8 +20,12 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: `${STUDIO_INFO.name} — Bağımsız Oyunlar & Mobil Uygulamalar`,
-  description: STUDIO_INFO.tagline,
+  metadataBase: new URL("https://studio.krayirhan.com"),
+  title: {
+    default: `${STUDIO_INFO.name} | Bağımsız oyunlar ve mobil uygulamalar`,
+    template: `%s | ${STUDIO_INFO.name}`,
+  },
+  description: "Krayirhan Studio'nun bağımsız mobil oyunlarını ve günlük kullanıma odaklanan uygulamalarını keşfedin.",
   keywords: [
     "Krayirhan Studio",
     "Blok Dünyası",
@@ -31,12 +36,21 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: STUDIO_INFO.founder.name, url: STUDIO_INFO.founder.portfolioUrl }],
   openGraph: {
-    title: `${STUDIO_INFO.name} — Games & Apps`,
-    description: STUDIO_INFO.tagline,
-    url: "https://studio.krayirhan.com",
+    title: `${STUDIO_INFO.name} | Bağımsız oyunlar ve mobil uygulamalar`,
+    description: "Oynaması keyifli oyunlar, her gün kullanılan uygulamalar.",
+    url: "/",
     siteName: STUDIO_INFO.name,
     locale: "tr_TR",
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: `${STUDIO_INFO.name} | Bağımsız oyunlar ve mobil uygulamalar`,
+    description: "Oynaması keyifli oyunlar, her gün kullanılan uygulamalar.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -49,6 +63,7 @@ export default function RootLayout({
     <html lang="tr" className={`dark ${spaceGrotesk.variable} ${plusJakarta.variable}`}>
       <body className="min-h-screen bg-[#08080a] text-zinc-100 font-sans antialiased flex flex-col justify-between selection:bg-white selection:text-zinc-950">
         <SoundProvider>
+          <AnalyticsTracker />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

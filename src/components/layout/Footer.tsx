@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 
@@ -11,10 +12,12 @@ export function Footer() {
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="relative flex h-10 w-10 items-center justify-center rounded-full overflow-hidden border border-white/20 bg-white p-0.5 shadow-md">
-                <img
+                <Image
                   src="/brand/logo.png"
-                  alt="Krayirhan Studio Logo"
-                  className="h-full w-full object-cover rounded-full"
+                  alt="Krayirhan Studio logosu"
+                  fill
+                  sizes="40px"
+                  className="object-cover rounded-full"
                 />
               </div>
               <span className="text-lg font-bold tracking-wider text-white uppercase font-display">

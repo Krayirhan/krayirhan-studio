@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ZoomIn, Sparkles } from "lucide-react";
 
 interface ProductGalleryProps {
@@ -13,13 +14,21 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
 
   const openLightbox = (index: number) => {
     setSelectedIndex(index);
-    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = useCallback(() => {
     setSelectedIndex(null);
-    document.body.style.overflow = "auto";
   }, []);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [selectedIndex]);
 
   const showPrev = useCallback(() => {
     if (selectedIndex === null) return;
@@ -67,10 +76,12 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
 
               {/* Screen Display */}
               <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2.2rem] bg-zinc-950 shadow-inner">
-                <img
+                <Image
                   src={screen}
                   alt={`${title} Ekran Görüntüsü ${idx + 1}`}
-                  className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 42vw, 300px"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
 
                 {/* Subtle Screen Glare */}
@@ -145,10 +156,13 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
             className="relative max-h-[82vh] max-w-[90vw] flex items-center justify-center z-10"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
+            <Image
               src={screenshots[selectedIndex]}
               alt={`${title} - Görsel ${selectedIndex + 1}`}
-              className="max-h-[82vh] max-w-[90vw] object-contain rounded-2xl shadow-2xl border border-white/10 ring-1 ring-white/10"
+              width={900}
+              height={1600}
+              sizes="90vw"
+              className="max-h-[82vh] max-w-[90vw] rounded-2xl border border-white/10 object-contain shadow-2xl ring-1 ring-white/10"
             />
           </div>
 
@@ -182,10 +196,12 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
                       : "border-transparent opacity-50 hover:opacity-100"
                   }`}
                 >
-                  <img
+                  <Image
                     src={screen}
                     alt={`Thumbnail ${idx + 1}`}
-                    className="h-full w-full object-cover"
+                    fill
+                    sizes="48px"
+                    className="object-cover"
                   />
                 </button>
               ))}

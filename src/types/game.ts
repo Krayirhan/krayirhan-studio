@@ -8,6 +8,7 @@ export type Platform =
   | "App Store"
   | "Google Play"
   | "Web App"
+  | "Android"
   | "Windows"
   | "macOS"
   | "itch.io";

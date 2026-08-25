@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { QrCode, X, Copy, Check, ExternalLink, Download } from "lucide-react";
 import { useStudioSound } from "@/components/effects/SoundEffects";
 
@@ -69,7 +70,7 @@ export function QrDownloadButton({ title, url, coverImage }: QrDownloadModalProp
             {/* App Info Header */}
             <div className="flex flex-col items-center space-y-2">
               <div className="relative h-14 w-14 rounded-2xl overflow-hidden border border-white/10 shadow-lg p-1 bg-zinc-950">
-                <img src={coverImage} alt={title} className="h-full w-full object-cover rounded-xl" />
+                <Image src={coverImage} alt={`${title} kapak görseli`} fill sizes="56px" className="rounded-xl object-cover" />
               </div>
               <h3 className="text-xl font-bold text-white">{title}</h3>
               <p className="text-xs text-zinc-400">
@@ -79,10 +80,13 @@ export function QrDownloadButton({ title, url, coverImage }: QrDownloadModalProp
 
             {/* QR Code Frame */}
             <div className="relative mx-auto flex h-52 w-52 items-center justify-center rounded-2xl border border-white/15 bg-white p-4 shadow-inner">
-              <img
+              <Image
                 src={qrImageUrl}
                 alt={`${title} İndirme QR Kodu`}
-                className="relative z-10 h-44 w-44 rounded-lg"
+                width={176}
+                height={176}
+                sizes="176px"
+                className="relative z-10 rounded-lg"
               />
             </div>
 
@@ -112,7 +116,7 @@ export function QrDownloadButton({ title, url, coverImage }: QrDownloadModalProp
                 className="flex w-full items-center justify-center gap-2 rounded-xl bg-white py-3 text-xs font-bold text-zinc-950 shadow-lg hover:bg-zinc-200 transition-all"
               >
                 <Download className="h-4 w-4" />
-                <span>Google Play'de Aç</span>
+                <span>Google Play&apos;de Aç</span>
                 <ExternalLink className="h-3 w-3" />
               </a>
             </div>

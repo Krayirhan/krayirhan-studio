@@ -28,8 +28,20 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   }
 
   return {
-    title: `${product.title} - ${product.tagline} | Krayirhan Studio`,
+    title: product.title,
     description: product.shortDescription,
+    openGraph: {
+      title: product.title,
+      description: product.shortDescription,
+      type: "website",
+      images: [{ url: product.bannerImage, alt: `${product.title} uygulama görseli` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.title,
+      description: product.shortDescription,
+      images: [product.bannerImage],
+    },
   };
 }
 
@@ -143,7 +155,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     className="flex w-full items-center justify-center gap-2 rounded-xl bg-white py-3.5 text-sm font-bold text-zinc-950 shadow-xl shadow-white/5 hover:bg-zinc-200 transition-all"
                   >
                     <Download className="h-4 w-4" />
-                    <span>Google Play'den İndir</span>
+                    <span>Google Play&apos;den İndir</span>
                     <ExternalLink className="h-3.5 w-3.5" />
                   </a>
                 )}

@@ -27,10 +27,10 @@ export default function ProductsPage() {
         </p>
 
         {/* Filter Switcher */}
-        <div className="mt-8 inline-flex rounded-2xl border border-white/10 bg-[#121215] p-1.5 shadow-xl">
+        <div className="mt-8 flex w-full flex-col gap-1.5 rounded-2xl border border-white/10 bg-[#121215] p-1.5 shadow-xl sm:inline-flex sm:w-auto sm:flex-row">
           <button
             onClick={() => setFilter("all")}
-            className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold transition-all cursor-pointer sm:w-auto sm:px-5 sm:text-sm ${
               filter === "all"
                 ? "bg-white text-zinc-950 shadow-md scale-105"
                 : "text-zinc-400 hover:text-white"
@@ -41,7 +41,7 @@ export default function ProductsPage() {
           </button>
           <button
             onClick={() => setFilter("game")}
-            className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold transition-all cursor-pointer sm:w-auto sm:px-5 sm:text-sm ${
               filter === "game"
                 ? "bg-white text-zinc-950 shadow-md scale-105"
                 : "text-zinc-400 hover:text-white"
@@ -52,7 +52,7 @@ export default function ProductsPage() {
           </button>
           <button
             onClick={() => setFilter("app")}
-            className={`flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs font-bold transition-all cursor-pointer sm:w-auto sm:px-5 sm:text-sm ${
               filter === "app"
                 ? "bg-white text-zinc-950 shadow-md scale-105"
                 : "text-zinc-400 hover:text-white"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Gamepad2, Sparkles, Smartphone, RefreshCw, Trophy, CheckCircle, RotateCw, Volume2, Award, Star } from "lucide-react";
+import { Gamepad2, Sparkles, Smartphone, RefreshCw, Trophy, RotateCw, Star } from "lucide-react";
 import { useStudioSound } from "@/components/effects/SoundEffects";
 
 // Sample vocabulary for LingoRise demo

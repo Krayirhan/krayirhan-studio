@@ -25,7 +25,7 @@ export const PRODUCTS: Product[] = [
       "Kayıt & Skor Sistemi: En iyi puanlarınızı takip edin ve istediğiniz zaman oyuna devam edin.",
       "İnternetsiz Oynama: Dilediğiniz her yerde tamamen offline oynanabilirlik.",
     ],
-    platforms: ["Google Play", "Android" as any],
+    platforms: ["Google Play", "Android"],
     techStack: ["Unity Engine (C#)", "DOTween", "Universal Render Pipeline (URP)"],
     links: {
       playStore: "https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi",
@@ -67,11 +67,7 @@ export const PRODUCTS: Product[] = [
     ],
     platforms: ["App Store", "Google Play", "Web App"],
     techStack: ["React Native", "Expo SDK 56", "TypeScript (Strict)", "Firebase Firestore", "AsyncStorage"],
-    links: {
-      appStore: "#",
-      playStore: "#",
-      webApp: "#",
-    },
+    links: {},
     coverImage: "/apps/lingorise/home-garden.png",
     bannerImage: "/apps/lingorise/home-garden.png",
     screenshots: [
@@ -105,7 +101,7 @@ export const PRODUCTS: Product[] = [
       "Sıralama & Arama: Son düzenleme, oluşturulma tarihi veya alfabetik başlık sıralaması.",
       "%100 Çevrimdışı & Gizlilik Odaklı: Verileriniz üçüncü şahıslarla paylaşılmaz, cihazınızda kalır.",
     ],
-    platforms: ["Google Play", "Android" as any],
+    platforms: ["Google Play", "Android"],
     techStack: ["Kotlin", "Jetpack Compose", "Material 3", "Room Database", "Coroutines"],
     links: {
       playStore: "https://play.google.com/store/apps/details?id=com.benimnotlarim.app",

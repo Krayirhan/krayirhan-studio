@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Sparkles, ThumbsUp, Clock, CheckCircle2, Flame } from "lucide-react";
+import { ThumbsUp, Clock, Flame } from "lucide-react";
 import { useStudioSound } from "@/components/effects/SoundEffects";
 
 interface RoadmapItem {
