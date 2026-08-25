@@ -2,18 +2,17 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Gamepad2, Menu, X, ExternalLink, Sparkles, Smartphone, Box } from "lucide-react";
+import { Menu, X, ExternalLink, Sparkles, Smartphone, Box } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
+    { name: "LingoRise", href: "/products/lingorise" },
     { name: "Tüm Ürünler", href: "/products" },
-    { name: "Oyunlar", href: "/games" },
-    { name: "Uygulamalar", href: "/apps" },
     { name: "Press Kit", href: "/press" },
-    { name: "Stüdyo", href: "/about" },
+    { name: "Stüdyo Hakkında", href: "/about" },
     { name: "İletişim", href: "/contact" },
   ];
 
@@ -30,7 +29,7 @@ export function Navbar() {
               {STUDIO_INFO.name}
             </span>
             <span className="text-[10px] font-semibold tracking-widest text-cyan-400 uppercase">
-              Games & Digital Products
+              Digital Products Studio
             </span>
           </div>
         </Link>
@@ -41,7 +40,7 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors tracking-wide hover:underline decoration-indigo-500 underline-offset-8"
+              className="text-sm font-medium text-slate-300 hover:text-white transition-colors tracking-wide hover:underline decoration-cyan-500 underline-offset-8"
             >
               {link.name}
             </Link>
@@ -63,10 +62,10 @@ export function Navbar() {
           </a>
 
           <Link
-            href="/products"
-            className="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-xs font-semibold text-white hover:bg-indigo-500 shadow-md shadow-indigo-600/30 transition-all"
+            href="/products/lingorise"
+            className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-indigo-600 to-cyan-600 px-4 py-2 text-xs font-semibold text-white hover:opacity-90 shadow-md shadow-cyan-600/20 transition-all"
           >
-            Kataloğu Gör
+            LingoRise
           </Link>
         </div>
 

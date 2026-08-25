@@ -21,7 +21,7 @@ export function Footer() {
               {STUDIO_INFO.tagline}
             </p>
             <div className="pt-2 text-xs text-slate-500">
-              📍 {STUDIO_INFO.location} · Bağımsız Oyun & Uygulama Geliştirme Stüdyosu
+              📍 {STUDIO_INFO.location} · Bağımsız Mobil Uygulama & Yazılım Stüdyosu
             </div>
           </div>
 
@@ -32,18 +32,13 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/products/lingorise" className="hover:text-cyan-400 transition-colors font-medium">
+                  LingoRise
+                </Link>
+              </li>
+              <li>
                 <Link href="/products" className="hover:text-indigo-400 transition-colors">
                   Tüm Ürünler
-                </Link>
-              </li>
-              <li>
-                <Link href="/games" className="hover:text-indigo-400 transition-colors">
-                  Oyun Kataloğu
-                </Link>
-              </li>
-              <li>
-                <Link href="/apps" className="hover:text-cyan-400 transition-colors">
-                  Mobil & Web Uygulamaları
                 </Link>
               </li>
               <li>
@@ -74,26 +69,6 @@ export function Footer() {
                 >
                   <span>Kurucu Portfolyosu (krayirhan.com)</span>
                   <ExternalLink className="h-3 w-3" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={STUDIO_INFO.socials.steam}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-slate-200 transition-colors"
-                >
-                  Steam Developer Page
-                </a>
-              </li>
-              <li>
-                <a
-                  href={STUDIO_INFO.socials.discord}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-slate-200 transition-colors"
-                >
-                  Discord Topluluğu
                 </a>
               </li>
               <li>
