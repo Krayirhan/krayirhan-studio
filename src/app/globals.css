@@ -2,44 +2,42 @@
 
 @layer base {
   :root {
-    --background: #09090b;
-    --foreground: #fafafa;
-    --card: #121215;
+    --background: #08080a;
+    --foreground: #f4f4f5;
+    --card: #111114;
     --card-border: rgba(255, 255, 255, 0.08);
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display), var(--font-sans), sans-serif;
+    letter-spacing: -0.03em;
   }
 
   ::selection {
     background-color: #ffffff;
-    color: #09090b;
+    color: #08080a;
   }
 }
 
-/* Ultra-Clean Monochrome Glass & Glows */
-.clean-card-glow {
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Editorial Studio Styling */
+.editorial-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.clean-card-glow:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 20px 1px rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
+.editorial-card {
+  background-color: #111114;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hero-clean-glow {
-  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.05), transparent 60%),
-              radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.03), transparent 50%);
-}
-
-.grid-pattern-clean {
-  background-size: 40px 40px;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+.editorial-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
