@@ -4,7 +4,7 @@ import { GameCard } from "@/components/games/GameCard";
 import { StudioStats } from "@/components/home/StudioStats";
 import { StudioRoadmap } from "@/components/home/StudioRoadmap";
 import { PRODUCTS } from "@/data/games";
-import { Sparkles, Smartphone, ShieldCheck, Mail, ArrowRight, Award, BookOpen, Layers } from "lucide-react";
+import { Sparkles, Smartphone, Heart, Mail, ArrowRight, Palette, Gamepad2, Shield } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -12,16 +12,16 @@ export default function HomePage() {
       {/* 1. Hero Section with Bento Dual Showcase & QR Modals */}
       <HeroSection />
 
-      {/* 2. Live Studio Milestones & Stats */}
+      {/* 2. Player & User Centric Studio Pillars */}
       <StudioStats />
 
       {/* 3. Products Section (Blok Dünyası, LingoRise, Benim Notlarım) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 border-b border-slate-800/80 pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 border-b border-amber-500/15 pb-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
               <Smartphone className="h-4 w-4" />
-              <span>Ürün Vitrinimiz</span>
+              <span>Oyun & Uygulama Vitrinimiz</span>
             </div>
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl tracking-tight">
               Tüm Oyunlar & Uygulamalar
@@ -29,7 +29,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/products"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors"
           >
             <span>Katalog Sayfasına Git</span>
             <ArrowRight className="h-4 w-4" />
@@ -43,46 +43,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Engineering & Design Philosophy */}
-      <section className="border-y border-slate-800/80 bg-[#0a0e17]/60 py-20">
+      {/* 4. Studio Values & Player Experience */}
+      <section className="border-y border-amber-500/15 bg-[#0e1017]/80 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-950/30 px-3.5 py-1 text-xs font-semibold text-amber-300 mb-4">
+              <Heart className="h-3.5 w-3.5 text-amber-400 fill-amber-400" />
+              <span>Deneyim İlkelerimiz</span>
+            </div>
             <h2 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
-              Neden Krayirhan Studio?
+              Neden Krayirhan Studio Yapımları?
             </h2>
-            <p className="mt-4 text-slate-400 text-base sm:text-lg">
-              Kullanıcı psikolojisini anlayan arayüzler, katı test disiplini ve modern mobil mimariler inşa ediyoruz.
+            <p className="mt-4 text-slate-300 text-base sm:text-lg">
+              Kullanıcıların elinden bırakamayacağı, sade, eğlenceli ve günlük hayata değer katan mobil deneyimler inşa ediyoruz.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="rounded-3xl border border-slate-800 bg-[#0e1422] p-8 space-y-4 shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-600/20 text-cyan-400 border border-cyan-500/30">
-                <BookOpen className="h-6 w-6" />
+            <div className="rounded-3xl border border-amber-500/20 bg-[#11131a] p-8 space-y-4 shadow-xl hover:border-amber-500/40 transition-all">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-950/40 text-amber-400 border border-amber-500/30">
+                <Palette className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Bilişsel Bilim & Oyunlaştırma</h3>
+              <h3 className="text-xl font-bold text-white">Özgün Tasarım & Canlı Temalar</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                Aralıklı tekrar (Spaced Repetition) ve görsel bahçe metaforu gibi kanıtlanmış öğrenme mekaniklerini dijital deneyimlere entegre ediyoruz.
+                Her oyunumuzda ve uygulamamızda göz yormayan, estetik ve samimi görsel dünyalar tasarlayarak kullanım keyfini zirveye çıkarıyoruz.
               </p>
             </div>
 
-            <div className="rounded-3xl border border-slate-800 bg-[#0e1422] p-8 space-y-4 shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30">
-                <ShieldCheck className="h-6 w-6" />
+            <div className="rounded-3xl border border-amber-500/20 bg-[#11131a] p-8 space-y-4 shadow-xl hover:border-amber-500/40 transition-all">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-950/40 text-amber-400 border border-amber-500/30">
+                <Gamepad2 className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Yüksek Test & Kod Kalitesi</h3>
+              <h3 className="text-xl font-bold text-white">Sürükleyici Oyun Mekanikleri</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                Yüzlerce izole birim testi ile doğrulanan saf domain mantığı; çökmesiz, sıfır hatalı ve akıcı bir kullanıcı deneyimi sunar.
+                Klasik blok bulmacalardan kelime öğrenme bahçelerine kadar, oyuncuyu motive eden ve zihnini dinlendiren ödüllendirici mekanikler.
               </p>
             </div>
 
-            <div className="rounded-3xl border border-slate-800 bg-[#0e1422] p-8 space-y-4 shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-600/20 text-purple-400 border border-purple-500/30">
-                <Layers className="h-6 w-6" />
+            <div className="rounded-3xl border border-amber-500/20 bg-[#11131a] p-8 space-y-4 shadow-xl hover:border-amber-500/40 transition-all">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-950/40 text-amber-400 border border-amber-500/30">
+                <Shield className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold text-white">Offline-First & Çapraz Platform</h3>
+              <h3 className="text-xl font-bold text-white">Gizlilik & Kesintisiz Özgürlük</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                İnternetsiz de kusursuz çalışan yerel depolama altyapısı ve bulutla otomatik eşitlenen kesintisiz mobil deneyim.
+                Kullanıcıyı boğmayan temiz bir deneyim, verilerinize saygı duyan altyapı ve dilediğiniz her yerde internetsiz tam çalışma güvencesi.
               </p>
             </div>
           </div>
@@ -94,7 +98,7 @@ export default function HomePage() {
 
       {/* 6. Contact CTA */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-cyan-500/30 bg-gradient-to-r from-indigo-950/60 via-[#0d121d] to-cyan-950/40 p-8 sm:p-12 lg:p-16 shadow-2xl">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-amber-500/30 bg-gradient-to-r from-[#18140f] via-[#11131a] to-[#090a0f] p-8 sm:p-12 lg:p-16 shadow-2xl">
           <div className="max-w-2xl">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
               İş Birliği & Yayıncılık Görüşmeleri
@@ -105,14 +109,14 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-600/30 hover:opacity-90 transition-all"
+                className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/25 hover:opacity-90 transition-all"
               >
                 <Mail className="h-4 w-4" />
                 <span>İletişime Geçin</span>
               </Link>
               <Link
                 href="/press"
-                className="rounded-xl border border-slate-700 bg-slate-900/90 px-6 py-3.5 text-sm font-semibold text-slate-200 hover:text-white hover:border-slate-500 transition-all"
+                className="rounded-xl border border-slate-800 bg-slate-900/90 px-6 py-3.5 text-sm font-semibold text-slate-200 hover:text-white hover:border-amber-500/50 transition-all"
               >
                 Press Kit & Medya Varlıkları
               </Link>

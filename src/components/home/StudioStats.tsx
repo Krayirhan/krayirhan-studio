@@ -1,57 +1,53 @@
-import { CheckCircle2, Shield, Zap, BookOpen, Sparkles } from "lucide-react";
+import { Gamepad2, Sparkles, Shield, RefreshCw } from "lucide-react";
 
 export function StudioStats() {
-  const stats = [
+  const pillars = [
     {
-      value: "177+",
-      label: "Birim Testiyle Doğrulandı",
-      desc: "LingoRise domain ve SM-2 algoritmasında sıfır mantık hatası.",
-      icon: CheckCircle2,
-      color: "text-amber-400 border-amber-500/30 bg-amber-950/20",
+      value: "Özgün",
+      label: "Eğlenceli Oynanış & Fikirler",
+      desc: "Klasik mekanikleri modern dokunuşlar ve renkli temalarla buluşturan yapımlar.",
+      icon: Gamepad2,
+    },
+    {
+      value: "Akıcı",
+      label: "Kullanıcı Dostu Arayüz",
+      desc: "Karmaşadan uzak, parmak uçlarınızda yağ gibi kayan pürüzsüz tasarımlar.",
+      icon: Sparkles,
     },
     {
       value: "%100",
-      label: "Offline-First & Gizlilik",
-      desc: "Tüm notlarınız ve verileriniz cihazınızda yerel şifrelenir.",
+      label: "Çevrimdışı Deneyim",
+      desc: "Metroda, uçakta ya da seyahatte; internetiniz olmadan da kesintisiz keyif.",
       icon: Shield,
-      color: "text-amber-300 border-amber-500/30 bg-amber-950/20",
     },
     {
-      value: "A1 - C2",
-      label: "Tam Müfredat Derinliği",
-      desc: "Başlangıçtan ileri seviyeye yapılandırılmış zengin kelime havuzu.",
-      icon: BookOpen,
-      color: "text-yellow-400 border-yellow-500/30 bg-yellow-950/20",
-    },
-    {
-      value: "60+ FPS",
-      label: "Akıcı & Optimize Motor",
-      desc: "Unity URP ve React Native ile sıfır gecikmeli mobil deneyim.",
-      icon: Zap,
-      color: "text-amber-500 border-amber-500/40 bg-amber-950/30",
+      value: "Sürekli",
+      label: "Canlı Güncellemeler",
+      desc: "Geri bildirimlerinizle şekillenen yeni seviyeler, temalar ve zengin özellikler.",
+      icon: RefreshCw,
     },
   ];
 
   return (
-    <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat, idx) => {
-          const Icon = stat.icon;
+        {pillars.map((pillar, idx) => {
+          const Icon = pillar.icon;
           return (
             <div
               key={idx}
               className="relative overflow-hidden rounded-3xl border border-amber-500/15 bg-[#11131a] p-6 shadow-xl hover:border-amber-500/40 hover:shadow-amber-500/10 transition-all group"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className={`p-3 rounded-2xl border ${stat.color}`}>
+                <div className="p-3 rounded-2xl border border-amber-500/30 bg-amber-950/30 text-amber-400">
                   <Icon className="h-5 w-5" />
                 </div>
-                <span className="text-3xl font-black text-amber-300 tracking-tight group-hover:scale-105 transition-transform">
-                  {stat.value}
+                <span className="text-2xl font-black text-amber-300 tracking-tight group-hover:scale-105 transition-transform">
+                  {pillar.value}
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-slate-200">{stat.label}</h3>
-              <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">{stat.desc}</p>
+              <h3 className="text-sm font-bold text-white">{pillar.label}</h3>
+              <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">{pillar.desc}</p>
             </div>
           );
         })}

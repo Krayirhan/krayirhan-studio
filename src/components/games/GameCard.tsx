@@ -50,9 +50,8 @@ export function GameCard({ product }: ProductCardProps) {
           </span>
         </div>
 
-        <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-400">
-          <Cpu className="h-3.5 w-3.5 text-amber-400" />
-          <span>{product.techStack[0]}</span>
+        <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-400/90 bg-amber-950/30 px-2.5 py-1 rounded-lg border border-amber-500/20">
+          <span>{product.platforms[0]}</span>
         </span>
       </div>
 
