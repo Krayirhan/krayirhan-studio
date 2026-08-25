@@ -1,221 +1,196 @@
 import { Product } from "@/types/game";
 
 export const PRODUCTS: Product[] = [
-  // --- OYUNLAR (GAMES) ---
-  {
-    id: "aether-protocol",
-    slug: "aether-protocol",
-    type: "game",
-    title: "Aether Protocol",
-    tagline: "Hızlı tempolu, siberpunk atmosferinde geçen roguelite aksiyon oyunu.",
-    category: ["Roguelite", "Aksiyon", "Siberpunk", "PC"],
-    status: "In Development",
-    releaseDate: "Q4 2026",
-    shortDescription:
-      "Aether Protocol, distopik bir siber mega-şehirde yapay zeka kontrolündeki güçlere karşı savaştığınız dinamik yetenek kombinasyonları sunan bir roguelite aksiyon oyunudur.",
-    fullDescription:
-      "Aether Protocol sizi karanlık bir neon geleceğine davet ediyor. Her turda rastgele oluşturulan tesislerde ilerleyin, sibernetik geliştirmeleri birleştirin ve kendi eşsiz savaş stilinizi yaratın. Yüksek tempolu akıcı yakın dövüş, hassas kaçınma mekanikleri ve derin hikaye evreni ile meydan okumaya hazır olun.",
-    features: [
-      "Dinamik ve Akıcı Dövüş: Kombinasyonlar, kılıç ustalığı ve kinetik yetenekler.",
-      "Sonsuz Tekrar Oynanabilirlik: Yüzlerce sibernetik eklenti ve rastgele oda tasarımları.",
-      "Atmosferik Synthwave Müzikler: Nabız yükselten orijinal müzik albümü.",
-      "Prosedürel Bölüm Yapısı: Her kaçış denemesinde değişen düşman kompozisyonları.",
-    ],
-    platforms: ["Steam", "Epic Games"],
-    techStack: ["Unity (C#)", "Shader Graph", "FMOD Audio"],
-    links: {
-      steam: "https://store.steampowered.com",
-      epic: "https://store.epicgames.com",
-    },
-    coverImage: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80",
-    screenshots: [
-      "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80",
-    ],
-    featured: true,
-    systemRequirements: {
-      minimum: {
-        os: "Windows 10 64-bit",
-        processor: "Intel Core i5-6600K / AMD Ryzen 5 1600",
-        memory: "8 GB RAM",
-        graphics: "NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 580",
-        storage: "15 GB kullanılabilir alan",
-      },
-      recommended: {
-        os: "Windows 11 64-bit",
-        processor: "Intel Core i7-10700K / AMD Ryzen 7 3700X",
-        memory: "16 GB RAM",
-        graphics: "NVIDIA GeForce RTX 3060 / AMD Radeon RX 6700 XT",
-        storage: "15 GB SSD kullanılabilir alan",
-      },
-    },
-  },
-  {
-    id: "chronicles-of-elysium",
-    slug: "chronicles-of-elysium",
-    type: "game",
-    title: "Chronicles of Elysium",
-    tagline: "Zaman bükme mekaniklerine sahip gizem dolu izometrik macera & bulmaca oyunu.",
-    category: ["Macera", "Bulmaca", "Zaman Yolculuğu", "PC"],
-    status: "Prototype",
-    releaseDate: "2027",
-    shortDescription:
-      "Kayıp bir medeniyetin kalıntıları arasında zamanı ileri ve geri sararak antik mekanizmaları çözün, unutulmuş gerçekleri gün yüzüne çıkarın.",
-    fullDescription:
-      "Chronicles of Elysium, zamanın döngüsel yapısını merkezine alan hikaye odaklı bir bulmaca-macera oyunudur. Karakteriniz zaman parçalarını kontrol edebilen kadim bir aygıt keşfeder.",
-    features: [
-      "Çift Zaman Çizelgesi Mekaniği: Geçmiş ve gelecek arasında anlık geçişler.",
-      "Zengin Hikaye Anlatımı: Çevresel detaylar ve gizli tabletler.",
-      "Büyüleyici Sanat Tasarımı: El çizimi dokular ve dinamik aydınlatma.",
-    ],
-    platforms: ["Steam", "itch.io"],
-    techStack: ["Unity (C#)", "Blender", "URP"],
-    links: {
-      itch: "https://itch.io",
-    },
-    coverImage: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1920&q=80",
-    screenshots: [
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
-    ],
-    featured: false,
-  },
-  {
-    id: "void-drifter",
-    slug: "void-drifter",
-    type: "game",
-    title: "Void Drifter",
-    tagline: "Derin uzayda geçen minimalist fizik tabanlı hayatta kalma simülasyonu.",
-    category: ["Simülasyon", "Fizik", "Uzay", "Arcade"],
-    status: "Early Access",
-    releaseDate: "Yayında",
-    shortDescription:
-      "Yerçekimsiz ortamda yakıtınızı ve oksijeninizi verimli kullanarak asteroit kuşakları arasında sürüklenin, geminizi yükseltin.",
-    fullDescription:
-      "Void Drifter, saf momentum fiziği ve arcade reflexleri birleştiren ödüllendirici bir uzay hayatta kalma deneyimidir.",
-    features: [
-      "Newton Fiziği Temelli Kontroller: Gerçekçi momentum hesaplamaları.",
-      "Gemi Yükseltme Sistemi: İticiler ve kalkanlar.",
-      "Global Liderlik Tablosu: Skor yarışı.",
-    ],
-    platforms: ["Steam", "Web App"],
-    techStack: ["Godot Engine", "GDScript", "WebAssembly"],
-    links: {
-      steam: "https://store.steampowered.com",
-    },
-    coverImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80",
-    screenshots: [
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=80",
-    ],
-    featured: false,
-  },
-
   // --- UYGULAMALAR (APPS & DIGITAL PRODUCTS) ---
   {
-    id: "nexus-focus-ai",
-    slug: "nexus-focus-ai",
+    id: "lingorise",
+    slug: "lingorise",
     type: "app",
-    title: "Nexus Focus & Flow AI",
-    tagline: "Yapay zeka destekli akıllı odaklanma, zaman yönetimi ve üretkenlik asistanı.",
-    category: ["Üretkenlik", "Yapay Zeka", "Mobil & Web", "Task Management"],
+    title: "LingoRise",
+    tagline: "Türkçe konuşanlar için, unutmayı ciddiye alan akıllı İngilizce kelime öğrenme uygulaması.",
+    category: ["Eğitim", "Dil Öğrenme", "Aralıklı Tekrar (SRS)", "Mobil"],
+    status: "Beta",
+    releaseDate: "Beta Yayında",
+    shortDescription:
+      "LingoRise; A1'den C2'ye kadar kelime bilgisini SM-2 aralıklı tekrar algoritması ve 'Learning Garden' oyunlaştırma mekanikleriyle kalıcı hale getiren modern bir mobil uygulamadır.",
+    fullDescription:
+      "LingoRise, klasik bir 'kelime kartı' uygulamasından farklı olarak bilginin kalıcılığını merkeze alır:\n\n" +
+      "🌱 XP ≠ Bilgi: XP sadece harcanan çabayı ödüllendirir, asla azalmaz. Bir kelimeyi gerçekten bildiğinizi kanıtlayan ayrı bir eksen vardır: Mastery.\n\n" +
+      "⏳ Gerçek Aralıklı Tekrar (SRS): Bir kelimenin 'pekişmiş' sayılması için 3 ardışık doğru ve en az 2 farklı günde doğru bilinmesi gerekir. SM-2 tabanlı zamanlayıcı unutma eğrisine göre her kelimeyi tam vaktinde yeniden sorar.\n\n" +
+      "🏡 Learning Garden: Her pekişen kelime bahçenizi büyütür. İlerleme somut, şeffaf ve dürüst kalır.",
+    features: [
+      "SM-2 Aralıklı Tekrar Algoritması: Unutma eğrisine göre otomatik olarak zamanlanan akıllı pratik oturumları.",
+      "Learning Garden Metaforu: Öğrenilen ve pekişen kelimelerle evrilen görsel bahçe sistemi.",
+      "A1 - C2 Kapsamlı Müfredat: Seviyelere, ünitelere ve kullanım sıklığına göre yapılandırılmış kelime havuzu.",
+      "Dürüst İlerleme (Mastery vs Seen): Sadece görülen değil, hafızaya tam yerleşmiş kelimelerin net ayrımı.",
+      "Offline-First & Bulut Senkronizasyonu: AsyncStorage ile internetsiz tam çalışma, Firebase Firestore ile çoklu cihaz eşitlemesi.",
+      "177+ Birim Testi: React ve veri tabanından tamamen izole edilmiş saf domain mimarisi ile sıfır mantık hatası.",
+    ],
+    platforms: ["App Store", "Google Play", "Web App"],
+    techStack: ["React Native", "Expo SDK 56", "TypeScript (Strict)", "Firebase Firestore", "AsyncStorage"],
+    links: {
+      github: "https://github.com/Krayirhan/lingorise",
+      appStore: "https://github.com/Krayirhan/lingorise",
+      playStore: "https://github.com/Krayirhan/lingorise",
+      webApp: "https://github.com/Krayirhan/lingorise",
+    },
+    coverImage: "/apps/lingorise/home-garden.png",
+    bannerImage: "/apps/lingorise/home-garden.png",
+    screenshots: [
+      "/apps/lingorise/home-garden.png",
+      "/apps/lingorise/practice-session.png",
+      "/apps/lingorise/progress-mastery.png",
+    ],
+    featured: true,
+  },
+  {
+    id: "hesap-gunlugu",
+    slug: "hesap-gunlugu",
+    type: "app",
+    title: "Hesap Günlüğü",
+    tagline: "Modern, gizlilik odaklı ve akıllı kişisel finans & bütçe takip uygulaması.",
+    category: ["Finans", "Üretkenlik", "Android", "Bütçe Takip"],
     status: "Released",
     releaseDate: "Yayında",
     shortDescription:
-      "Bilişsel yükü azaltan, derin çalışma (deep work) seanslarını otomatik optimize eden ve yapay zeka ile günlük hedeflerinizi önceliklendiren akıllı üretkenlik uygulaması.",
+      "Gelir, gider ve birikim hedeflerinizi sade ve modern arayüzüyle kontrol altında tutmanızı sağlayan Kotlin & Jetpack Compose tabanlı finans uygulaması.",
     fullDescription:
-      "Nexus Focus, modern dijital dikkat dağınıklığını ortadan kaldırmak için tasarlandı. Akıllı Pomodoro zamanlayıcıları, biyolojik ritim analizleri ve yapay zeka destekli görev önceliklendirmesi ile iş ve yaratıcılık akışınızı maksimuma çıkarın. Tüm cihazlarınız arasında anlık eşitleme sağlar.",
+      "Hesap Günlüğü, kullanıcıların karmaşık tablolarla uğraşmadan bütçelerini yönetmelerini sağlar. Aylık harcama limitleri belirleyin, kategorik pasta grafikleriyle harcama alışkanlıklarınızı analiz edin ve birikim hedeflerinize adım adım ulaşın.",
     features: [
-      "AI Akıllı Önceliklendirme: Görevlerinizi aciliyet ve enerji seviyenize göre otomatik sıraya dizer.",
-      "Kişiselleştirilmiş Binaural Ses Motoru: Odaklanmayı artıran frekans tabanlı arkaplan müzikleri.",
-      "Çapraz Platform Senkronizasyonu: iOS, Android ve Web arasında kesintisiz veri aktarımı.",
-      "Ayrıntılı Analitikler: Günlük odaklanma süreleri, dikkat dağıtıcı raporları ve başarı grafikleri.",
+      "Modern Jetpack Compose Arayüzü: Akıcı Material 3 animasyonları ve karanlık tema desteği.",
+      "Kategorik Analiz & Raporlama: Harcamaların detaylı görselleştirilmesi.",
+      "Hedef ve Birikim Takibi: Hedeflenen tutara kalan süreyi ve ilerlemeyi hesaplama.",
+      "Gizlilik ve Güvenlik: Tüm finansal verileriniz cihazınızda güvenle saklanır.",
     ],
-    platforms: ["App Store", "Google Play", "Web App"],
-    techStack: ["React Native", "Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    platforms: ["Google Play", "Android" as any],
+    techStack: ["Kotlin", "Jetpack Compose", "Room Database", "Material 3", "Coroutines"],
     links: {
-      appStore: "https://apple.com/app-store",
-      playStore: "https://play.google.com",
-      webApp: "https://studio.krayirhan.com",
+      github: "https://github.com/Krayirhan/hesapgunlugu",
+      playStore: "https://github.com/Krayirhan/hesapgunlugu",
+    },
+    coverImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1920&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    ],
+    featured: false,
+  },
+  {
+    id: "floriven-studio",
+    slug: "floriven-studio",
+    type: "app",
+    title: "Floriven Studio",
+    tagline: "Yapay zeka destekli mobil UI arayüz ve tasarım prototipleme ekosistemi.",
+    category: ["Yapay Zeka", "Tasarım Araçları", "SaaS", "Mobil UI"],
+    status: "In Development",
+    releaseDate: "Q4 2026",
+    shortDescription:
+      "Geliştiriciler ve tasarımcılar için doğal dil komutlarıyla yüksek kaliteli mobil kullanıcı arayüzleri ve bileşenleri üreten AI platformu.",
+    fullDescription:
+      "Floriven Studio, mobil uygulama prototipleme sürecini hızlandırmak için geliştirilmiş bir yapay zeka aracıdır. Tasarım kurallarını ve en iyi UI/UX pratiklerini doğrudan koda ve görsel prototiplere dönüştürür.",
+    features: [
+      "AI Destekli Bileşen Üretimi: Buton, kart ve form arayüzlerinin anında oluşturulması.",
+      "Tasarım Sistemi Uyumluluğu: Renk paletleri ve tipografi hiyerarşisi oluşturma.",
+      "React Native & Flutter Kod Çıktısı: Tasarımları tek tıkla canlı koda aktarma.",
+    ],
+    platforms: ["Web App", "macOS"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI API", "Python"],
+    links: {
+      github: "https://github.com/Krayirhan/Floriven-Studio",
+      webApp: "https://github.com/Krayirhan/Floriven-Studio",
     },
     coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
     bannerImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80",
     screenshots: [
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    ],
-    featured: true,
-  },
-  {
-    id: "soundwave-studio",
-    slug: "soundwave-studio",
-    type: "app",
-    title: "SoundWave Synth & FX",
-    tagline: "Oyun geliştiricileri ve ses tasarımcıları için WebGL tabanlı ses sentezleme ve efekt aracı.",
-    category: ["Ses Tasarımı", "Yaratıcı Araçlar", "Web App", "Game Dev Tool"],
-    status: "Beta",
-    releaseDate: "Beta Yayında",
-    shortDescription:
-      "Tarayıcı üzerinden 8-bit, retro ve atmosferik oyun ses efektleri (SFX) üretmenizi, düzenlemenizi ve tek tıkla WAV/OGG formatında dışa aktarmanızı sağlayan profesyonel ses stüdyosu.",
-    fullDescription:
-      "SoundWave Studio, bağımsız oyun geliştiricilerinin sıfırdan yüksek kaliteli ses efektleri üretmesini hızlandırır. Web Audio API gücüyle gerçek zamanlı osilatörler, filtreler, yankı ve distorsiyon modülleri sunar.",
-    features: [
-      "Tarayıcı Tabanlı Gerçek Zamanlı DSP: Hiçbir şey indirmeden anında ses üretimi.",
-      "Oyunlar İçin Hazır Presetler: Lazerler, patlamalar, arayüz sesleri ve ortam ambiyansları.",
-      "Doğrudan Dışa Aktarma: 24-bit 48kHz WAV, OGG ve Unity ses paketi desteği.",
-    ],
-    platforms: ["Web App", "macOS", "Windows"],
-    techStack: ["Web Audio API", "TypeScript", "Next.js", "Canvas 2D"],
-    links: {
-      webApp: "https://studio.krayirhan.com",
-    },
-    coverImage: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1920&q=80",
-    screenshots: [
-      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80",
     ],
     featured: false,
   },
+
+  // --- OYUNLAR (GAMES) ---
   {
-    id: "devpulse-monitor",
-    slug: "devpulse-monitor",
-    type: "app",
-    title: "DevPulse Realtime Telemetry",
-    tagline: "Mobil uygulamalar ve oyunlar için hafif, anlık hata ve performans izleme paneli.",
-    category: ["Geliştirici Araçları", "Analitik & Telemetri", "SaaS"],
+    id: "kapan-01",
+    slug: "kapan-01",
+    type: "game",
+    title: "K.A.P.A.N - 01",
+    tagline: "Karanlık, klostrofobik ve psikolojik gerilim odaklı hayatta kalma & kaçış oyunu.",
+    category: ["Hayatta Kalma", "Korku / Gerilim", "Psikolojik", "PC"],
     status: "In Development",
-    releaseDate: "Q3 2026",
+    releaseDate: "2026",
     shortDescription:
-      "Oyun sunucularınızın durumunu, FPS düşüşlerini ve aktif oyuncu istatistiklerini mobil cihazınızdan canlı takip edin.",
+      "Terk edilmiş bir yeraltı araştırma tesisinde uyandığınız, kaynaklarınızı dikkatli yöneterek ve ipuçlarını birleştirerek kaçmaya çalıştığınız psikolojik korku oyunu.",
     fullDescription:
-      "DevPulse, bağımsız stüdyolar için tasarlanmış minimalist bir telemetri çözümüdür. Sıfır konfigürasyon SDK'sı ile oyunlarınıza ve uygulamalarınıza dakikalar içinde entegre olur.",
+      "K.A.P.A.N - 01, oyuncuyu derin bir bilinmezliğin ve sessizliğin içine çeker. Her adımınız ses çıkarır, her ışık kaynağı tehlikeyi üstünüze çekebilir. Çevresel bulmacaları çözün, ses tasarımının rehberliğinde ilerleyin ve tesisin karanlık sırlarını çözün.",
     features: [
-      "Anlık FPS ve Bellek Analizi: Kullanıcı cihazlarındaki performans darboğazlarını görün.",
-      "Canlı Oyuncu/Kullanıcı Haritası: Aktif oturumları dünya haritası üzerinde izleyin.",
-      "Anlık Çökme Bildirimleri: Kritik hatalarda Discord ve Telegram uyarıları.",
+      "Gerçekçi Ses & Mekan Akustiği: Canavarın konumunu ve çevresel tehditleri sesle algılama.",
+      "Kısıtlı Envanter & Hayatta Kalma: Fener pili, medkit ve kilit açıcıların stratejik kullanımı.",
+      "Dinamik Işıklandırma ve Gölgeler: Karanlığı avantaja çevirme mekaniği.",
     ],
-    platforms: ["iOS", "Android", "Web App"] as any,
-    techStack: ["Flutter", "Go", "WebSocket", "ClickHouse"],
+    platforms: ["Steam", "PC" as any],
+    techStack: ["Unity Engine (C#)", "HDRP", "FMOD Audio", "Blender"],
     links: {
-      webApp: "https://studio.krayirhan.com",
+      github: "https://github.com/Krayirhan/K.A.P.A.N-01",
+      steam: "https://github.com/Krayirhan/K.A.P.A.N-01",
     },
-    coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-    bannerImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80",
+    coverImage: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1920&q=80",
     screenshots: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    ],
+    featured: true,
+    systemRequirements: {
+      minimum: {
+        os: "Windows 10 64-bit",
+        processor: "Intel Core i5-8400 / AMD Ryzen 5 2600",
+        memory: "8 GB RAM",
+        graphics: "NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 580",
+        storage: "20 GB kullanılabilir alan",
+      },
+      recommended: {
+        os: "Windows 11 64-bit",
+        processor: "Intel Core i7-10700K / AMD Ryzen 7 3700X",
+        memory: "16 GB RAM",
+        graphics: "NVIDIA GeForce RTX 3060 12GB / AMD Radeon RX 6700 XT",
+        storage: "20 GB SSD kullanılabilir alan",
+      },
+    },
+  },
+  {
+    id: "blok-dunyasi",
+    slug: "blok-dunyasi",
+    type: "game",
+    title: "Blok Dünyası",
+    tagline: "Bağımlılık yapıcı mekaniklere sahip dinamik blok eşleştirme ve bulmaca oyunu.",
+    category: ["Bulmaca", "Mobil", "Casual", "Arcade"],
+    status: "Early Access",
+    releaseDate: "Yayında",
+    shortDescription:
+      "Farklı şekillerdeki blokları stratejik olarak ızgaraya yerleştirin, sıraları ve sütunları temizleyerek kombolar yapın ve en yüksek skora ulaşın.",
+    fullDescription:
+      "Blok Dünyası; klasik blok temizleme zevkini modern görsel efektler, dokunsal geri bildirimler (haptic) ve seviye modlarıyla buluşturan bir mobil bulmaca oyunudur.",
+    features: [
+      "Akıcı Dokunmatik Kontroller: Hızlı ve hassas blok yerleştirme mekanikleri.",
+      "Göz Alıcı Parçacık Efektleri: Kombo ve temizlemelerde zengin animasyonlar.",
+      "Sonsuz ve Seviye Modları: Günlük görevler ve zorlu bulmaca haritaları.",
+    ],
+    platforms: ["Google Play", "Android" as any],
+    techStack: ["Unity (C#)", "DOTween", "Universal Render Pipeline (URP)"],
+    links: {
+      github: "https://github.com/Krayirhan/BlokDunyasi",
+      playStore: "https://github.com/Krayirhan/BlokDunyasi",
+    },
+    coverImage: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1920&q=80",
+    screenshots: [
+      "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
     ],
     featured: false,
   },
 ];
 
-// Helper exports for easy filtering
+// Helper exports
 export const GAMES = PRODUCTS.filter((p) => p.type === "game");
 export const APPS = PRODUCTS.filter((p) => p.type === "app");
