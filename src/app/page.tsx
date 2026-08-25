@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HeroSection } from "@/components/home/HeroSection";
-import { PRODUCTS, GAMES, APPS } from "@/data/games";
-import { ArrowRight, Download, ExternalLink, QrCode } from "lucide-react";
+import { PRODUCTS } from "@/data/games";
+import { ArrowRight, Download, ExternalLink, Sparkles, Star, Zap, Smartphone, Check } from "lucide-react";
 import { QrDownloadButton } from "@/components/ui/QrDownloadModal";
 
 export default function HomePage() {
@@ -11,25 +11,34 @@ export default function HomePage() {
 
   return (
     <div className="pb-24 space-y-20 sm:space-y-28">
-      {/* 1. Human Studio Hero */}
+      {/* 1. Human Studio Hero with Ambient Aurora */}
       <HeroSection />
 
       {/* 2. Primary Featured Game Showcase: Blok Dünyası */}
       {blokDunyasi && (
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-12 lg:p-16 overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-12 lg:p-16 hover:border-orange-500/30 transition-all duration-500">
+            
+            {/* 1. Ambient Warm Citrus Background Aura */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/[0.08] blur-[120px] rounded-full pointer-events-none group-hover:bg-orange-500/[0.14] transition-all duration-700" />
+            <div className="absolute bottom-0 left-1/4 w-[350px] h-[350px] bg-yellow-500/[0.04] blur-[100px] rounded-full pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Left Info */}
               <div className="lg:col-span-6 space-y-6">
-                <div className="flex items-center gap-3 font-mono text-xs text-zinc-400 uppercase tracking-wider">
-                  <span className="rounded-full bg-white/10 px-3 py-1 font-bold text-white">Mobil Oyun</span>
-                  <span>Google Play</span>
-                  <span>·</span>
-                  <span className="text-emerald-400">Yayında</span>
+                <div className="flex flex-wrap items-center gap-2.5 font-mono text-xs text-zinc-400 uppercase tracking-wider">
+                  <span className="rounded-full bg-orange-500/15 border border-orange-500/30 px-3 py-1 font-bold text-orange-400">
+                    Öne Çıkan Oyun
+                  </span>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-zinc-300">
+                    <Star className="h-3 w-3 text-amber-400 fill-amber-400" />
+                    <span>4.8+ Oyuncu Puanı</span>
+                  </span>
+                  <span className="text-emerald-400 font-semibold">● Google Play'de Yayında</span>
                 </div>
 
-                <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
+                <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight group-hover:text-zinc-100 transition-colors">
                   {blokDunyasi.title}
                 </h2>
 
@@ -37,18 +46,18 @@ export default function HomePage() {
                   Klasik blok bulmaca mantığını meyve ve el yapımı kumaş temalarıyla buluşturan, oynaması akıcı ve tamamen internetsiz bir mobil bulmaca oyunu.
                 </p>
 
-                {/* Bullets */}
-                <div className="space-y-2 pt-2 text-sm text-zinc-300 font-medium">
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                    <span>8x8 ızgara üzerinde stratejik blok yerleşimi</span>
+                {/* Bullets with subtle accents */}
+                <div className="space-y-2.5 pt-2 text-sm text-zinc-300 font-medium">
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold">✓</span>
+                    <span>8x8 ızgara üzerinde stratejik blok ve kombo yerleşimi</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold">✓</span>
                     <span>Meyve ve dikiş desenli canlı görsel temalar</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold">✓</span>
                     <span>İnternet bağlantısı gerektirmeyen %100 çevrimdışı oynanış</span>
                   </div>
                 </div>
@@ -60,7 +69,7 @@ export default function HomePage() {
                       href={blokDunyasi.links.playStore}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-xs sm:text-sm font-bold text-zinc-950 hover:bg-zinc-200 shadow-xl transition-all"
+                      className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-xs sm:text-sm font-bold text-zinc-950 hover:bg-zinc-200 shadow-xl shadow-white/10 hover:scale-105 transition-all"
                     >
                       <Download className="h-4 w-4" />
                       <span>Google Play'den İndir</span>
@@ -78,34 +87,42 @@ export default function HomePage() {
 
                   <Link
                     href={`/products/${blokDunyasi.slug}`}
-                    className="rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white hover:border-white/30 transition-all"
+                    className="rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white hover:border-white/30 transition-all"
                   >
-                    Detaylar & Ekran Görüntüleri ➔
+                    Detaylar & Galeri ➔
                   </Link>
                 </div>
               </div>
 
-              {/* Right Images (Dual Phone Showcase) */}
+              {/* Right Images (Dual Interactive 3D Phone Showcase) */}
               <div className="lg:col-span-6 flex items-center justify-center gap-4 sm:gap-6">
-                <div className="w-1/2 max-w-[200px] rounded-[2.2rem] p-2 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/15 shadow-2xl shadow-black -rotate-2 hover:rotate-0 transition-transform duration-500">
-                  <div className="aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem] bg-black">
+                
+                {/* Phone 1 */}
+                <div className="w-1/2 max-w-[210px] rounded-[2.4rem] p-2.5 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/20 shadow-2xl shadow-black/90 -rotate-3 group-hover:-rotate-1 group-hover:scale-105 transition-all duration-500">
+                  <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.9rem] bg-black">
                     <img
                       src="/games/blok-dunyasi/cover.jpg"
                       alt="Blok Dünyası Menü"
                       className="h-full w-full object-cover object-top"
                     />
+                    {/* Glass Glare */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
                   </div>
                 </div>
 
-                <div className="w-1/2 max-w-[200px] rounded-[2.2rem] p-2 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/15 shadow-2xl shadow-black rotate-2 hover:rotate-0 transition-transform duration-500 mt-8 sm:mt-12">
-                  <div className="aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem] bg-black">
+                {/* Phone 2 */}
+                <div className="w-1/2 max-w-[210px] rounded-[2.4rem] p-2.5 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/20 shadow-2xl shadow-black/90 rotate-3 group-hover:rotate-1 group-hover:scale-105 transition-all duration-500 mt-8 sm:mt-12">
+                  <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.9rem] bg-black">
                     <img
                       src="/games/blok-dunyasi/gameplay-1.jpg"
                       alt="Blok Dünyası Oynanış"
                       className="h-full w-full object-cover object-top"
                     />
+                    {/* Glass Glare */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
                   </div>
                 </div>
+
               </div>
 
             </div>
@@ -113,7 +130,7 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* 3. Secondary Products Grid (LingoRise & Benim Notlarım) */}
+      {/* 3. Secondary Products Grid with Emerald and Sky Blue Auras */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6">
           <div>
@@ -136,41 +153,47 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          {/* Card: LingoRise */}
+          {/* Card: LingoRise with Nature Emerald Aura */}
           {lingorise && (
-            <div className="rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-10 flex flex-col justify-between space-y-8 hover:border-white/25 transition-all">
-              <div className="space-y-4">
+            <div className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-10 flex flex-col justify-between space-y-8 hover:border-emerald-500/30 transition-all duration-500">
+              {/* Emerald Ambient Background */}
+              <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-emerald-500/[0.08] blur-[100px] rounded-full pointer-events-none group-hover:bg-emerald-500/[0.14] transition-all duration-700" />
+
+              <div className="relative z-10 space-y-4">
                 <div className="flex items-center justify-between font-mono text-xs text-zinc-400">
-                  <span className="rounded-full bg-white/10 px-3 py-1 font-bold text-white">Kelime & Dil</span>
-                  <span className="text-zinc-300">Beta Aşamasında</span>
+                  <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 font-bold text-emerald-400">
+                    Kelime & Dil Bahçesi
+                  </span>
+                  <span className="text-emerald-300/80 font-semibold">● Beta Aşamasında</span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-zinc-100 transition-colors">
                   {lingorise.title}
                 </h3>
 
                 <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-                  İngilizce kelime bilgisini unutmayı engelleyen aralıklı tekrar mekaniği ve gelişen 'Learning Garden' görsel bahçe metaforuyla kalıcı kılan mobil uygulama.
+                  İngilizce kelime bilgisini unutmayı engelleyen aralıklı tekrar (SRS) algoritması ve gelişen 'Learning Garden' görsel bahçe metaforuyla kalıcı kılan mobil uygulama.
                 </p>
               </div>
 
-              {/* Mockup */}
-              <div className="flex justify-center py-2">
-                <div className="w-full max-w-[210px] rounded-[2.2rem] p-2 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/15 shadow-xl">
-                  <div className="aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem] bg-black">
+              {/* 3D Mockup with Glare */}
+              <div className="relative z-10 flex justify-center py-2">
+                <div className="w-full max-w-[210px] rounded-[2.2rem] p-2 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/15 shadow-xl group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500">
+                  <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem] bg-black">
                     <img
                       src="/apps/lingorise/home-garden.png"
                       alt="LingoRise Bahçe"
                       className="h-full w-full object-cover object-top"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.07] pointer-events-none" />
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+              <div className="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between">
                 <Link
                   href={`/products/${lingorise.slug}`}
-                  className="rounded-xl bg-white px-5 py-3 text-xs font-bold text-zinc-950 hover:bg-zinc-200 transition-all"
+                  className="rounded-xl bg-white px-5 py-3 text-xs font-bold text-zinc-950 hover:bg-zinc-200 transition-all hover:scale-105"
                 >
                   Uygulamayı İncele
                 </Link>
@@ -184,43 +207,49 @@ export default function HomePage() {
             </div>
           )}
 
-          {/* Card: Benim Notlarım */}
+          {/* Card: Benim Notlarım with Sky Blue Aura */}
           {benimNotlarim && (
-            <div className="rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-10 flex flex-col justify-between space-y-8 hover:border-white/25 transition-all">
-              <div className="space-y-4">
+            <div className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-10 flex flex-col justify-between space-y-8 hover:border-sky-500/30 transition-all duration-500">
+              {/* Sky Blue Ambient Background */}
+              <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-sky-500/[0.08] blur-[100px] rounded-full pointer-events-none group-hover:bg-sky-500/[0.14] transition-all duration-700" />
+
+              <div className="relative z-10 space-y-4">
                 <div className="flex items-center justify-between font-mono text-xs text-zinc-400">
-                  <span className="rounded-full bg-white/10 px-3 py-1 font-bold text-white">Not & Üretkenlik</span>
-                  <span className="text-emerald-400">Google Play</span>
+                  <span className="rounded-full bg-sky-500/15 border border-sky-500/30 px-3 py-1 font-bold text-sky-400">
+                    Not & Üretkenlik
+                  </span>
+                  <span className="text-emerald-400 font-semibold">● Google Play'de Yayında</span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-zinc-100 transition-colors">
                   {benimNotlarim.title}
                 </h3>
 
                 <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-                  Material You dinamik duvar kağıdı renk uyumu, zengin metin editörü (kontrol listesi, kod, vurgu) ve %100 yerel gizlilik odaklı Android not uygulaması.
+                  Material You dinamik duvar kağıdı renk uyumu, zengin metin editörü (kontrol listesi, kod blokları, vurgulama) ve %100 yerel gizlilik odaklı Android not uygulaması.
                 </p>
               </div>
 
-              {/* Mockup */}
-              <div className="flex justify-center py-2">
-                <div className="w-full max-w-[210px] rounded-[2.2rem] p-2 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/15 shadow-xl">
-                  <div className="aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem] bg-black">
+              {/* 3D Mockup with Glare */}
+              <div className="relative z-10 flex justify-center py-2">
+                <div className="w-full max-w-[210px] rounded-[2.2rem] p-2 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/15 shadow-xl group-hover:scale-105 group-hover:rotate-1 transition-all duration-500">
+                  <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.8rem] bg-black">
                     <img
                       src="/apps/benim-notlarim/cover.jpg"
                       alt="Benim Notlarım Ekranı"
                       className="h-full w-full object-cover object-top"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.07] pointer-events-none" />
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+              <div className="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between">
                 <a
                   href="https://play.google.com/store/apps/details?id=com.benimnotlarim.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-xl bg-white px-5 py-3 text-xs font-bold text-zinc-950 hover:bg-zinc-200 transition-all flex items-center gap-1.5"
+                  className="rounded-xl bg-white px-5 py-3 text-xs font-bold text-zinc-950 hover:bg-zinc-200 transition-all flex items-center gap-1.5 hover:scale-105"
                 >
                   <Download className="h-3.5 w-3.5" />
                   <span>Google Play'den İndir</span>
@@ -240,10 +269,10 @@ export default function HomePage() {
 
       {/* 4. Direct Studio Manifesto & Contact */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-12 lg:p-16">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-b from-[#141418] to-[#0d0d10] p-8 sm:p-12 lg:p-16">
           <div className="max-w-3xl space-y-6">
             <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest">
-              Stüdyo Hakkında
+              Stüdyo Felsefesi
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
               Sade tasarımlar, dürüst ürünler.
@@ -254,7 +283,7 @@ export default function HomePage() {
             <div className="pt-4 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="rounded-xl bg-white px-6 py-3.5 text-xs sm:text-sm font-bold text-zinc-950 hover:bg-zinc-200 transition-all"
+                className="rounded-xl bg-white px-6 py-3.5 text-xs sm:text-sm font-bold text-zinc-950 hover:bg-zinc-200 transition-all shadow-xl shadow-white/5"
               >
                 İletişime Geçin
               </Link>
@@ -262,7 +291,7 @@ export default function HomePage() {
                 href="/press"
                 className="rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-xs sm:text-sm font-semibold text-zinc-200 hover:text-white hover:border-white/30 transition-all"
               >
-                Press Kit & Medya
+                Press Kit & Medya Varlıkları
               </Link>
             </div>
           </div>
