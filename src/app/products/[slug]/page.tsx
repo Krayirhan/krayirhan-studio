@@ -204,16 +204,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   <span className="font-semibold text-emerald-400">{product.status}</span>
                 </div>
               </div>
-
-              <div className="border-t border-white/10 pt-4">
-                <Link
-                  href="/press"
-                  className="flex items-center justify-center gap-1.5 text-xs text-zinc-400 hover:text-white hover:underline"
-                >
-                  <Sparkles className="h-3.5 w-3.5" />
-                  <span>Basın & Medya kiti varlıklarını incele</span>
-                </Link>
-              </div>
             </div>
           </div>
         </div>

@@ -13,8 +13,8 @@ export function Navbar() {
   const navLinks = [
     { name: "Blok Dünyası", href: "/products/blok-dunyasi" },
     { name: "LingoRise", href: "/products/lingorise" },
+    { name: "Benim Notlarım", href: "/products/benim-notlarim" },
     { name: "Tüm Ürünler", href: "/products" },
-    { name: "Press Kit", href: "/press" },
     { name: "Stüdyo Hakkında", href: "/about" },
     { name: "Destek", href: "/contact" },
   ];

@@ -59,8 +59,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/press" className="hover:text-white transition-colors">
-                  Press Kit & Basın
+                <Link href="/about" className="hover:text-white transition-colors">
+                  Stüdyo Hakkında
                 </Link>
               </li>
             </ul>
