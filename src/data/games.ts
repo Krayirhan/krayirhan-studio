@@ -8,25 +8,25 @@ export const PRODUCTS: Product[] = [
     type: "game",
     title: "Blok Dünyası",
     tagline: "Renkli blokları eşleştirin, çizgileri patlatın ve en yüksek skora ulaşın!",
-    category: ["Bulmaca", "Mobil Oyun", "Casual", "Arcade"],
+    category: ["Bulmaca", "Mobil Oyun", "Eğlence"],
     status: "Released",
     releaseDate: "Google Play'de Yayında",
     shortDescription:
-      "Blok Dünyası; klasik blok bulmaca mekaniklerini meyve ve dikiş temalı göz alıcı görsellerle, akıcı kontrollerle ve hedef bazlı seviye modlarıyla buluşturan eğlenceli bir mobil oyundur.",
+      "Blok Dünyası; klasik blok bulmaca keyfini renkli meyve ve kumaş temalarıyla buluşturan, oynaması akıcı ve tamamen internetsiz bir mobil oyundur.",
     fullDescription:
-      "Blok Dünyası'nda amacınız ızgara üzerine verilen farklı şekillerdeki blokları stratejik olarak yerleştirmek, yatay ve dikey sıraları tamamlayarak temizlemektir.\n\n" +
-      "🧩 Stratejik Hamleler: Her hamlenizi önceden planlayın, ızgarayı doldurmadan kombolar yapın.\n\n" +
-      "🎨 Çeşitli Görsel Temalar: İster taze meyve blokları ister el yapımı kumaş ve düğme desenleriyle oynayın.\n\n" +
-      "🏆 Skor Yarışı: Kendi en iyi rekorlarınızı kırın ve arkadaşlarınızla yarışın!",
+      "Blok Dünyası'nda amacınız ekrana gelen farklı şekillerdeki renkli blokları 8x8 ızgaraya yerleştirmek, yatay ve dikey sıraları tamamlayarak patlatmaktır.\n\n" +
+      "🧩 Akıllı Hamleler: Blokları dikkatlice yerleştirin, kombolar yaparak tahtayı temizleyin.\n\n" +
+      "🎨 Canlı Temalar: Taze meyve blokları ve el yapımı kumaş desenleriyle göz yormayan harika görseller.\n\n" +
+      "🏆 Skor Heyecanı: Kendi rekorlarınızı geliştirin ve en yüksek puana ulaşın!",
     features: [
-      "Canlı ve Renkli Temalar: Meyve blokları, dikiş-kumaş desenleri ve dinamik patlama efektleri.",
-      "Hedef Puan Modları: Belirlenen seviye hedeflerine ulaşarak yeni rekorlara koşun.",
-      "Akıcı Dokunmatik Kontroller: Mobil cihazlar için hassas, gecikmesiz blok sürükleme deneyimi.",
-      "Kayıt & Skor Sistemi: En iyi puanlarınızı takip edin ve istediğiniz zaman oyuna devam edin.",
-      "İnternetsiz Oynama: Dilediğiniz her yerde tamamen offline oynanabilirlik.",
+      "Canlı ve Renkli Görseller: Meyve ve kumaş desenli göz alıcı temalar.",
+      "Kolay & Akıcı Oynanış: Tek parmakla blokları rahatça sürükleyin ve bırakın.",
+      "Yüksek Skor Heyecanı: En iyi skorlarınızı kaydedin ve yeni rekorlar kırın.",
+      "Stres Attıran Kombolar: Aynı anda birden fazla sırayı temizleyerek ekstra puan kazanın.",
+      "%100 İnternetsiz: Metroda, otobüste veya seyahatte dilediğiniz her an oynayın.",
     ],
     platforms: ["Google Play", "Android"],
-    techStack: ["Unity Engine (C#)", "DOTween", "Universal Render Pipeline (URP)"],
+    techStack: ["Mobil Oyun"],
     links: {
       playStore: "https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi",
     },
@@ -46,27 +46,26 @@ export const PRODUCTS: Product[] = [
     slug: "lingorise",
     type: "app",
     title: "LingoRise",
-    tagline: "Türkçe konuşanlar için, unutmayı ciddiye alan akıllı İngilizce kelime öğrenme uygulaması.",
-    category: ["Eğitim", "Dil Öğrenme", "Aralıklı Tekrar (SRS)", "Mobil"],
+    tagline: "İngilizce kelimeleri unutmadan, eğlenerek ve bahçenizi büyüterek öğrenin.",
+    category: ["Eğitim", "Dil Öğrenme", "Mobil"],
     status: "Beta",
     releaseDate: "Beta Yayında",
     shortDescription:
-      "LingoRise; A1'den C2'ye kadar kelime bilgisini SM-2 aralıklı tekrar algoritması ve 'Learning Garden' oyunlaştırma mekanikleriyle kalıcı hale getiren modern bir mobil uygulamadır.",
+      "LingoRise; İngilizce kelime bilginizi unutmayı engelleyen akıllı hatırlatma sistemi ve büyüyen görsel bahçe metaforuyla kalıcı hale getiren modern bir mobil uygulamadır.",
     fullDescription:
-      "LingoRise, klasik bir 'kelime kartı' uygulamasından farklı olarak bilginin kalıcılığını merkeze alır:\n\n" +
-      "🌱 XP ≠ Bilgi: XP sadece harcanan çabayı ödüllendirir, asla azalmaz. Bir kelimeyi gerçekten bildiğinizi kanıtlayan ayrı bir eksen vardır: Mastery.\n\n" +
-      "⏳ Gerçek Aralıklı Tekrar (SRS): Bir kelimenin 'pekişmiş' sayılması için 3 ardışık doğru ve en az 2 farklı günde doğru bilinmesi gerekir. SM-2 tabanlı zamanlayıcı unutma eğrisine göre her kelimeyi tam vaktinde yeniden sorar.\n\n" +
-      "🏡 Learning Garden: Her pekişen kelime bahçenizi büyütür. İlerleme somut, şeffaf ve dürüst kalır.",
+      "LingoRise, sıkıcı ezber yöntemlerinin aksine kelimeleri kalıcı olarak aklınızda tutmanızı sağlar:\n\n" +
+      "🌱 Görsel Öğrenme Bahçesi: Öğrendiğiniz ve hafızanıza yerleşen her yeni kelimeyle bahçeniz yeşerir ve büyür.\n\n" +
+      "🧠 Akıllı Hatırlatma Sistemi: Bir kelimeyi tam unutmaya başladığınız anda karşınıza çıkararak hafızanızı taze tutar.\n\n" +
+      "🎯 Seviyelere Göre Kelimeler: Başlangıçtan ileri düzeye kadar en çok kullanılan günlük kelimeleri adım adım öğrenin.",
     features: [
-      "SM-2 Aralıklı Tekrar Algoritması: Unutma eğrisine göre otomatik olarak zamanlanan akıllı pratik oturumları.",
-      "Learning Garden Metaforu: Öğrenilen ve pekişen kelimelerle evrilen görsel bahçe sistemi.",
-      "A1 - C2 Kapsamlı Müfredat: Seviyelere, ünitelere ve kullanım sıklığına göre yapılandırılmış kelime havuzu.",
-      "Dürüst İlerleme (Mastery vs Seen): Sadece görülen değil, hafızaya tam yerleşmiş kelimelerin net ayrımı.",
-      "Offline-First & Bulut Senkronizasyonu: AsyncStorage ile internetsiz tam çalışma, Firebase Firestore ile çoklu cihaz eşitlemesi.",
-      "177+ Birim Testi: React ve veri tabanından tamamen izole edilmiş saf domain mimarisi ile sıfır mantık hatası.",
+      "Akıllı Hatırlatma: Kelimeleri tam zamanında tekrar ettirerek hafızanızda kalıcı kılar.",
+      "Öğrenme Bahçesi: Her pekişen kelimeyle görsel bahçeniz gelişir ve motivasyonunuz artar.",
+      "Zengin Kelime Havuzu: Günlük hayatta ve sınavlarda en çok karşınıza çıkacak popüler kelimeler.",
+      "Görsel İlerleme Takibi: Kaç kelimeyi tam olarak öğrendiğinizi net bir şekilde görün.",
+      "İnternetsiz Kullanım: Dilediğiniz her yerde bağlantı olmadan rahatça kelime pratikleri yapın.",
     ],
     platforms: ["App Store", "Google Play", "Web App"],
-    techStack: ["React Native", "Expo SDK 56", "TypeScript (Strict)", "Firebase Firestore", "AsyncStorage"],
+    techStack: ["Mobil Uygulama"],
     links: {},
     coverImage: "/apps/lingorise/home-garden.png",
     bannerImage: "/apps/lingorise/home-garden.png",
@@ -82,27 +81,26 @@ export const PRODUCTS: Product[] = [
     slug: "benim-notlarim",
     type: "app",
     title: "Benim Notlarım",
-    tagline: "Material You dinamik teması, zengin metin editörü ve gizlilik odaklı akıllı not uygulaması.",
-    category: ["Üretkenlik", "Not Alma", "Material You", "Android"],
+    tagline: "Şık, sade ve tamamen gizlilik odaklı Android not defteriniz.",
+    category: ["Üretkenlik", "Not Defteri", "Mobil"],
     status: "Released",
     releaseDate: "Google Play'de Yayında",
     shortDescription:
-      "Benim Notlarım; Material 3 dinamik renk paleti, zengin biçimlendirme araçları (Rich Text), arşiv/çöp kutusu sistemi ve yüksek kontrast moduyla sade ve güçlü bir Android not alma deneyimi sunar.",
+      "Benim Notlarım; telefonunuzun duvar kağıdıyla otomatik uyum sağlayan renkleri, zengin metin düzenleme araçları ve %100 gizlilik odaklı yapısıyla sade bir not alma deneyimi sunar.",
     fullDescription:
-      "Benim Notlarım, fikirlerinizi, planlarınızı ve hatırlatmalarınızı en hızlı ve modern şekilde kaydetmeniz için geliştirildi.\n\n" +
-      "🎨 Material You & Dinamik Renk: Cihazınızın duvar kağıdına uyum sağlayan akıllı renk paletleri ve tam karanlık tema desteği.\n\n" +
-      "✍️ Zengin Metin Düzenleyici: Kalın, italik, altı çizili, kod blokları, vurgulama ve kontrol listeleriyle (Checklist) notlarınızı özgürce biçimlendirin.\n\n" +
-      "🔒 Gizlilik & Çevrimdışı: Tüm notlarınız cihazınızda yerel ve güvenli bir şekilde saklanır.",
+      "Benim Notlarım; fikirlerinizi, günlük planlarınızı ve alışveriş listelerinizi hızla kaydetmeniz için tasarlandı:\n\n" +
+      "🎨 Otomatik Renk Uyumu: Telefonunuzun temasına ve duvar kağıdına uyum sağlayan şık ve modern görünüm.\n\n" +
+      "✍️ Zengin Yazı Seçenekleri: Kalın, italik yazılar, renkli vurgular ve yapılacaklar kontrol listeleri oluşturun.\n\n" +
+      "🔒 %100 Gizli & Güvenli: Notlarınız sadece sizin telefonunuzda saklanır, asla dışarıya aktarılmaz.",
     features: [
-      "Material You Dinamik Renkler: Duvar kağıdınızdan otomatik üretilen şık renk paletleri.",
-      "Zengin Metin Formatlama: Kalın, italik, vurgu, kod blokları, kontrol listeleri ve maddeleme.",
-      "Arşiv ve Çöp Kutusu: Silinen notları kolayca kurtarma ve önemli notları arşivleme desteği.",
-      "Kişiselleştirme: Yüksek kontrast modu, yazı tipi boyutu ve tema geçişleri.",
-      "Sıralama & Arama: Son düzenleme, oluşturulma tarihi veya alfabetik başlık sıralaması.",
-      "%100 Çevrimdışı & Gizlilik Odaklı: Verileriniz üçüncü şahıslarla paylaşılmaz, cihazınızda kalır.",
+      "Zengin Yazı Düzenleyici: Kontrol listeleri, kalın/italik yazılar ve renkli vurgulamalar.",
+      "Duvar Kağıdına Uyumlu Tema: Telefonunuzun renkleriyle otomatik eşleşen modern arayüz.",
+      "Kolay Arama & Sıralama: Aradığınız nota saniyeler içinde ulaşın.",
+      "Arşiv ve Çöp Kutusu: Önemli notlarınızı arşivleyin, silinenleri kolayca geri yükleyin.",
+      "Tamamen Çevrimdışı & Gizli: Verileriniz telefonunuzda güvendedir, internet gerektirmez.",
     ],
     platforms: ["Google Play", "Android"],
-    techStack: ["Kotlin", "Jetpack Compose", "Material 3", "Room Database", "Coroutines"],
+    techStack: ["Mobil Uygulama"],
     links: {
       playStore: "https://play.google.com/store/apps/details?id=com.benimnotlarim.app",
     },
