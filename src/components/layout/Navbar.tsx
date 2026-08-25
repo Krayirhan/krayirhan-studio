@@ -16,7 +16,7 @@ export function Navbar() {
     { name: "Tüm Ürünler", href: "/products" },
     { name: "Press Kit", href: "/press" },
     { name: "Stüdyo Hakkında", href: "/about" },
-    { name: "İletişim", href: "/contact" },
+    { name: "Destek", href: "/contact" },
   ];
 
   return (
@@ -55,15 +55,6 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <a
-            href={STUDIO_INFO.founder.portfolioUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-zinc-400 hover:text-white transition-colors tracking-wide flex items-center gap-1"
-          >
-            <span>Kişisel CV</span>
-            <ExternalLink className="h-3 w-3 text-zinc-500" />
-          </a>
         </nav>
 
         {/* Action Buttons & Sound Toggle */}
@@ -107,15 +98,6 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <a
-              href={STUDIO_INFO.founder.portfolioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-300 hover:bg-white/5 hover:text-white flex items-center justify-between"
-            >
-              <span>Kişisel CV (krayirhan.com)</span>
-              <ExternalLink className="h-3.5 w-3.5 text-zinc-500" />
-            </a>
           </div>
 
           <div className="pt-4 border-t border-white/10">

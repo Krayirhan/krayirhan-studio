@@ -107,7 +107,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
-                  İş Birliği & İletişim
+                  Destek & Topluluk
                 </Link>
               </li>
             </ul>
