@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { PRODUCTS } from "@/data/games";
 import { Product } from "@/types/game";
-import { Download, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Download, ChevronLeft, ChevronRight, Star, ExternalLink, ArrowRight, Gamepad2, Smartphone, Sparkles } from "lucide-react";
 import { QrDownloadButton } from "@/components/ui/QrDownloadModal";
 
 export function FeaturedProductSlider() {
@@ -21,31 +21,31 @@ export function FeaturedProductSlider() {
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
-  // Auto-slide every 4 seconds
+  // Auto-advance every 4.5 seconds
   useEffect(() => {
     if (isPaused) return;
     timerRef.current = setInterval(() => {
       nextSlide();
-    }, 4000);
+    }, 4500);
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPaused, nextSlide]);
+  }, [isPaused, nextSlide, currentIndex]);
 
   const product = PRODUCTS[currentIndex];
 
-  // Accent aura colors based on current product
+  // Accent aura colors for background
   const getAuraColor = (id: string) => {
     switch (id) {
       case "blok-dunyasi":
-        return "bg-orange-500/[0.12] border-orange-500/30";
+        return "from-orange-500/15 via-amber-500/10 to-transparent";
       case "lingorise":
-        return "bg-emerald-500/[0.12] border-emerald-500/30";
+        return "from-emerald-500/15 via-teal-500/10 to-transparent";
       case "benim-notlarim":
-        return "bg-sky-500/[0.12] border-sky-500/30";
+        return "from-sky-500/15 via-indigo-500/10 to-transparent";
       default:
-        return "bg-white/[0.08] border-white/20";
+        return "from-white/10 to-transparent";
     }
   };
 
@@ -53,10 +53,10 @@ export function FeaturedProductSlider() {
     if (product.id === "blok-dunyasi") {
       return (
         <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-300">
-          <span className="rounded-full bg-orange-500/15 border border-orange-500/30 px-3 py-1 font-bold text-orange-400">
+          <span className="rounded-full bg-orange-500/15 border border-orange-500/30 px-3.5 py-1 font-bold text-orange-400">
             Öne Çıkan Mobil Oyun
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-zinc-300 font-medium">
+          <span className="inline-flex items-center gap-1 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-zinc-300 font-medium">
             <Star className="h-3 w-3 text-amber-400 fill-amber-400" />
             <span>4.8+ Google Play Puanı</span>
           </span>
@@ -66,10 +66,10 @@ export function FeaturedProductSlider() {
     if (product.id === "lingorise") {
       return (
         <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-300">
-          <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 font-bold text-emerald-400">
+          <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3.5 py-1 font-bold text-emerald-400">
             Kelime & Dil Bahçesi
           </span>
-          <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-emerald-400 font-semibold">
+          <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-emerald-400 font-semibold">
             Mobil Uygulama
           </span>
         </div>
@@ -77,10 +77,10 @@ export function FeaturedProductSlider() {
     }
     return (
       <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-300">
-        <span className="rounded-full bg-sky-500/15 border border-sky-500/30 px-3 py-1 font-bold text-sky-400">
+        <span className="rounded-full bg-sky-500/15 border border-sky-500/30 px-3.5 py-1 font-bold text-sky-400">
           Not & Üretkenlik
         </span>
-        <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-sky-400 font-semibold">
+        <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-sky-400 font-semibold">
           Google Play'de Yayında
         </span>
       </div>
@@ -88,152 +88,176 @@ export function FeaturedProductSlider() {
   };
 
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      {/* Interactive Main Showcase Card */}
+    <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+      
+      {/* 1. Top Interactive Switcher Tabs (Linear & Apple Style) */}
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-12 sm:mb-16">
+        {PRODUCTS.map((item, idx) => {
+          const isActive = currentIndex === idx;
+          return (
+            <button
+              key={item.id}
+              onClick={() => setCurrentIndex(idx)}
+              className={`relative overflow-hidden rounded-2xl px-5 py-3 text-xs sm:text-sm font-bold transition-all cursor-pointer border ${
+                isActive
+                  ? "border-white/30 bg-white/10 text-white shadow-xl shadow-black scale-105"
+                  : "border-white/10 bg-white/[0.02] text-zinc-400 hover:text-white hover:bg-white/5 hover:border-white/20"
+              }`}
+            >
+              <div className="flex items-center gap-2.5">
+                {item.type === "game" ? (
+                  <Gamepad2 className={`h-4 w-4 ${isActive ? "text-orange-400" : "text-zinc-500"}`} />
+                ) : (
+                  <Smartphone className={`h-4 w-4 ${isActive ? "text-emerald-400" : "text-zinc-500"}`} />
+                )}
+                <span>{item.title}</span>
+                <span className="text-[10px] text-zinc-400 font-normal hidden sm:inline">
+                  ({item.category[0]})
+                </span>
+              </div>
+
+              {/* Animated Progress Bar under active tab */}
+              {isActive && !isPaused && (
+                <div className="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-white via-zinc-200 to-white/40 animate-[marquee_4.5s_linear_infinite]" />
+              )}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* 2. Borderless Cinematic Showcase Stage (No Box/Card Container) */}
       <div
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111114] p-8 sm:p-12 lg:p-16 shadow-2xl transition-all duration-500"
+        className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
       >
-        {/* Dynamic Product Background Ambient Glow */}
+        {/* Dynamic Full-Bleed Ambient Aura Behind Phones */}
         <div
-          className={`absolute top-0 right-0 w-[550px] h-[550px] blur-[130px] rounded-full pointer-events-none transition-all duration-700 ${getAuraColor(
+          className={`absolute -right-10 top-1/2 -translate-y-1/2 w-[600px] h-[550px] bg-gradient-to-tr ${getAuraColor(
             product.id
-          )}`}
+          )} blur-[140px] rounded-full pointer-events-none transition-all duration-1000`}
         />
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[460px]">
-          
-          {/* Left Column: Product Info & Actions */}
-          <div className="lg:col-span-6 space-y-6 animate-in fade-in duration-300 key={product.id}">
-            {getTagBadge(product)}
+        {/* Left Column: Monumental Content */}
+        <div className="lg:col-span-6 space-y-6 z-10">
+          {getTagBadge(product)}
 
-            <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight font-display">
-              {product.title}
-            </h2>
+          <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.08] font-display">
+            {product.title}
+          </h2>
 
-            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
-              {product.shortDescription}
-            </p>
+          <p className="text-base sm:text-xl text-zinc-300 font-normal leading-relaxed">
+            {product.shortDescription}
+          </p>
 
-            {/* Feature Bullets */}
-            <div className="space-y-2.5 pt-1 text-sm text-zinc-300 font-medium">
-              {product.features?.slice(0, 3).map((feature, i) => (
-                <div key={i} className="flex items-start gap-2.5">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/10 text-white text-xs font-bold mt-0.5">
-                    ✓
-                  </span>
-                  <span className="leading-snug">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-4 flex flex-wrap items-center gap-3">
-              {product.links.playStore && (
-                <a
-                  href={product.links.playStore}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-xs sm:text-sm font-bold text-zinc-950 hover:bg-zinc-200 shadow-xl shadow-white/10 hover:scale-105 transition-all"
-                >
-                  <Download className="h-4 w-4" />
-                  <span>Google Play'den İndir</span>
-                </a>
-              )}
-
-              {product.links.playStore && (
-                <QrDownloadButton
-                  title={product.title}
-                  url={product.links.playStore}
-                  coverImage={product.coverImage}
-                  category={product.type === "game" ? "Mobil Oyun" : "Mobil Uygulama"}
-                />
-              )}
-
-              <Link
-                href={`/products/${product.slug}`}
-                className="rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white hover:border-white/30 transition-all"
+          {/* Quick Highlight Feature Pills */}
+          <div className="flex flex-wrap gap-2 pt-2">
+            {product.features?.slice(0, 3).map((feat, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-medium text-zinc-200 backdrop-blur-md"
               >
-                Detaylar & Galeri ➔
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column: Dynamic Phone Displays */}
-          <div className="lg:col-span-6 flex items-center justify-center gap-4 sm:gap-6 py-4">
-            {/* Primary Phone */}
-            <div className="w-1/2 max-w-[230px] sm:max-w-[250px] rounded-[2.5rem] p-2.5 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/20 shadow-2xl shadow-black/90 -rotate-3 group-hover:-rotate-1 group-hover:scale-105 transition-all duration-500">
-              <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2rem] bg-black">
-                <img
-                  src={product.coverImage}
-                  alt={`${product.title} Ekran 1`}
-                  className="h-full w-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
+                <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                <span>{feat.split(":")[0]}</span>
               </div>
-            </div>
-
-            {/* Secondary Phone (if screenshots exist) */}
-            <div className="w-1/2 max-w-[230px] sm:max-w-[250px] rounded-[2.5rem] p-2.5 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/20 shadow-2xl shadow-black/90 rotate-3 group-hover:rotate-1 group-hover:scale-105 transition-all duration-500 mt-8 sm:mt-12">
-              <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2rem] bg-black">
-                <img
-                  src={product.screenshots?.[0] || product.coverImage}
-                  alt={`${product.title} Ekran 2`}
-                  className="h-full w-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Bottom Slider Controls & Progress Indicators */}
-        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          
-          {/* Slide Indicator Pills */}
-          <div className="flex items-center gap-2.5">
-            {PRODUCTS.map((item, idx) => (
-              <button
-                key={item.id}
-                onClick={() => setCurrentIndex(idx)}
-                className={`flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
-                  currentIndex === idx
-                    ? "bg-white text-zinc-950 shadow-lg scale-105"
-                    : "bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/10"
-                }`}
-              >
-                <span>{item.title}</span>
-              </button>
             ))}
           </div>
 
+          {/* Actions & Navigation Controls */}
+          <div className="pt-6 flex flex-wrap items-center gap-4">
+            {product.links.playStore && (
+              <a
+                href={product.links.playStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-4 text-sm font-bold text-zinc-950 hover:bg-zinc-200 shadow-2xl shadow-white/10 hover:scale-105 transition-all"
+              >
+                <Download className="h-4 w-4" />
+                <span>Google Play'den İndir</span>
+              </a>
+            )}
+
+            {product.links.playStore && (
+              <QrDownloadButton
+                title={product.title}
+                url={product.links.playStore}
+                coverImage={product.coverImage}
+                category={product.type === "game" ? "Mobil Oyun" : "Mobil Uygulama"}
+              />
+            )}
+
+            <Link
+              href={`/products/${product.slug}`}
+              className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-semibold text-zinc-200 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"
+            >
+              <span>Detaylar & Galeri</span>
+              <ArrowRight className="h-4 w-4 text-zinc-400" />
+            </Link>
+          </div>
+
           {/* Manual Arrow Controls */}
-          <div className="flex items-center gap-2">
+          <div className="pt-4 flex items-center gap-3">
             <button
               onClick={prevSlide}
               aria-label="Önceki Ürün"
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white hover:bg-white hover:text-zinc-950 transition-all cursor-pointer shadow-md active:scale-95"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white hover:bg-white hover:text-zinc-950 transition-all cursor-pointer shadow-lg active:scale-95"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
-
-            <span className="text-xs font-mono text-zinc-400 px-2">
+            <span className="text-xs font-mono text-zinc-400">
               {currentIndex + 1} / {totalSlides}
             </span>
-
             <button
               onClick={nextSlide}
               aria-label="Sonraki Ürün"
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white hover:bg-white hover:text-zinc-950 transition-all cursor-pointer shadow-md active:scale-95"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white hover:bg-white hover:text-zinc-950 transition-all cursor-pointer shadow-lg active:scale-95"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>
-
         </div>
+
+        {/* Right Column: Massive Floating 3D Phones (Borderless in Space) */}
+        <div className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10">
+          {/* Phone 1: Main Menu / Cover */}
+          <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black -rotate-3 hover:-rotate-1 hover:scale-105 transition-all duration-500">
+            {/* Top Dynamic Island */}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-16 rounded-full bg-black/90 z-20 flex items-center justify-center">
+              <div className="h-1.5 w-1.5 rounded-full bg-zinc-800 mr-2" />
+              <div className="h-1 w-5 rounded-full bg-zinc-900" />
+            </div>
+
+            <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2.2rem] bg-black">
+              <img
+                src={product.coverImage}
+                alt={`${product.title} Ekran 1`}
+                className="h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
+            </div>
+          </div>
+
+          {/* Phone 2: Gameplay / Interior Screen */}
+          <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black rotate-3 hover:rotate-1 hover:scale-105 transition-all duration-500 mt-10 sm:mt-16">
+            {/* Top Dynamic Island */}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-16 rounded-full bg-black/90 z-20 flex items-center justify-center">
+              <div className="h-1.5 w-1.5 rounded-full bg-zinc-800 mr-2" />
+              <div className="h-1 w-5 rounded-full bg-zinc-900" />
+            </div>
+
+            <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2.2rem] bg-black">
+              <img
+                src={product.screenshots?.[0] || product.coverImage}
+                alt={`${product.title} Ekran 2`}
+                className="h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </section>
   );
 }
