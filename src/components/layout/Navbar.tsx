@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ExternalLink, Sparkles } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 import { SoundToggle } from "@/components/effects/SoundEffects";
 
@@ -19,10 +19,11 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#09090b]/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#08080a]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3.5 group">
           <div className="relative flex h-11 w-11 items-center justify-center rounded-full overflow-hidden border border-white/20 bg-white shadow-md group-hover:scale-105 group-hover:border-white transition-all p-0.5">
             <img
               src="/brand/logo.png"
@@ -31,7 +32,7 @@ export function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold tracking-wider text-xl text-white group-hover:text-zinc-300 transition-colors uppercase">
+            <span className="font-display font-bold tracking-wider text-xl text-white group-hover:text-zinc-300 transition-colors uppercase">
               {STUDIO_INFO.name}
             </span>
             <span className="text-[10px] font-semibold tracking-widest text-zinc-400 uppercase">
@@ -41,7 +42,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -51,32 +52,29 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-        </nav>
-
-        {/* Action Buttons, Sound Toggle & Portfolio Backlink */}
-        <div className="hidden md:flex items-center gap-3">
-          <SoundToggle />
-
           <a
             href={STUDIO_INFO.founder.portfolioUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-semibold text-zinc-300 hover:text-white hover:border-white/25 hover:bg-white/10 transition-all"
-            title="Kişisel Portfolio ve CV Sitesine Git"
+            className="text-sm font-medium text-zinc-400 hover:text-white transition-colors tracking-wide flex items-center gap-1"
           >
-            <Sparkles className="h-3.5 w-3.5 text-zinc-300" />
             <span>Kişisel CV</span>
             <ExternalLink className="h-3 w-3 text-zinc-500" />
           </a>
+        </nav>
+
+        {/* Action Buttons & Sound Toggle */}
+        <div className="hidden md:flex items-center gap-3">
+          <SoundToggle />
 
           <a
             href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-xl bg-white px-4 py-2 text-xs font-bold text-zinc-950 hover:bg-zinc-200 shadow-md shadow-white/5 transition-all"
+            className="flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-xs font-bold text-zinc-950 hover:bg-zinc-200 shadow-xl shadow-white/5 transition-all hover:scale-105"
           >
-            <span>Play Store</span>
-            <ExternalLink className="h-3 w-3" />
+            <span>Google Play</span>
+            <ExternalLink className="h-3.5 w-3.5" />
           </a>
         </div>
 
@@ -92,7 +90,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[#09090b] px-4 pt-4 pb-6 space-y-3">
+        <div className="md:hidden border-t border-white/10 bg-[#08080a] px-4 pt-4 pb-6 space-y-3">
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <Link
@@ -104,16 +102,25 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
+            <a
+              href={STUDIO_INFO.founder.portfolioUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-300 hover:bg-white/5 hover:text-white flex items-center justify-between"
+            >
+              <span>Kişisel CV (krayirhan.com)</span>
+              <ExternalLink className="h-3.5 w-3.5 text-zinc-500" />
+            </a>
           </div>
 
-          <div className="pt-4 border-t border-white/10 flex flex-col gap-2">
+          <div className="pt-4 border-t border-white/10">
             <a
               href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 rounded-xl bg-white py-3 text-xs font-bold text-zinc-950"
+              className="flex items-center justify-center gap-2 rounded-xl bg-white py-3 text-xs font-bold text-zinc-950"
             >
-              <span>Play Store'da Oyna</span>
+              <span>Google Play'de Oyna</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
