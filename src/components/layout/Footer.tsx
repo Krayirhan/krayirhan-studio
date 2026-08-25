@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 
 export function Footer() {
@@ -17,21 +17,21 @@ export function Footer() {
                   className="h-full w-full object-cover rounded-full"
                 />
               </div>
-              <span className="text-lg font-bold tracking-wider text-white uppercase">
+              <span className="text-lg font-bold tracking-wider text-white uppercase font-display">
                 {STUDIO_INFO.name}
               </span>
             </div>
             <p className="max-w-md text-sm text-zinc-400 leading-relaxed">
               {STUDIO_INFO.tagline}
             </p>
-            <div className="pt-2 text-xs text-zinc-500">
+            <div className="pt-2 text-xs text-zinc-500 font-mono">
               📍 {STUDIO_INFO.location} · Bağımsız Mobil Oyun & Uygulama Geliştirme Stüdyosu
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold tracking-widest text-zinc-200 uppercase">
+            <h4 className="text-xs font-bold tracking-widest text-zinc-200 uppercase font-mono">
               Ürünler & Sayfalar
             </h4>
             <ul className="space-y-2 text-sm">
@@ -65,7 +65,7 @@ export function Footer() {
 
           {/* Founder & Crosslink */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold tracking-widest text-zinc-200 uppercase">
+            <h4 className="text-xs font-bold tracking-widest text-zinc-200 uppercase font-mono">
               Bağlantılar
             </h4>
             <ul className="space-y-2 text-sm">
@@ -98,7 +98,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors font-medium"
                 >
-                  <span>Kurucu Portfolyosu (krayirhan.com)</span>
+                  <span>Kurucu: Muhsin Furkan Turan</span>
                   <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
@@ -112,10 +112,18 @@ export function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-4">
           <p>© {new Date().getFullYear()} {STUDIO_INFO.name}. Tüm hakları saklıdır.</p>
-          <p className="flex items-center gap-1">
-            Engineered with <Heart className="h-3.5 w-3.5 text-rose-500 inline fill-rose-500" /> by {STUDIO_INFO.founder.name}
+          <p className="font-medium text-zinc-400">
+            Geliştiren & Tasarlayan:{" "}
+            <a
+              href={STUDIO_INFO.founder.portfolioUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-200 hover:text-white underline underline-offset-4 transition-colors"
+            >
+              {STUDIO_INFO.founder.name}
+            </a>
           </p>
         </div>
       </div>
