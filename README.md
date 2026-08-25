@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# 🎮 Krayirhan Studio Website
 
-First, run the development server:
+### Bağımsız Oyun Geliştirme Stüdyosu Resmi Web Sitesi & Oyun Vitrini
+**Domain:** [`studio.krayirhan.com`](https://studio.krayirhan.com) · **Ana Şirket/Portfolyo:** [`krayirhan.com`](https://krayirhan.com)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+*Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS · Vercel + Cloudflare DNS*
+
+</div>
+
+---
+
+## 🧭 1. Mimari Mantık ve Neden Ayrı Proje?
+
+Bu proje, **`krayirhan.com`** ana domaini altında bağımsız bir subdomain olarak çalışan **`studio.krayirhan.com`** web sitesidir.
+
+### Neden Ayrı Bir Repo & Proje Olarak Kuruldu?
+1. **Kurumsal & Marka Ayrımı:**
+   - `krayirhan.com` $\rightarrow$ Kişisel CV, yazılım mühendisliği kariyeri ve bireysel portfolyo.
+   - `studio.krayirhan.com` $\rightarrow$ Steam oyunları, basın bültenleri (Press Kit), yayıncı (Publisher) iletişimleri ve oyun fragmanları için bağımsız kurumsal oyun stüdyosu kimliği.
+2. **Performans ve Bağımsızlık:**
+   - Oyun sayfalarındaki ağır medya (4K fragmanlar, ekran galerileri, Steam widget'ları, gelecekteki WebGL/Three.js 3D demolar) kişisel CV sitenin hızını ve paket boyutlarını asla etkilemez.
+3. **Ekip ve İzinler:**
+   - İleride stüdyo için bir grafiker, 3D modelci veya pazarlamacı ekibe katıldığında sadece bu repoya erişim verilebilir.
+
+---
+
+## 🌐 2. DNS & Subdomain Yapılandırması (`studio.krayirhan.com`)
+
+Yeni bir domain satın almaya gerek yoktur; mevcut `krayirhan.com` domainine subdomain olarak bağlanır.
+
+```text
+DNS Kayıtları (Cloudflare / Namecheap / vb.):
+
+Tür (Type)   | Ad (Name) | Değer (Value)          | Hedef
+------------ | --------- | ---------------------- | ---------------------------
+A / CNAME    | @         | 76.76.21.21            | krayirhan.com (CV Sitesi)
+CNAME        | studio    | cname.vercel-dns.com   | studio.krayirhan.com (Bu Proje)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Vercel'e Bağlama Adımları:
+1. Bu projeyi GitHub'da `krayirhan-studio` adıyla bir repoya yükleyin.
+2. [Vercel](https://vercel.com) panelinde **Add New... $\rightarrow$ Project** diyerek repoyu içeri aktarın.
+3. Proje ayarlarında: **Settings $\rightarrow$ Domains $\rightarrow$ Add Domain** alanına `studio.krayirhan.com` yazın.
+4. Domain DNS yöneticinizde (Cloudflare vb.) yukarıdaki CNAME kaydını ekleyin.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 3. Klasör ve Dosya Mimarisi
 
-## Learn More
+```text
+krayirhan-studio/
+├── public/                     # Statik Varlıklar
+│   ├── games/                  # Oyun kapakları ve ekran görüntüleri
+│   └── brand/                  # Logo ve ikonlar
+│
+├── src/
+│   ├── app/                    # Next.js App Router Rotaları
+│   │   ├── layout.tsx          # Dark gaming ana şablon, SEO ve Navbar/Footer
+│   │   ├── page.tsx            # Ana Sayfa (Spotlight oyun, vitrin, felsefe)
+│   │   ├── games/
+│   │   │   ├── page.tsx        # Oyun Kataloğu Listesi
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx    # Tekil Oyun Sayfası (Galeri, Sistem Gereksinimi, Steam)
+│   │   ├── press/
+│   │   │   └── page.tsx        # Press Kit & Medya Varlıkları Sayfası
+│   │   ├── about/
+│   │   │   └── page.tsx        # Stüdyo Hikayesi & Kurucu Portfolyo Bağlantısı
+│   │   └── contact/
+│   │       └── page.tsx        # Yayıncı, Basın & İletişim Formu
+│   │
+│   ├── components/             # Modüler Arayüz Bileşenleri
+│   │   ├── layout/             # Navbar (Portfolyo linkiyle) ve Footer
+│   │   ├── home/               # HeroSection, Spotlight
+│   │   └── games/              # GameCard, Rozetler
+│   │
+│   ├── data/                   # ⭐️ Veri Yönetim Merkezi (Data-Driven)
+│   │   ├── games.ts            # Tüm oyunların içerikleri, görselleri, Steam linkleri
+│   │   ├── studioInfo.ts       # Stüdyo vizyonu, sosyal medya ve kurucu bilgisi
+│   │   └── pressKit.ts         # Basın bülteni indirilebilir arşivleri
+│   │
+│   └── types/                  # TypeScript Tip Tanımları
+│       └── game.ts             # Game, Platform, Status, SystemRequirements arayüzleri
+│
+└── package.json
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🕹️ 4. Yeni Bir Oyun Nasıl Eklenir?
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Yeni bir oyun projeniz olduğunda kod yazmanıza gerek yoktur. Sadece [`src/data/games.ts`](src/data/games.ts) dosyasına yeni bir obje eklemeniz yeterlidir:
 
-## Deploy on Vercel
+```typescript
+{
+  id: "yeni-oyun-id",
+  slug: "yeni-oyun-adi",
+  title: "Yeni Oyun Adı",
+  tagline: "Oyunun tek cümlelik vurucu açıklaması",
+  genre: ["Aksiyon", "Macera"],
+  status: "In Development", // "Released" | "Early Access" | "In Development" | "Prototype"
+  releaseDate: "2027",
+  shortDescription: "Kısa tanıtım...",
+  fullDescription: "Detaylı hikaye ve mekanik açıklaması...",
+  features: ["Özellik 1", "Özellik 2"],
+  platforms: ["Steam", "Epic Games"],
+  engine: "Unity",
+  steamUrl: "https://store.steampowered.com/app/...",
+  coverImage: "https://...",
+  bannerImage: "https://...",
+  screenshots: ["https://...", "https://..."],
+  featured: true, // Ana sayfada öne çıkarılsın mı?
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Kaydettiğiniz anda:
+- Ana sayfada ve `/games` sayfasında kartı otomatik görünür.
+- `/games/yeni-oyun-adi` dinamik sayfası otomatik oluşur.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🚀 5. Geliştirme ve Çalıştırma
+
+```bash
+# Bağımlılıkları yükleyin (varsa)
+npm install
+
+# Geliştirici sunucusunu başlatın
+npm run dev
+
+# Üretim derlemesi oluşturun
+npm run build
+```
+
+Sunucu varsayılan olarak `http://localhost:3000` portunda açılır.
