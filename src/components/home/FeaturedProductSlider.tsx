@@ -1,33 +1,43 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { PRODUCTS } from "@/data/games";
 import { Product } from "@/types/game";
 import { Download, Star, ArrowRight, Gamepad2, Smartphone } from "lucide-react";
 import { QrDownloadButton } from "@/components/ui/QrDownloadModal";
 
+const SLIDE_DURATION = 5000; // 5.0 seconds per slide
+const TICK_INTERVAL = 50; // 50ms smooth tick
+
 export function FeaturedProductSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const totalSlides = PRODUCTS.length;
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  // Auto-advance every 4.5 seconds
+  // Single synchronized timer loop
   useEffect(() => {
     if (isPaused) return;
-    timerRef.current = setInterval(() => {
-      nextSlide();
-    }, 4500);
 
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [isPaused, nextSlide, currentIndex]);
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        const next = prev + (TICK_INTERVAL / SLIDE_DURATION) * 100;
+        if (next >= 100) {
+          setCurrentIndex((current) => (current + 1) % totalSlides);
+          return 0;
+        }
+        return next;
+      });
+    }, TICK_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, [isPaused, totalSlides]);
+
+  const handleTabClick = (idx: number) => {
+    setCurrentIndex(idx);
+    setProgress(0);
+  };
 
   const product = PRODUCTS[currentIndex];
 
@@ -102,7 +112,7 @@ export function FeaturedProductSlider() {
     return (
       <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-300">
         <span className="rounded-full bg-sky-500/15 border border-sky-500/30 px-3.5 py-1 font-bold text-sky-400">
-          Not & Üretkenlik
+          Not Defteri & Düzen
         </span>
         <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-sky-400 font-semibold">
           Google Play'de Yayında
@@ -114,15 +124,15 @@ export function FeaturedProductSlider() {
   return (
     <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
       
-      {/* 1. Top Interactive Switcher Tabs with Sleek Flowing Progress Timer */}
+      {/* 1. Top Interactive Switcher Tabs with Synchronized Progress Line */}
       <div className="flex flex-wrap items-center justify-center gap-3 mb-12 sm:mb-16">
         {PRODUCTS.map((item, idx) => {
           const isActive = currentIndex === idx;
           return (
             <button
               key={item.id}
-              onClick={() => setCurrentIndex(idx)}
-              className={`relative overflow-hidden rounded-2xl px-5 py-3 text-xs sm:text-sm font-bold transition-all cursor-pointer border ${
+              onClick={() => handleTabClick(idx)}
+              className={`relative overflow-hidden rounded-2xl px-6 py-3.5 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer border ${
                 isActive
                   ? "border-white/30 bg-white/10 text-white shadow-xl shadow-black scale-105"
                   : "border-white/10 bg-white/[0.02] text-zinc-400 hover:text-white hover:bg-white/5 hover:border-white/20"
@@ -135,18 +145,14 @@ export function FeaturedProductSlider() {
                   <Smartphone className={`h-4 w-4 ${isActive ? "text-emerald-400" : "text-zinc-500"}`} />
                 )}
                 <span>{item.title}</span>
-                <span className="text-[10px] text-zinc-400 font-normal hidden sm:inline">
-                  ({item.category[0]})
-                </span>
               </div>
 
-              {/* Sleek Animated Duration Fill Line under Active Tab */}
+              {/* Perfectly Synchronized Duration Fill Line */}
               {isActive && (
-                <div className="absolute bottom-0 left-0 h-[2.5px] w-full bg-white/15 rounded-full overflow-hidden">
+                <div className="absolute bottom-0 left-0 h-[2.5px] w-full bg-white/15 overflow-hidden">
                   <div
-                    key={`${item.id}-${currentIndex}`}
-                    style={{ animationPlayState: isPaused ? "paused" : "running" }}
-                    className="h-full bg-gradient-to-r from-zinc-200 via-white to-zinc-100 shadow-[0_0_8px_rgba(255,255,255,0.8)] animate-progress-fill"
+                    style={{ width: `${progress}%` }}
+                    className="h-full bg-gradient-to-r from-zinc-200 via-white to-zinc-100 shadow-[0_0_10px_rgba(255,255,255,0.9)] transition-all duration-75 ease-linear"
                   />
                 </div>
               )}
@@ -155,7 +161,7 @@ export function FeaturedProductSlider() {
         })}
       </div>
 
-      {/* 2. Borderless Cinematic Showcase Stage (No Box/Card Container) */}
+      {/* 2. Borderless Cinematic Showcase Stage */}
       <div
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -168,8 +174,8 @@ export function FeaturedProductSlider() {
           )} blur-[140px] rounded-full pointer-events-none transition-all duration-1000`}
         />
 
-        {/* Left Column: Monumental Content */}
-        <div className="lg:col-span-6 space-y-6 z-10">
+        {/* Left Column: Content with Keyed Smooth Transition */}
+        <div key={`info-${product.id}`} className="lg:col-span-6 space-y-6 z-10 animate-[fadeIn_0.4s_ease-out]">
           {getTagBadge(product)}
 
           <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.08] font-display">
@@ -180,7 +186,7 @@ export function FeaturedProductSlider() {
             {product.shortDescription}
           </p>
 
-          {/* Quick Highlight Feature Pills */}
+          {/* Feature Highlights */}
           <div className="flex flex-wrap gap-2 pt-2">
             {product.features?.slice(0, 3).map((feat, i) => (
               <div
@@ -226,11 +232,10 @@ export function FeaturedProductSlider() {
           </div>
         </div>
 
-        {/* Right Column: Massive Floating 3D Phones (Borderless in Space with 2 DISTINCT Screens) */}
-        <div className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10">
+        {/* Right Column: Floating 3D Phones with Keyed Smooth Transition */}
+        <div key={`phones-${product.id}`} className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10 animate-[fadeIn_0.5s_ease-out]">
           {/* Phone 1: Main Menu / Garden */}
           <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black -rotate-3 hover:-rotate-1 hover:scale-105 transition-all duration-500">
-            {/* Top Dynamic Island */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-16 rounded-full bg-black/90 z-20 flex items-center justify-center">
               <div className="h-1.5 w-1.5 rounded-full bg-zinc-800 mr-2" />
               <div className="h-1 w-5 rounded-full bg-zinc-900" />
@@ -246,9 +251,8 @@ export function FeaturedProductSlider() {
             </div>
           </div>
 
-          {/* Phone 2: Gameplay / Practice / Editor (DIFFERENT IMAGE) */}
+          {/* Phone 2: Gameplay / Practice / Editor */}
           <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black rotate-3 hover:rotate-1 hover:scale-105 transition-all duration-500 mt-10 sm:mt-16">
-            {/* Top Dynamic Island */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-16 rounded-full bg-black/90 z-20 flex items-center justify-center">
               <div className="h-1.5 w-1.5 rounded-full bg-zinc-800 mr-2" />
               <div className="h-1 w-5 rounded-full bg-zinc-900" />
