@@ -2,7 +2,8 @@ import { PRODUCTS } from "@/data/games";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, Monitor, Cpu, Layers, ExternalLink, Sparkles, Smartphone, Gamepad2 } from "lucide-react";
+import { ProductGallery } from "@/components/products/ProductGallery";
+import { ArrowLeft, CheckCircle2, Monitor, ExternalLink, Sparkles, Smartphone, Gamepad2 } from "lucide-react";
 import type { Metadata } from "next";
 
 interface ProductPageProps {
@@ -126,26 +127,14 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
               </div>
             )}
 
-            {/* Screenshots Gallery */}
+            {/* Screenshots Gallery with Fullscreen Lightbox */}
             {product.screenshots && product.screenshots.length > 0 && (
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-white">Arayüz & Ekran Görüntüleri</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {product.screenshots.map((screen, idx) => (
-                    <div
-                      key={idx}
-                      className="relative aspect-video rounded-xl overflow-hidden border border-slate-800 bg-slate-900 group"
-                    >
-                      <Image
-                        src={screen}
-                        alt={`${product.title} Ekran Görüntüsü ${idx + 1}`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                  ))}
+                <div className="flex items-center justify-between">
+                  <h2 className="text-2xl font-bold text-white">Arayüz & Ekran Görüntüleri</h2>
+                  <span className="text-xs text-slate-400">Büyütmek için görsele tıklayın</span>
                 </div>
+                <ProductGallery title={product.title} screenshots={product.screenshots} />
               </div>
             )}
 
