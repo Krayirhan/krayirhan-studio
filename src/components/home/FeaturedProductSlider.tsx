@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { PRODUCTS } from "@/data/games";
 import { Product } from "@/types/game";
-import { Download, Star, ArrowRight, Gamepad2, Smartphone } from "lucide-react";
-import { QrDownloadButton } from "@/components/ui/QrDownloadModal";
+import { Download, Star, ArrowRight, Gamepad2, Smartphone, QrCode } from "lucide-react";
+import { QrModalDialog } from "@/components/ui/QrDownloadModal";
 
 const SLIDE_DURATION = 4000; // Exactly 4.0 seconds per slide
 const TICK_INTERVAL = 40; // 40ms continuous tick
@@ -13,10 +13,13 @@ const TICK_INTERVAL = 40; // 40ms continuous tick
 export function FeaturedProductSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [qrModalProduct, setQrModalProduct] = useState<Product | null>(null);
   const totalSlides = PRODUCTS.length;
 
-  // Uninterrupted, reliable, clockwork slider loop
+  // Clockwork timer that FREEZES when QR modal is opened
   useEffect(() => {
+    if (qrModalProduct) return; // Completely freeze slider when QR modal is open
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         const next = prev + (TICK_INTERVAL / SLIDE_DURATION) * 100;
@@ -29,7 +32,7 @@ export function FeaturedProductSlider() {
     }, TICK_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [totalSlides]);
+  }, [totalSlides, qrModalProduct]);
 
   const handleTabClick = (idx: number) => {
     setCurrentIndex(idx);
@@ -167,7 +170,7 @@ export function FeaturedProductSlider() {
           )} blur-[140px] rounded-full pointer-events-none transition-all duration-1000`}
         />
 
-        {/* Left Column: Content with Keyed Smooth Transition */}
+        {/* Left Column: Content */}
         <div key={`info-${product.id}`} className="lg:col-span-6 space-y-6 z-10 animate-[fadeIn_0.35s_ease-out]">
           {getTagBadge(product)}
 
@@ -207,12 +210,13 @@ export function FeaturedProductSlider() {
             )}
 
             {product.links.playStore && (
-              <QrDownloadButton
-                title={product.title}
-                url={product.links.playStore}
-                coverImage={product.coverImage}
-                category={product.type === "game" ? "Mobil Oyun" : "Mobil Uygulama"}
-              />
+              <button
+                onClick={() => setQrModalProduct(product)}
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-4 text-sm font-semibold text-zinc-200 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all cursor-pointer"
+              >
+                <QrCode className="h-4 w-4 text-zinc-300" />
+                <span>QR ile Tara</span>
+              </button>
             )}
 
             <Link
@@ -225,7 +229,7 @@ export function FeaturedProductSlider() {
           </div>
         </div>
 
-        {/* Right Column: Floating 3D Phones with Keyed Smooth Transition */}
+        {/* Right Column: Floating 3D Phones */}
         <div key={`phones-${product.id}`} className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10 animate-[fadeIn_0.35s_ease-out]">
           {/* Phone 1: Main Menu / Garden */}
           <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black -rotate-3 hover:-rotate-1 hover:scale-105 transition-all duration-500">
@@ -263,6 +267,17 @@ export function FeaturedProductSlider() {
         </div>
 
       </div>
+
+      {/* Global Top-Level QR Modal (Renders above all phones with z-[999] and FREEZES the 4s slider) */}
+      {qrModalProduct && (
+        <QrModalDialog
+          title={qrModalProduct.title}
+          url={qrModalProduct.links.playStore || ""}
+          coverImage={qrModalProduct.coverImage}
+          isOpen={true}
+          onClose={() => setQrModalProduct(null)}
+        />
+      )}
 
     </section>
   );
