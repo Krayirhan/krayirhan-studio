@@ -10,8 +10,12 @@ export function Footer() {
           {/* Studio Brand */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-amber-500 via-indigo-600 to-cyan-500 text-white">
-                <Box className="h-5 w-5" />
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-full overflow-hidden border border-slate-700 bg-white p-0.5 shadow-md">
+                <img
+                  src="/brand/logo.png"
+                  alt="Krayirhan Studio Logo"
+                  className="h-full w-full object-cover rounded-full"
+                />
               </div>
               <span className="text-lg font-bold tracking-wider text-white uppercase">
                 {STUDIO_INFO.name}

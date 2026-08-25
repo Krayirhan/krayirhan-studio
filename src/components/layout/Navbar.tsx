@@ -23,8 +23,12 @@ export function Navbar() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-500 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
-            <Box className="h-6 w-6" />
+          <div className="relative flex h-11 w-11 items-center justify-center rounded-full overflow-hidden border border-slate-700 bg-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 group-hover:border-cyan-400 transition-all p-0.5">
+            <img
+              src="/brand/logo.png"
+              alt="Krayirhan Studio Logo"
+              className="h-full w-full object-cover rounded-full"
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold tracking-wider text-xl text-white group-hover:text-indigo-300 transition-colors uppercase">
