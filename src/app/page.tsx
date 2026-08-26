@@ -32,7 +32,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="pb-24 space-y-28 sm:space-y-36">
+    <div className="pb-16 space-y-16 sm:space-y-24">
       {/* 1. Monumental Studio Hero */}
       <HeroSection />
 
@@ -41,7 +41,7 @@ export default function HomePage() {
 
       {/* 3. Compact 3-Column Catalog Grid */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6 mb-8">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">
               <Smartphone className="h-4 w-4" />
@@ -185,10 +185,10 @@ export default function HomePage() {
       </section>
 
       {/* 4. Open & Fluid Studio Manifesto Stage (Completely Borderless & Integrated) */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-20">
-        
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-14">
+
         {/* 3 Core Experience Pillars (Open & Floating) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-14">
           <div className="space-y-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-400">
               <Palette className="h-5 w-5" />

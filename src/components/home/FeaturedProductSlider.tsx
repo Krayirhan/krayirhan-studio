@@ -136,7 +136,7 @@ export function FeaturedProductSlider() {
     <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
       
       {/* 1. Top Interactive Switcher Tabs with Synchronized Progress Line */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-12 sm:mb-16" role="tablist" aria-label="Öne çıkan ürünler">
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-8 sm:mb-10" role="tablist" aria-label="Öne çıkan ürünler">
         {PRODUCTS.map((item, idx) => {
           const isActive = currentIndex === idx;
           return (

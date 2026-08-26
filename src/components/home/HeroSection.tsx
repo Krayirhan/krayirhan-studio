@@ -6,7 +6,7 @@ import { STUDIO_INFO } from "@/data/studioInfo";
 
 export function HeroSection() {
   return (
-    <section className="texture-fabric relative overflow-hidden border-b border-white/10 pb-20 pt-16 md:pb-28 md:pt-24">
+    <section className="texture-fabric relative overflow-hidden border-b border-white/10 pb-12 pt-10 md:pb-16 md:pt-14">
       {/* Fruit-accent glow — shaped after Blok Dünyası's citrus / grape / cherry palette */}
       <div className="fruit-blob fruit-blob-citrus w-[420px] h-[420px] -top-24 right-[8%] animate-pulse-subtle" />
       <div className="fruit-blob fruit-blob-grape w-[280px] h-[280px] top-1/3 left-[6%]" />
@@ -62,7 +62,7 @@ export function HeroSection() {
         </div>
 
         {/* Right Column: A Board in Motion — one anchor phone surrounded by drifting puzzle tiles */}
-        <div className="relative mx-auto flex w-full max-w-lg lg:max-w-none items-center justify-center py-10 lg:justify-end lg:pr-4">
+        <div className="relative mx-auto flex w-full max-w-lg lg:max-w-none items-center justify-center py-4 lg:justify-end lg:pr-4">
 
           {/* Drifting tile chips — the board's own blocks, not a generic glow */}
           <div className="tile-chip tile-citrus w-14 h-14 sm:w-16 sm:h-16 top-2 left-2 sm:left-8" style={{ "--tile-rot": "-10deg", animationDelay: "0s" } as CSSProperties} />
@@ -72,7 +72,7 @@ export function HeroSection() {
           <div className="tile-chip tile-sky w-8 h-8 sm:w-10 sm:h-10 top-[42%] left-[6%]" style={{ "--tile-rot": "-6deg", animationDelay: "1.7s" } as CSSProperties} />
 
           {/* Secondary phone: gameplay screen, tucked low and behind */}
-          <div className="absolute bottom-0 left-[8%] sm:left-[14%] w-[36vw] max-w-[180px] sm:max-w-[200px] rotate-[10deg] rounded-[2rem] border border-white/20 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2 shadow-2xl shadow-black/70 z-0">
+          <div className="absolute bottom-0 left-[8%] sm:left-[14%] w-[32vw] max-w-[150px] sm:max-w-[160px] rotate-[10deg] rounded-[2rem] border border-white/20 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2 shadow-2xl shadow-black/70 z-0">
             <div
               style={{ aspectRatio: "472 / 1024" }}
               className="relative w-full overflow-hidden rounded-[1.6rem] bg-black"
@@ -87,7 +87,7 @@ export function HeroSection() {
           </div>
 
           {/* Anchor phone: main menu, large and bled toward the edge */}
-          <div className="relative z-10 w-[56vw] max-w-[260px] sm:max-w-[300px] lg:max-w-[340px] -rotate-3 rounded-[2.6rem] sm:rounded-[3rem] border border-white/25 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2.5 sm:p-3 shadow-2xl shadow-black/80 transition-transform duration-500 hover:-rotate-1">
+          <div className="relative z-10 w-[48vw] max-w-[210px] sm:max-w-[230px] lg:max-w-[250px] -rotate-3 rounded-[2.6rem] sm:rounded-[3rem] border border-white/25 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2.5 sm:p-3 shadow-2xl shadow-black/80 transition-transform duration-500 hover:-rotate-1">
             <div
               style={{ aspectRatio: "472 / 1024" }}
               className="relative w-full overflow-hidden rounded-[2.1rem] sm:rounded-[2.5rem] bg-black"
