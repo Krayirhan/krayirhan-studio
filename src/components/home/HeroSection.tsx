@@ -64,10 +64,6 @@ export function HeroSection() {
           <div className="relative flex items-center gap-4 sm:gap-7">
             {/* Phone 1: Main Menu */}
             <div className="relative w-[44vw] max-w-[220px] sm:max-w-[250px] lg:max-w-[275px] -rotate-6 rounded-[2.4rem] sm:rounded-[2.8rem] border border-white/25 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2.5 sm:p-3 shadow-2xl shadow-black/80 transition-all duration-500 hover:-rotate-2 hover:scale-105">
-              {/* Minimal Android Punch Hole */}
-              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-black ring-1 ring-zinc-800/90 z-20 flex items-center justify-center shadow-xs pointer-events-none">
-                <div className="h-1 w-1 rounded-full bg-zinc-900" />
-              </div>
               <div
                 style={{ aspectRatio: "472 / 1024" }}
                 className="relative w-full overflow-hidden rounded-[1.9rem] sm:rounded-[2.2rem] bg-black"
@@ -86,10 +82,6 @@ export function HeroSection() {
 
             {/* Phone 2: Gameplay */}
             <div className="relative mt-10 sm:mt-14 w-[44vw] max-w-[220px] sm:max-w-[250px] lg:max-w-[275px] rotate-6 rounded-[2.4rem] sm:rounded-[2.8rem] border border-white/25 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2.5 sm:p-3 shadow-2xl shadow-black/80 transition-all duration-500 hover:rotate-2 hover:scale-105">
-              {/* Minimal Android Punch Hole */}
-              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-black ring-1 ring-zinc-800/90 z-20 flex items-center justify-center shadow-xs pointer-events-none">
-                <div className="h-1 w-1 rounded-full bg-zinc-900" />
-              </div>
               <div
                 style={{ aspectRatio: "472 / 1024" }}
                 className="relative w-full overflow-hidden rounded-[1.9rem] sm:rounded-[2.2rem] bg-black"
@@ -104,14 +96,6 @@ export function HeroSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none" />
               </div>
-            </div>
-
-            {/* Floating Tag */}
-            <div className="absolute -bottom-3 left-2 sm:left-4 rounded-2xl border border-orange-400/30 bg-zinc-950/90 px-3.5 py-2 text-xs font-bold text-orange-200 shadow-2xl backdrop-blur-md">
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse" />
-                Akıllı hamleler, renkli bloklar.
-              </span>
             </div>
           </div>
         </div>
