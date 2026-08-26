@@ -68,14 +68,16 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
             {/* 2. Premium Phone Mockup Frame */}
             <div className="relative w-full max-w-[280px] sm:max-w-[300px] rounded-[2.8rem] p-2.5 bg-gradient-to-b from-zinc-700/80 via-zinc-800/90 to-zinc-900 border border-white/15 shadow-2xl shadow-black/80 ring-1 ring-white/10 group-hover:-translate-y-2 group-hover:border-white/40 transition-all duration-500">
               
-              {/* Top Dynamic Island / Speaker Pill */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-20 rounded-full bg-black/90 z-20 flex items-center justify-center">
-                <div className="h-1.5 w-1.5 rounded-full bg-zinc-800 mr-2" />
-                <div className="h-1 w-6 rounded-full bg-zinc-900" />
+              {/* Sleek Modern Camera Punch-Hole */}
+              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-black ring-1 ring-zinc-800/90 z-20 flex items-center justify-center shadow-xs">
+                <div className="h-1 w-1 rounded-full bg-zinc-900" />
               </div>
 
               {/* Screen Display */}
-              <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2.2rem] bg-zinc-950 shadow-inner">
+              <div
+                style={{ aspectRatio: screen.includes("benim-notlarim") ? "535 / 1024" : "9 / 19.5" }}
+                className="relative w-full overflow-hidden rounded-[2.2rem] bg-zinc-950 shadow-inner"
+              >
                 <Image
                   src={screen}
                   alt={`${title} Ekran Görüntüsü ${idx + 1}`}

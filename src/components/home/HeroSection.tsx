@@ -59,21 +59,59 @@ export function HeroSection() {
         </div>
 
         {/* Right Column: Floating 3D Phones with Badge */}
-        <div className="relative mx-auto flex w-full max-w-md items-center justify-center py-4 lg:max-w-none lg:justify-end">
-          <div className="absolute right-1/2 top-1/2 h-72 w-72 -translate-y-1/2 translate-x-1/2 rounded-full bg-orange-500/15 blur-[100px]" />
-          <div className="relative flex items-center gap-3 sm:gap-6">
-            <div className="relative w-[42vw] max-w-48 -rotate-6 overflow-hidden rounded-[2.15rem] border border-white/20 bg-zinc-900 p-2 shadow-2xl shadow-black/70 transition-transform duration-500 hover:-rotate-2">
-              <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.65rem] bg-black">
-                <Image src="/games/blok-dunyasi/cover.jpg" alt="Blok Dünyası ana menü ekranı" fill priority sizes="(max-width: 640px) 40vw, 192px" className="object-cover object-top" />
+        <div className="relative mx-auto flex w-full max-w-lg lg:max-w-none items-center justify-center py-4 lg:justify-end">
+          <div className="absolute right-1/2 top-1/2 h-80 w-80 -translate-y-1/2 translate-x-1/2 rounded-full bg-orange-500/20 blur-[130px] pointer-events-none" />
+          <div className="relative flex items-center gap-4 sm:gap-7">
+            {/* Phone 1: Main Menu */}
+            <div className="relative w-[44vw] max-w-[220px] sm:max-w-[250px] lg:max-w-[275px] -rotate-6 rounded-[2.4rem] sm:rounded-[2.8rem] border border-white/25 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2.5 sm:p-3 shadow-2xl shadow-black/80 transition-all duration-500 hover:-rotate-2 hover:scale-105">
+              {/* Minimal Android Punch Hole */}
+              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-black ring-1 ring-zinc-800/90 z-20 flex items-center justify-center shadow-xs pointer-events-none">
+                <div className="h-1 w-1 rounded-full bg-zinc-900" />
+              </div>
+              <div
+                style={{ aspectRatio: "472 / 1024" }}
+                className="relative w-full overflow-hidden rounded-[1.9rem] sm:rounded-[2.2rem] bg-black"
+              >
+                <Image
+                  src="/games/blok-dunyasi/cover.jpg"
+                  alt="Blok Dünyası ana menü ekranı"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 45vw, 275px"
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none" />
               </div>
             </div>
-            <div className="relative mt-10 w-[42vw] max-w-48 rotate-6 overflow-hidden rounded-[2.15rem] border border-white/20 bg-zinc-900 p-2 shadow-2xl shadow-black/70 transition-transform duration-500 hover:rotate-2 sm:mt-12">
-              <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.65rem] bg-black">
-                <Image src="/games/blok-dunyasi/gameplay-1.jpg" alt="Blok Dünyası blok bulmaca oyun ekranı" fill priority sizes="(max-width: 640px) 40vw, 192px" className="object-cover object-top" />
+
+            {/* Phone 2: Gameplay */}
+            <div className="relative mt-10 sm:mt-14 w-[44vw] max-w-[220px] sm:max-w-[250px] lg:max-w-[275px] rotate-6 rounded-[2.4rem] sm:rounded-[2.8rem] border border-white/25 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2.5 sm:p-3 shadow-2xl shadow-black/80 transition-all duration-500 hover:rotate-2 hover:scale-105">
+              {/* Minimal Android Punch Hole */}
+              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-black ring-1 ring-zinc-800/90 z-20 flex items-center justify-center shadow-xs pointer-events-none">
+                <div className="h-1 w-1 rounded-full bg-zinc-900" />
+              </div>
+              <div
+                style={{ aspectRatio: "472 / 1024" }}
+                className="relative w-full overflow-hidden rounded-[1.9rem] sm:rounded-[2.2rem] bg-black"
+              >
+                <Image
+                  src="/games/blok-dunyasi/gameplay-1.jpg"
+                  alt="Blok Dünyası blok bulmaca oyun ekranı"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 45vw, 275px"
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none" />
               </div>
             </div>
-            <div className="absolute -bottom-2 left-0 rounded-2xl border border-orange-300/20 bg-zinc-950/90 px-3 py-2 text-xs font-semibold text-orange-100 shadow-xl backdrop-blur-sm">
-              Akıllı hamleler, renkli bloklar.
+
+            {/* Floating Tag */}
+            <div className="absolute -bottom-3 left-2 sm:left-4 rounded-2xl border border-orange-400/30 bg-zinc-950/90 px-3.5 py-2 text-xs font-bold text-orange-200 shadow-2xl backdrop-blur-md">
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse" />
+                Akıllı hamleler, renkli bloklar.
+              </span>
             </div>
           </div>
         </div>

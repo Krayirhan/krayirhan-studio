@@ -231,14 +231,17 @@ export function FeaturedProductSlider() {
 
         {/* Right Column: Floating 3D Phones */}
         <div key={`phones-${product.id}`} className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10 animate-[fadeIn_0.35s_ease-out]">
-          {/* Phone 1: Main Menu / Garden */}
-          <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black -rotate-3 hover:-rotate-1 hover:scale-105 transition-all duration-500">
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-16 rounded-full bg-black/90 z-20 flex items-center justify-center">
-              <div className="h-1.5 w-1.5 rounded-full bg-zinc-800 mr-2" />
-              <div className="h-1 w-5 rounded-full bg-zinc-900" />
+          {/* Phone 1: Main Screen */}
+          <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.6rem] sm:rounded-[2.8rem] p-2.5 sm:p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black -rotate-3 hover:-rotate-1 hover:scale-105 transition-all duration-500 relative">
+            {/* Sleek Modern Android Punch-Hole Camera */}
+            <div className="absolute top-3.5 left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-black ring-1 ring-zinc-800/90 z-20 flex items-center justify-center shadow-xs pointer-events-none">
+              <div className="h-1 w-1 rounded-full bg-zinc-900" />
             </div>
 
-            <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2.2rem] bg-black">
+            <div
+              style={{ aspectRatio: product.id === "benim-notlarim" ? "535 / 1024" : "9 / 19.5" }}
+              className="relative w-full overflow-hidden rounded-[2rem] sm:rounded-[2.2rem] bg-black"
+            >
               <img
                 src={screens.primary}
                 alt={`${product.title} Ekran 1`}
@@ -248,14 +251,17 @@ export function FeaturedProductSlider() {
             </div>
           </div>
 
-          {/* Phone 2: Gameplay / Practice / Editor */}
-          <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.8rem] p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black rotate-3 hover:rotate-1 hover:scale-105 transition-all duration-500 mt-10 sm:mt-16">
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-16 rounded-full bg-black/90 z-20 flex items-center justify-center">
-              <div className="h-1.5 w-1.5 rounded-full bg-zinc-800 mr-2" />
-              <div className="h-1 w-5 rounded-full bg-zinc-900" />
+          {/* Phone 2: Detail / Editor Screen */}
+          <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.6rem] sm:rounded-[2.8rem] p-2.5 sm:p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black rotate-3 hover:rotate-1 hover:scale-105 transition-all duration-500 mt-8 sm:mt-12 relative">
+            {/* Sleek Modern Android Punch-Hole Camera */}
+            <div className="absolute top-3.5 left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-black ring-1 ring-zinc-800/90 z-20 flex items-center justify-center shadow-xs pointer-events-none">
+              <div className="h-1 w-1 rounded-full bg-zinc-900" />
             </div>
 
-            <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2.2rem] bg-black">
+            <div
+              style={{ aspectRatio: product.id === "benim-notlarim" ? "547 / 1024" : "9 / 19.5" }}
+              className="relative w-full overflow-hidden rounded-[2rem] sm:rounded-[2.2rem] bg-black"
+            >
               <img
                 src={screens.secondary}
                 alt={`${product.title} Ekran 2`}
