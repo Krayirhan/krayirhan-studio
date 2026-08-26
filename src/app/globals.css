@@ -119,3 +119,27 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cpath d='M0 80 Q 40 20 80 80 T 160 80' stroke='%234fbf8f' stroke-width='1.4' fill='none' opacity='0.5'/%3E%3Ccircle cx='40' cy='50' r='4' fill='%234fbf8f' opacity='0.4'/%3E%3Ccircle cx='120' cy='108' r='4' fill='%234fbf8f' opacity='0.4'/%3E%3Ccircle cx='80' cy='80' r='3' fill='%234fbf8f' opacity='0.35'/%3E%3C/svg%3E");
   background-size: 160px 160px;
 }
+
+/* Puzzle tile chips — literal blocks from Blok Dünyası's board, used to compose the hero */
+.tile-chip {
+  position: absolute;
+  border-radius: 28%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.6);
+  animation: tile-float 6s ease-in-out infinite;
+}
+
+.tile-citrus { background: linear-gradient(155deg, #fab35f, #c56a1e); }
+.tile-grape { background: linear-gradient(155deg, #c3a2ef, #7752b0); }
+.tile-cherry { background: linear-gradient(155deg, #f0879c, #a83c50); }
+.tile-lime { background: linear-gradient(155deg, #a9dd7a, #5c9631); }
+.tile-sky { background: linear-gradient(155deg, #7cc3f2, #2c6f9c); }
+
+@keyframes tile-float {
+  0%, 100% { transform: translateY(0) rotate(var(--tile-rot, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--tile-rot, 0deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile-chip { animation: none; }
+}

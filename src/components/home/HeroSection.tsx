@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { ArrowRight, ExternalLink, Gamepad2, ShieldCheck } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 
@@ -60,38 +61,43 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right Column: Floating 3D Phones with Badge */}
-        <div className="relative mx-auto flex w-full max-w-lg lg:max-w-none items-center justify-center py-4 lg:justify-end">
-          <div className="absolute right-1/2 top-1/2 h-80 w-80 -translate-y-1/2 translate-x-1/2 rounded-full bg-orange-500/20 blur-[130px] pointer-events-none" />
-          <div className="relative flex items-center gap-4 sm:gap-7">
-            {/* Phone 1: Main Menu */}
-            <div className="relative w-[44vw] max-w-[220px] sm:max-w-[250px] lg:max-w-[275px] -rotate-6 rounded-[2.4rem] sm:rounded-[2.8rem] border border-white/25 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2.5 sm:p-3 shadow-2xl shadow-black/80 transition-all duration-500 hover:-rotate-2 hover:scale-105">
-              <div
-                style={{ aspectRatio: "472 / 1024" }}
-                className="relative w-full overflow-hidden rounded-[1.9rem] sm:rounded-[2.2rem] bg-black"
-              >
-                <img
-                  src="/games/blok-dunyasi/cover.jpg"
-                  alt="Blok Dünyası ana menü ekranı"
-                  className="h-full w-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none" />
-              </div>
-            </div>
+        {/* Right Column: A Board in Motion — one anchor phone surrounded by drifting puzzle tiles */}
+        <div className="relative mx-auto flex w-full max-w-lg lg:max-w-none items-center justify-center py-10 lg:justify-end lg:pr-4">
 
-            {/* Phone 2: Gameplay */}
-            <div className="relative mt-10 sm:mt-14 w-[44vw] max-w-[220px] sm:max-w-[250px] lg:max-w-[275px] rotate-6 rounded-[2.4rem] sm:rounded-[2.8rem] border border-white/25 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2.5 sm:p-3 shadow-2xl shadow-black/80 transition-all duration-500 hover:rotate-2 hover:scale-105">
-              <div
-                style={{ aspectRatio: "472 / 1024" }}
-                className="relative w-full overflow-hidden rounded-[1.9rem] sm:rounded-[2.2rem] bg-black"
-              >
-                <img
-                  src="/games/blok-dunyasi/gameplay-1.jpg"
-                  alt="Blok Dünyası blok bulmaca oyun ekranı"
-                  className="h-full w-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none" />
-              </div>
+          {/* Drifting tile chips — the board's own blocks, not a generic glow */}
+          <div className="tile-chip tile-citrus w-14 h-14 sm:w-16 sm:h-16 top-2 left-2 sm:left-8" style={{ "--tile-rot": "-10deg", animationDelay: "0s" } as CSSProperties} />
+          <div className="tile-chip tile-grape w-9 h-9 sm:w-11 sm:h-11 top-[18%] right-[22%] sm:right-[28%]" style={{ "--tile-rot": "14deg", animationDelay: "1.1s" } as CSSProperties} />
+          <div className="tile-chip tile-lime w-10 h-10 sm:w-12 sm:h-12 bottom-[8%] left-0 sm:left-4" style={{ "--tile-rot": "8deg", animationDelay: "2.2s" } as CSSProperties} />
+          <div className="tile-chip tile-cherry w-7 h-7 sm:w-9 sm:h-9 bottom-[26%] right-2 sm:right-6" style={{ "--tile-rot": "-16deg", animationDelay: "0.6s" } as CSSProperties} />
+          <div className="tile-chip tile-sky w-8 h-8 sm:w-10 sm:h-10 top-[42%] left-[6%]" style={{ "--tile-rot": "-6deg", animationDelay: "1.7s" } as CSSProperties} />
+
+          {/* Secondary phone: gameplay screen, tucked low and behind */}
+          <div className="absolute bottom-0 left-[8%] sm:left-[14%] w-[36vw] max-w-[180px] sm:max-w-[200px] rotate-[10deg] rounded-[2rem] border border-white/20 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2 shadow-2xl shadow-black/70 z-0">
+            <div
+              style={{ aspectRatio: "472 / 1024" }}
+              className="relative w-full overflow-hidden rounded-[1.6rem] bg-black"
+            >
+              <img
+                src="/games/blok-dunyasi/gameplay-1.jpg"
+                alt="Blok Dünyası blok bulmaca oyun ekranı"
+                className="h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+            </div>
+          </div>
+
+          {/* Anchor phone: main menu, large and bled toward the edge */}
+          <div className="relative z-10 w-[56vw] max-w-[260px] sm:max-w-[300px] lg:max-w-[340px] -rotate-3 rounded-[2.6rem] sm:rounded-[3rem] border border-white/25 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2.5 sm:p-3 shadow-2xl shadow-black/80 transition-transform duration-500 hover:-rotate-1">
+            <div
+              style={{ aspectRatio: "472 / 1024" }}
+              className="relative w-full overflow-hidden rounded-[2.1rem] sm:rounded-[2.5rem] bg-black"
+            >
+              <img
+                src="/games/blok-dunyasi/cover.jpg"
+                alt="Blok Dünyası ana menü ekranı"
+                className="h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none" />
             </div>
           </div>
         </div>
