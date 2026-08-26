@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { FeaturedProductSlider } from "@/components/home/FeaturedProductSlider";
 import { PRODUCTS } from "@/data/games";
@@ -61,35 +62,43 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {/* 3-Column Visual Grid */}
+        {/* 3-Column Visual Grid — staggered like tiles resting unevenly on a board */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {PRODUCTS.map((product) => {
+          {PRODUCTS.map((product, index) => {
             const isBlokDunyasi = product.id === "blok-dunyasi";
             const isLingorise = product.id === "lingorise";
-            const isNotlarim = product.id === "benim-notlarim";
 
             const screens = getScreens(product.id);
+            const stagger = index === 1 ? "lg:-mt-6" : index === 2 ? "lg:mt-6" : "";
 
             return (
               <div
                 key={product.id}
-                className="group relative flex flex-col justify-between rounded-[2.2rem] border border-white/10 bg-[#111114] overflow-hidden hover:border-white/25 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-black"
+                className={`group relative flex flex-col justify-between rounded-[2.2rem] border border-white/10 bg-[#111114] overflow-hidden hover:border-white/25 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-black ${stagger}`}
               >
                 {/* Top Visual Showcase: Pixel-Perfect Dual-Phone Simulator */}
                 <Link
                   href={`/products/${product.slug}`}
                   className="relative h-72 sm:h-80 w-full overflow-hidden bg-gradient-to-b from-[#18181c] to-[#0c0c0f] flex items-center justify-center p-4 group-hover:from-[#202028] transition-colors duration-500 border-b border-white/5"
                 >
-                  {/* Ambient Colored Aura */}
-                  <div
-                    className={`absolute w-60 h-60 rounded-full blur-[80px] opacity-25 group-hover:opacity-50 transition-all duration-700 pointer-events-none ${
-                      isBlokDunyasi
-                        ? "bg-orange-500"
-                        : isLingorise
-                        ? "bg-emerald-500"
-                        : "bg-sky-500"
-                    }`}
-                  />
+                  {/* Per-product texture, not a flat colored circle */}
+                  {isBlokDunyasi ? (
+                    <div className="absolute inset-0 opacity-60 group-hover:opacity-90 transition-opacity duration-700 pointer-events-none">
+                      <div className="fruit-blob fruit-blob-citrus w-44 h-44 -top-6 left-1/4" />
+                      <div className="fruit-blob fruit-blob-grape w-32 h-32 bottom-0 right-1/4" />
+                      <div className="fruit-blob fruit-blob-cherry w-24 h-24 top-1/3 right-6" />
+                    </div>
+                  ) : isLingorise ? (
+                    <div
+                      className="texture-vine absolute inset-0 opacity-70 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                      style={{ maskImage: "radial-gradient(circle, black 35%, transparent 70%)", WebkitMaskImage: "radial-gradient(circle, black 35%, transparent 70%)" }}
+                    />
+                  ) : (
+                    <div
+                      className="texture-notebook absolute inset-0 opacity-70 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                      style={{ maskImage: "radial-gradient(ellipse, black 45%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse, black 45%, transparent 80%)" }}
+                    />
+                  )}
 
                   {/* Dual Phone Showcase */}
                   <div className="relative flex items-center justify-center h-full py-2">
@@ -187,10 +196,10 @@ export default function HomePage() {
       {/* 4. Open & Fluid Studio Manifesto Stage (Completely Borderless & Integrated) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-14">
 
-        {/* 3 Core Experience Pillars (Open & Floating) */}
+        {/* 3 Core Experience Pillars — tiles resting at slightly different heights, not a flat row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-14">
           <div className="space-y-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-400">
+            <div className="tile-chip-static flex h-12 w-12 items-center justify-center text-white/90" style={{ background: "linear-gradient(155deg, #fab35f, #c56a1e)" }}>
               <Palette className="h-5 w-5" />
             </div>
             <h3 className="text-lg font-bold text-white font-display">Canlı & Özgün Temalar</h3>
@@ -199,8 +208,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="space-y-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+          <div className="space-y-3 lg:mt-8">
+            <div className="tile-chip-static flex h-12 w-12 items-center justify-center text-white/90" style={{ background: "linear-gradient(155deg, #c3a2ef, #7752b0)" }}>
               <Gamepad2 className="h-5 w-5" />
             </div>
             <h3 className="text-lg font-bold text-white font-display">Sürükleyici Mekanikler</h3>
@@ -210,7 +219,7 @@ export default function HomePage() {
           </div>
 
           <div className="space-y-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400">
+            <div className="tile-chip-static flex h-12 w-12 items-center justify-center text-white/90" style={{ background: "linear-gradient(155deg, #7cc3f2, #2c6f9c)" }}>
               <Shield className="h-5 w-5" />
             </div>
             <h3 className="text-lg font-bold text-white font-display">%100 Çevrimdışı & Gizlilik</h3>
@@ -221,7 +230,10 @@ export default function HomePage() {
         </div>
 
         {/* Closing Monumental Call to Action (Open & Breathable) */}
-        <div className="text-center max-w-3xl mx-auto space-y-6 pt-8 border-t border-white/10">
+        <div className="texture-fabric relative text-center max-w-3xl mx-auto space-y-6 pt-8 border-t border-white/10">
+          <div className="tile-chip tile-lime w-8 h-8 hidden sm:block top-2 left-2 md:left-10" style={{ "--tile-rot": "-12deg", animationDelay: "0.4s" } as CSSProperties} />
+          <div className="tile-chip tile-sky w-7 h-7 hidden sm:block top-6 right-4 md:right-16" style={{ "--tile-rot": "10deg", animationDelay: "1.6s" } as CSSProperties} />
+
           <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-zinc-300">
             <Sparkles className="h-3.5 w-3.5 text-white" />
             <span>Stüdyo Felsefesi</span>

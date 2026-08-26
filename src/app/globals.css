@@ -120,6 +120,16 @@
   background-size: 160px 160px;
 }
 
+/* Ruled-paper lines — Benim Notlarım's own notebook page, not a generic glow */
+.texture-notebook {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 21px,
+    rgba(124, 179, 224, 0.16) 22px
+  );
+}
+
 /* Puzzle tile chips — literal blocks from Blok Dünyası's board, used to compose the hero */
 .tile-chip {
   position: absolute;
@@ -127,6 +137,12 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.6);
   animation: tile-float 6s ease-in-out infinite;
+}
+
+.tile-chip-static {
+  border-radius: 28%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.6);
 }
 
 .tile-citrus { background: linear-gradient(155deg, #fab35f, #c56a1e); }
