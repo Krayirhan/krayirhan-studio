@@ -71,3 +71,51 @@
 .animate-pulse-subtle {
   animation: pulse-subtle 4s ease-in-out infinite;
 }
+
+/* Fabric weave texture — subtle canvas grain echoing Blok Dünyası's board */
+.texture-fabric {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 7px);
+}
+
+.texture-fabric::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+/* Fruit-accent blobs — shaped after Blok Dünyası's in-game palette, replacing generic blur circles */
+.fruit-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.fruit-blob-citrus {
+  background: radial-gradient(circle at 35% 30%, #f8963a, #c56a1e 70%);
+  filter: blur(100px);
+  opacity: 0.14;
+}
+
+.fruit-blob-grape {
+  background: radial-gradient(circle at 35% 30%, #a97ee0, #7752b0 75%);
+  filter: blur(90px);
+  opacity: 0.12;
+}
+
+.fruit-blob-cherry {
+  background: radial-gradient(circle at 35% 30%, #e8607a, #a83c50 75%);
+  filter: blur(80px);
+  opacity: 0.11;
+}
+
+/* Vine line motif — LingoRise's garden metaphor, a thin repeating leaf/tendril line */
+.texture-vine {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cpath d='M0 80 Q 40 20 80 80 T 160 80' stroke='%234fbf8f' stroke-width='1.4' fill='none' opacity='0.5'/%3E%3Ccircle cx='40' cy='50' r='4' fill='%234fbf8f' opacity='0.4'/%3E%3Ccircle cx='120' cy='108' r='4' fill='%234fbf8f' opacity='0.4'/%3E%3Ccircle cx='80' cy='80' r='3' fill='%234fbf8f' opacity='0.35'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}

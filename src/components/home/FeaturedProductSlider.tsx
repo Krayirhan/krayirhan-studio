@@ -70,18 +70,28 @@ export function FeaturedProductSlider() {
 
   const screens = getScreens(product.id);
 
-  // Accent aura colors for background
-  const getAuraColor = (id: string) => {
-    switch (id) {
-      case "blok-dunyasi":
-        return "from-orange-500/15 via-amber-500/10 to-transparent";
-      case "lingorise":
-        return "from-emerald-500/15 via-teal-500/10 to-transparent";
-      case "benim-notlarim":
-        return "from-sky-500/15 via-indigo-500/10 to-transparent";
-      default:
-        return "from-white/10 to-transparent";
+  // Per-product background treatment, drawn from each product's own visual world
+  const renderAura = (id: string) => {
+    if (id === "blok-dunyasi") {
+      return (
+        <div className="absolute -right-10 top-1/2 -translate-y-1/2 w-[600px] h-[550px] pointer-events-none transition-opacity duration-1000">
+          <div className="fruit-blob fruit-blob-citrus w-[320px] h-[320px] top-0 right-[10%]" />
+          <div className="fruit-blob fruit-blob-grape w-[220px] h-[220px] bottom-16 right-[38%]" />
+          <div className="fruit-blob fruit-blob-cherry w-[160px] h-[160px] top-1/3 right-0" />
+        </div>
+      );
     }
+    if (id === "lingorise") {
+      return (
+        <div
+          className="texture-vine absolute -right-10 top-1/2 -translate-y-1/2 w-[600px] h-[550px] rounded-full opacity-70 pointer-events-none transition-opacity duration-1000"
+          style={{ maskImage: "radial-gradient(circle, black 40%, transparent 72%)", WebkitMaskImage: "radial-gradient(circle, black 40%, transparent 72%)" }}
+        />
+      );
+    }
+    return (
+      <div className="absolute -right-10 top-1/2 -translate-y-1/2 w-[600px] h-[550px] bg-gradient-to-tr from-sky-500/15 via-indigo-500/10 to-transparent blur-[140px] rounded-full pointer-events-none transition-all duration-1000" />
+    );
   };
 
   const getTagBadge = (product: Product) => {
@@ -182,11 +192,7 @@ export function FeaturedProductSlider() {
       {/* 2. Borderless Cinematic Showcase Stage */}
       <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Dynamic Full-Bleed Ambient Aura Behind Phones */}
-        <div
-          className={`absolute -right-10 top-1/2 -translate-y-1/2 w-[600px] h-[550px] bg-gradient-to-tr ${getAuraColor(
-            product.id
-          )} blur-[140px] rounded-full pointer-events-none transition-all duration-1000`}
-        />
+        {renderAura(product.id)}
 
         {/* Left Column: Content */}
         <div key={`info-${product.id}`} className="lg:col-span-6 space-y-6 z-10 animate-[fadeIn_0.35s_ease-out]">

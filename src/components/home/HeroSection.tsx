@@ -5,9 +5,11 @@ import { STUDIO_INFO } from "@/data/studioInfo";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden border-b border-white/10 pb-20 pt-16 md:pb-28 md:pt-24">
-      {/* Background Subtle Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[1000px] h-[450px] bg-gradient-to-tr from-orange-500/[0.08] via-emerald-500/[0.08] to-blue-500/[0.08] blur-[140px] rounded-full pointer-events-none animate-pulse-subtle" />
+    <section className="texture-fabric relative overflow-hidden border-b border-white/10 pb-20 pt-16 md:pb-28 md:pt-24">
+      {/* Fruit-accent glow — shaped after Blok Dünyası's citrus / grape / cherry palette */}
+      <div className="fruit-blob fruit-blob-citrus w-[420px] h-[420px] -top-24 right-[8%] animate-pulse-subtle" />
+      <div className="fruit-blob fruit-blob-grape w-[280px] h-[280px] top-1/3 left-[6%]" />
+      <div className="fruit-blob fruit-blob-cherry w-[200px] h-[200px] bottom-0 right-1/3" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         
