@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight, ZoomIn, Sparkles } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 interface ProductGalleryProps {
   title: string;
@@ -97,7 +97,6 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
 
             {/* Sub-label */}
             <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-zinc-400 group-hover:text-white transition-colors">
-              <Sparkles className="h-3.5 w-3.5" />
               <span>Görsel {idx + 1}</span>
             </div>
           </div>

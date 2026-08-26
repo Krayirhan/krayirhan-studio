@@ -2,7 +2,7 @@ import { PRODUCTS } from "@/data/games";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ProductGallery } from "@/components/products/ProductGallery";
-import { ArrowLeft, CheckCircle2, ExternalLink, Sparkles, Smartphone, Gamepad2, Download } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ExternalLink, Smartphone, Gamepad2, Download } from "lucide-react";
 import type { Metadata } from "next";
 
 interface ProductPageProps {

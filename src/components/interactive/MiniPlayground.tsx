@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Gamepad2, Sparkles, Smartphone, RefreshCw, Trophy, RotateCw, Star } from "lucide-react";
+import { Gamepad2, Smartphone, RefreshCw, Trophy, RotateCw, Star } from "lucide-react";
 import { useStudioSound } from "@/components/effects/SoundEffects";
 
 // Sample vocabulary for LingoRise demo
@@ -116,7 +116,6 @@ export function MiniPlayground() {
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-4 py-1.5 text-xs font-semibold text-cyan-300 mb-4 backdrop-blur-md">
-          <Sparkles className="h-3.5 w-3.5 text-amber-400 animate-bounce" />
           <span>İnteraktif Web Demosu</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -217,7 +216,6 @@ export function MiniPlayground() {
             </div>
 
             <div className="pt-2 flex items-center gap-2 text-xs font-semibold text-amber-400">
-              <Sparkles className="h-4 w-4" />
               <span>Tam sürümde 8x8 ızgara, kumaş temaları ve yüzlerce seviye mevcut!</span>
             </div>
           </div>

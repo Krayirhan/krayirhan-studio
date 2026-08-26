@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { FeaturedProductSlider } from "@/components/home/FeaturedProductSlider";
 import { PRODUCTS } from "@/data/games";
-import { ArrowRight, Download, Gamepad2, Smartphone, Sparkles, Shield, Palette } from "lucide-react";
+import { ArrowRight, Download, Gamepad2, Smartphone, Shield, Palette } from "lucide-react";
 
 export default function HomePage() {
   // Map distinct 2 screens for each product
@@ -235,7 +235,6 @@ export default function HomePage() {
           <div className="tile-chip tile-sky w-7 h-7 hidden sm:block top-6 right-4 md:right-16" style={{ "--tile-rot": "10deg", animationDelay: "1.6s" } as CSSProperties} />
 
           <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-zinc-300">
-            <Sparkles className="h-3.5 w-3.5 text-white" />
             <span>Stüdyo Felsefesi</span>
           </div>
 

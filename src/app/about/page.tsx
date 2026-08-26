@@ -1,7 +1,7 @@
 import { STUDIO_INFO } from "@/data/studioInfo";
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink, Flame, Sparkles, HeartHandshake, Gamepad2, Smartphone } from "lucide-react";
+import { ExternalLink, Flame, HeartHandshake, Gamepad2, Smartphone } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { PRODUCTS } from "@/data/games";
 import { GameCard } from "@/components/games/GameCard";
-import { Sparkles, Gamepad2, Smartphone, Layers } from "lucide-react";
+import { Gamepad2, Smartphone, Layers } from "lucide-react";
 
 export default function ProductsPage() {
   const [filter, setFilter] = useState<"all" | "game" | "app">("all");
@@ -16,7 +16,6 @@ export default function ProductsPage() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1 text-xs font-semibold text-zinc-300 mb-4">
-          <Sparkles className="h-4 w-4 text-white" />
           <span>Ürün Portföyümüz</span>
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
