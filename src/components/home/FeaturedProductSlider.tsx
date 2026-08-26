@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { PRODUCTS } from "@/data/games";
 import { Product } from "@/types/game";
-import { Download, Star, ArrowRight, Gamepad2, Smartphone, QrCode } from "lucide-react";
+import { Download, Star, ArrowRight, Gamepad2, Smartphone, QrCode, Pause, Play } from "lucide-react";
 import { QrModalDialog } from "@/components/ui/QrDownloadModal";
 
 const SLIDE_DURATION = 4000; // Exactly 4.0 seconds per slide
@@ -14,11 +14,12 @@ export function FeaturedProductSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [qrModalProduct, setQrModalProduct] = useState<Product | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
   const totalSlides = PRODUCTS.length;
 
-  // Clockwork timer that FREEZES when QR modal is opened
+  // Clockwork timer that FREEZES when QR modal is open or the user pauses
   useEffect(() => {
-    if (qrModalProduct) return; // Completely freeze slider when QR modal is open
+    if (qrModalProduct || isPaused) return;
 
     const interval = setInterval(() => {
       setProgress((prev) => {
@@ -32,7 +33,7 @@ export function FeaturedProductSlider() {
     }, TICK_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [totalSlides, qrModalProduct]);
+  }, [totalSlides, qrModalProduct, isPaused]);
 
   const handleTabClick = (idx: number) => {
     setCurrentIndex(idx);
@@ -125,13 +126,15 @@ export function FeaturedProductSlider() {
     <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
       
       {/* 1. Top Interactive Switcher Tabs with Synchronized Progress Line */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-12 sm:mb-16">
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-12 sm:mb-16" role="tablist" aria-label="Öne çıkan ürünler">
         {PRODUCTS.map((item, idx) => {
           const isActive = currentIndex === idx;
           return (
             <button
               key={item.id}
               onClick={() => handleTabClick(idx)}
+              role="tab"
+              aria-selected={isActive}
               className={`relative overflow-hidden rounded-2xl px-6 py-3.5 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer border ${
                 isActive
                   ? "border-white/30 bg-white/10 text-white shadow-xl shadow-black scale-105"
@@ -159,6 +162,21 @@ export function FeaturedProductSlider() {
             </button>
           );
         })}
+
+        {/* Pause / Play Control */}
+        <button
+          onClick={() => setIsPaused((prev) => !prev)}
+          aria-pressed={isPaused}
+          aria-label={isPaused ? "Otomatik geçişi başlat" : "Otomatik geçişi duraklat"}
+          className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.02] text-zinc-400 hover:text-white hover:bg-white/5 hover:border-white/20 transition-all cursor-pointer"
+        >
+          {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+        </button>
+      </div>
+
+      {/* Screen-reader announcement of the active slide */}
+      <div className="sr-only" aria-live="polite">
+        {product.title} gösteriliyor{isPaused ? ", duraklatıldı" : ""}.
       </div>
 
       {/* 2. Borderless Cinematic Showcase Stage */}

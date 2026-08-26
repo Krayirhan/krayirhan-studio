@@ -68,13 +68,10 @@ export function HeroSection() {
                 style={{ aspectRatio: "472 / 1024" }}
                 className="relative w-full overflow-hidden rounded-[1.9rem] sm:rounded-[2.2rem] bg-black"
               >
-                <Image
+                <img
                   src="/games/blok-dunyasi/cover.jpg"
                   alt="Blok Dünyası ana menü ekranı"
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 45vw, 275px"
-                  className="object-cover object-top"
+                  className="h-full w-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none" />
               </div>
@@ -86,13 +83,10 @@ export function HeroSection() {
                 style={{ aspectRatio: "472 / 1024" }}
                 className="relative w-full overflow-hidden rounded-[1.9rem] sm:rounded-[2.2rem] bg-black"
               >
-                <Image
+                <img
                   src="/games/blok-dunyasi/gameplay-1.jpg"
                   alt="Blok Dünyası blok bulmaca oyun ekranı"
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 45vw, 275px"
-                  className="object-cover object-top"
+                  className="h-full w-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none" />
               </div>
