@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
@@ -11,6 +11,8 @@ interface ProductGalleryProps {
 
 export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const openLightbox = (index: number) => {
     setSelectedIndex(index);
@@ -18,7 +20,30 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
 
   const closeLightbox = useCallback(() => {
     setSelectedIndex(null);
+    triggerRef.current?.focus();
   }, []);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const dialog = dialogRef.current;
+    const focusable = dialog?.querySelector<HTMLElement>(
+      'button, [tabindex]:not([tabindex="-1"])'
+    );
+    focusable?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Tab" || !dialog) return;
+      const items = [...dialog.querySelectorAll<HTMLElement>(
+        'button, [tabindex]:not([tabindex="-1"])'
+      )];
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex]);
 
   useEffect(() => {
     if (selectedIndex === null) return;
@@ -57,9 +82,15 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
       {/* Modern Phone Mockup Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-6">
         {screenshots.map((screen, idx) => (
-          <div
+          <button
+            ref={triggerRef}
             key={idx}
-            onClick={() => openLightbox(idx)}
+            onClick={(event) => {
+              triggerRef.current = event.currentTarget;
+              openLightbox(idx);
+            }}
+            type="button"
+            aria-label={`${title} görsel ${idx + 1} büyüt`}
             className="group relative flex flex-col items-center justify-center cursor-pointer select-none"
           >
             {/* 1. Subtle Ambient Background Glow */}
@@ -99,13 +130,14 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
             <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-zinc-400 group-hover:text-white transition-colors">
               <span>Görsel {idx + 1}</span>
             </div>
-          </div>
+          </button>
         ))}
       </div>
 
       {/* Fullscreen Lightbox Modal */}
       {selectedIndex !== null && (
         <div
+          ref={dialogRef}
           role="dialog"
           aria-modal="true"
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 sm:p-8 select-none animate-in fade-in duration-200"

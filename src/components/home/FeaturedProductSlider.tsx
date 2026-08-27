@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { PRODUCTS } from "@/data/games";
 import { Product } from "@/types/game";
-import { Download, Star, ArrowRight, Gamepad2, Smartphone, QrCode, Pause, Play } from "lucide-react";
+import { Download, ArrowRight, Gamepad2, Smartphone, QrCode, Pause, Play } from "lucide-react";
 import { QrModalDialog } from "@/components/ui/QrDownloadModal";
 
 const SLIDE_DURATION = 4000; // Exactly 4.0 seconds per slide
@@ -41,6 +42,12 @@ export function FeaturedProductSlider() {
   };
 
   const product = PRODUCTS[currentIndex];
+
+  const productMeta = {
+    "blok-dunyasi": { index: "01", taxonomy: "OYUN", label: "ÖNE ÇIKAN", color: "text-orange-300" },
+    lingorise: { index: "02", taxonomy: "ÖĞRENME", label: "UYGULAMA", color: "text-[var(--vine)]" },
+    "benim-notlarim": { index: "03", taxonomy: "ÜRETKENLİK", label: "UYGULAMA", color: "text-sky-300" },
+  } as const;
 
   // Distinct second screen mapping
   const getScreens = (id: string) => {
@@ -95,41 +102,8 @@ export function FeaturedProductSlider() {
   };
 
   const getTagBadge = (product: Product) => {
-    if (product.id === "blok-dunyasi") {
-      return (
-        <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-300">
-          <span className="rounded-full bg-orange-500/15 border border-orange-500/30 px-3.5 py-1 font-bold text-orange-400">
-            Öne Çıkan Mobil Oyun
-          </span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-zinc-300 font-medium">
-            <Star className="h-3 w-3 text-amber-400 fill-amber-400" />
-            <span>4.8+ Google Play Puanı</span>
-          </span>
-        </div>
-      );
-    }
-    if (product.id === "lingorise") {
-      return (
-        <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-300">
-          <span className="rounded-full bg-[var(--vine)]/15 border border-[var(--vine)]/30 px-3.5 py-1 font-bold text-[var(--vine)]">
-            Kelime & Dil Bahçesi
-          </span>
-          <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-[var(--vine)] font-semibold">
-            Mobil Uygulama
-          </span>
-        </div>
-      );
-    }
-    return (
-      <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-300">
-        <span className="rounded-full bg-sky-500/15 border border-sky-500/30 px-3.5 py-1 font-bold text-sky-400">
-          Not Defteri & Düzen
-        </span>
-        <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-sky-400 font-semibold">
-          Google Play'de Yayında
-        </span>
-      </div>
-    );
+    const meta = productMeta[product.id as keyof typeof productMeta] ?? productMeta["blok-dunyasi"];
+    return <p className={`text-sm font-semibold tracking-wide ${meta.color}`}>{meta.index} / {meta.taxonomy} · {meta.label}</p>;
   };
 
   return (
@@ -145,6 +119,8 @@ export function FeaturedProductSlider() {
               onClick={() => handleTabClick(idx)}
               role="tab"
               aria-selected={isActive}
+              aria-controls={`featured-product-${item.id}`}
+              id={`featured-tab-${item.id}`}
               className={`relative overflow-hidden rounded-2xl px-6 py-3.5 text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer border ${
                 isActive
                   ? "border-white/30 bg-white/10 text-white shadow-xl shadow-black scale-105"
@@ -190,12 +166,18 @@ export function FeaturedProductSlider() {
       </div>
 
       {/* 2. Borderless Cinematic Showcase Stage */}
-      <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div
+        key={product.id}
+        id={`featured-product-${product.id}`}
+        role="tabpanel"
+        aria-labelledby={`featured-tab-${product.id}`}
+        className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+      >
         {/* Dynamic Full-Bleed Ambient Aura Behind Phones */}
         {renderAura(product.id)}
 
         {/* Left Column: Content */}
-        <div key={`info-${product.id}`} className="lg:col-span-6 space-y-6 z-10 animate-[fadeIn_0.35s_ease-out]">
+        <div className="lg:col-span-6 space-y-6 z-10 animate-[fadeIn_0.35s_ease-out]">
           {getTagBadge(product)}
 
           <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.08] font-display">
@@ -207,13 +189,13 @@ export function FeaturedProductSlider() {
           </p>
 
           {/* Feature Highlights */}
-          <div className="flex flex-wrap gap-2 pt-2">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 border-l border-white/20 pl-4 pt-2 text-sm text-zinc-300">
             {product.features?.slice(0, 3).map((feat, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-medium text-zinc-200 backdrop-blur-md"
+                className="flex items-center gap-2 font-medium"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                <span className="h-1.5 w-1.5 rounded-full bg-white/70" aria-hidden="true" />
                 <span>{feat.split(":")[0]}</span>
               </div>
             ))}
@@ -229,7 +211,7 @@ export function FeaturedProductSlider() {
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-4 text-sm font-bold text-zinc-950 hover:bg-zinc-200 shadow-2xl shadow-white/10 hover:scale-105 transition-all"
               >
                 <Download className="h-4 w-4" />
-                <span>Google Play'den İndir</span>
+                <span>Google Play&apos;den İndir</span>
               </a>
             )}
 
@@ -254,17 +236,19 @@ export function FeaturedProductSlider() {
         </div>
 
         {/* Right Column: Floating 3D Phones */}
-        <div key={`phones-${product.id}`} className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10 animate-[fadeIn_0.35s_ease-out]">
+        <div className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-8 py-6 z-10 animate-[fadeIn_0.35s_ease-out]">
           {/* Phone 1: Main Screen */}
           <div className="w-1/2 max-w-[240px] sm:max-w-[270px] rounded-[2.6rem] sm:rounded-[2.8rem] p-2.5 sm:p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/25 shadow-2xl shadow-black -rotate-3 hover:-rotate-1 hover:scale-105 transition-all duration-500 relative">
             <div
               style={{ aspectRatio: product.id === "benim-notlarim" ? "535 / 1024" : "9 / 19.5" }}
               className="relative w-full overflow-hidden rounded-[2rem] sm:rounded-[2.2rem] bg-black"
             >
-              <img
+              <Image
                 src={screens.primary}
                 alt={`${product.title} Ekran 1`}
-                className="h-full w-full object-cover object-top"
+                fill
+                sizes="(max-width: 1024px) 45vw, 270px"
+                className="object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
             </div>
@@ -276,10 +260,12 @@ export function FeaturedProductSlider() {
               style={{ aspectRatio: product.id === "benim-notlarim" ? "547 / 1024" : "9 / 19.5" }}
               className="relative w-full overflow-hidden rounded-[2rem] sm:rounded-[2.2rem] bg-black"
             >
-              <img
+              <Image
                 src={screens.secondary}
                 alt={`${product.title} Ekran 2`}
-                className="h-full w-full object-cover object-top"
+                fill
+                sizes="(max-width: 1024px) 45vw, 270px"
+                className="object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08] pointer-events-none" />
             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { QrCode, X, Copy, Check, ExternalLink, Download } from "lucide-react";
 import { useStudioSound } from "@/components/effects/SoundEffects";
@@ -29,14 +29,51 @@ export function QrModalDialog({
   onClose: () => void;
 }) {
   const [copied, setCopied] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
   const { playSound } = useStudioSound();
+
+  useEffect(() => {
+    if (!isOpen) return;
+    previousFocusRef.current = document.activeElement as HTMLElement | null;
+    const dialog = dialogRef.current;
+    const focusable = dialog?.querySelector<HTMLElement>(
+      'button, a[href], [tabindex]:not([tabindex="-1"])'
+    );
+    focusable?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+      if (event.key !== "Tab" || !dialog) return;
+      const items = [...dialog.querySelectorAll<HTMLElement>(
+        'button, a[href], [tabindex]:not([tabindex="-1"])'
+      )];
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      previousFocusRef.current?.focus();
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
   const handleCopy = () => {
     playSound("pop");
-    navigator.clipboard.writeText(url);
-    setCopied(true);
+    if (!navigator.clipboard) {
+      setCopied(false);
+      return;
+    }
+    void navigator.clipboard.writeText(url).then(() => setCopied(true)).catch(() => setCopied(false));
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -52,6 +89,8 @@ export function QrModalDialog({
       onClick={onClose}
     >
       <div
+        ref={dialogRef}
+        tabIndex={-1}
         className="relative w-full max-w-sm rounded-[2.2rem] border border-white/20 bg-[#121215] p-6 sm:p-8 shadow-2xl text-center space-y-6"
         onClick={(e) => e.stopPropagation()}
       >
@@ -61,6 +100,7 @@ export function QrModalDialog({
             playSound("click");
             onClose();
           }}
+          aria-label="Kapat"
           className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-zinc-900 text-zinc-400 hover:text-white transition-colors cursor-pointer border border-white/10"
         >
           <X className="h-4 w-4" />
@@ -72,7 +112,7 @@ export function QrModalDialog({
             <Image src={coverImage} alt={`${title} kapak görseli`} fill sizes="56px" className="rounded-xl object-cover" />
           </div>
           <h3 className="text-xl font-bold text-white font-display">{title}</h3>
-          <p className="text-xs text-zinc-400">
+          <p className="text-sm text-zinc-300 leading-relaxed">
             Kameranızı açarak aşağıdaki QR kodu taratın ve hemen telefonunuza indirin.
           </p>
         </div>
@@ -93,7 +133,7 @@ export function QrModalDialog({
         <div className="space-y-2.5 pt-2">
           <button
             onClick={handleCopy}
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 py-2.5 text-xs font-semibold text-zinc-200 hover:border-white/30 hover:text-white transition-colors cursor-pointer"
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 py-2.5 text-sm font-semibold text-zinc-200 hover:border-white/30 hover:text-white transition-colors cursor-pointer"
           >
             {copied ? (
               <>

@@ -2,7 +2,8 @@ import { PRODUCTS } from "@/data/games";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ProductGallery } from "@/components/products/ProductGallery";
-import { ArrowLeft, CheckCircle2, ExternalLink, Smartphone, Gamepad2, Download } from "lucide-react";
+import { WordMatchDemo } from "@/components/products/WordMatchDemo";
+import { ArrowLeft, ExternalLink, Smartphone, Gamepad2, Download } from "lucide-react";
 import type { Metadata } from "next";
 
 interface ProductPageProps {
@@ -82,15 +83,15 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-300 hover:text-white bg-white/5 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 hover:border-white/30 w-fit transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-300 hover:text-white w-fit transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
-            <span>Tüm Kataloğa Dön</span>
+            <span>Tüm ürünler</span>
           </Link>
 
           <div className="space-y-3">
-            <div className="flex flex-wrap gap-2 items-center">
-              <span className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-bold bg-white/10 text-zinc-200 border border-white/15">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-300">
+              <span className="inline-flex items-center gap-1.5">
                 {product.type === "game" ? (
                   <Gamepad2 className="h-3.5 w-3.5" />
                 ) : (
@@ -99,15 +100,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 {product.type === "game" ? "Oyun" : "Uygulama"}
               </span>
 
-              <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs font-semibold text-zinc-300">
-                {product.status}
-              </span>
-
-              {product.releaseDate && (
-                <span className="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-medium text-white">
-                  {product.releaseDate}
-                </span>
-              )}
+              <span>/</span><span>{product.status}</span><span>/</span><span>{product.platforms[0]}</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
@@ -139,10 +132,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   {product.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 rounded-2xl border border-white/10 bg-[var(--card)] p-4 text-zinc-200"
+                      className="flex items-start gap-4 border-b border-white/10 py-4 text-zinc-200 first:border-t"
                     >
-                      <CheckCircle2 className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base leading-relaxed">{feature}</span>
+                      <span className="font-mono text-xs text-zinc-500">{String(idx + 1).padStart(2, "0")}</span>
+                      <span className="text-sm sm:text-base leading-relaxed">{feature.replace(/^[^:]+:\s*/, "")}</span>
                     </div>
                   ))}
                 </div>
@@ -159,6 +152,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <ProductGallery title={product.title} screenshots={product.screenshots} />
               </div>
             )}
+            {isLingorise && <WordMatchDemo />}
           </div>
 
           {/* Right Column: Platform Links Sidebar */}

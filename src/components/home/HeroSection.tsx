@@ -30,7 +30,7 @@ export function HeroSection() {
             </h1>
 
             <p className="max-w-2xl text-lg font-normal leading-relaxed text-zinc-300 sm:text-xl">
-              Oynaması keyifli oyunlar ve gerçekten işe yarayan mobil araçlar geliştiriyoruz. İlk durak: her yerde oynayabileceğiniz Blok Dünyası.
+              Oyun, öğrenme ve günlük hayat için sade dijital deneyimler tasarlıyor ve geliştiriyoruz. Her ürünümüz, merakı işe yarar bir fikre dönüştürme tutkusu taşıyor.
             </p>
           </div>
 
@@ -55,7 +55,7 @@ export function HeroSection() {
             </Link>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-zinc-400">
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium text-zinc-300">
             <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-emerald-300" /> Google Play&apos;de yayında</span>
             <span className="inline-flex items-center gap-1.5"><Gamepad2 className="h-3.5 w-3.5 text-orange-300" /> Herkes için</span>
           </div>
@@ -71,16 +71,18 @@ export function HeroSection() {
           <div className="tile-chip tile-cherry w-7 h-7 sm:w-9 sm:h-9 bottom-[26%] right-2 sm:right-6" style={{ "--tile-rot": "-16deg", animationDelay: "0.6s" } as CSSProperties} />
           <div className="tile-chip tile-sky w-8 h-8 sm:w-10 sm:h-10 top-[42%] left-[6%]" style={{ "--tile-rot": "-6deg", animationDelay: "1.7s" } as CSSProperties} />
 
-          {/* Secondary phone: gameplay screen, tucked low and behind */}
+          {/* Secondary phone: LingoRise home screen, tucked low and behind */}
           <div className="absolute bottom-0 left-[8%] sm:left-[14%] w-[32vw] max-w-[150px] sm:max-w-[160px] rotate-[10deg] rounded-[2rem] border border-white/20 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-2 shadow-2xl shadow-black/70 z-0">
             <div
               style={{ aspectRatio: "472 / 1024" }}
               className="relative w-full overflow-hidden rounded-[1.6rem] bg-black"
             >
-              <img
-                src="/games/blok-dunyasi/gameplay-1.jpg"
-                alt="Blok Dünyası blok bulmaca oyun ekranı"
-                className="h-full w-full object-cover object-top"
+              <Image
+                src="/apps/lingorise/home-garden.png"
+                alt="LingoRise uygulamasının ana ekranı"
+                fill
+                sizes="(max-width: 640px) 32vw, 160px"
+                className="object-cover object-top"
               />
               <div className="absolute inset-0 bg-black/25 pointer-events-none" />
             </div>
@@ -92,10 +94,12 @@ export function HeroSection() {
               style={{ aspectRatio: "472 / 1024" }}
               className="relative w-full overflow-hidden rounded-[2.1rem] sm:rounded-[2.5rem] bg-black"
             >
-              <img
+              <Image
                 src="/games/blok-dunyasi/cover.jpg"
                 alt="Blok Dünyası ana menü ekranı"
-                className="h-full w-full object-cover object-top"
+                fill
+                sizes="(max-width: 1024px) 48vw, 250px"
+                className="object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08] pointer-events-none" />
             </div>

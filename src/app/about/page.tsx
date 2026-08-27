@@ -2,7 +2,7 @@ import { STUDIO_INFO } from "@/data/studioInfo";
 import Link from "next/link";
 import Image from "next/image";
 import type { CSSProperties } from "react";
-import { ExternalLink, Flame, HeartHandshake, Gamepad2, Smartphone } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,14 +16,13 @@ export default function AboutPage() {
       {/* Hero Header */}
       <div className="text-center max-w-3xl mx-auto">
         <div className="eyebrow-tag gap-1.5 py-1 pr-3.5 text-xs font-semibold text-zinc-300 mb-4" style={{ "--tag-accent": "#f8963a" } as CSSProperties}>
-          <Flame className="h-4 w-4 text-orange-400" />
-          <span>Stüdyo Hikayesi</span>
+          <span>STÜDYO / HAKKIMIZDA</span>
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-display">
-          Eğlenceli Oyunlar & Değer Katan Uygulamalar
+          Küçük fikirleri, iyi çalışan ürünlere dönüştürüyoruz.
         </h1>
         <p className="mt-4 text-zinc-400 text-base sm:text-lg">
-          Bağımsız oyun geliştirmenin saf yaratıcılığı ile modern mobil deneyimlerin gücünü tek bir stüdyo çatısı altında buluşturuyoruz.
+          Krayirhan Studio, kısa molalara eşlik eden oyunlar ve günlük hayatı kolaylaştıran mobil araçlar üreten bağımsız bir stüdyo.
         </p>
       </div>
 
@@ -34,24 +33,15 @@ export default function AboutPage() {
             Hikayemiz ve Vizyonumuz
           </h2>
           <p>
-            Krayirhan Studio; bağımsız oyunların özgür ruhu ile mobil dünyanın üretkenlik odaklı gücünü aynı potada eritmek amacıyla 2026 yılında kuruldu.
+            Krayirhan Studio, iyi bir fikrin gereksiz kalabalık olmadan da güçlü bir ürüne dönüşebileceğine inanarak 2026 yılında kuruldu.
           </p>
           <p>
-            Bir yanda saatlerce keyifle oynanabilecek akıcı mobil bulmacalar geliştirirken; diğer yanda kelime öğrenimini kalıcı kılan oyunlaştırılmış eğitim araçları ve sade not alma deneyimleri inşa ediyoruz.
+            Ürün seçerken üç şeye bakıyoruz: ilk dakikada anlaşılması, tekrar kullanıldıkça değer üretmesi ve kendi karakterini taşıması. Bu yüzden her proje farklı görünse de aynı sade akış duygusunu paylaşır.
           </p>
-          <div className="pt-4 grid grid-cols-3 gap-4 text-center">
-            <div className="rounded-2xl border border-white/10 bg-[#111114] p-4">
-              <div className="text-2xl font-bold text-white font-display">{STUDIO_INFO.foundedYear}</div>
-              <div className="text-xs text-zinc-400 mt-1">Kuruluş Yılı</div>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-[#111114] p-4">
-              <div className="text-2xl font-bold text-white font-display">Google Play</div>
-              <div className="text-xs text-zinc-400 mt-1">Oyun Dağıtımı</div>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-[#111114] p-4">
-              <div className="text-2xl font-bold text-white font-display">Ankara</div>
-              <div className="text-xs text-zinc-400 mt-1">Merkez</div>
-            </div>
+          <div className="pt-4 border-t border-white/10 space-y-2 text-sm text-zinc-400">
+            <p><span className="font-mono text-zinc-200">{STUDIO_INFO.foundedYear}</span><span className="mx-3 text-zinc-600">—</span>Kuruluş</p>
+            <p><span className="font-mono text-zinc-200">Ankara</span><span className="mx-3 text-zinc-600">—</span>Merkez</p>
+            <p><span className="font-mono text-zinc-200">Google Play</span><span className="mx-3 text-zinc-600">—</span>Ana dağıtım kanalı</p>
           </div>
         </div>
 
@@ -74,7 +64,7 @@ export default function AboutPage() {
           </div>
 
           <p className="text-sm text-zinc-300 leading-relaxed">
-            {STUDIO_INFO.description}
+            Fikirden ürüne giden yolu mümkün olduğunca doğrudan tutuyorum: önce gerçek bir kullanım ihtiyacı, sonra onu taşıyacak sade bir deneyim.
           </p>
 
           <div className="pt-4 border-t border-white/10 flex items-center justify-between">
