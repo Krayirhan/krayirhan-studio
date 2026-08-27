@@ -16,7 +16,7 @@ export function HeroSection() {
         
         {/* Left Column: Studio Headline & Actions */}
         <div className="max-w-3xl lg:pt-4">
-          <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-zinc-200 backdrop-blur-md shadow-sm transition-colors hover:border-white/30">
+          <div className="eyebrow-tag mb-8 gap-3 py-2 pr-4 text-xs font-semibold text-zinc-200 backdrop-blur-md shadow-sm transition-colors hover:border-white/30" style={{ "--tag-accent": "#f8963a" } as CSSProperties}>
             <div className="relative h-5 w-5 overflow-hidden rounded-full border border-white/20 bg-white p-0.5 shadow-sm">
               <Image src="/brand/logo.png" alt="Krayirhan Studio logosu" fill sizes="20px" className="rounded-full object-cover" />
             </div>

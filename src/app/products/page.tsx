@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { CSSProperties } from "react";
 import { PRODUCTS } from "@/data/games";
 import { GameCard } from "@/components/games/GameCard";
 import { Gamepad2, Smartphone, Layers } from "lucide-react";
@@ -15,7 +16,7 @@ export default function ProductsPage() {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-12">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1 text-xs font-semibold text-zinc-300 mb-4">
+        <div className="eyebrow-tag gap-1.5 py-1 pr-3.5 text-xs font-semibold text-zinc-300 mb-4" style={{ "--tag-accent": "#a97ee0" } as CSSProperties}>
           <span>Ürün Portföyümüz</span>
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">

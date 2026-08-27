@@ -1,5 +1,6 @@
 import { APPS } from "@/data/games";
 import { GameCard } from "@/components/games/GameCard";
+import type { CSSProperties } from "react";
 import { Smartphone } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -13,8 +14,8 @@ export default function AppsPage() {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-12">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1 text-xs font-semibold text-zinc-300 mb-4">
-          <Smartphone className="h-4 w-4 text-emerald-400" />
+        <div className="eyebrow-tag gap-1.5 py-1 pr-3.5 text-xs font-semibold text-zinc-300 mb-4" style={{ "--tag-accent": "var(--vine)" } as CSSProperties}>
+          <Smartphone className="h-4 w-4 text-[var(--vine)]" />
           <span>Uygulama Kataloğumuz</span>
         </div>
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-display">

@@ -1,5 +1,6 @@
 import { STUDIO_INFO } from "@/data/studioInfo";
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { FileArchive, Mail, Download } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -13,7 +14,7 @@ export default function PressKitPage() {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-16">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1 text-xs font-semibold text-zinc-300 mb-4">
+        <div className="eyebrow-tag gap-1.5 py-1 pr-3.5 text-xs font-semibold text-zinc-300 mb-4" style={{ "--tag-accent": "#7cc3f2" } as CSSProperties}>
           <FileArchive className="h-4 w-4 text-white" />
           <span>Basın & Medya Kiti</span>
         </div>

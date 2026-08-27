@@ -1,6 +1,7 @@
 import { STUDIO_INFO } from "@/data/studioInfo";
 import Link from "next/link";
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { ExternalLink, Flame, HeartHandshake, Gamepad2, Smartphone } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -14,7 +15,7 @@ export default function AboutPage() {
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-20">
       {/* Hero Header */}
       <div className="text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1 text-xs font-semibold text-zinc-300 mb-4">
+        <div className="eyebrow-tag gap-1.5 py-1 pr-3.5 text-xs font-semibold text-zinc-300 mb-4" style={{ "--tag-accent": "#f8963a" } as CSSProperties}>
           <Flame className="h-4 w-4 text-orange-400" />
           <span>Stüdyo Hikayesi</span>
         </div>
