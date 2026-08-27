@@ -5,7 +5,7 @@ import { ExternalLink, Flame, HeartHandshake, Gamepad2, Smartphone } from "lucid
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Stüdyo Hakkında | Krayirhan Studio",
+  title: "Stüdyo Hakkında",
   description: "Krayirhan Studio hikayesi, vizyonu, oyun ve mobil uygulama geliştirme tutkusu.",
 };
 

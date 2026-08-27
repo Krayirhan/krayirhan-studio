@@ -4,7 +4,7 @@ import { FileArchive, Mail, Download } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Press Kit & Medya | Krayirhan Studio",
+  title: "Press Kit & Medya",
   description: "Krayirhan Studio basın bültenleri, logoları, oyun & uygulama medya kiti.",
 };
 

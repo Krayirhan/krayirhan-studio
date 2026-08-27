@@ -4,7 +4,7 @@ import { Gamepad2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mobil Oyunlar | Krayirhan Studio",
+  title: "Mobil Oyunlar",
   description: "Krayirhan Studio tarafından geliştirilen bağımsız mobil bulmaca ve strateji oyunları.",
 };
 

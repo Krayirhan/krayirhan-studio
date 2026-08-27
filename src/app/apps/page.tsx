@@ -4,7 +4,7 @@ import { Smartphone } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mobil Uygulamalar | Krayirhan Studio",
+  title: "Mobil Uygulamalar",
   description: "Krayirhan Studio tarafından geliştirilen eğitim ve üretkenlik odaklı mobil uygulamalar.",
 };
 

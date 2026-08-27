@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
   if (!product) {
     return {
-      title: "Ürün Bulunamadı | Krayirhan Studio",
+      title: "Ürün Bulunamadı",
     };
   }
 
