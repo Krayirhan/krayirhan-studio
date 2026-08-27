@@ -53,11 +53,31 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     notFound();
   }
 
+  const isBlokDunyasi = product.id === "blok-dunyasi";
+  const isLingorise = product.id === "lingorise";
+
   return (
     <div className="pb-24">
       {/* Back button & Hero Banner */}
-      <div className="relative w-full py-12 sm:py-16 border-b border-white/10 bg-gradient-to-b from-[#141418] via-[#0f0f12] to-[#09090b] overflow-hidden">
-        <div className="absolute inset-0 grid-pattern-clean opacity-40 pointer-events-none" />
+      <div className="texture-fabric relative w-full py-12 sm:py-16 border-b border-white/10 bg-gradient-to-b from-[#191e1b] via-[#12160f] to-[var(--background-deep)] overflow-hidden">
+        {/* Per-product texture, the same identity as the homepage — not a generic dark banner */}
+        {isBlokDunyasi ? (
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="fruit-blob fruit-blob-citrus w-72 h-72 -top-16 right-[12%]" />
+            <div className="fruit-blob fruit-blob-grape w-48 h-48 bottom-0 right-[28%]" />
+            <div className="fruit-blob fruit-blob-cherry w-36 h-36 top-1/3 right-4" />
+          </div>
+        ) : isLingorise ? (
+          <div
+            className="texture-vine absolute inset-0 opacity-80 pointer-events-none"
+            style={{ maskImage: "radial-gradient(ellipse at 80% 40%, black 30%, transparent 68%)", WebkitMaskImage: "radial-gradient(ellipse at 80% 40%, black 30%, transparent 68%)" }}
+          />
+        ) : (
+          <div
+            className="texture-notebook absolute inset-0 opacity-80 pointer-events-none"
+            style={{ maskImage: "radial-gradient(ellipse at 80% 40%, black 30%, transparent 68%)", WebkitMaskImage: "radial-gradient(ellipse at 80% 40%, black 30%, transparent 68%)" }}
+          />
+        )}
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
           <Link
@@ -119,7 +139,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   {product.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 rounded-2xl border border-white/10 bg-[#121215] p-4 text-zinc-200"
+                      className="flex items-start gap-3 rounded-2xl border border-white/10 bg-[var(--card)] p-4 text-zinc-200"
                     >
                       <CheckCircle2 className="h-5 w-5 text-white shrink-0 mt-0.5" />
                       <span className="text-sm sm:text-base leading-relaxed">{feature}</span>
@@ -143,7 +163,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
           {/* Right Column: Platform Links Sidebar */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="rounded-3xl border border-white/10 bg-[#121215] p-6 sm:p-8 space-y-6 sticky top-28 shadow-xl">
+            <div className="rounded-3xl border border-white/10 bg-[var(--card)] p-6 sm:p-8 space-y-6 sticky top-28 shadow-xl">
               <h3 className="text-lg font-bold text-white">Hemen İndirin & Deneyin</h3>
 
               <div className="space-y-3">
