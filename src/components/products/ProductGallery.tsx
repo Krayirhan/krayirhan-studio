@@ -185,6 +185,8 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
                 <button
                   key={idx}
                   onClick={() => setSelectedIndex(idx)}
+                  aria-label={`${idx + 1}. görsele git`}
+                  aria-current={selectedIndex === idx}
                   className={`relative h-16 w-12 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                     selectedIndex === idx
                       ? "border-white scale-110 shadow-lg ring-2 ring-white/30"
@@ -193,7 +195,7 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
                 >
                   <Image
                     src={screen}
-                    alt={`Thumbnail ${idx + 1}`}
+                    alt=""
                     fill
                     sizes="48px"
                     className="object-cover"

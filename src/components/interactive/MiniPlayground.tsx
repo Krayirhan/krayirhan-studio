@@ -184,6 +184,7 @@ export function MiniPlayground() {
                   onClick={resetGrid}
                   className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
                   title="Yeniden Başlat"
+                  aria-label="Izgarayı yeniden başlat"
                 >
                   <RefreshCw className="h-4 w-4" />
                 </button>
@@ -201,6 +202,7 @@ export function MiniPlayground() {
                   <button
                     key={idx}
                     onClick={() => handleCellClick(idx)}
+                    aria-label={cell === 1 ? `${idx + 1}. kare dolu` : `${idx + 1}. kareye blok yerleştir`}
                     className={`h-14 w-14 sm:h-16 sm:w-16 rounded-2xl transition-all duration-200 cursor-pointer flex items-center justify-center text-xl shadow-lg select-none ${
                       cell === 1
                         ? clearing

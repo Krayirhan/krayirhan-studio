@@ -128,7 +128,8 @@ export function SoundToggle() {
           : "border-slate-800 bg-slate-900/60 text-slate-400 hover:text-slate-200 hover:border-slate-700"
       }`}
       title={soundEnabled ? "Sesi Kapat" : "Ses Efektlerini Aç (SFX)"}
-      aria-label="Toggle Sound Effects"
+      aria-label={soundEnabled ? "Ses efektlerini kapat" : "Ses efektlerini aç"}
+      aria-pressed={soundEnabled}
     >
       {soundEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
     </button>
