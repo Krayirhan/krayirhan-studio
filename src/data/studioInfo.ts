@@ -13,10 +13,7 @@ export const STUDIO_INFO: StudioInfo = {
     portfolioUrl: "https://krayirhan.com",
   },
   socials: {
-    twitter: "https://twitter.com",
-    discord: "https://discord.gg",
-    youtube: "https://youtube.com",
-    appStore: "https://apple.com/app-store",
+    // Add verified profile URLs here before exposing these links in the UI.
     playStore: "https://play.google.com",
   },
   contactEmail: "contact@krayirhan.com",

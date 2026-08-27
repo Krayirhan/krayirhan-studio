@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import { FileArchive, Mail, Download } from "lucide-react";
 import type { Metadata } from "next";
+import { PRESS_ASSETS } from "@/data/pressKit";
 
 export const metadata: Metadata = {
   title: "Press Kit & Medya",
@@ -83,6 +84,19 @@ export default function PressKitPage() {
                 <Download className="h-4 w-4" />
                 <span>İndir</span>
               </a>
+            </div>
+            <div className="space-y-3">
+              {PRESS_ASSETS.filter((asset) => asset.type !== "Logo").map((asset) => (
+                <a
+                  key={asset.title}
+                  href={asset.downloadUrl}
+                  download
+                  className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm hover:border-white/30 transition-colors"
+                >
+                  <span className="text-zinc-200">{asset.title}</span>
+                  <span className="text-xs text-zinc-400">{asset.format} · İndir</span>
+                </a>
+              ))}
             </div>
           </div>
 

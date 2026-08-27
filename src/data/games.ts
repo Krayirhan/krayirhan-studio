@@ -15,9 +15,9 @@ export const PRODUCTS: Product[] = [
       "Blok Dünyası; klasik blok bulmaca keyfini renkli meyve ve kumaş temalarıyla buluşturan, oynaması akıcı ve tamamen internetsiz bir mobil oyundur.",
     fullDescription:
       "Blok Dünyası'nda amacınız ekrana gelen farklı şekillerdeki renkli blokları 8x8 ızgaraya yerleştirmek, yatay ve dikey sıraları tamamlayarak patlatmaktır.\n\n" +
-      "🧩 Akıllı Hamleler: Blokları dikkatlice yerleştirin, kombolar yaparak tahtayı temizleyin.\n\n" +
-      "🎨 Canlı Temalar: Taze meyve blokları ve el yapımı kumaş desenleriyle göz yormayan harika görseller.\n\n" +
-      "🏆 Skor Heyecanı: Kendi rekorlarınızı geliştirin ve en yüksek puana ulaşın!",
+      "Blokları dikkatlice yerleştirin, kombolar yaparak tahtayı temizleyin.\n\n" +
+      "Taze meyve blokları ve el yapımı kumaş desenleriyle sakin, renkli bir oyun alanı.\n\n" +
+      "Kendi rekorlarınızı geliştirin ve en yüksek puana ulaşın!",
     features: [
       "Canlı ve Renkli Görseller: Meyve ve kumaş desenli göz alıcı temalar.",
       "Kolay & Akıcı Oynanış: Tek parmakla blokları rahatça sürükleyin ve bırakın.",
@@ -48,8 +48,8 @@ export const PRODUCTS: Product[] = [
     title: "LingoRise",
     tagline: "İngilizce kelimeleri unutmadan, eğlenerek ve bahçenizi büyüterek öğrenin.",
     category: ["Eğitim", "Dil Öğrenme", "Mobil"],
-    status: "Beta Yayında",
-    releaseDate: "Beta Yayında",
+    status: "Geliştirme Aşamasında",
+    releaseDate: "Yakında",
     shortDescription:
       "LingoRise; İngilizce kelime bilginizi unutmayı engelleyen akıllı hatırlatma sistemi ve büyüyen görsel bahçe metaforuyla kalıcı hale getiren modern bir mobil uygulamadır.",
     fullDescription:

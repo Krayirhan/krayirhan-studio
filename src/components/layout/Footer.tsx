@@ -2,12 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { ExternalLink, Mail } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
+import { PRODUCTS } from "@/data/games";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[var(--background-deep)] text-zinc-400">
+    <footer aria-label="Site alt bilgisi" className="border-t border-white/10 bg-[var(--background-deep)] text-zinc-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
           {/* Studio Brand */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
@@ -24,53 +25,56 @@ export function Footer() {
                 {STUDIO_INFO.name}
               </span>
             </div>
-            <p className="max-w-md text-sm text-zinc-400 leading-relaxed">
+            <p className="max-w-md text-[15px] text-zinc-300 leading-relaxed">
               {STUDIO_INFO.tagline}
             </p>
-            <div className="pt-2 text-xs text-zinc-500 font-mono">
+            <div className="pt-2 text-sm text-zinc-400 font-mono">
               📍 {STUDIO_INFO.location} · Bağımsız Mobil Oyun & Uygulama Geliştirme Stüdyosu
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Product links */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold tracking-widest text-zinc-200 uppercase font-mono">
-              Ürünler & Sayfalar
-            </h4>
+            <h2 className="text-sm font-bold tracking-widest text-zinc-100 uppercase font-mono">
+              Ürünler
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/products" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Tüm Ürünler</Link></li>
+              <li><Link href="/games" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Oyunlar</Link></li>
+              <li><Link href="/apps" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Uygulamalar</Link></li>
+              {PRODUCTS.map((product) => (
+                <li key={product.id}>
+                  <Link href={`/products/${product.slug}`} className="inline-flex min-h-11 items-center text-zinc-400 hover:text-white transition-colors">
+                    {product.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Studio links */}
+          <div className="space-y-3">
+            <h2 className="text-sm font-bold tracking-widest text-zinc-100 uppercase font-mono">
+              Stüdyo
+            </h2>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/products/blok-dunyasi" className="hover:text-white transition-colors font-medium">
-                  Blok Dünyası (Oyun)
-                </Link>
+                <Link href="/about" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Hakkında</Link>
               </li>
               <li>
-                <Link href="/products/lingorise" className="hover:text-white transition-colors font-medium">
-                  LingoRise (Uygulama)
-                </Link>
+                <Link href="/press" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Press Kit</Link>
               </li>
               <li>
-                <Link href="/products/benim-notlarim" className="hover:text-white transition-colors font-medium">
-                  Benim Notlarım (Uygulama)
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-white transition-colors">
-                  Tüm Ürün Kataloğu
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                  Stüdyo Hakkında
-                </Link>
+                <Link href="/privacy" className="inline-flex min-h-11 items-center hover:text-white transition-colors">Gizlilik</Link>
               </li>
             </ul>
           </div>
 
           {/* Founder & Crosslink */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold tracking-widest text-zinc-200 uppercase font-mono">
+            <h2 className="text-sm font-bold tracking-widest text-zinc-100 uppercase font-mono">
               Bağlantılar
-            </h4>
+            </h2>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
@@ -80,7 +84,7 @@ export function Footer() {
                   className="flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors font-medium"
                 >
                   <span>Blok Dünyası (Google Play)</span>
-                  <ExternalLink className="h-3 w-3" />
+                  <ExternalLink aria-hidden="true" className="h-3 w-3" />
                 </a>
               </li>
               <li>
@@ -91,7 +95,7 @@ export function Footer() {
                   className="flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors font-medium"
                 >
                   <span>Benim Notlarım (Google Play)</span>
-                  <ExternalLink className="h-3 w-3" />
+                  <ExternalLink aria-hidden="true" className="h-3 w-3" />
                 </a>
               </li>
               <li>
@@ -102,7 +106,7 @@ export function Footer() {
                   className="flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors font-medium"
                 >
                   <span>Kurucu: Muhsin Furkan Turan</span>
-                  <ExternalLink className="h-3 w-3" />
+                  <ExternalLink aria-hidden="true" className="h-3 w-3" />
                 </a>
               </li>
               <li>
@@ -110,7 +114,7 @@ export function Footer() {
                   href={`mailto:${STUDIO_INFO.contactEmail}`}
                   className="flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
                 >
-                  <Mail className="h-3 w-3" />
+                  <Mail aria-hidden="true" className="h-3 w-3" />
                   <span>{STUDIO_INFO.contactEmail}</span>
                 </a>
               </li>
@@ -119,7 +123,7 @@ export function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-4">
+        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-sm text-zinc-400 gap-4">
           <p>© {new Date().getFullYear()} {STUDIO_INFO.name}. Tüm hakları saklıdır.</p>
           <p className="font-medium text-zinc-400">
             Geliştiren & Tasarlayan:{" "}
