@@ -111,10 +111,10 @@ export function FeaturedProductSlider() {
     if (product.id === "lingorise") {
       return (
         <div className="flex flex-wrap items-center gap-2.5 text-xs text-zinc-300">
-          <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3.5 py-1 font-bold text-emerald-400">
+          <span className="rounded-full bg-[var(--vine)]/15 border border-[var(--vine)]/30 px-3.5 py-1 font-bold text-[var(--vine)]">
             Kelime & Dil Bahçesi
           </span>
-          <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-emerald-400 font-semibold">
+          <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-[var(--vine)] font-semibold">
             Mobil Uygulama
           </span>
         </div>
@@ -155,7 +155,7 @@ export function FeaturedProductSlider() {
                 {item.type === "game" ? (
                   <Gamepad2 className={`h-4 w-4 ${isActive ? "text-orange-400" : "text-zinc-500"}`} />
                 ) : (
-                  <Smartphone className={`h-4 w-4 ${isActive ? "text-emerald-400" : "text-zinc-500"}`} />
+                  <Smartphone className={`h-4 w-4 ${isActive ? "text-[var(--vine)]" : "text-zinc-500"}`} />
                 )}
                 <span>{item.title}</span>
               </div>

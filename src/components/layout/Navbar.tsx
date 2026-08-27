@@ -19,7 +19,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#08080a]/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[var(--background)]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
         {/* Brand Logo */}
@@ -85,7 +85,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div id="mobile-navigation" className="lg:hidden border-t border-white/10 bg-[#08080a] px-4 pt-4 pb-6 space-y-3">
+        <div id="mobile-navigation" className="lg:hidden border-t border-white/10 bg-[var(--background)] px-4 pt-4 pb-6 space-y-3">
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <Link

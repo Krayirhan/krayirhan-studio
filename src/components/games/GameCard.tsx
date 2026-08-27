@@ -8,7 +8,7 @@ interface ProductCardProps {
 
 export function GameCard({ product }: ProductCardProps) {
   return (
-    <div className="group relative flex flex-col justify-between overflow-hidden rounded-[2.2rem] border border-white/10 bg-[#111114] p-6 sm:p-7 shadow-xl hover:border-white/25 hover:shadow-2xl hover:shadow-black/70 transition-all duration-300">
+    <div className="group relative flex flex-col justify-between overflow-hidden rounded-[2.2rem] border border-white/10 bg-[var(--card)] p-6 sm:p-7 shadow-xl hover:border-white/25 hover:shadow-2xl hover:shadow-black/70 transition-all duration-300">
       
       {/* Top Header: Badge & Status */}
       <div>

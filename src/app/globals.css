@@ -2,10 +2,15 @@
 
 @layer base {
   :root {
-    --background: #08080a;
-    --foreground: #f4f4f5;
-    --card: #111114;
+    /* A dark canvas-green, not neutral black — sampled from the game board's own felt tone */
+    --background: #0a0d0b;
+    --background-deep: #070907;
+    --foreground: #f4f4f0;
+    --card: #131715;
     --card-border: rgba(255, 255, 255, 0.08);
+    /* LingoRise's one true green — replaces default Tailwind emerald so badge, icon and vine texture match */
+    --vine: #4fbf8f;
+    --vine-deep: #2f8f68;
   }
 
   body {
@@ -22,7 +27,7 @@
 
   ::selection {
     background-color: #ffffff;
-    color: #08080a;
+    color: #0a0d0b;
   }
 }
 

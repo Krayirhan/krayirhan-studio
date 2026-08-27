@@ -61,7 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={`dark ${spaceGrotesk.variable} ${plusJakarta.variable}`}>
-      <body className="min-h-screen bg-[#08080a] text-zinc-100 font-sans antialiased flex flex-col justify-between selection:bg-white selection:text-zinc-950">
+      <body className="min-h-screen bg-[var(--background)] text-zinc-100 font-sans antialiased flex flex-col justify-between selection:bg-white selection:text-zinc-950">
         <SoundProvider>
           <AnalyticsTracker />
           <Navbar />
