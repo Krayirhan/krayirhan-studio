@@ -120,7 +120,7 @@ export function V2Hero() {
               <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.4rem] border-2 border-[#343b49] bg-[#090b0e] p-1.5">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.9rem] bg-black">
                   <Image
-                    src="/play-store/blok-dunyasi/screen-2.webp"
+                    src="/play-store/blok-dunyasi/screen-1.webp"
                     alt="Blok Dünyası Oyun Ekranı"
                     fill
                     priority

@@ -94,7 +94,11 @@ export const PRODUCTS: Product[] = [
     iconImage: playStoreImage("benim-gunlerim", "icon"),
     coverImage: playStoreImage("benim-gunlerim", "screen-2"),
     bannerImage: playStoreImage("benim-gunlerim", "feature"),
-    screenshots: screens("benim-gunlerim", 3),
+    screenshots: [
+      playStoreImage("benim-gunlerim", "screen-2"),
+      playStoreImage("benim-gunlerim", "screen-3"),
+      playStoreImage("benim-gunlerim", "screen-1"),
+    ],
     featured: true,
   },
   {
@@ -120,9 +124,15 @@ export const PRODUCTS: Product[] = [
     techStack: ["Mobil Uygulama"],
     links: {},
     iconImage: playStoreImage("hesap-gunlugu", "icon"),
-    coverImage: playStoreImage("hesap-gunlugu", "screen-1"),
+    coverImage: playStoreImage("hesap-gunlugu", "screen-3"),
     bannerImage: playStoreImage("hesap-gunlugu", "feature"),
-    screenshots: screens("hesap-gunlugu", 5),
+    screenshots: [
+      playStoreImage("hesap-gunlugu", "screen-3"),
+      playStoreImage("hesap-gunlugu", "screen-4"),
+      playStoreImage("hesap-gunlugu", "screen-5"),
+      playStoreImage("hesap-gunlugu", "screen-2"),
+      playStoreImage("hesap-gunlugu", "screen-1"),
+    ],
     featured: true,
   },
   {
