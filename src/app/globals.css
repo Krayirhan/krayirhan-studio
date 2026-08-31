@@ -25,9 +25,9 @@
     letter-spacing: -0.03em;
   }
 
-  body:has(.v2-page) > header,
-  body:has(.v2-page) > footer {
-    display: none;
+  body:has(.v2-page) header:not(.v2-header),
+  body:has(.v2-page) footer:not(.v2-footer) {
+    display: none !important;
   }
 
   ::selection {

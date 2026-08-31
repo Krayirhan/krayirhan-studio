@@ -1,10 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ExternalLink, Mail } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioInfo";
 import { PRODUCTS } from "@/data/games";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  // On V2 routes, V2Footer is used instead
+  if (pathname?.startsWith("/v2")) {
+    return null;
+  }
+
   return (
     <footer aria-label="Site alt bilgisi" className="border-t border-white/10 bg-[var(--background-deep)] text-zinc-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -38,13 +48,25 @@ export function Footer() {
             <h2 className="text-sm font-bold tracking-widest text-zinc-100 uppercase font-mono">
               Ürünler
             </h2>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/products" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Tüm Ürünler</Link></li>
-              <li><Link href="/games" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Oyunlar</Link></li>
-              <li><Link href="/apps" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Uygulamalar</Link></li>
+            <ul className="space-y-2 text-sm text-zinc-400">
+              <li>
+                <Link href="/products" className="hover:text-white transition-colors">
+                  Tüm Ürünler
+                </Link>
+              </li>
+              <li>
+                <Link href="/games" className="hover:text-white transition-colors">
+                  Oyunlar
+                </Link>
+              </li>
+              <li>
+                <Link href="/apps" className="hover:text-white transition-colors">
+                  Uygulamalar
+                </Link>
+              </li>
               {PRODUCTS.map((product) => (
                 <li key={product.id}>
-                  <Link href={`/products/${product.slug}`} className="inline-flex min-h-11 items-center text-zinc-400 hover:text-white transition-colors">
+                  <Link href={`/products/${product.slug}`} className="hover:text-white transition-colors">
                     {product.title}
                   </Link>
                 </li>
@@ -57,31 +79,37 @@ export function Footer() {
             <h2 className="text-sm font-bold tracking-widest text-zinc-100 uppercase font-mono">
               Stüdyo
             </h2>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm text-zinc-400">
               <li>
-                <Link href="/about" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Hakkında</Link>
+                <Link href="/about" className="hover:text-white transition-colors">
+                  Hakkında
+                </Link>
               </li>
               <li>
-                <Link href="/press" className="inline-flex min-h-11 items-center hover:text-white transition-colors font-medium">Press Kit</Link>
+                <Link href="/press" className="hover:text-white transition-colors">
+                  Press Kit
+                </Link>
               </li>
               <li>
-                <Link href="/privacy" className="inline-flex min-h-11 items-center hover:text-white transition-colors">Gizlilik</Link>
+                <Link href="/privacy" className="hover:text-white transition-colors">
+                  Gizlilik
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Founder & Crosslink */}
+          {/* Social / External Links */}
           <div className="space-y-3">
             <h2 className="text-sm font-bold tracking-widest text-zinc-100 uppercase font-mono">
               Bağlantılar
             </h2>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm text-zinc-400">
               <li>
                 <a
                   href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors font-medium"
+                  className="flex items-center gap-1.5 hover:text-white transition-colors"
                 >
                   <span>Blok Dünyası (Google Play)</span>
                   <ExternalLink aria-hidden="true" className="h-3 w-3" />
@@ -92,7 +120,7 @@ export function Footer() {
                   href="https://play.google.com/store/apps/details?id=com.benimnotlarim.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors font-medium"
+                  className="flex items-center gap-1.5 hover:text-white transition-colors"
                 >
                   <span>Benim Notlarım (Google Play)</span>
                   <ExternalLink aria-hidden="true" className="h-3 w-3" />
