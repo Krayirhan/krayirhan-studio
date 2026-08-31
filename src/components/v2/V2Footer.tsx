@@ -114,11 +114,6 @@ export function V2Footer() {
                   Kariyer
                 </Link>
               </li>
-              <li>
-                <Link href="/v2/press" className="transition hover:text-white">
-                  Basın Kiti
-                </Link>
-              </li>
             </ul>
           </div>
 

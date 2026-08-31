@@ -15,7 +15,6 @@ export function V2Header() {
 
   const isProductsActive = pathname?.startsWith("/v2/products");
   const isAboutActive = pathname === "/v2/about";
-  const isPressActive = pathname === "/v2/press";
 
   // Close menu on Escape key
   useEffect(() => {
@@ -143,22 +142,10 @@ export function V2Header() {
           </div>
 
           <Link
-            href="/v2#felsefe"
-            className="transition-colors hover:text-white"
-          >
-            Stüdyo
-          </Link>
-          <Link
             href="/v2/about"
             className={`transition-colors ${isAboutActive ? "text-white font-bold" : "hover:text-white"}`}
           >
             Hakkında
-          </Link>
-          <Link
-            href="/v2/press"
-            className={`transition-colors ${isPressActive ? "text-white font-bold" : "hover:text-white"}`}
-          >
-            Basın Kiti
           </Link>
           <a
             href="mailto:contact@krayirhan.com"
@@ -250,13 +237,6 @@ export function V2Header() {
               </div>
 
               <Link
-                href="/v2#felsefe"
-                onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg px-4 py-3 text-sm font-medium text-[#ded9ce] hover:bg-white/5 hover:text-white transition"
-              >
-                Stüdyo Felsefemiz
-              </Link>
-              <Link
                 href="/v2/about"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
@@ -266,17 +246,6 @@ export function V2Header() {
                 }`}
               >
                 Hakkımızda
-              </Link>
-              <Link
-                href="/v2/press"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
-                  isPressActive
-                    ? "border-l-2 border-white bg-white/10 text-white font-bold"
-                    : "text-[#ded9ce] hover:bg-white/5 hover:text-white"
-                }`}
-              >
-                Basın Kiti
               </Link>
               <a
                 href="mailto:contact@krayirhan.com"
