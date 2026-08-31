@@ -1,30 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { IconInstagram, IconX, IconYouTube } from "./V2Icons";
+import { HayatAgaciMotif, IconInstagram, IconX, IconYouTube } from "./V2Icons";
 
 export function V2Hero() {
   return (
     <section className="relative isolate overflow-hidden px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-      {/* Background Ambience: Guaranteed Visible Silhouettes */}
-      {/* Left side Seljuk Knot Silhouette */}
-      <div className="pointer-events-none absolute -left-16 top-12 z-0 h-[520px] w-[520px] select-none opacity-15">
-        <svg
-          viewBox="0 0 200 200"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-full w-full stroke-white/80"
-          strokeWidth="2.5"
-        >
-          <path d="M100 10L190 100L100 190L10 100Z" />
-          <path d="M100 30L170 100L100 170L30 100Z" strokeDasharray="6 6" />
-          <circle cx="100" cy="100" r="45" />
-          <path d="M68 68L132 132M132 68L68 132" />
-        </svg>
+      {/* Background Ambience: Authentic Anatolian Cultural Motifs */}
+      {/* Left side: Anatolian "Hayat Ağacı" (Tree of Life) Silhouette for "Kadim Kökler & Ölümsüzlük" */}
+      <div className="pointer-events-none absolute -left-6 top-8 z-0 h-[580px] w-[340px] select-none text-white/[0.08] sm:text-white/[0.1] transition-opacity">
+        <HayatAgaciMotif className="h-full w-full" />
       </div>
 
-      {/* Right side Stag Silhouette */}
-      <div className="pointer-events-none absolute -right-12 top-6 z-0 h-[620px] w-[620px] select-none opacity-15">
+      {/* Right side: Krayirhan Stag Emblem Silhouette */}
+      <div className="pointer-events-none absolute -right-12 top-6 z-0 h-[620px] w-[620px] select-none opacity-[0.09]">
         <Image
           src="/brand/krayirhan-stag-gold.png"
           alt=""

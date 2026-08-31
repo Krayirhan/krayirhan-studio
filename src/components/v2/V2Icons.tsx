@@ -178,3 +178,32 @@ export function IconYouTube(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+// Hayat Ağacı (Tree of Life) - Anatolian Carpet & Kilim Motif for "Ölümsüzlük & Kadim Kökler"
+export function HayatAgaciMotif(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 100 160"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      {/* Central Spine / Trunk */}
+      <rect x="42" y="14" width="16" height="118" />
+
+      {/* Top Crown / Tier 1 Chevron */}
+      <polygon points="0,0 26,26 50,8 74,26 100,0 100,18 58,60 42,60 0,18" />
+
+      {/* Tier 2 Chevron Branches */}
+      <polygon points="0,48 42,90 42,72 0,30" />
+      <polygon points="100,48 58,90 58,72 100,30" />
+
+      {/* Tier 3 Chevron Branches */}
+      <polygon points="0,78 42,120 42,102 0,60" />
+      <polygon points="100,78 58,120 58,102 100,60" />
+
+      {/* Tier 4 Bottom Chevron / Base */}
+      <polygon points="0,108 50,158 100,108 100,90 58,132 42,132 0,90" />
+    </svg>
+  );
+}
