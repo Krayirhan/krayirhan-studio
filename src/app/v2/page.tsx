@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/v2/ancient-tech-hero.png",
+        url: "/v2/ancient-tree-hero.jpg",
         width: 1200,
         height: 630,
         alt: "Krayirhan Studio V2 Kadim Kökler ve Modern Dünyalar",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Krayirhan Studio V2 | Oyunlar ve günlük dijital araçlar",
     description:
       "Krayirhan Studio’nun oyunlarını ve günlük hayatı kolaylaştıran mobil uygulamalarını keşfedin.",
-    images: ["/v2/ancient-tech-hero.png"],
+    images: ["/v2/ancient-tree-hero.jpg"],
   },
 };
 
@@ -103,12 +103,12 @@ export default function V2HomePage() {
       {/* Hero & Top Bar Section */}
       <section className="v2-hero relative isolate min-h-[780px] overflow-hidden border-b border-[#c89547]/20">
         <Image
-          src="/v2/ancient-tech-hero.png"
-          alt="Altın ışıkla çevrelenen kadim bir ağaç ve dağ manzarası"
+          src="/v2/ancient-tree-hero.jpg"
+          alt="Altın ışık saçan kadim ulu ağaç ve dağ manzarası"
           fill
           priority
           sizes="100vw"
-          className="-z-20 object-cover object-[62%_center]"
+          className="-z-20 object-cover object-[72%_center]"
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,8,12,.98)_0%,rgba(3,8,12,.87)_31%,rgba(3,8,12,.3)_64%,rgba(3,8,12,.18)_100%)]" />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(3,8,12,.95)_0%,transparent_42%,rgba(3,8,12,.35)_100%)]" />
