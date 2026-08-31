@@ -1,389 +1,267 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import Image from "next/image";
-import { PRODUCTS } from "@/data/games";
-import { Product } from "@/types/game";
+import Link from "next/link";
 import {
-  Download,
   ArrowRight,
+  Download,
   Gamepad2,
-  Smartphone,
-  QrCode,
-  Pause,
+  Gift,
   Play,
+  RotateCcw,
+  ShieldCheck,
+  Smartphone,
+  WifiOff,
   Sparkles,
+  BookOpen,
+  Brain,
+  Palette,
+  CheckCircle2,
 } from "lucide-react";
-import { QrModalDialog } from "@/components/ui/QrDownloadModal";
+import { PRODUCTS } from "@/data/games";
+import { SeljukOrnament } from "./V2Icons";
 
-const SLIDE_DURATION = 4000; // 4.0 seconds per slide
-const TICK_INTERVAL = 40; // 40ms continuous tick
+interface ProductShowcaseConfig {
+  id: string;
+  tagline: string;
+  features: { icon: typeof ShieldCheck; text: string }[];
+  screens: string[];
+}
+
+const SHOWCASE_DATA: Record<string, ProductShowcaseConfig> = {
+  "blok-dunyasi": {
+    id: "blok-dunyasi",
+    tagline:
+      "Renkli blokları eşleştir, seviyeleri tamamla ve liderlik tablosunda zirveye yerleş!",
+    features: [
+      {
+        icon: ShieldCheck,
+        text: "Zehirli reklam yok, kesintisiz oyun deneyimi",
+      },
+      {
+        icon: Gift,
+        text: "Haftalık etkinlikler ve ödüller",
+      },
+      {
+        icon: WifiOff,
+        text: "Çevrimdışı oynama desteği",
+      },
+      {
+        icon: RotateCcw,
+        text: "Sürekli yeni seviyeler",
+      },
+    ],
+    screens: [
+      "/games/blok-dunyasi/cover.jpg",
+      "/games/blok-dunyasi/gameplay-1.jpg",
+      "/games/blok-dunyasi/gameplay-2.jpg",
+      "/games/blok-dunyasi/cover.jpg",
+    ],
+  },
+  lingorise: {
+    id: "lingorise",
+    tagline:
+      "İngilizce kelime bilginizi unutmadan, büyüyen görsel bahçe metaforuyla kalıcı kılın!",
+    features: [
+      {
+        icon: Brain,
+        text: "Akıllı aralıklı tekrar algoritması",
+      },
+      {
+        icon: Sparkles,
+        text: "Gelişen görsel kelime bahçesi",
+      },
+      {
+        icon: BookOpen,
+        text: "Günlük hayatta en sık kullanılan kelimeler",
+      },
+      {
+        icon: WifiOff,
+        text: "%100 internetsiz pratik imkanı",
+      },
+    ],
+    screens: [
+      "/apps/lingorise/home-garden.png",
+      "/apps/lingorise/practice-session.png",
+      "/apps/lingorise/progress-mastery.png",
+      "/apps/lingorise/home-garden.png",
+    ],
+  },
+  "benim-notlarim": {
+    id: "benim-notlarim",
+    tagline:
+      "Telefonunuzun duvar kağıdıyla otomatik uyum sağlayan renkler ve sade not deneyimi.",
+    features: [
+      {
+        icon: ShieldCheck,
+        text: "%100 yerel ve gizli, veriler telefonda saklanır",
+      },
+      {
+        icon: Palette,
+        text: "Duvar kağıdına dinamik uyumlu tema",
+      },
+      {
+        icon: CheckCircle2,
+        text: "Zengin yazı seçenekleri ve kontrol listeleri",
+      },
+      {
+        icon: WifiOff,
+        text: "Tamamen çevrimdışı çalışma",
+      },
+    ],
+    screens: [
+      "/apps/benim-notlarim/cover.jpg",
+      "/apps/benim-notlarim/editor.jpg",
+      "/apps/benim-notlarim/settings.png",
+      "/apps/benim-notlarim/cover.jpg",
+    ],
+  },
+};
 
 export function V2Projects() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [qrModalProduct, setQrModalProduct] = useState<Product | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const totalSlides = PRODUCTS.length;
+  const [activeId, setActiveId] = useState<string>("blok-dunyasi");
 
-  // Auto-advance slider with progress indicator (pauses on user pause or QR modal open)
-  useEffect(() => {
-    if (qrModalProduct || isPaused) return;
-
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        const next = prev + (TICK_INTERVAL / SLIDE_DURATION) * 100;
-        if (next >= 100) {
-          setCurrentIndex((current) => (current + 1) % totalSlides);
-          return 0;
-        }
-        return next;
-      });
-    }, TICK_INTERVAL);
-
-    return () => clearInterval(interval);
-  }, [totalSlides, qrModalProduct, isPaused]);
-
-  // Sync with URL hash on load and hash change
-  useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash;
-      if (hash === "#oyunlar") {
-        const gameIdx = PRODUCTS.findIndex((p) => p.type === "game");
-        if (gameIdx !== -1) {
-          setCurrentIndex(gameIdx);
-          setProgress(0);
-        }
-      } else if (hash === "#uygulamalar") {
-        const appIdx = PRODUCTS.findIndex((p) => p.type === "app");
-        if (appIdx !== -1) {
-          setCurrentIndex(appIdx);
-          setProgress(0);
-        }
-      }
-    };
-
-    handleHash();
-    window.addEventListener("hashchange", handleHash);
-    return () => window.removeEventListener("hashchange", handleHash);
-  }, []);
-
-  const handleTabClick = (idx: number) => {
-    setCurrentIndex(idx);
-    setProgress(0);
-  };
-
-  const product = PRODUCTS[currentIndex];
-
-  const productMeta: Record<
-    string,
-    { index: string; taxonomy: string; label: string; color: string }
-  > = {
-    "blok-dunyasi": {
-      index: "01",
-      taxonomy: "OYUN",
-      label: "ÖNE ÇIKAN",
-      color: "text-[#d6a653]",
-    },
-    lingorise: {
-      index: "02",
-      taxonomy: "ÖĞRENME",
-      label: "UYGULAMA",
-      color: "text-emerald-400",
-    },
-    "benim-notlarim": {
-      index: "03",
-      taxonomy: "ÜRETKENLİK",
-      label: "UYGULAMA",
-      color: "text-amber-300",
-    },
-  };
-
-  // Distinct two screens for realistic dual-phone presentation
-  const getScreens = (id: string) => {
-    switch (id) {
-      case "blok-dunyasi":
-        return {
-          primary: "/games/blok-dunyasi/cover.jpg",
-          secondary: "/games/blok-dunyasi/gameplay-1.jpg",
-        };
-      case "lingorise":
-        return {
-          primary: "/apps/lingorise/home-garden.png",
-          secondary: "/apps/lingorise/practice-session.png",
-        };
-      case "benim-notlarim":
-        return {
-          primary: "/apps/benim-notlarim/cover.jpg",
-          secondary: "/apps/benim-notlarim/editor.jpg",
-        };
-      default:
-        return {
-          primary: "/games/blok-dunyasi/cover.jpg",
-          secondary: "/games/blok-dunyasi/gameplay-1.jpg",
-        };
-    }
-  };
-
-  const screens = getScreens(product.id);
-
-  // Per-product ambient aura matching the V2 dark palette
-  const renderAura = (id: string) => {
-    if (id === "blok-dunyasi") {
-      return (
-        <div className="pointer-events-none absolute -right-10 top-1/2 h-[550px] w-[600px] -translate-y-1/2 opacity-70 transition-opacity duration-1000">
-          <div className="absolute right-[10%] top-0 h-[320px] w-[320px] rounded-full bg-radial from-[#d9a34e]/20 via-[#c56a1e]/10 to-transparent blur-[100px]" />
-          <div className="absolute bottom-16 right-[38%] h-[220px] w-[220px] rounded-full bg-radial from-[#a97ee0]/15 to-transparent blur-[90px]" />
-        </div>
-      );
-    }
-    if (id === "lingorise") {
-      return (
-        <div className="pointer-events-none absolute -right-10 top-1/2 h-[550px] w-[600px] -translate-y-1/2 opacity-70 transition-opacity duration-1000">
-          <div className="absolute right-[15%] top-10 h-[340px] w-[340px] rounded-full bg-radial from-emerald-500/20 via-teal-700/10 to-transparent blur-[110px]" />
-        </div>
-      );
-    }
-    return (
-      <div className="pointer-events-none absolute -right-10 top-1/2 h-[550px] w-[600px] -translate-y-1/2 opacity-70 transition-opacity duration-1000">
-        <div className="absolute right-[15%] top-10 h-[340px] w-[340px] rounded-full bg-radial from-amber-500/20 via-[#bc8634]/10 to-transparent blur-[110px]" />
-      </div>
-    );
-  };
-
-  const meta = productMeta[product.id] ?? productMeta["blok-dunyasi"];
+  const product =
+    PRODUCTS.find((p) => p.id === activeId) || PRODUCTS[0];
+  const showcase = SHOWCASE_DATA[activeId] || SHOWCASE_DATA["blok-dunyasi"];
 
   return (
     <section
       id="projeler"
-      className="relative mx-auto max-w-[1380px] px-5 py-24 sm:px-8 lg:px-12"
+      className="relative mx-auto max-w-[1380px] px-5 py-20 sm:px-8 lg:px-12 lg:py-24"
     >
-      {/* Anchor targets for direct navigation */}
+      {/* Anchor targets */}
       <div id="oyunlar" className="absolute -top-24" aria-hidden="true" />
       <div id="uygulamalar" className="absolute -top-24" aria-hidden="true" />
 
-      {/* Section Header */}
-      <div className="mb-10 text-center">
-        <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[.24em] text-[#d6a653]">
-          <Sparkles className="h-3.5 w-3.5" />
-          <span>PORTFÖYÜMÜZ</span>
-        </div>
-        <h2 className="v2-serif mt-3 text-4xl sm:text-5xl">
-          Ürettiğimiz dünyalar.
-        </h2>
+      {/* Eyebrow Header */}
+      <div className="mb-8 text-center">
+        <SeljukOrnament title="ÖNE ÇIKAN ÜRÜNÜMÜZ" />
       </div>
 
-      {/* 1. Interactive Switcher Tabs with Synchronized Progress Line */}
+      {/* Switcher Tabs */}
       <div
-        className="mb-12 flex flex-wrap items-center justify-center gap-3"
+        className="mb-14 flex flex-wrap items-center justify-center gap-3"
         role="tablist"
-        aria-label="Öne çıkan ürünler"
+        aria-label="Ürün seçimi"
       >
-        {PRODUCTS.map((item, idx) => {
-          const isActive = currentIndex === idx;
+        {PRODUCTS.map((item) => {
+          const isActive = activeId === item.id;
           return (
             <button
               key={item.id}
-              onClick={() => handleTabClick(idx)}
+              type="button"
               role="tab"
               aria-selected={isActive}
-              aria-controls={`featured-product-${item.id}`}
-              id={`featured-tab-${item.id}`}
-              className={`relative cursor-pointer overflow-hidden rounded-2xl border px-6 py-3.5 text-xs font-bold tracking-wider transition-all duration-300 sm:text-sm ${
+              onClick={() => setActiveId(item.id)}
+              className={`inline-flex cursor-pointer items-center gap-2.5 rounded-xl border px-6 py-3 text-xs font-bold tracking-wider transition-all duration-300 ${
                 isActive
-                  ? "border-[#d8a958]/50 bg-white/10 text-[#fff8eb] shadow-2xl shadow-black scale-105"
-                  : "border-white/10 bg-white/[0.02] text-zinc-400 hover:border-white/20 hover:bg-white/5 hover:text-white"
+                  ? "border-[#d4a359] bg-[#141820] text-[#f7dc9f] shadow-[0_0_20px_rgba(212,163,89,0.25)] scale-105"
+                  : "border-[#d4a359]/25 bg-[#0b0e12]/80 text-[#a8a398] hover:border-[#d4a359]/50 hover:bg-[#12161c] hover:text-[#f5f2eb]"
               }`}
             >
-              <div className="flex items-center gap-2.5">
-                {item.type === "game" ? (
-                  <Gamepad2
-                    className={`h-4 w-4 ${
-                      isActive ? "text-[#d6a653]" : "text-[#8e8c87]"
-                    }`}
-                  />
-                ) : (
-                  <Smartphone
-                    className={`h-4 w-4 ${
-                      isActive ? "text-[#d6a653]" : "text-[#8e8c87]"
-                    }`}
-                  />
-                )}
-                <span>{item.title}</span>
-              </div>
-
-              {/* Synchronized Gold Duration Fill Line */}
-              {isActive && (
-                <div className="absolute bottom-0 left-0 h-[2.5px] w-full overflow-hidden bg-[#d8a958]/20">
-                  <div
-                    style={{ width: `${progress}%` }}
-                    className="h-full bg-gradient-to-r from-[#d9a34e] via-[#f5d085] to-[#fff1d0] shadow-[0_0_10px_rgba(216,169,88,0.8)] transition-all duration-75 ease-linear"
-                  />
-                </div>
+              {item.type === "game" ? (
+                <Gamepad2
+                  className={`h-4 w-4 ${
+                    isActive ? "text-[#d4a359]" : "text-[#7a766e]"
+                  }`}
+                />
+              ) : (
+                <Smartphone
+                  className={`h-4 w-4 ${
+                    isActive ? "text-[#d4a359]" : "text-[#7a766e]"
+                  }`}
+                />
               )}
+              <span>{item.title}</span>
             </button>
           );
         })}
-
-        {/* Pause / Play Control */}
-        <button
-          onClick={() => setIsPaused((prev) => !prev)}
-          aria-pressed={isPaused}
-          aria-label={
-            isPaused ? "Otomatik geçişi başlat" : "Otomatik geçişi duraklat"
-          }
-          className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-2xl border border-white/10 bg-white/[0.02] text-zinc-400 transition-all hover:border-white/20 hover:bg-white/5 hover:text-white"
-        >
-          {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
-        </button>
       </div>
 
-      {/* Screen-reader announcement */}
-      <div className="sr-only" aria-live="polite">
-        {product.title} gösteriliyor{isPaused ? ", duraklatıldı" : ""}.
-      </div>
-
-      {/* 2. Borderless Cinematic Showcase Stage (Seamless, no card container) */}
-      <div
-        key={product.id}
-        id={`featured-product-${product.id}`}
-        role="tabpanel"
-        aria-labelledby={`featured-tab-${product.id}`}
-        className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16"
-      >
-        {/* Dynamic Ambient Aura Behind Phones */}
-        {renderAura(product.id)}
-
-        {/* Left Column: Content */}
-        <div className="z-10 space-y-6 lg:col-span-6 animate-[fadeIn_0.35s_ease-out]">
-          <p
-            className={`text-xs font-bold tracking-[.22em] uppercase ${meta.color}`}
-          >
-            {meta.index} / {meta.taxonomy} · {meta.label}
-          </p>
-
-          <h3 className="v2-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#fbf8f1] leading-[1.08]">
+      {/* Main Showcase Grid: Left Product Details & Right 4 Phone Screens */}
+      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14">
+        {/* Left Column: Product Information */}
+        <div className="z-10 space-y-7 lg:col-span-4">
+          <h3 className="v2-serif text-4xl sm:text-5xl font-bold tracking-tight text-[#fbf8f2]">
             {product.title}
           </h3>
 
-          <p className="text-base sm:text-lg font-normal leading-relaxed text-[#d5d1ca]">
-            {product.shortDescription}
+          <p className="text-sm sm:text-base leading-7 text-[#b5b0a4]">
+            {showcase.tagline}
           </p>
 
-          {/* Feature Highlights with Gold Accent Bullets */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2.5 border-l-2 border-[#d8a958]/40 pl-4 text-xs sm:text-sm text-[#cac6bd]">
-            {product.features?.slice(0, 3).map((feat, i) => (
-              <div key={i} className="flex items-center gap-2 font-medium">
-                <span
-                  className="h-1.5 w-1.5 rounded-full bg-[#d6a653]"
-                  aria-hidden="true"
-                />
-                <span>{feat.split(":")[0]}</span>
+          {/* 4 Feature Checklist with Gold Icons */}
+          <div className="space-y-4 pt-2">
+            {showcase.features.map(({ icon: Icon, text }) => (
+              <div key={text} className="flex items-center gap-3.5">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-[#d4a359]/30 bg-[#161a22] text-[#d4a359]">
+                  <Icon className="h-4 w-4" />
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-[#ded9ce]">
+                  {text}
+                </span>
               </div>
             ))}
           </div>
 
-          {/* Actions */}
+          {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
-            {product.links.playStore && (
+            {product.links.playStore ? (
               <a
                 href={product.links.playStore}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-md bg-gradient-to-r from-[#d9a34e] to-[#f2ca7c] px-6 py-3.5 text-xs font-bold text-[#18110a] shadow-[0_10px_25px_rgba(205,150,61,.25)] transition hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(205,150,61,.35)]"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2.5 rounded-lg bg-gradient-to-r from-[#dca757] via-[#eec578] to-[#cca04f] px-6 py-3.5 text-xs font-bold text-[#140e06] shadow-[0_6px_20px_rgba(212,163,89,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(212,163,89,0.4)]"
               >
-                <Download className="h-4 w-4" />
-                <span>Google Play&apos;den İndir</span>
+                <Play className="h-3.5 w-3.5 fill-current" />
+                <span>Google Play&apos;de Oyna</span>
               </a>
-            )}
-
-            {product.links.playStore && (
-              <button
-                type="button"
-                onClick={() => setQrModalProduct(product)}
-                className="inline-flex items-center gap-2 rounded-md border border-[#c39856]/40 bg-[#061019] px-5 py-3.5 text-xs font-semibold text-[#f5e7cd] backdrop-blur-sm transition hover:border-[#f2ca7c] hover:bg-[#b97e2a]/15"
-              >
-                <QrCode className="h-4 w-4 text-[#d6a750]" />
-                <span>QR ile Tara</span>
-              </button>
+            ) : (
+              <span className="inline-flex items-center gap-2 rounded-lg border border-[#d4a359]/30 bg-[#13161c] px-5 py-3 text-xs font-semibold text-[#a8a398]">
+                <span>Geliştirme Aşamasında</span>
+              </span>
             )}
 
             <Link
               href={`/products/${product.slug}`}
-              className="inline-flex items-center gap-2 rounded-md border border-[#c39856]/30 bg-black/20 px-5 py-3.5 text-xs font-semibold text-[#d8a654] transition hover:border-[#f2ca7c] hover:bg-white/10 hover:text-[#ffe0a4]"
+              className="inline-flex items-center gap-2 rounded-lg border border-[#d4a359]/35 bg-[#0f1217]/60 px-5 py-3.5 text-xs font-semibold text-[#f5f2eb] backdrop-blur-sm transition hover:border-[#f1c479] hover:bg-[#d4a359]/10 hover:text-[#f7dc9f]"
             >
-              <span>Detaylar & Galeri</span>
-              <ArrowRight className="h-4 w-4" />
+              <span>Detayları Gör</span>
+              <ArrowRight className="h-4 w-4 text-[#d4a359]" />
             </Link>
           </div>
         </div>
 
-        {/* Right Column: Floating 3D Phones */}
-        <div className="z-10 flex items-center justify-center gap-5 sm:gap-8 py-4 lg:col-span-6 animate-[fadeIn_0.35s_ease-out]">
-          {/* Phone 1: Main Screen */}
-          <div className="relative w-1/2 max-w-[230px] sm:max-w-[260px] rounded-[2.4rem] sm:rounded-[2.7rem] p-2.5 sm:p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 border border-white/20 shadow-2xl shadow-black -rotate-3 transition-all duration-500 hover:-rotate-1 hover:scale-105">
-            <div
-              style={{
-                aspectRatio:
-                  product.id === "benim-notlarim" ? "535 / 1024" : "9 / 19.5",
-              }}
-              className="relative w-full overflow-hidden rounded-[1.8rem] sm:rounded-[2.1rem] bg-black"
-            >
-              <Image
-                src={screens.primary}
-                alt={`${product.title} Ekran 1`}
-                fill
-                sizes="(max-width: 1024px) 45vw, 260px"
-                className="object-cover object-top"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08]" />
-            </div>
-          </div>
-
-          {/* Phone 2: Detail / Secondary Screen */}
-          <div className="relative mt-8 sm:mt-12 w-1/2 max-w-[230px] sm:max-w-[260px] rounded-[2.4rem] sm:rounded-[2.7rem] p-2.5 sm:p-3 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 border border-white/20 shadow-2xl shadow-black rotate-3 transition-all duration-500 hover:rotate-1 hover:scale-105">
-            <div
-              style={{
-                aspectRatio:
-                  product.id === "benim-notlarim" ? "547 / 1024" : "9 / 19.5",
-              }}
-              className="relative w-full overflow-hidden rounded-[1.8rem] sm:rounded-[2.1rem] bg-black"
-            >
-              <Image
-                src={screens.secondary}
-                alt={`${product.title} Ekran 2`}
-                fill
-                sizes="(max-width: 1024px) 45vw, 260px"
-                className="object-cover object-top"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08]" />
-            </div>
+        {/* Right Column: 4 Phones Side-by-Side Gallery */}
+        <div className="z-10 lg:col-span-8">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 select-none">
+            {showcase.screens.map((screenSrc, index) => (
+              <div
+                key={`${product.id}-screen-${index}`}
+                className="group relative transform transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
+              >
+                {/* Phone Outer Chassis */}
+                <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.8rem] sm:rounded-[2.2rem] border-2 border-[#2b313d] bg-[#0c0e12] p-1 shadow-2xl">
+                  {/* Phone Screen Glass */}
+                  <div className="relative h-full w-full overflow-hidden rounded-[1.5rem] sm:rounded-[1.9rem] bg-black">
+                    <Image
+                      src={screenSrc}
+                      alt={`${product.title} Ekran ${index + 1}`}
+                      fill
+                      sizes="(max-width: 640px) 45vw, 160px"
+                      className="object-cover object-top transition duration-500 group-hover:scale-105"
+                    />
+                    {/* Realistic Glass Reflection */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08]" />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Bottom All Products Link */}
-      <div className="mt-12 text-center sm:text-left">
-        <Link
-          href="/products"
-          className="inline-flex items-center gap-3 rounded-md border border-[#c39856]/40 bg-[#061019] px-5 py-3 text-xs font-bold tracking-wider text-[#d8a654] transition hover:border-[#f2ca7c] hover:bg-[#b97e2a]/15 hover:text-[#ffe0a4]"
-        >
-          <span>TÜM PROJELERİ LİSTELE</span>
-          <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
-
-      {/* Global Top-Level QR Modal (Freezes the slider while active) */}
-      {qrModalProduct && (
-        <QrModalDialog
-          title={qrModalProduct.title}
-          url={qrModalProduct.links.playStore || ""}
-          coverImage={qrModalProduct.coverImage}
-          isOpen={true}
-          onClose={() => setQrModalProduct(null)}
-        />
-      )}
     </section>
   );
 }

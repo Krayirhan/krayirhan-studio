@@ -1,32 +1,46 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Download, Menu, X } from "lucide-react";
+import { ChevronDown, ExternalLink, Menu, Play, X } from "lucide-react";
+import { StagEmblem } from "./V2Icons";
 
 export function V2Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const firstLinkRef = useRef<HTMLAnchorElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close menu on Escape key and restore focus
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && mobileMenuOpen) {
-        setMobileMenuOpen(false);
-        menuButtonRef.current?.focus();
+      if (event.key === "Escape") {
+        if (mobileMenuOpen) {
+          setMobileMenuOpen(false);
+          menuButtonRef.current?.focus();
+        }
+        setProductsOpen(false);
       }
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [mobileMenuOpen]);
 
-  // Focus the first link when opened
+  // Click outside to close products dropdown
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setProductsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
-      firstLinkRef.current?.focus();
     } else {
       document.body.style.overflow = "";
     }
@@ -35,180 +49,182 @@ export function V2Header() {
     };
   }, [mobileMenuOpen]);
 
-  const handleNavClick = () => {
-    setMobileMenuOpen(false);
-  };
-
   return (
-    <header className="relative z-40 mx-auto flex h-24 max-w-[1380px] items-center justify-between px-5 sm:px-8 lg:px-12">
-      {/* Brand Logo & Name */}
+    <header className="relative z-50 mx-auto flex h-24 max-w-[1380px] items-center justify-between px-5 sm:px-8 lg:px-12">
+      {/* Brand: Gilded Stag Logo + Typography */}
       <Link
         href="/"
-        className="group flex items-center gap-3"
-        aria-label="Krayirhan Studio ana sayfasına dön"
+        className="group flex items-center gap-3.5"
+        aria-label="Krayirhan Studio Ana Sayfası"
       >
-        <div className="relative h-12 w-12 overflow-hidden rounded-full border border-[#d3a354]/60 bg-black/25 p-1 transition duration-300 group-hover:scale-105 group-hover:border-[#f3ca7d]">
-          <Image
-            src="/brand/logo.png"
-            alt=""
-            fill
-            sizes="48px"
-            className="rounded-full object-cover"
-          />
+        <div className="relative flex h-11 w-11 items-center justify-center transition-transform duration-300 group-hover:scale-105">
+          <StagEmblem className="h-10 w-10 drop-shadow-[0_0_12px_rgba(212,163,89,0.35)]" />
         </div>
-        <div className="leading-none">
-          <span className="v2-serif block text-lg tracking-[.27em] text-[#fff9ed] transition group-hover:text-[#f8deb1] sm:text-xl">
+        <div className="flex flex-col leading-tight">
+          <span className="font-serif text-lg sm:text-xl font-bold tracking-[.25em] text-[#fff9ed] transition-colors group-hover:text-[#f8deb1]">
             KRAYIRHAN
           </span>
-          <span className="block pt-1 text-[9px] font-semibold tracking-[.45em] text-[#d9b16d]">
+          <span className="text-[9px] font-semibold tracking-[.48em] text-[#d4a359]">
             STUDIO
           </span>
         </div>
       </Link>
 
-      {/* Desktop Navigation */}
+      {/* Center Desktop Navigation */}
       <nav
-        className="hidden items-center gap-8 text-[11px] font-semibold tracking-wider text-[#eee8df] lg:flex"
-        aria-label="V2 Masaüstü Navigasyonu"
+        className="hidden items-center gap-9 text-xs font-semibold tracking-wider text-[#d5d0c7] lg:flex"
+        aria-label="V2 Masaüstü Menüsü"
       >
-        <a
-          className="border-b border-[#d8a958] pb-1 text-[#fff8eb] transition-colors hover:text-[#e7b662]"
-          href="#anasayfa"
-        >
-          ANA SAYFA
+        {/* Products Dropdown */}
+        <div className="relative" ref={dropdownRef}>
+          <button
+            type="button"
+            onClick={() => setProductsOpen((prev) => !prev)}
+            aria-expanded={productsOpen}
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-[#f4d193]"
+          >
+            <span>Ürünler</span>
+            <ChevronDown
+              className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                productsOpen ? "rotate-180 text-[#d4a359]" : ""
+              }`}
+            />
+          </button>
+
+          {productsOpen && (
+            <div className="absolute left-0 top-full mt-3 w-52 rounded-xl border border-[#d4a359]/30 bg-[#0d1014]/95 p-2 shadow-2xl backdrop-blur-xl animate-[fadeIn_0.15s_ease-out]">
+              <a
+                href="#projeler"
+                onClick={() => setProductsOpen(false)}
+                className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-[#d4a359]/15 hover:text-[#f7dc9f]"
+              >
+                🎮 Blok Dünyası
+              </a>
+              <a
+                href="#projeler"
+                onClick={() => setProductsOpen(false)}
+                className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-[#d4a359]/15 hover:text-[#f7dc9f]"
+              >
+                🌱 LingoRise
+              </a>
+              <a
+                href="#projeler"
+                onClick={() => setProductsOpen(false)}
+                className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-[#d4a359]/15 hover:text-[#f7dc9f]"
+              >
+                ✍️ Benim Notlarım
+              </a>
+              <div className="my-1 border-t border-white/10" />
+              <Link
+                href="/products"
+                onClick={() => setProductsOpen(false)}
+                className="block rounded-lg px-3.5 py-2 text-[11px] font-semibold text-[#d4a359] hover:underline"
+              >
+                Tüm Ürünleri Görüntüle →
+              </Link>
+            </div>
+          )}
+        </div>
+
+        <a href="#felsefe" className="transition-colors hover:text-[#f4d193]">
+          Stüdyo
         </a>
+        <Link href="/about" className="transition-colors hover:text-[#f4d193]">
+          Hakkında
+        </Link>
         <a
-          className="pb-1 transition-colors hover:text-[#e7b662]"
-          href="#projeler"
+          href="mailto:contact@krayirhan.com"
+          className="transition-colors hover:text-[#f4d193]"
         >
-          PROJELERİMİZ
-        </a>
-        <a
-          className="pb-1 transition-colors hover:text-[#e7b662]"
-          href="#oyunlar"
-        >
-          OYUNLARIMIZ
-        </a>
-        <a
-          className="pb-1 transition-colors hover:text-[#e7b662]"
-          href="#uygulamalar"
-        >
-          UYGULAMALARIMIZ
-        </a>
-        <a
-          className="pb-1 transition-colors hover:text-[#e7b662]"
-          href="#hakkimizda"
-        >
-          HAKKIMIZDA
+          İletişim
         </a>
       </nav>
 
-      {/* Desktop Action Buttons & Mobile Trigger */}
+      {/* Right Desktop Action Button */}
       <div className="flex items-center gap-3">
         <a
-          href="mailto:contact@krayirhan.com"
-          className="hidden items-center gap-4 rounded-md border border-[#bc8634]/75 bg-[#061018]/60 px-5 py-3 text-[11px] font-semibold tracking-wider text-[#f5e7cd] backdrop-blur-sm transition hover:border-[#f1c479] hover:bg-[#b97e2a]/20 sm:inline-flex"
+          href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
+          target="_blank"
+          rel="noreferrer"
+          className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#dca757] via-[#eec578] to-[#cca04f] px-5 py-2.5 text-xs font-bold tracking-wide text-[#140e06] shadow-[0_4px_18px_rgba(212,163,89,0.3)] transition hover:brightness-110 hover:-translate-y-0.5"
         >
-          BİZE ULAŞIN <ArrowRight className="h-4 w-4 text-[#d6a750]" />
+          <Play className="h-3.5 w-3.5 fill-current" />
+          <span>Google Play</span>
+          <ExternalLink className="h-3 w-3 opacity-70" />
         </a>
 
-        {/* Mobile Menu Toggle Button */}
+        {/* Mobile Hamburger Toggle */}
         <button
           ref={menuButtonRef}
           type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="relative z-50 rounded-md border border-[#bc8634]/60 bg-[#061019]/90 p-2.5 text-[#e4bb79] transition hover:border-[#f1c479] hover:text-[#fff0d0] lg:hidden"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          className="relative z-50 rounded-lg border border-[#d4a359]/50 bg-[#0d1014]/90 p-2 text-[#e4bb79] transition hover:border-[#f1c479] hover:text-[#fff0d0] lg:hidden"
           aria-label={mobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
           aria-expanded={mobileMenuOpen}
           aria-controls="v2-mobile-nav"
         >
-          {mobileMenuOpen ? (
-            <X className="h-5 w-5" aria-hidden="true" />
-          ) : (
-            <Menu className="h-5 w-5" aria-hidden="true" />
-          )}
+          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Mobile Navigation Drawer & Backdrop */}
+      {/* Mobile Drawer & Backdrop */}
       {mobileMenuOpen && (
         <>
-          {/* Backdrop overlay */}
           <div
-            className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-40 bg-black/75 backdrop-blur-sm lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
 
-          {/* Drawer container */}
           <div
             id="v2-mobile-nav"
             role="dialog"
             aria-modal="true"
-            aria-label="Mobil Menü"
-            className="fixed inset-x-0 top-0 z-45 max-h-[85vh] overflow-y-auto border-b border-[#c89547]/30 bg-[#061019] px-6 pb-8 pt-24 shadow-2xl shadow-black/90 lg:hidden"
+            aria-label="Mobil Gezinti"
+            className="fixed inset-x-0 top-0 z-45 max-h-[90vh] overflow-y-auto border-b border-[#d4a359]/30 bg-[#0a0c10] px-6 pb-8 pt-24 shadow-2xl lg:hidden"
           >
-            <nav
-              className="flex flex-col space-y-3"
-              aria-label="V2 Mobil Bağlantıları"
-            >
-              <a
-                ref={firstLinkRef}
-                href="#anasayfa"
-                onClick={handleNavClick}
-                className="rounded-md border-l-2 border-[#d8a958] bg-[#0c1924]/80 px-4 py-3 text-sm font-semibold tracking-wider text-[#fff9ed] transition hover:bg-[#112433]"
-              >
-                ANA SAYFA
-              </a>
+            <nav className="flex flex-col space-y-3">
               <a
                 href="#projeler"
-                onClick={handleNavClick}
-                className="rounded-md border-l-2 border-transparent px-4 py-3 text-sm font-medium tracking-wider text-[#dcd7ce] transition hover:border-[#d8a958] hover:bg-[#0c1924]/60 hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-lg border-l-2 border-[#d4a359] bg-[#12161d] px-4 py-3 text-sm font-semibold text-[#fff9ed]"
               >
-                PROJELERİMİZ (TÜMÜ)
+                Ürünlerimiz (Blok Dünyası, LingoRise, Benim Notlarım)
               </a>
               <a
-                href="#oyunlar"
-                onClick={handleNavClick}
-                className="rounded-md border-l-2 border-transparent px-4 py-3 text-sm font-medium tracking-wider text-[#dcd7ce] transition hover:border-[#d8a958] hover:bg-[#0c1924]/60 hover:text-white"
+                href="#felsefe"
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-[#d4a359] hover:bg-[#12161d]"
               >
-                OYUNLARIMIZ
+                Stüdyo Felsefemiz
               </a>
-              <a
-                href="#uygulamalar"
-                onClick={handleNavClick}
-                className="rounded-md border-l-2 border-transparent px-4 py-3 text-sm font-medium tracking-wider text-[#dcd7ce] transition hover:border-[#d8a958] hover:bg-[#0c1924]/60 hover:text-white"
+              <Link
+                href="/about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-[#d4a359] hover:bg-[#12161d]"
               >
-                UYGULAMALARIMIZ
-              </a>
+                Hakkımızda
+              </Link>
               <a
-                href="#hakkimizda"
-                onClick={handleNavClick}
-                className="rounded-md border-l-2 border-transparent px-4 py-3 text-sm font-medium tracking-wider text-[#dcd7ce] transition hover:border-[#d8a958] hover:bg-[#0c1924]/60 hover:text-white"
+                href="mailto:contact@krayirhan.com"
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-[#d4a359] hover:bg-[#12161d]"
               >
-                HAKKIMIZDA
+                İletişim
               </a>
             </nav>
 
-            {/* Mobile Actions */}
-            <div className="mt-6 flex flex-col gap-3 border-t border-[#c89547]/20 pt-6">
-              <a
-                href="mailto:contact@krayirhan.com"
-                onClick={handleNavClick}
-                className="flex items-center justify-center gap-3 rounded-md border border-[#bc8634]/75 bg-[#b97e2a]/15 py-3.5 text-xs font-semibold tracking-wider text-[#f5e7cd] transition hover:bg-[#b97e2a]/30"
-              >
-                <span>BİZE ULAŞIN</span>
-                <ArrowRight className="h-4 w-4 text-[#d6a750]" />
-              </a>
+            <div className="mt-6 border-t border-[#d4a359]/20 pt-6">
               <a
                 href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
                 target="_blank"
                 rel="noreferrer"
-                onClick={handleNavClick}
-                className="flex items-center justify-center gap-2.5 rounded-md bg-gradient-to-r from-[#d9a34e] to-[#f2ca7c] py-3.5 text-xs font-bold tracking-wider text-[#18110a] shadow-lg transition hover:brightness-110"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#dca757] via-[#eec578] to-[#cca04f] py-3.5 text-xs font-bold text-[#140e06] shadow-lg"
               >
-                <span>GOOGLE PLAY MAĞAZASI</span>
-                <Download className="h-4 w-4" />
+                <Play className="h-3.5 w-3.5 fill-current" />
+                <span>Google Play Mağazası</span>
+                <ExternalLink className="h-3.5 w-3.5 opacity-70" />
               </a>
             </div>
           </div>
