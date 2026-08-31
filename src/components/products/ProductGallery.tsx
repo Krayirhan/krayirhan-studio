@@ -7,9 +7,14 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 interface ProductGalleryProps {
   title: string;
   screenshots: string[];
+  variant?: "default" | "v2";
+  featuredImage?: string;
 }
 
-export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
+export function ProductGallery({
+  title,
+  screenshots,
+}: ProductGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -32,14 +37,21 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
     focusable?.focus();
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Tab" || !dialog) return;
-      const items = [...dialog.querySelectorAll<HTMLElement>(
-        'button, [tabindex]:not([tabindex="-1"])'
-      )];
+      const items = [
+        ...dialog.querySelectorAll<HTMLElement>(
+          'button, [tabindex]:not([tabindex="-1"])'
+        ),
+      ];
       if (!items.length) return;
       const first = items[0];
       const last = items[items.length - 1];
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
@@ -80,7 +92,14 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
   return (
     <>
       {/* Modern Phone Mockup Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-6">
+      <div
+        className={`grid gap-3.5 sm:gap-4.5 py-4 ${screenshots.length <= 3
+            ? "grid-cols-1 sm:grid-cols-3 max-w-4xl"
+            : screenshots.length === 4
+              ? "grid-cols-2 sm:grid-cols-4 max-w-5xl"
+              : "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+          }`}
+      >
         {screenshots.map((screen, idx) => (
           <button
             ref={triggerRef}
@@ -91,44 +110,36 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
             }}
             type="button"
             aria-label={`${title} görsel ${idx + 1} büyüt`}
-            className="group relative flex flex-col items-center justify-center cursor-pointer select-none"
+            className="group relative flex cursor-pointer items-center justify-center select-none w-full"
           >
-            {/* 1. Subtle Ambient Background Glow */}
-            <div className="absolute inset-0 -m-4 rounded-[3rem] bg-white/[0.03] blur-2xl opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 pointer-events-none" />
-
-            {/* 2. Premium Phone Mockup Frame */}
-            <div className="relative w-full max-w-[280px] sm:max-w-[300px] rounded-[2.8rem] p-2.5 bg-gradient-to-b from-zinc-700/80 via-zinc-800/90 to-zinc-900 border border-white/15 shadow-2xl shadow-black/80 ring-1 ring-white/10 group-hover:-translate-y-2 group-hover:border-white/40 transition-all duration-500">
+            {/* Phone Mockup Frame */}
+            <div className="relative w-full rounded-[1.75rem] sm:rounded-[2rem] border-2 border-white/15 bg-[#0a0c10] p-1.5 shadow-[0_16px_36px_rgba(0,0,0,0.6)] ring-1 ring-white/5 transition-all duration-300 group-hover:-translate-y-2 group-hover:border-white/35 group-hover:shadow-[0_24px_48px_rgba(0,0,0,0.85)]">
               {/* Screen Display */}
               <div
-                style={{ aspectRatio: screen.includes("benim-notlarim") ? "535 / 1024" : "9 / 19.5" }}
-                className="relative w-full overflow-hidden rounded-[2.2rem] bg-zinc-950 shadow-inner"
+                style={{ aspectRatio: "9 / 19.5" }}
+                className="relative w-full overflow-hidden rounded-[1.25rem] sm:rounded-[1.5rem] bg-zinc-950"
               >
                 <Image
                   src={screen}
                   alt={`${title} Ekran Görüntüsü ${idx + 1}`}
                   fill
-                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 42vw, 300px"
-                  className="object-contain transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 220px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
                 {/* Subtle Screen Glare */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.06] pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.08] pointer-events-none" />
 
                 {/* Interactive Hover Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-[3px]">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-zinc-950 font-bold shadow-xl group-hover:scale-110 transition-transform">
-                    <ZoomIn className="h-6 w-6" />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2.5 backdrop-blur-[2px]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-zinc-950 font-bold shadow-xl group-hover:scale-110 transition-transform">
+                    <ZoomIn className="h-5 w-5" />
                   </div>
-                  <span className="text-xs font-bold text-white tracking-wider uppercase px-3 py-1 rounded-full bg-white/10 border border-white/20">
+                  <span className="text-[11px] font-bold text-white tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-white/15 border border-white/20">
                     Büyüt
                   </span>
                 </div>
               </div>
-            </div>
-
-            {/* Sub-label */}
-            <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-zinc-400 group-hover:text-white transition-colors">
-              <span>Görsel {idx + 1}</span>
             </div>
           </button>
         ))}
@@ -149,7 +160,9 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3">
-              <span className="text-base font-extrabold text-white tracking-wide">{title}</span>
+              <span className="text-base font-extrabold text-white tracking-wide">
+                {title}
+              </span>
               <span className="rounded-full bg-white/10 px-3.5 py-1 text-xs font-bold text-white border border-white/15">
                 {selectedIndex + 1} / {screenshots.length}
               </span>
@@ -219,11 +232,10 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
                   onClick={() => setSelectedIndex(idx)}
                   aria-label={`${idx + 1}. görsele git`}
                   aria-current={selectedIndex === idx}
-                  className={`relative h-16 w-12 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
-                    selectedIndex === idx
+                  className={`relative h-16 w-12 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${selectedIndex === idx
                       ? "border-white scale-110 shadow-lg ring-2 ring-white/30"
                       : "border-transparent opacity-50 hover:opacity-100"
-                  }`}
+                    }`}
                 >
                   <Image
                     src={screen}

@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
     slug: "hesap-gunlugu",
     type: "app",
     title: "Hesap Günlüğü",
-    tagline: "Gelir ve giderlerinizi güvenli, şifreli ve çevrimdışı bir bütçede yönetin.",
+    tagline: "Gelir ve giderlerinizi tek yerde, güvenli ve çevrimdışı olarak yönetin.",
     category: ["Finans", "Bütçe", "Kişisel Yönetim"],
     status: "Kapalı Testte",
     releaseDate: "Kapalı testte",
@@ -149,7 +149,7 @@ export const PRODUCTS: Product[] = [
     status: "Kapalı Testte",
     releaseDate: "Kapalı testte",
     shortDescription:
-      "Practice English vocabulary with fun exercises, streaks, and XP rewards.",
+      "Kısa kelime pratikleri, tekrarlar ve seri sistemiyle İngilizcenizi her gün biraz daha geliştirin.",
     fullDescription:
       "LingoRise, gerçek İngilizce kelime bilgisini kısa ve odaklı pratik seanslarıyla geliştirmenize yardımcı olur. Seviyenize uyum sağlayan alıştırmalarla eşleştirme yapar, öğrendiğiniz kelimeleri doğru zamanda tekrar edersiniz.\n\nA1'den C2'ye uzanan altı seviyede ilerleyin; XP, günlük seriler ve ilerleme takibiyle düzenli çalışma alışkanlığı kurun. Uygulama misafir olarak çevrimdışı çalışır, hesap açmadan pratik yapabilirsiniz.",
     features: [
