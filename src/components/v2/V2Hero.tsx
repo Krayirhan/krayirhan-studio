@@ -5,34 +5,41 @@ import { IconInstagram, IconX, IconYouTube } from "./V2Icons";
 
 export function V2Hero() {
   return (
-    <section className="relative overflow-hidden px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-      {/* Background Ambience: Subtle Dark Watermarks */}
-      {/* Left side Seljuk Knot Watermark */}
-      <div className="pointer-events-none absolute -left-20 top-20 -z-10 h-[520px] w-[520px] select-none opacity-[0.06] blur-[0.5px]">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full stroke-white" strokeWidth="2">
+    <section className="relative isolate overflow-hidden px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+      {/* Background Ambience: Guaranteed Visible Silhouettes */}
+      {/* Left side Seljuk Knot Silhouette */}
+      <div className="pointer-events-none absolute -left-16 top-12 z-0 h-[520px] w-[520px] select-none opacity-15">
+        <svg
+          viewBox="0 0 200 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-full w-full stroke-white/80"
+          strokeWidth="2.5"
+        >
           <path d="M100 10L190 100L100 190L10 100Z" />
-          <path d="M100 30L170 100L100 170L30 100Z" strokeDasharray="4 4" />
+          <path d="M100 30L170 100L100 170L30 100Z" strokeDasharray="6 6" />
           <circle cx="100" cy="100" r="45" />
           <path d="M68 68L132 132M132 68L68 132" />
         </svg>
       </div>
 
-      {/* Right side Stag Watermark */}
-      <div className="pointer-events-none absolute -right-12 top-10 -z-10 h-[620px] w-[620px] select-none opacity-[0.07]">
+      {/* Right side Stag Silhouette */}
+      <div className="pointer-events-none absolute -right-12 top-6 z-0 h-[620px] w-[620px] select-none opacity-15">
         <Image
           src="/brand/krayirhan-stag-gold.png"
           alt=""
           fill
+          priority
           className="object-contain"
         />
       </div>
 
       {/* Ambient Cool Silver/White Glow behind phones */}
-      <div className="pointer-events-none absolute right-[5%] top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-radial from-white/10 via-white/5 to-transparent blur-[130px]" />
+      <div className="pointer-events-none absolute right-[5%] top-1/2 z-0 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-radial from-white/10 via-white/5 to-transparent blur-[120px]" />
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
         {/* Left Column: Typography & Actions */}
-        <div className="z-10 space-y-6 lg:col-span-6 lg:pr-4">
+        <div className="space-y-6 lg:col-span-6 lg:pr-4">
           <p className="text-xs font-semibold tracking-[0.24em] text-neutral-400 uppercase">
             Bağımsız Mobil Stüdyo
           </p>
@@ -105,7 +112,7 @@ export function V2Hero() {
         </div>
 
         {/* Right Column: 3 Layered Angled Smartphones (Balanced Scale) */}
-        <div className="z-10 flex items-center justify-center pt-4 lg:col-span-6 lg:pt-0">
+        <div className="flex items-center justify-center pt-4 lg:col-span-6 lg:pt-0">
           <div className="relative flex items-center justify-center w-full max-w-[480px] select-none">
             {/* Left Phone: LingoRise (Tilted, Back Layer) */}
             <div className="absolute -left-2 sm:-left-3 top-5 z-10 w-[160px] sm:w-[195px] -rotate-6 transform transition-transform duration-500 hover:-rotate-3 hover:scale-105">
