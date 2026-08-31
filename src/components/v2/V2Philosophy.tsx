@@ -1,12 +1,19 @@
+import Image from "next/image";
 import { Gamepad2, Globe2, Smartphone, Users } from "lucide-react";
-import { CalmFlowIcon, SeljukKnotIcon, SeljukOrnament, StagEmblem } from "./V2Icons";
+import { CalmFlowIcon, SeljukKnotIcon, SeljukOrnament } from "./V2Icons";
 
 export function V2Philosophy() {
   const pillars = [
     {
       icon: (
-        <div className="flex h-12 w-12 items-center justify-center text-[#d4a359]">
-          <StagEmblem className="h-10 w-10" />
+        <div className="flex h-12 w-12 items-center justify-center">
+          <Image
+            src="/brand/krayirhan-stag-gold.png"
+            alt="Krayirhan Geyik Amblemi"
+            width={44}
+            height={44}
+            className="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(212,163,89,0.3)]"
+          />
         </div>
       ),
       title: "Gerçek Kullanım Değeri",

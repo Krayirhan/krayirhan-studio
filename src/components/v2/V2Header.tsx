@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, ExternalLink, Menu, Play, X } from "lucide-react";
-import { StagEmblem } from "./V2Icons";
 
 export function V2Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -58,7 +58,14 @@ export function V2Header() {
         aria-label="Krayirhan Studio Ana Sayfası"
       >
         <div className="relative flex h-11 w-11 items-center justify-center transition-transform duration-300 group-hover:scale-105">
-          <StagEmblem className="h-10 w-10 drop-shadow-[0_0_12px_rgba(212,163,89,0.35)]" />
+          <Image
+            src="/brand/krayirhan-stag-gold.png"
+            alt="Krayirhan Studio Amblemi"
+            width={44}
+            height={44}
+            priority
+            className="h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(212,163,89,0.45)]"
+          />
         </div>
         <div className="flex flex-col leading-tight">
           <span className="font-serif text-lg sm:text-xl font-bold tracking-[.25em] text-[#fff9ed] transition-colors group-hover:text-[#f8deb1]">

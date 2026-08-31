@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Mail, MapPin } from "lucide-react";
-import { StagEmblem } from "./V2Icons";
 
 export function V2Footer() {
   return (
@@ -14,7 +14,13 @@ export function V2Footer() {
               className="flex items-center gap-3.5"
               aria-label="Krayirhan Studio Ana Sayfası"
             >
-              <StagEmblem className="h-9 w-9 text-[#d4a359]" />
+              <Image
+                src="/brand/krayirhan-stag-gold.png"
+                alt="Krayirhan Studio Logosu"
+                width={36}
+                height={36}
+                className="h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(212,163,89,0.35)]"
+              />
               <div className="flex flex-col leading-tight">
                 <span className="font-serif text-lg font-bold tracking-[.25em] text-[#fff9ed]">
                   KRAYIRHAN

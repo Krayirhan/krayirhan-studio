@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { IconInstagram, IconX, IconYouTube, SeljukOrnament, StagEmblem } from "./V2Icons";
+import { IconInstagram, IconX, IconYouTube, SeljukOrnament } from "./V2Icons";
 
 export function V2Hero() {
   return (
@@ -18,8 +18,13 @@ export function V2Hero() {
       </div>
 
       {/* Right side Stag Watermark */}
-      <div className="pointer-events-none absolute -right-12 top-10 -z-10 h-[620px] w-[620px] select-none opacity-[0.05]">
-        <StagEmblem className="h-full w-full" />
+      <div className="pointer-events-none absolute -right-12 top-10 -z-10 h-[620px] w-[620px] select-none opacity-[0.06]">
+        <Image
+          src="/brand/krayirhan-stag-gold.png"
+          alt=""
+          fill
+          className="object-contain"
+        />
       </div>
 
       {/* Ambient Warm Golden Glow behind phones */}
