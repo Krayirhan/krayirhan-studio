@@ -25,6 +25,11 @@
     letter-spacing: -0.03em;
   }
 
+  body:has(.v2-page) > header,
+  body:has(.v2-page) > footer {
+    display: none;
+  }
+
   ::selection {
     background-color: #ffffff;
     color: #0a0d0b;
@@ -34,6 +39,12 @@
     outline: 2px solid #f8963a;
     outline-offset: 3px;
   }
+}
+
+/* V2 is an isolated editorial direction: an old-world serif layered over the existing UI font. */
+.v2-serif {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.035em;
 }
 
 /* Animations */

@@ -53,6 +53,14 @@ export function HeroSection() {
               <span>Tüm Ürünleri İncele</span>
               <ArrowRight className="h-4 w-4 text-zinc-400" />
             </Link>
+
+            <Link
+              href="/v2"
+              className="inline-flex items-center gap-2 rounded-xl border border-amber-400/45 bg-amber-400/5 px-6 py-4 text-sm font-semibold text-amber-100 transition-all hover:border-amber-300 hover:bg-amber-400/10 hover:text-white"
+            >
+              <span>V2 Konseptini Gör</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium text-zinc-300">
