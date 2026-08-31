@@ -14,8 +14,8 @@ export function V2Header() {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const isProductsActive = pathname?.startsWith("/v2/products");
-  const isAboutActive = pathname === "/v2/about";
+  const isProductsActive = pathname === "/products" || pathname?.startsWith("/products/");
+  const isStudioActive = pathname === "/about";
 
   // Close menu on Escape key
   useEffect(() => {
@@ -58,27 +58,27 @@ export function V2Header() {
   return (
     <header className="v2-header sticky top-0 z-50 w-full border-b border-white/10 bg-[#080a0d]/90 backdrop-blur-xl transition-all">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
-        {/* Brand: Gilded Stag Logo + Typography */}
+        {/* Left: Brand Identity */}
         <Link
-          href="/v2"
-          className="group flex items-center gap-3.5"
-          aria-label="Krayirhan Studio Ana Sayfası"
+          href="/"
+          className="group flex items-center gap-3.5 transition hover:opacity-90"
+          aria-label="Krayirhan Studio Ana Sayfa"
         >
-          <div className="relative flex h-10 w-10 items-center justify-center transition-transform duration-300 group-hover:scale-105">
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/5 p-1 shadow-lg backdrop-blur-md transition group-hover:border-white/40">
             <Image
               src="/brand/krayirhan-stag-gold.png"
-              alt="Krayirhan Studio Amblemi"
-              width={40}
-              height={40}
+              alt="Krayirhan Studio"
+              width={36}
+              height={36}
               priority
-              className="h-9 w-auto object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]"
+              className="h-8 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
             />
           </div>
-          <div className="flex flex-col leading-tight">
-            <span className="font-serif text-lg font-bold tracking-[.25em] text-white transition-colors group-hover:text-neutral-300">
+          <div className="flex flex-col leading-none">
+            <span className="font-serif text-base font-bold tracking-[0.24em] text-white">
               KRAYIRHAN
             </span>
-            <span className="text-[8px] font-semibold tracking-[.48em] text-neutral-400">
+            <span className="text-[8px] font-semibold tracking-[0.45em] text-neutral-400">
               STUDIO
             </span>
           </div>
@@ -86,17 +86,16 @@ export function V2Header() {
 
         {/* Center Desktop Navigation */}
         <nav
-          className="hidden items-center gap-8 text-xs font-semibold tracking-wider text-[#d5d0c7] lg:flex"
-          aria-label="V2 Masaüstü Menüsü"
+          aria-label="Ana Menü"
+          className="hidden items-center gap-8 text-xs font-semibold uppercase tracking-[0.16em] text-[#ded9ce] lg:flex"
         >
           {/* Products Dropdown */}
-          <div className="relative" ref={dropdownRef}>
+          <div ref={dropdownRef} className="relative">
             <button
               type="button"
               onClick={() => setProductsOpen((prev) => !prev)}
-              aria-expanded={productsOpen}
               className={`inline-flex items-center gap-1.5 transition-colors cursor-pointer ${
-                isProductsActive ? "text-white font-bold" : "hover:text-white"
+                isProductsActive || productsOpen ? "text-white font-bold" : "hover:text-white"
               }`}
             >
               <span>Ürünler</span>
@@ -110,7 +109,7 @@ export function V2Header() {
             {productsOpen && (
               <div className="absolute left-0 top-full mt-3 w-72 rounded-xl border border-white/15 bg-[#0d1014]/98 p-2 shadow-2xl backdrop-blur-2xl animate-[fadeIn_0.15s_ease-out]">
                 <Link
-                  href="/v2/products"
+                  href="/products"
                   onClick={() => setProductsOpen(false)}
                   className="block rounded-lg px-3.5 py-2.5 text-xs font-bold text-white hover:bg-white/10 transition"
                 >
@@ -120,7 +119,7 @@ export function V2Header() {
                 {PRODUCTS.map((product) => (
                   <Link
                     key={product.id}
-                    href={`/v2/products/${product.slug}`}
+                    href={`/products/${product.slug}`}
                     onClick={() => setProductsOpen(false)}
                     className="flex items-center justify-between gap-3 rounded-lg px-3.5 py-2.5 text-xs text-[#ded9ce] transition hover:bg-white/10 hover:text-white"
                   >
@@ -132,29 +131,19 @@ export function V2Header() {
             )}
           </div>
 
-          <Link
-            href="/v2/about"
-            className={`transition-colors ${isAboutActive ? "text-white font-bold" : "hover:text-white"}`}
-          >
-            Hakkında
-          </Link>
-          <a
-            href="mailto:contact@krayirhan.com"
-            className="transition-colors hover:text-white"
-          >
-            İletişim
-          </a>
+          <Link href="/about" className={`transition-colors ${isStudioActive ? "text-white font-bold" : "hover:text-white"}`}>Stüdyo</Link>
         </nav>
 
         {/* Right Desktop Action Button */}
         <div className="flex items-center gap-3">
-          <Link
-            href="/v2/products"
+          <a
+            href="https://play.google.com/store/apps/developer?id=Krayirhan"
+            target="_blank"
+            rel="noreferrer"
             className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-xs font-bold tracking-wide text-black shadow-lg transition hover:bg-neutral-200 hover:-translate-y-0.5"
           >
-            <span>{PRODUCTS.length} ürün</span>
-            <span aria-hidden="true">→</span>
-          </Link>
+            <span>Google Play</span><span aria-hidden="true">↗</span>
+          </a>
 
           {/* Mobile Hamburger Toggle */}
           <button
@@ -189,7 +178,7 @@ export function V2Header() {
           >
             <nav className="flex flex-col space-y-2.5">
               <Link
-                href="/v2/products"
+                href="/products"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`rounded-lg px-4 py-3 text-sm font-bold transition ${
                   isProductsActive
@@ -204,7 +193,7 @@ export function V2Header() {
                 {PRODUCTS.map((product) => (
                   <Link
                     key={product.id}
-                    href={`/v2/products/${product.slug}`}
+                    href={`/products/${product.slug}`}
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between gap-3 rounded-md px-3 py-2 text-xs text-neutral-300 hover:text-white hover:bg-white/5"
                   >
@@ -215,15 +204,15 @@ export function V2Header() {
               </div>
 
               <Link
-                href="/v2/about"
+                href="/about"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`rounded-lg px-4 py-3 text-sm font-medium transition ${
-                  isAboutActive
+                  isStudioActive
                     ? "border-l-2 border-white bg-white/10 text-white font-bold"
                     : "text-[#ded9ce] hover:bg-white/5 hover:text-white"
                 }`}
               >
-                Hakkımızda
+                Stüdyo
               </Link>
               <a
                 href="mailto:contact@krayirhan.com"
@@ -236,7 +225,7 @@ export function V2Header() {
 
             <div className="mt-6 border-t border-white/10 pt-5">
               <Link
-                href="/v2/products"
+                href="/products"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 rounded-lg bg-white py-3.5 text-xs font-bold text-black shadow-lg hover:bg-neutral-200 transition"
               >

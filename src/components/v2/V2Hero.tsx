@@ -1,18 +1,16 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { IconInstagram, IconTikTok, IconYouTube } from "./V2Icons";
 
 export function V2Hero() {
   return (
-    <section className="relative isolate overflow-hidden px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+    <section className="relative isolate overflow-hidden px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
       {/* Soft Ambient Cool/Silver Glow behind phones */}
-      <div className="pointer-events-none absolute right-[5%] top-1/2 z-0 h-[450px] w-[450px] -translate-y-1/2 rounded-full bg-radial from-white/[0.07] via-white/[0.02] to-transparent blur-[140px]" />
+      <div className="pointer-events-none absolute right-[10%] top-1/2 z-0 h-[330px] w-[330px] -translate-y-1/2 rounded-full bg-sky-300/[0.035] blur-[140px]" />
 
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14">
         {/* Left Column: Monolithic Studio Crest + Pure Typography */}
         <div className="z-10 space-y-7 lg:col-span-6 lg:pr-4">
-          {/* 1. Sole Focal Emblem (Asil Stüdyo Mührü) */}
           <div className="flex items-center gap-4">
             <div className="relative h-14 w-12 sm:h-16 sm:w-14 shrink-0 select-none transition-transform hover:scale-105 duration-300">
               <Image
@@ -25,21 +23,19 @@ export function V2Hero() {
             </div>
             <div className="h-7 w-[1px] bg-white/15" />
             <p className="text-xs font-semibold tracking-[0.24em] text-neutral-400 uppercase">
-              Bağımsız Mobil Stüdyo
+              Bağımsız Oyun & Uygulama Stüdyosu
             </p>
           </div>
 
-          {/* 2. Headline */}
-          <h1 className="v2-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.08] text-[#fbf8f2] tracking-tight">
-            Kadim köklerden,
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.06] text-[#f5f5f2] tracking-tight">
+            Fikirden ürüne.
             <br />
-            <span className="text-[#f5f0e6]">modern deneyimlere.</span>
+            <span>Oyundan günlük hayata.</span>
           </h1>
 
           {/* 3. Description */}
-          <p className="max-w-xl text-sm sm:text-base leading-relaxed text-[#b8b3a8]">
-            Krayirhan Studio; bir mobil oyun ve dört Android uygulamasıyla günlük
-            hayatı kolaylaştıran, sade deneyimler geliştirir.
+          <p className="max-w-xl text-sm sm:text-base leading-relaxed text-[#a5a8ae]">
+            Oyunlar, mobil uygulamalar ve dijital deneyimler geliştiriyoruz. Her ürün kendi fikri, karakteri ve amacıyla tasarlanıyor.
           </p>
 
           {/* 4. Action CTAs */}
@@ -48,17 +44,19 @@ export function V2Hero() {
               href="#projeler"
               className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3.5 text-xs font-bold tracking-wide text-black shadow-lg transition hover:-translate-y-0.5 hover:bg-neutral-200"
             >
-              <span>Tüm Ürünleri Keşfet</span>
+              <span>Ürünleri Keşfet</span>
               <ArrowRight className="h-4 w-4" />
             </a>
 
-            <Link
-              href="/v2/about"
+            <a
+              href="https://play.google.com/store/apps/developer?id=Krayirhan"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/[0.05] px-5 py-3.5 text-xs font-semibold tracking-wide text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10"
             >
-              <span>Stüdyomuz Hakkında</span>
-              <ArrowRight className="h-4 w-4 text-white" />
-            </Link>
+              <span>Google Play</span>
+              <ExternalLink className="h-4 w-4 text-white" />
+            </a>
           </div>
 
           {/* 5. Social Follow Links */}
@@ -98,9 +96,9 @@ export function V2Hero() {
 
         {/* Right Column: 3 Layered Angled Smartphones (Clean, Uncluttered) */}
         <div className="flex items-center justify-center pt-4 lg:col-span-6 lg:pt-0">
-          <div className="relative flex items-center justify-center w-full max-w-[480px] select-none">
+          <div className="relative flex items-center justify-center w-full max-w-[450px] select-none">
             {/* Left Phone: LingoRise (Tilted, Back Layer) */}
-            <div className="absolute -left-2 sm:-left-3 top-5 z-10 w-[155px] sm:w-[190px] -rotate-6 transform transition-transform duration-500 hover:-rotate-3 hover:scale-105">
+            <div className="absolute left-1 sm:left-2 top-5 z-10 w-[145px] sm:w-[175px] -rotate-6 transform transition-transform duration-500 hover:-rotate-3 hover:scale-105">
               <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.2rem] border-2 border-[#222731] bg-[#0c0e12] p-1 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.9)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.8rem] bg-[#0c0e12]">
                   <Image
@@ -116,7 +114,7 @@ export function V2Hero() {
             </div>
 
             {/* Center Phone: Blok Dünyası (Front Center Layer) */}
-            <div className="relative z-20 w-[180px] sm:w-[220px] transform transition-transform duration-500 hover:scale-105 shadow-[0_25px_60px_rgba(0,0,0,0.95)]">
+            <div className="relative z-20 w-[180px] sm:w-[215px] transform transition-transform duration-500 hover:scale-105 shadow-[0_25px_60px_rgba(0,0,0,0.95)]">
               <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.4rem] border-2 border-[#343b49] bg-[#090b0e] p-1.5">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.9rem] bg-black">
                   <Image
@@ -133,7 +131,7 @@ export function V2Hero() {
             </div>
 
             {/* Right Phone: Benim Notlarım (Tilted, Back Layer) */}
-            <div className="absolute -right-2 sm:-right-3 top-7 z-10 w-[155px] sm:w-[190px] rotate-6 transform transition-transform duration-500 hover:rotate-3 hover:scale-105">
+            <div className="absolute right-1 sm:right-2 top-7 z-10 w-[145px] sm:w-[175px] rotate-6 transform transition-transform duration-500 hover:rotate-3 hover:scale-105">
               <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.2rem] border-2 border-[#222731] bg-[#0c0e12] p-1 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.9)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.8rem] bg-[#0c0e12]">
                   <Image

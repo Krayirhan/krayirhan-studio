@@ -1,63 +1,44 @@
-import Image from "next/image";
-import { CalmFlowIcon, SeljukKnotIcon } from "./V2Icons";
+import { Layers3, MousePointer2, Route } from "lucide-react";
 
 export function V2Philosophy() {
   const pillars = [
     {
-      icon: (
-        <div className="flex h-12 w-12 items-center justify-center">
-          <Image
-            src="/brand/krayirhan-stag-gold.png"
-            alt="Krayirhan Geyik Amblemi"
-            width={40}
-            height={40}
-            className="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
-          />
-        </div>
-      ),
+      icon: <MousePointer2 className="h-6 w-6" strokeWidth={1.6} />,
       title: "Gerçek Kullanım Değeri",
-      text: "Ürünlerimiz eğlendirir, öğretir veya hayatı kolaylaştırır. Boş vaatlere değil, doğrudan faydaya odaklanırız.",
+      text: "Her ürün, gerçekten kullanılması veya oynanması için tasarlanır. Gereksiz özellikler yerine gerçek ihtiyaca odaklanırız.",
     },
     {
-      icon: (
-        <div className="flex h-12 w-12 items-center justify-center text-white">
-          <SeljukKnotIcon className="h-9 w-9" />
-        </div>
-      ),
-      title: "Ürün Kişiliği",
-      text: "Her ürünümüzün kendine has bir karakteri ve tasarım dili vardır. Sıradan deneyimleri değil, iz bırakanları tasarlarız.",
+      icon: <Layers3 className="h-6 w-6" strokeWidth={1.6} />,
+      title: "Kendine Ait Bir Karakter",
+      text: "Her projenin kendi görsel dili, tonu ve deneyimi vardır. Aynı kalıbı farklı ürünlere uygulamayız.",
     },
     {
-      icon: (
-        <div className="flex h-12 w-12 items-center justify-center text-white">
-          <CalmFlowIcon className="h-9 w-9" />
-        </div>
-      ),
-      title: "Sade ve Saygılı Akış",
-      text: "Karmaşıklaştırmadan, kullanıcıya saygılı arayüzlerle akıcı, sessiz ve huzurlu bir mobil deneyim sunarız.",
+      icon: <Route className="h-6 w-6" strokeWidth={1.6} />,
+      title: "Sade ve Doğrudan",
+      text: "Karmaşayı azaltır, kullanıcıyı yapmak istediği şeye mümkün olduğunca hızlı ulaştırırız.",
     },
   ];
 
   const metrics = [
     {
       value: "5",
-      label: "Mobil Ürün",
-      subtext: "1 oyun · 4 uygulama",
+      label: "Ürün",
+      subtext: "Oyunlar & uygulamalar",
     },
     {
       value: "2",
-      label: "Google Play'de Yayında",
-      subtext: "Android",
+      label: "Yayında",
+      subtext: "Google Play",
     },
     {
       value: "3",
-      label: "Kapalı Testte",
-      subtext: "Yeni sürümler",
+      label: "Geliştiriliyor",
+      subtext: "Yeni deneyimler",
     },
     {
       value: "Ankara",
-      label: "Stüdyo Merkezi",
-      subtext: "Türkiye",
+      label: "Türkiye",
+      subtext: "Bağımsız stüdyo",
     },
   ];
 
@@ -66,13 +47,13 @@ export function V2Philosophy() {
       {/* Section Header */}
       <div className="mb-14 text-center max-w-2xl mx-auto space-y-3">
         <p className="text-xs font-semibold tracking-[0.24em] text-neutral-400 uppercase">
-          Tasarım Yaklaşımımız
+          Yaklaşımımız
         </p>
         <h2 className="v2-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#fbf8f2] tracking-tight">
-          Stüdyo Felsefemiz
+          Nasıl ürün geliştiriyoruz?
         </h2>
         <p className="text-sm sm:text-base leading-relaxed text-neutral-400">
-          Kullanışlı, estetik ve kalıcı dijital deneyimler üretme yaklaşımımız
+          Fikirleri, kendi amacına ve karakterine sahip sade dijital deneyimlere dönüştürüyoruz.
         </p>
       </div>
 
@@ -83,13 +64,13 @@ export function V2Philosophy() {
             key={pillar.title}
             className="flex flex-col items-center text-center sm:items-start sm:text-left space-y-3"
           >
-            <div className="mb-2">
+            <div className="mb-2 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white">
               {pillar.icon}
             </div>
-            <h3 className="v2-serif text-xl sm:text-2xl font-bold tracking-tight text-[#fbf8f2]">
+            <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#fbf8f2]">
               {pillar.title}
             </h3>
-            <p className="text-sm leading-relaxed text-[#b3ada1]">
+            <p className="text-sm leading-relaxed text-[#a5a8ae]">
               {pillar.text}
             </p>
           </div>

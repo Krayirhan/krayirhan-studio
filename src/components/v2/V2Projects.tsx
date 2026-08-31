@@ -15,13 +15,13 @@ import { PRODUCTS } from "@/data/games";
 
 const SLIDE_DURATION = 5000;
 const TICK_INTERVAL = 40;
-const accentColors = [
-  "text-amber-300",
-  "text-sky-300",
-  "text-emerald-300",
-  "text-indigo-300",
-  "text-violet-300",
-];
+const productAccents: Record<string, { text: string; dot: string; wash: string }> = {
+  "blok-dunyasi": { text: "text-sky-300", dot: "bg-sky-300", wash: "from-sky-400/[0.07]" },
+  "benim-notlarim": { text: "text-indigo-300", dot: "bg-indigo-300", wash: "from-indigo-400/[0.07]" },
+  "benim-gunlerim": { text: "text-emerald-300", dot: "bg-emerald-300", wash: "from-emerald-400/[0.07]" },
+  "hesap-gunlugu": { text: "text-cyan-300", dot: "bg-cyan-300", wash: "from-cyan-400/[0.07]" },
+  lingorise: { text: "text-violet-300", dot: "bg-violet-300", wash: "from-violet-400/[0.07]" },
+};
 
 export function V2Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,9 +61,10 @@ export function V2Projects() {
   const meta = {
     index: String(currentIndex + 1).padStart(2, "0"),
     taxonomy: product.category[0]?.toUpperCase() || "MOBİL ÜRÜN",
-    label: product.status,
-    color: accentColors[currentIndex % accentColors.length],
+    color: productAccents[product.id] ?? productAccents.lingorise,
   };
+  const availability = product.links.playStore ? "Google Play'de" : "Geliştirme aşamasında";
+  const isReverse = currentIndex % 2 === 1;
 
   return (
     <section
@@ -77,13 +78,13 @@ export function V2Projects() {
       {/* Section Header */}
       <div className="mb-10 sm:mb-12 text-center max-w-2xl mx-auto space-y-3">
         <p className="text-xs font-semibold tracking-[0.24em] text-neutral-400 uppercase">
-          Öne Çıkan Çalışmalar
+          Ürünler
         </p>
         <h2 className="v2-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#fbf8f2] tracking-tight">
-          Uygulamalarımız ve Oyunumuz
+          Oyunlar & Uygulamalar
         </h2>
         <p className="text-sm sm:text-base leading-relaxed text-neutral-400">
-          Google Play&apos;de yayında ve kapalı testte olan güncel ürün portföyümüz
+          Günlük yaşamdan kısa molalara, geliştirdiğimiz ürünleri keşfet.
         </p>
       </div>
 
@@ -102,9 +103,9 @@ export function V2Projects() {
               role="tab"
               aria-selected={isActive}
               onClick={() => handleTabClick(idx)}
-              className={`relative overflow-hidden cursor-pointer inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 ${
+              className={`relative min-h-[42px] overflow-hidden cursor-pointer inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-[13px] sm:text-sm font-semibold tracking-wide transition-all duration-300 ${
                 isActive
-                  ? "border-white/40 bg-white/10 text-white shadow-xl scale-105"
+                  ? "border-white/35 bg-white/10 text-white shadow-xl"
                   : "border-white/10 bg-white/[0.02] text-neutral-400 hover:border-white/25 hover:bg-white/[0.05] hover:text-white"
               }`}
             >
@@ -121,6 +122,7 @@ export function V2Projects() {
                   }`}
                 />
               )}
+              {isActive && <span className={`h-1.5 w-1.5 rounded-full ${productAccents[item.id]?.dot ?? "bg-white"}`} aria-hidden="true" />}
               <span>{item.title}</span>
 
               {/* Synchronized Duration Fill Line */}
@@ -151,13 +153,14 @@ export function V2Projects() {
       {/* Main Showcase Grid: V1 Punchy Editorial Style */}
       <div
         key={product.id}
-        className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14 animate-[fadeIn_0.3s_ease-out]"
+        className={`relative isolate grid grid-cols-1 items-center gap-10 py-5 lg:grid-cols-12 lg:gap-14 lg:py-8 animate-[fadeIn_0.3s_ease-out]`}
       >
+        <div className={`pointer-events-none absolute -right-24 top-1/2 -z-10 h-72 w-72 -translate-y-1/2 rounded-full bg-gradient-to-br ${meta.color.wash} to-transparent blur-3xl`} />
         {/* Left Column: Authentic V1 Style Content */}
-        <div className="space-y-6 lg:col-span-6">
+        <div className={`space-y-6 lg:col-span-6 ${isReverse ? "lg:order-2" : ""}`}>
           {/* 1. Category / Taxonomy Tag */}
-          <p className={`text-xs sm:text-sm font-semibold tracking-wider uppercase font-mono ${meta.color}`}>
-            {meta.index} / {meta.taxonomy} · {meta.label}
+          <p className={`text-xs sm:text-sm font-semibold tracking-wider uppercase font-mono ${meta.color.text}`}>
+            {meta.index} / {meta.taxonomy} · {product.type === "game" ? "OYUN" : "UYGULAMA"}
           </p>
 
           {/* 2. Bold Modern Title */}
@@ -174,7 +177,7 @@ export function V2Projects() {
           <div className="flex flex-wrap gap-x-5 gap-y-2 border-l-2 border-white/20 pl-4 py-1 text-xs sm:text-sm text-zinc-300">
             {product.features?.slice(0, 3).map((feat, i) => (
               <div key={i} className="flex items-center gap-2 font-medium">
-                <span className="h-1.5 w-1.5 rounded-full bg-white/70" aria-hidden="true" />
+              <span className={`h-1.5 w-1.5 rounded-full ${meta.color.dot}`} aria-hidden="true" />
                 <span>{feat.split(":")[0]}</span>
               </div>
             ))}
@@ -190,16 +193,17 @@ export function V2Projects() {
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-xs sm:text-sm font-bold text-zinc-950 hover:bg-zinc-200 shadow-xl transition-all hover:scale-105"
               >
                 <Download className="h-4 w-4" />
-                <span>Google Play&apos;den İndir</span>
+                <span>Google Play&apos;de Gör</span>
               </a>
             ) : (
               <span className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 text-xs sm:text-sm font-medium text-zinc-400">
-                <span>{product.status}</span>
+                <span className={`h-2 w-2 rounded-full ${meta.color.dot}`} />
+                <span>{availability}</span>
               </span>
             )}
 
             <Link
-              href={`/v2/products/${product.slug}`}
+              href={`/products/${product.slug}`}
               className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-xs sm:text-sm font-semibold text-zinc-200 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all"
             >
               <span>Detaylar & Galeri</span>
@@ -209,7 +213,7 @@ export function V2Projects() {
         </div>
 
         {/* Right Column: 2 Phones Showcase Gallery (Balanced Proportions) */}
-        <div className="lg:col-span-6 flex items-center justify-center gap-5 sm:gap-7 py-2 select-none">
+        <div className={`lg:col-span-6 flex items-center justify-center gap-5 sm:gap-7 py-2 select-none ${isReverse ? "lg:order-1" : ""}`}>
           {/* Phone 1: Primary Screen */}
           <div className="w-1/2 max-w-[210px] sm:max-w-[240px] -rotate-3 transform transition-all duration-500 hover:-rotate-1 hover:scale-105">
             <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.2rem] sm:rounded-[2.6rem] border-2 border-[#2b313d] bg-[#0c0e12] p-1.5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)]">

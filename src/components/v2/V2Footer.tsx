@@ -6,12 +6,12 @@ import { PRODUCTS } from "@/data/games";
 export function V2Footer() {
   return (
     <footer className="v2-footer border-t border-white/10 bg-[#07090c] text-[#a19c90]">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-6">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand Col: 2 Cols on large screens */}
           <div className="space-y-4 sm:col-span-2">
             <Link
-              href="/v2"
+              href="/"
               className="flex items-center gap-3.5"
               aria-label="Krayirhan Studio Ana Sayfası"
             >
@@ -33,7 +33,7 @@ export function V2Footer() {
             </Link>
 
             <p className="max-w-sm text-xs leading-6 text-[#b0aba0]">
-              Bağımsız mobil oyunlar ve faydalı uygulamalar geliştiriyoruz.
+              Bağımsız oyunlar ve mobil uygulamalar geliştiriyoruz.
             </p>
 
             <div className="space-y-2 pt-2 text-xs text-[#ded9ce]">
@@ -62,7 +62,7 @@ export function V2Footer() {
               {PRODUCTS.map((product) => (
                 <li key={product.id}>
                   <Link
-                    href={`/v2/products/${product.slug}`}
+                    href={`/products/${product.slug}`}
                     className="transition hover:text-white"
                   >
                     {product.title}
@@ -71,7 +71,7 @@ export function V2Footer() {
               ))}
               <li>
                 <Link
-                  href="/v2/products"
+                  href="/products"
                   className="font-semibold text-white transition hover:underline"
                 >
                   Tüm Ürünler
@@ -87,65 +87,27 @@ export function V2Footer() {
             </p>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/v2/about" className="transition hover:text-white">
+                <Link href="/about" className="transition hover:text-white">
                   Hakkında
                 </Link>
               </li>
               <li>
-                <Link href="/v2#felsefe" className="transition hover:text-white">
-                  Değerlerimiz
+                <Link href="/press" className="transition hover:text-white">
+                  Basın Kiti
                 </Link>
               </li>
               <li>
-                <Link href="/v2/about" className="transition hover:text-white">
-                  Kariyer
+                <Link href="/privacy" className="transition hover:text-white">
+                  Gizlilik
                 </Link>
+              </li>
+              <li>
+                <a href="mailto:contact@krayirhan.com" className="transition hover:text-white">İletişim</a>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Destek */}
-          <div className="space-y-3">
-            <p className="text-xs font-bold tracking-widest text-[#f5f2eb] uppercase">
-              DESTEK
-            </p>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <a
-                  href="mailto:contact@krayirhan.com"
-                  className="transition hover:text-white"
-                >
-                  Yardım Merkezi
-                </a>
-              </li>
-              <li>
-                <Link
-                  href="/v2/privacy"
-                  className="transition hover:text-white"
-                >
-                  Gizlilik Politikası
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/v2/privacy"
-                  className="transition hover:text-white"
-                >
-                  Kullanım Koşulları
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="mailto:contact@krayirhan.com"
-                  className="transition hover:text-white"
-                >
-                  İletişim
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 5: Bağlantılar */}
+          {/* Col 4: Bağlantılar */}
           <div className="space-y-3">
             <p className="text-xs font-bold tracking-widest text-[#f5f2eb] uppercase">
               BAĞLANTILAR
@@ -200,10 +162,10 @@ export function V2Footer() {
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-[#827d73] sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 text-xs text-[#827d73] sm:flex-row">
           <p>© 2026 Krayirhan Studio. Tüm hakları saklıdır.</p>
           <p>
-            Kurucu:{" "}
+            Tasarım & Geliştirme —{" "}
             <a
               href="https://muhsinfurkan.com"
               target="_blank"
@@ -212,10 +174,6 @@ export function V2Footer() {
             >
               Muhsin Furkan Turan
             </a>
-          </p>
-          <p className="inline-flex items-center gap-1.5 text-[#ded9ce]">
-            <span>Türkiye&apos;de geliştirildi</span>
-            <span>🤍</span>
           </p>
         </div>
       </div>
