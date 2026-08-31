@@ -6,8 +6,19 @@ import { IconInstagram, IconX, IconYouTube } from "./V2Icons";
 export function V2Hero() {
   return (
     <section className="relative overflow-hidden px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+      {/* Background Ambience: Subtle Dark Watermarks */}
+      {/* Left side Seljuk Knot Watermark */}
+      <div className="pointer-events-none absolute -left-20 top-20 -z-10 h-[520px] w-[520px] select-none opacity-[0.06] blur-[0.5px]">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full stroke-white" strokeWidth="2">
+          <path d="M100 10L190 100L100 190L10 100Z" />
+          <path d="M100 30L170 100L100 170L30 100Z" strokeDasharray="4 4" />
+          <circle cx="100" cy="100" r="45" />
+          <path d="M68 68L132 132M132 68L68 132" />
+        </svg>
+      </div>
+
       {/* Right side Stag Watermark */}
-      <div className="pointer-events-none absolute -right-10 top-6 -z-10 h-[520px] w-[520px] select-none opacity-[0.05]">
+      <div className="pointer-events-none absolute -right-12 top-10 -z-10 h-[620px] w-[620px] select-none opacity-[0.07]">
         <Image
           src="/brand/krayirhan-stag-gold.png"
           alt=""
@@ -17,7 +28,7 @@ export function V2Hero() {
       </div>
 
       {/* Ambient Cool Silver/White Glow behind phones */}
-      <div className="pointer-events-none absolute right-[5%] top-1/2 -z-10 h-[450px] w-[450px] -translate-y-1/2 rounded-full bg-radial from-white/10 via-white/5 to-transparent blur-[120px]" />
+      <div className="pointer-events-none absolute right-[5%] top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-radial from-white/10 via-white/5 to-transparent blur-[130px]" />
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
         {/* Left Column: Typography & Actions */}
