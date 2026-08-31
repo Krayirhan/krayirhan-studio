@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { STUDIO_INFO } from "@/data/studioInfo";
 import { SoundProvider } from "@/components/effects/SoundEffects";
 import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
@@ -61,12 +59,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={`dark ${spaceGrotesk.variable} ${plusJakarta.variable}`}>
-      <body className="min-h-screen bg-[var(--background)] text-zinc-100 font-sans antialiased flex flex-col justify-between selection:bg-white selection:text-zinc-950">
+      <body className="min-h-screen bg-[#080a0d] text-[#f5f2eb] font-sans antialiased selection:bg-white selection:text-black">
         <SoundProvider>
           <AnalyticsTracker />
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          {children}
         </SoundProvider>
       </body>
     </html>
