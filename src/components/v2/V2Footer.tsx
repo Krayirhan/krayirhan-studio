@@ -175,7 +175,7 @@ export function V2Footer() {
               </li>
               <li>
                 <a
-                  href="https://instagram.com/krayirhan"
+                  href="https://www.instagram.com/krayirhanstudio"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 transition hover:text-white"
@@ -186,12 +186,12 @@ export function V2Footer() {
               </li>
               <li>
                 <a
-                  href="https://twitter.com/krayirhan"
+                  href="https://www.tiktok.com/@krayirhan.studios"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 transition hover:text-white"
                 >
-                  <span>X (Twitter)</span>
+                  <span>TikTok</span>
                   <ExternalLink className="h-3 w-3 opacity-60" />
                 </a>
               </li>

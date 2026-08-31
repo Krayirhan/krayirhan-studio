@@ -171,6 +171,14 @@ export function IconInstagram(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function IconTikTok(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.77h-3.06v12.42a2.79 2.79 0 1 1-2.42-2.77v-3.1a5.89 5.89 0 1 0 5.53 5.87V9.03a7.89 7.89 0 0 0 4.62 1.48V7.45a4.85 4.85 0 0 1-.6-.76Z" />
+    </svg>
+  );
+}
+
 export function IconYouTube(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>

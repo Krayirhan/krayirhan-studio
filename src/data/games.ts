@@ -64,9 +64,13 @@ export const PRODUCTS: Product[] = [
       playStore: "https://play.google.com/store/apps/details?id=com.benimnotlarim.app",
     },
     iconImage: playStoreImage("benim-notlarim", "icon"),
-    coverImage: playStoreImage("benim-notlarim", "screen-1"),
-    bannerImage: playStoreImage("benim-notlarim", "feature"),
-    screenshots: screens("benim-notlarim", 3),
+    coverImage: "/apps/benim-notlarim/cover.jpg",
+    bannerImage: "/apps/benim-notlarim/cover.jpg",
+    screenshots: [
+      "/apps/benim-notlarim/cover.jpg",
+      "/apps/benim-notlarim/editor.jpg",
+      "/apps/benim-notlarim/settings.png",
+    ],
     featured: true,
   },
   {

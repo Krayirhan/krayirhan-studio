@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { IconInstagram, IconX, IconYouTube } from "./V2Icons";
+import { IconInstagram, IconTikTok, IconYouTube } from "./V2Icons";
 
 export function V2Hero() {
   return (
@@ -66,22 +66,22 @@ export function V2Hero() {
             <span className="font-medium tracking-wide">Bizi takip edin</span>
             <div className="flex items-center gap-2.5">
               <a
-                href="https://x.com/krayirhan"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="X (Twitter)"
-                className="rounded-full p-1.5 transition-colors hover:text-white"
-              >
-                <IconX className="h-4 w-4" />
-              </a>
-              <a
-                href="https://instagram.com/krayirhan"
+                href="https://www.instagram.com/krayirhanstudio"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
                 className="rounded-full p-1.5 transition-colors hover:text-white"
               >
                 <IconInstagram className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@krayirhan.studios"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="TikTok"
+                className="rounded-full p-1.5 transition-colors hover:text-white"
+              >
+                <IconTikTok className="h-4 w-4" />
               </a>
               <a
                 href="https://youtube.com/@krayirhan"
@@ -137,7 +137,7 @@ export function V2Hero() {
               <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.2rem] border-2 border-[#222731] bg-[#0c0e12] p-1 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.9)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.8rem] bg-[#0c0e12]">
                   <Image
-                    src="/play-store/benim-notlarim/screen-1.webp"
+                    src="/apps/benim-notlarim/cover.jpg"
                     alt="Benim Notlarım Uygulama Ekranı"
                     fill
                     sizes="(max-width: 768px) 155px, 190px"
