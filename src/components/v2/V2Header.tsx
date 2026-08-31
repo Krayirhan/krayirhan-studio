@@ -53,7 +53,7 @@ export function V2Header() {
     <header className="relative z-50 mx-auto flex h-24 max-w-[1380px] items-center justify-between px-5 sm:px-8 lg:px-12">
       {/* Brand: Gilded Stag Logo + Typography */}
       <Link
-        href="/"
+        href="/v2"
         className="group flex items-center gap-3.5"
         aria-label="Krayirhan Studio Ana Sayfası"
       >
@@ -100,30 +100,30 @@ export function V2Header() {
 
           {productsOpen && (
             <div className="absolute left-0 top-full mt-3 w-52 rounded-xl border border-white/15 bg-[#0d1014]/95 p-2 shadow-2xl backdrop-blur-xl animate-[fadeIn_0.15s_ease-out]">
-              <a
-                href="#projeler"
+              <Link
+                href="/v2/products/blok-dunyasi"
                 onClick={() => setProductsOpen(false)}
                 className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-white/10 hover:text-white"
               >
                 🎮 Blok Dünyası
-              </a>
-              <a
-                href="#projeler"
+              </Link>
+              <Link
+                href="/v2/products/lingorise"
                 onClick={() => setProductsOpen(false)}
                 className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-white/10 hover:text-white"
               >
                 🌱 LingoRise
-              </a>
-              <a
-                href="#projeler"
+              </Link>
+              <Link
+                href="/v2/products/benim-notlarim"
                 onClick={() => setProductsOpen(false)}
                 className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-white/10 hover:text-white"
               >
                 ✍️ Benim Notlarım
-              </a>
+              </Link>
               <div className="my-1 border-t border-white/10" />
               <Link
-                href="/products"
+                href="/v2/products"
                 onClick={() => setProductsOpen(false)}
                 className="block rounded-lg px-3.5 py-2 text-[11px] font-semibold text-white hover:underline"
               >
@@ -133,10 +133,10 @@ export function V2Header() {
           )}
         </div>
 
-        <a href="#felsefe" className="transition-colors hover:text-white">
+        <Link href="/v2#felsefe" className="transition-colors hover:text-white">
           Stüdyo
-        </a>
-        <Link href="/about" className="transition-colors hover:text-white">
+        </Link>
+        <Link href="/v2/about" className="transition-colors hover:text-white">
           Hakkında
         </Link>
         <a
@@ -191,22 +191,22 @@ export function V2Header() {
             className="fixed inset-x-0 top-0 z-45 max-h-[90vh] overflow-y-auto border-b border-white/15 bg-[#0a0c10] px-6 pb-8 pt-24 shadow-2xl lg:hidden"
           >
             <nav className="flex flex-col space-y-3">
-              <a
-                href="#projeler"
+              <Link
+                href="/v2/products"
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-lg border-l-2 border-white bg-[#141820] px-4 py-3 text-sm font-semibold text-white"
               >
                 Ürünlerimiz (Blok Dünyası, LingoRise, Benim Notlarım)
-              </a>
-              <a
-                href="#felsefe"
+              </Link>
+              <Link
+                href="/v2#felsefe"
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-white/50 hover:bg-[#12161d]"
               >
                 Stüdyo Felsefemiz
-              </a>
+              </Link>
               <Link
-                href="/about"
+                href="/v2/about"
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-white/50 hover:bg-[#12161d]"
               >

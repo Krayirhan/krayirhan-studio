@@ -278,7 +278,7 @@ export function V2Projects() {
             )}
 
             <Link
-              href={`/products/${product.slug}`}
+              href={`/v2/products/${product.slug}`}
               className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/[0.05] px-5 py-3.5 text-xs font-semibold text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 hover:text-white"
             >
               <span>Detayları Gör</span>

@@ -10,7 +10,7 @@ export function V2Footer() {
           {/* Brand Col: 2 Cols on large screens */}
           <div className="space-y-4 sm:col-span-2">
             <Link
-              href="/"
+              href="/v2"
               className="flex items-center gap-3.5"
               aria-label="Krayirhan Studio Ana Sayfası"
             >
@@ -60,7 +60,7 @@ export function V2Footer() {
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
-                  href="/products/blok-dunyasi"
+                  href="/v2/products/blok-dunyasi"
                   className="transition hover:text-white"
                 >
                   Blok Dünyası
@@ -68,7 +68,7 @@ export function V2Footer() {
               </li>
               <li>
                 <Link
-                  href="/products/lingorise"
+                  href="/v2/products/lingorise"
                   className="transition hover:text-white"
                 >
                   LingoRise
@@ -76,7 +76,7 @@ export function V2Footer() {
               </li>
               <li>
                 <Link
-                  href="/products/benim-notlarim"
+                  href="/v2/products/benim-notlarim"
                   className="transition hover:text-white"
                 >
                   Benim Notlarım
@@ -84,7 +84,7 @@ export function V2Footer() {
               </li>
               <li>
                 <Link
-                  href="/products"
+                  href="/v2/products"
                   className="font-semibold text-white transition hover:underline"
                 >
                   Tüm Ürünler
@@ -100,22 +100,22 @@ export function V2Footer() {
             </p>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/about" className="transition hover:text-white">
+                <Link href="/v2/about" className="transition hover:text-white">
                   Hakkında
                 </Link>
               </li>
               <li>
-                <a href="#felsefe" className="transition hover:text-white">
+                <Link href="/v2#felsefe" className="transition hover:text-white">
                   Değerlerimiz
-                </a>
+                </Link>
               </li>
               <li>
-                <Link href="/about" className="transition hover:text-white">
+                <Link href="/v2/about" className="transition hover:text-white">
                   Kariyer
                 </Link>
               </li>
               <li>
-                <Link href="/press" className="transition hover:text-white">
+                <Link href="/v2/press" className="transition hover:text-white">
                   Basın Kiti
                 </Link>
               </li>
@@ -138,7 +138,7 @@ export function V2Footer() {
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href="/v2/privacy"
                   className="transition hover:text-white"
                 >
                   Gizlilik Politikası
@@ -146,7 +146,7 @@ export function V2Footer() {
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href="/v2/privacy"
                   className="transition hover:text-white"
                 >
                   Kullanım Koşulları

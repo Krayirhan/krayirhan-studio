@@ -61,7 +61,7 @@ export function V2Hero() {
             </a>
 
             <Link
-              href="/about"
+              href="/v2/about"
               className="inline-flex items-center gap-3 rounded-lg border border-white/20 bg-white/[0.05] px-6 py-4 text-xs font-semibold tracking-wide text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10"
             >
               <span>Stüdyomuz Hakkında</span>
