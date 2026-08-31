@@ -35,7 +35,7 @@ export function V2Hero() {
         <div className="z-10 space-y-7 lg:col-span-6 lg:pr-4">
           {/* Eyebrow */}
           <div>
-            <SeljukOrnament title="BAĞIMSIZ MOBİL STÜDYO" />
+            <SeljukOrnament title="Bağımsız Mobil Stüdyo" />
           </div>
 
           {/* Headline */}

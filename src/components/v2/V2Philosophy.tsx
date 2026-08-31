@@ -66,7 +66,7 @@ export function V2Philosophy() {
     <section id="felsefe" className="relative mx-auto max-w-[1380px] px-5 py-24 sm:px-8 lg:px-12">
       {/* Section Header */}
       <div className="mb-14 text-center">
-        <SeljukOrnament title="STÜDYO FELSEFEMİZ" />
+        <SeljukOrnament title="Stüdyo Felsefemiz" />
       </div>
 
       {/* 3 Columns Philosophy Cards */}

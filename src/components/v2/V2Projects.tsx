@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   Smartphone,
   WifiOff,
-  Sparkles,
+  Sprout,
   BookOpen,
   Brain,
   Palette,
@@ -69,7 +69,7 @@ const SHOWCASE_DATA: Record<string, ProductShowcaseConfig> = {
         text: "Akıllı aralıklı tekrar algoritması",
       },
       {
-        icon: Sparkles,
+        icon: Sprout,
         text: "Gelişen görsel kelime bahçesi",
       },
       {
@@ -137,7 +137,7 @@ export function V2Projects() {
 
       {/* Eyebrow Header */}
       <div className="mb-8 text-center">
-        <SeljukOrnament title="ÖNE ÇIKAN ÜRÜNÜMÜZ" />
+        <SeljukOrnament title="Öne Çıkan Ürünlerimiz" />
       </div>
 
       {/* Switcher Tabs */}

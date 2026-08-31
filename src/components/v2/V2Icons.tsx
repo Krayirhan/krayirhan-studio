@@ -99,38 +99,17 @@ export function StagEmblem(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-// Seljuk Star / Geometric Knot Ornament Line
-export function SeljukOrnament({ title }: { title: string }) {
+// Modern Studio Section Eyebrow Badge (replaces generic AI sparkles and winged lines)
+export function StudioEyebrow({ title }: { title: string }) {
   return (
-    <div className="inline-flex items-center gap-3 select-none">
-      <div className="flex items-center gap-1.5 opacity-80">
-        <span className="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-white/40" />
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-white/80">
-          <path
-            d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z"
-            fill="currentColor"
-          />
-          <circle cx="8" cy="8" r="1.8" fill="#090a0c" />
-        </svg>
-      </div>
-
-      <span className="text-[11px] sm:text-xs font-bold tracking-[.28em] text-white/90 uppercase">
-        {title}
-      </span>
-
-      <div className="flex items-center gap-1.5 opacity-80">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-white/80">
-          <path
-            d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z"
-            fill="currentColor"
-          />
-          <circle cx="8" cy="8" r="1.8" fill="#090a0c" />
-        </svg>
-        <span className="h-[1px] w-6 sm:w-10 bg-gradient-to-l from-transparent to-white/40" />
-      </div>
+    <div className="inline-flex select-none items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.03] px-3.5 py-1 text-[11px] font-medium tracking-[0.2em] uppercase text-neutral-300 backdrop-blur-md transition-colors hover:border-white/25 hover:text-white">
+      <span className="h-1.5 w-1.5 rounded-full bg-white/60" />
+      <span>{title}</span>
     </div>
   );
 }
+
+export const SeljukOrnament = StudioEyebrow;
 
 // Seljuk Interlocking Knot Icon for "Ürün Kişiliği"
 export function SeljukKnotIcon(props: SVGProps<SVGSVGElement>) {
