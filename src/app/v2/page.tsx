@@ -6,10 +6,8 @@ import {
   Download,
   Gamepad2,
   Globe2,
-  ShieldCheck,
   Smartphone,
   Sparkles,
-  Sword,
   Users,
 } from "lucide-react";
 import { V2Header } from "@/components/v2/V2Header";
@@ -47,29 +45,6 @@ export const metadata: Metadata = {
     images: ["/v2/ancient-tech-hero.png"],
   },
 };
-
-const principles = [
-  {
-    icon: Gamepad2,
-    title: "Özgün Oyun Deneyimleri",
-    text: "Blok Dünyası gibi yapımlarda renkli mekanikler, zengin kombolar ve internetsiz oynanış özgürlüğü sunuyoruz.",
-  },
-  {
-    icon: Smartphone,
-    title: "Kullanıcı Odaklı Araçlar",
-    text: "LingoRise ve Benim Notlarım ile günlük rutini kolaylaştıran, sade ve hızlı arayüzler geliştiriyoruz.",
-  },
-  {
-    icon: Sword,
-    title: "Rafine Kalite ve Özen",
-    text: "Her piksel ve animasyonda ince işçilik; kullanıcı zamanına saygı duyan hatasız ve akıcı bir deneyim.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Gizlilik ve Güvenli Altyapı",
-    text: "Sıfır gereksiz izin, %100 çevrimdışı çalışma desteği ve cihazda kalan güvenli kullanıcı verisi.",
-  },
-];
 
 const studioMetrics = [
   {
@@ -144,7 +119,7 @@ export default function V2HomePage() {
         {/* Hero Content */}
         <div
           id="anasayfa"
-          className="mx-auto flex max-w-[1380px] px-5 pb-32 pt-16 sm:px-8 lg:px-12 lg:pt-24"
+          className="mx-auto flex max-w-[1380px] px-5 pb-24 pt-16 sm:px-8 lg:px-12 lg:pb-32 lg:pt-24"
         >
           <div className="max-w-2xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#d6a653]/30 bg-[#061019]/60 px-3.5 py-1 backdrop-blur-md">
@@ -178,27 +153,6 @@ export default function V2HomePage() {
                 <ArrowRight className="h-4 w-4 text-[#d8a755]" />
               </a>
             </div>
-          </div>
-        </div>
-
-        {/* Concrete Principles Strip (P3) */}
-        <div className="mx-auto max-w-[1380px] px-5 sm:px-8 lg:px-12">
-          <div className="grid border border-[#c39856]/25 bg-[#061019]/85 backdrop-blur-md md:grid-cols-2 xl:grid-cols-4">
-            {principles.map(({ icon: Icon, title, text }) => (
-              <div
-                key={title}
-                className="flex gap-4 border-b border-[#c39856]/20 p-6 last:border-b-0 md:nth-[2n]:border-l xl:border-b-0 xl:border-l xl:first:border-l-0"
-              >
-                <Icon
-                  className="mt-0.5 h-7 w-7 shrink-0 text-[#d9a655]"
-                  strokeWidth={1.5}
-                />
-                <div>
-                  <h2 className="v2-serif text-base text-[#f8f1e7]">{title}</h2>
-                  <p className="mt-2 text-xs leading-5 text-[#b8b5af]">{text}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
