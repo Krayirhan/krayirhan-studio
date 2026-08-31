@@ -27,7 +27,7 @@ export function V2Hero() {
             </p>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.06] text-[#f5f5f2] tracking-tight">
+          <h1 className="v2-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.08] text-[#f5f5f2] tracking-tight">
             Fikirden ürüne.
             <br />
             <span>Oyundan günlük hayata.</span>

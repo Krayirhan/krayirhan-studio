@@ -2,13 +2,11 @@
 
 @layer base {
   :root {
-    /* A dark canvas-green, not neutral black — sampled from the game board's own felt tone */
-    --background: #0a0d0b;
-    --background-deep: #070907;
-    --foreground: #f4f4f0;
-    --card: #131715;
-    --card-border: rgba(255, 255, 255, 0.08);
-    /* LingoRise's one true green — replaces default Tailwind emerald so badge, icon and vine texture match */
+    --background: #080a0d;
+    --background-deep: #050709;
+    --foreground: #f5f2eb;
+    --card: #111419;
+    --card-border: rgba(255, 255, 255, 0.1);
     --vine: #4fbf8f;
     --vine-deep: #2f8f68;
   }
@@ -16,13 +14,23 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, .font-display {
+  .font-brand {
+    font-family: var(--font-brand), var(--font-serif), Georgia, serif;
+    letter-spacing: 0.25em;
+  }
+
+  .font-serif,
+  .v2-serif {
+    font-family: var(--font-serif), Georgia, Cambria, serif !important;
+    letter-spacing: -0.02em;
+  }
+
+  .font-display {
     font-family: var(--font-display), var(--font-sans), sans-serif;
-    letter-spacing: -0.03em;
   }
 
   body:has(.v2-page) header:not(.v2-header),
@@ -32,19 +40,19 @@
 
   ::selection {
     background-color: #ffffff;
-    color: #0a0d0b;
+    color: #080a0d;
   }
 
   :focus-visible {
-    outline: 2px solid #f8963a;
+    outline: 2px solid #ffffff;
     outline-offset: 3px;
   }
 }
 
-/* V2 is an isolated editorial direction: an old-world serif layered over the existing UI font. */
+.font-serif,
 .v2-serif {
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: -0.035em;
+  font-family: var(--font-serif), Georgia, Cambria, serif !important;
+  letter-spacing: -0.02em;
 }
 
 /* Animations */

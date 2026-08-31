@@ -10,7 +10,7 @@ export function V2FinalCta() {
         <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-sky-400/[0.06] blur-3xl" />
         <div className="relative max-w-2xl">
           <p className="text-xs font-semibold tracking-[0.24em] text-neutral-400 uppercase">Krayirhan Studio</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#f5f5f2] sm:text-4xl">Yeni bir şey keşfet.</h2>
+          <h2 className="v2-serif mt-4 text-3xl font-normal tracking-tight text-[#f5f5f2] sm:text-4xl">Yeni bir şey keşfet.</h2>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#a5a8ae] sm:text-base">
             Oyunlarımızı ve günlük hayata eşlik eden uygulamalarımızı inceleyin.
           </p>

@@ -1,20 +1,37 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk, Newsreader, Cinzel } from "next/font/google";
 import "./globals.css";
 import { STUDIO_INFO } from "@/data/studioInfo";
 import { SoundProvider } from "@/components/effects/SoundEffects";
 import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
 
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["500", "600", "700"],
+  display: "swap",
 });
 
-const plusJakarta = Plus_Jakarta_Sans({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-serif",
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-brand",
+  weight: ["600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -58,7 +75,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className={`dark ${spaceGrotesk.variable} ${plusJakarta.variable}`}>
+    <html
+      lang="tr"
+      className={`dark ${plusJakarta.variable} ${spaceGrotesk.variable} ${newsreader.variable} ${cinzel.variable}`}
+    >
       <body className="min-h-screen bg-[#080a0d] text-[#f5f2eb] font-sans antialiased selection:bg-white selection:text-black">
         <SoundProvider>
           <AnalyticsTracker />
