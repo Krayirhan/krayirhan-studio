@@ -3,6 +3,7 @@ import { V2Header } from "@/components/v2/V2Header";
 import { V2Hero } from "@/components/v2/V2Hero";
 import { V2Projects } from "@/components/v2/V2Projects";
 import { V2Philosophy } from "@/components/v2/V2Philosophy";
+import { V2SectionDivider } from "@/components/v2/V2SectionDivider";
 import { V2Footer } from "@/components/v2/V2Footer";
 
 export const metadata: Metadata = {
@@ -73,8 +74,14 @@ export default function V2HomePage() {
         {/* 1. Hero: 3-Layered Floating Smartphones & Brand Statement */}
         <V2Hero />
 
+        {/* Section Divider */}
+        <V2SectionDivider />
+
         {/* 2. Featured Showcase: Tabs, Checklist & 4-Phone Gallery */}
         <V2Projects />
+
+        {/* Section Divider */}
+        <V2SectionDivider />
 
         {/* 3. Studio Philosophy & Seljuk Metrics Ribbon */}
         <V2Philosophy />
