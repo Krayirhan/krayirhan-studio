@@ -2,6 +2,7 @@ export type ProductType = "game" | "app";
 
 export type ProductStatus =
   | "Yayında"
+  | "Kapalı Testte"
   | "Beta Yayında"
   | "Geliştirme Aşamasında"
   | "Released"
@@ -56,6 +57,7 @@ export interface Product {
   };
   coverImage: string;
   bannerImage: string;
+  iconImage?: string;
   screenshots: string[];
   featured?: boolean;
   systemRequirements?: {

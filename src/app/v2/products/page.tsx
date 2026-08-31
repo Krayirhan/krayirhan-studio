@@ -163,7 +163,7 @@ export default function V2ProductsPage() {
                             alt={`${product.title} Ekran 1`}
                             fill
                             sizes="(max-width: 1024px) 45vw, 240px"
-                            className="object-cover object-top"
+                            className="object-contain"
                           />
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08]" />
                         </div>
@@ -179,7 +179,7 @@ export default function V2ProductsPage() {
                             alt={`${product.title} Ekran 2`}
                             fill
                             sizes="(max-width: 1024px) 45vw, 240px"
-                            className="object-cover object-top"
+                            className="object-contain"
                           />
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08]" />
                         </div>

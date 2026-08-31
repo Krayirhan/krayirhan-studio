@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ExternalLink, Menu, Play, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { PRODUCTS } from "@/data/games";
 
 export function V2Header() {
   const pathname = usePathname();
@@ -107,7 +108,7 @@ export function V2Header() {
             </button>
 
             {productsOpen && (
-              <div className="absolute left-0 top-full mt-3 w-56 rounded-xl border border-white/15 bg-[#0d1014]/98 p-2 shadow-2xl backdrop-blur-2xl animate-[fadeIn_0.15s_ease-out]">
+              <div className="absolute left-0 top-full mt-3 w-72 rounded-xl border border-white/15 bg-[#0d1014]/98 p-2 shadow-2xl backdrop-blur-2xl animate-[fadeIn_0.15s_ease-out]">
                 <Link
                   href="/v2/products"
                   onClick={() => setProductsOpen(false)}
@@ -116,27 +117,17 @@ export function V2Header() {
                   Tüm Ürünleri Gör →
                 </Link>
                 <div className="my-1 border-t border-white/10" />
-                <Link
-                  href="/v2/products/blok-dunyasi"
-                  onClick={() => setProductsOpen(false)}
-                  className="block rounded-lg px-3.5 py-2.5 text-xs text-[#ded9ce] transition hover:bg-white/10 hover:text-white"
-                >
-                  🎮 Blok Dünyası
-                </Link>
-                <Link
-                  href="/v2/products/lingorise"
-                  onClick={() => setProductsOpen(false)}
-                  className="block rounded-lg px-3.5 py-2.5 text-xs text-[#ded9ce] transition hover:bg-white/10 hover:text-white"
-                >
-                  🌱 LingoRise
-                </Link>
-                <Link
-                  href="/v2/products/benim-notlarim"
-                  onClick={() => setProductsOpen(false)}
-                  className="block rounded-lg px-3.5 py-2.5 text-xs text-[#ded9ce] transition hover:bg-white/10 hover:text-white"
-                >
-                  ✍️ Benim Notlarım
-                </Link>
+                {PRODUCTS.map((product) => (
+                  <Link
+                    key={product.id}
+                    href={`/v2/products/${product.slug}`}
+                    onClick={() => setProductsOpen(false)}
+                    className="flex items-center justify-between gap-3 rounded-lg px-3.5 py-2.5 text-xs text-[#ded9ce] transition hover:bg-white/10 hover:text-white"
+                  >
+                    <span>{product.type === "game" ? "🎮" : "📱"} {product.title}</span>
+                    <span className="shrink-0 text-[10px] text-neutral-500">{product.status}</span>
+                  </Link>
+                ))}
               </div>
             )}
           </div>
@@ -157,16 +148,13 @@ export function V2Header() {
 
         {/* Right Desktop Action Button */}
         <div className="flex items-center gap-3">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href="/v2/products"
             className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-xs font-bold tracking-wide text-black shadow-lg transition hover:bg-neutral-200 hover:-translate-y-0.5"
           >
-            <Play className="h-3.5 w-3.5 fill-current" />
-            <span>Google Play</span>
-            <ExternalLink className="h-3 w-3 opacity-60" />
-          </a>
+            <span>{PRODUCTS.length} ürün</span>
+            <span aria-hidden="true">→</span>
+          </Link>
 
           {/* Mobile Hamburger Toggle */}
           <button
@@ -213,27 +201,17 @@ export function V2Header() {
               </Link>
 
               <div className="pl-4 space-y-1 border-l border-white/10 ml-2">
-                <Link
-                  href="/v2/products/blok-dunyasi"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block rounded-md px-3 py-2 text-xs text-neutral-300 hover:text-white hover:bg-white/5"
-                >
-                  🎮 Blok Dünyası
-                </Link>
-                <Link
-                  href="/v2/products/lingorise"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block rounded-md px-3 py-2 text-xs text-neutral-300 hover:text-white hover:bg-white/5"
-                >
-                  🌱 LingoRise
-                </Link>
-                <Link
-                  href="/v2/products/benim-notlarim"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block rounded-md px-3 py-2 text-xs text-neutral-300 hover:text-white hover:bg-white/5"
-                >
-                  ✍️ Benim Notlarım
-                </Link>
+                {PRODUCTS.map((product) => (
+                  <Link
+                    key={product.id}
+                    href={`/v2/products/${product.slug}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between gap-3 rounded-md px-3 py-2 text-xs text-neutral-300 hover:text-white hover:bg-white/5"
+                  >
+                    <span>{product.type === "game" ? "🎮" : "📱"} {product.title}</span>
+                    <span className="shrink-0 text-[10px] text-neutral-500">{product.status}</span>
+                  </Link>
+                ))}
               </div>
 
               <Link
@@ -257,17 +235,14 @@ export function V2Header() {
             </nav>
 
             <div className="mt-6 border-t border-white/10 pt-5">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href="/v2/products"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 rounded-lg bg-white py-3.5 text-xs font-bold text-black shadow-lg hover:bg-neutral-200 transition"
               >
-                <Play className="h-3.5 w-3.5 fill-current" />
-                <span>Google Play Mağazası</span>
-                <ExternalLink className="h-3.5 w-3.5 opacity-60" />
-              </a>
+                <span>Tüm ürünleri incele</span>
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </>

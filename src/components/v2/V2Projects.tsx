@@ -13,34 +13,15 @@ import {
 } from "lucide-react";
 import { PRODUCTS } from "@/data/games";
 
-const SLIDE_DURATION = 4000; // 4.0 saniye slayt süresi
-const TICK_INTERVAL = 40; // 40ms akıcı ilerleme
-
-interface ProductShowcaseScreens {
-  primary: string;
-  secondary: string;
-}
-
-const SCREENS_DATA: Record<string, ProductShowcaseScreens> = {
-  "blok-dunyasi": {
-    primary: "/games/blok-dunyasi/cover.jpg",
-    secondary: "/games/blok-dunyasi/gameplay-1.jpg",
-  },
-  lingorise: {
-    primary: "/apps/lingorise/home-garden.png",
-    secondary: "/apps/lingorise/practice-session.png",
-  },
-  "benim-notlarim": {
-    primary: "/apps/benim-notlarim/cover.jpg",
-    secondary: "/apps/benim-notlarim/editor.jpg",
-  },
-};
-
-const PRODUCT_META = {
-  "blok-dunyasi": { index: "01", taxonomy: "OYUN", label: "ÖNE ÇIKAN", color: "text-orange-400" },
-  lingorise: { index: "02", taxonomy: "ÖĞRENME", label: "UYGULAMA", color: "text-emerald-400" },
-  "benim-notlarim": { index: "03", taxonomy: "ÜRETKENLİK", label: "UYGULAMA", color: "text-sky-400" },
-} as const;
+const SLIDE_DURATION = 5000;
+const TICK_INTERVAL = 40;
+const accentColors = [
+  "text-amber-300",
+  "text-sky-300",
+  "text-emerald-300",
+  "text-indigo-300",
+  "text-violet-300",
+];
 
 export function V2Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -73,8 +54,16 @@ export function V2Projects() {
   };
 
   const product = PRODUCTS[currentIndex] || PRODUCTS[0];
-  const screens = SCREENS_DATA[product.id] || SCREENS_DATA["blok-dunyasi"];
-  const meta = PRODUCT_META[product.id as keyof typeof PRODUCT_META] || PRODUCT_META["blok-dunyasi"];
+  const screens = {
+    primary: product.screenshots[0] || product.coverImage,
+    secondary: product.screenshots[1] || product.coverImage,
+  };
+  const meta = {
+    index: String(currentIndex + 1).padStart(2, "0"),
+    taxonomy: product.category[0]?.toUpperCase() || "MOBİL ÜRÜN",
+    label: product.status,
+    color: accentColors[currentIndex % accentColors.length],
+  };
 
   return (
     <section
@@ -91,10 +80,10 @@ export function V2Projects() {
           Öne Çıkan Çalışmalar
         </p>
         <h2 className="v2-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#fbf8f2] tracking-tight">
-          Öne Çıkan Ürünlerimiz
+          Uygulamalarımız ve Oyunumuz
         </h2>
         <p className="text-sm sm:text-base leading-relaxed text-neutral-400">
-          Mobil dünyada oyunculara ve kullanıcılara dokunan sade deneyimler
+          Google Play&apos;de yayında ve kapalı testte olan güncel ürün portföyümüz
         </p>
       </div>
 
@@ -205,7 +194,7 @@ export function V2Projects() {
               </a>
             ) : (
               <span className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3.5 text-xs sm:text-sm font-medium text-zinc-400">
-                <span>Geliştirme Aşamasında</span>
+                <span>{product.status}</span>
               </span>
             )}
 
@@ -230,7 +219,7 @@ export function V2Projects() {
                   alt={`${product.title} Ana Ekran`}
                   fill
                   sizes="(max-width: 1024px) 45vw, 240px"
-                  className="object-cover object-top"
+                  className="object-contain"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08]" />
               </div>
@@ -246,7 +235,7 @@ export function V2Projects() {
                   alt={`${product.title} Detay Ekranı`}
                   fill
                   sizes="(max-width: 1024px) 45vw, 240px"
-                  className="object-cover object-top"
+                  className="object-contain"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.08]" />
               </div>

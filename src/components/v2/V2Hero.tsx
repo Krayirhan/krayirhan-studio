@@ -38,8 +38,8 @@ export function V2Hero() {
 
           {/* 3. Description */}
           <p className="max-w-xl text-sm sm:text-base leading-relaxed text-[#b8b3a8]">
-            Krayirhan Studio; oyunlar ve günlük hayatı kolaylaştıran uygulamalar
-            geliştirir. Kullanışlı, estetik ve kalıcı deneyimler üretmeye inanıyoruz.
+            Krayirhan Studio; bir mobil oyun ve dört Android uygulamasıyla günlük
+            hayatı kolaylaştıran, sade deneyimler geliştirir.
           </p>
 
           {/* 4. Action CTAs */}
@@ -104,11 +104,11 @@ export function V2Hero() {
               <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.2rem] border-2 border-[#222731] bg-[#0c0e12] p-1 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.9)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.8rem] bg-[#0c0e12]">
                   <Image
-                    src="/apps/lingorise/home-garden.png"
+                    src="/play-store/lingorise/screen-1.webp"
                     alt="LingoRise Uygulama Ekranı"
                     fill
                     sizes="(max-width: 768px) 155px, 190px"
-                    className="object-cover object-top"
+                    className="object-contain"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08]" />
                 </div>
@@ -120,12 +120,12 @@ export function V2Hero() {
               <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.4rem] border-2 border-[#343b49] bg-[#090b0e] p-1.5">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.9rem] bg-black">
                   <Image
-                    src="/games/blok-dunyasi/cover.jpg"
+                    src="/play-store/blok-dunyasi/screen-2.webp"
                     alt="Blok Dünyası Oyun Ekranı"
                     fill
                     priority
                     sizes="(max-width: 768px) 180px, 220px"
-                    className="object-cover object-top"
+                    className="object-contain"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.1]" />
                 </div>
@@ -137,11 +137,11 @@ export function V2Hero() {
               <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.2rem] border-2 border-[#222731] bg-[#0c0e12] p-1 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.9)]">
                 <div className="relative h-full w-full overflow-hidden rounded-[1.8rem] bg-[#0c0e12]">
                   <Image
-                    src="/apps/benim-notlarim/cover.jpg"
+                    src="/play-store/benim-notlarim/screen-1.webp"
                     alt="Benim Notlarım Uygulama Ekranı"
                     fill
                     sizes="(max-width: 768px) 155px, 190px"
-                    className="object-cover object-top"
+                    className="object-contain"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.08]" />
                 </div>

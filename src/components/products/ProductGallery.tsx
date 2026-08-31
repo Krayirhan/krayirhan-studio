@@ -108,7 +108,7 @@ export function ProductGallery({ title, screenshots }: ProductGalleryProps) {
                   alt={`${title} Ekran Görüntüsü ${idx + 1}`}
                   fill
                   sizes="(max-width: 640px) 80vw, (max-width: 1024px) 42vw, 300px"
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="object-contain transition-transform duration-700 group-hover:scale-105"
                 />
 
                 {/* Subtle Screen Glare */}

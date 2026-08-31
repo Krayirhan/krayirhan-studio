@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Gamepad2, Globe2, Smartphone, Users } from "lucide-react";
 import { CalmFlowIcon, SeljukKnotIcon } from "./V2Icons";
 
 export function V2Philosophy() {
@@ -41,19 +40,19 @@ export function V2Philosophy() {
 
   const metrics = [
     {
-      value: "1M+",
-      label: "Toplam İndirme & Erişim",
-      subtext: "Oyuncu & Kullanıcı",
+      value: "5",
+      label: "Mobil Ürün",
+      subtext: "1 oyun · 4 uygulama",
     },
     {
-      value: "1+",
-      label: "Yayında Mobil Oyun",
-      subtext: "Google Play Store",
+      value: "2",
+      label: "Google Play'de Yayında",
+      subtext: "Android",
     },
     {
-      value: "2+",
-      label: "Aktif Uygulama",
-      subtext: "Android & Web",
+      value: "3",
+      label: "Kapalı Testte",
+      subtext: "Yeni sürümler",
     },
     {
       value: "Ankara",

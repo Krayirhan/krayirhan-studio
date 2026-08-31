@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Mail, MapPin } from "lucide-react";
+import { PRODUCTS } from "@/data/games";
 
 export function V2Footer() {
   return (
@@ -58,30 +59,16 @@ export function V2Footer() {
               ÜRÜNLER
             </p>
             <ul className="space-y-2 text-xs">
-              <li>
-                <Link
-                  href="/v2/products/blok-dunyasi"
-                  className="transition hover:text-white"
-                >
-                  Blok Dünyası
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/v2/products/lingorise"
-                  className="transition hover:text-white"
-                >
-                  LingoRise
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/v2/products/benim-notlarim"
-                  className="transition hover:text-white"
-                >
-                  Benim Notlarım
-                </Link>
-              </li>
+              {PRODUCTS.map((product) => (
+                <li key={product.id}>
+                  <Link
+                    href={`/v2/products/${product.slug}`}
+                    className="transition hover:text-white"
+                  >
+                    {product.title}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link
                   href="/v2/products"
