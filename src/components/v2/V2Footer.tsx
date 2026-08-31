@@ -4,7 +4,7 @@ import { ExternalLink, Mail, MapPin } from "lucide-react";
 
 export function V2Footer() {
   return (
-    <footer className="border-t border-[#d4a359]/20 bg-[#07090c] text-[#a19c90]">
+    <footer className="border-t border-white/10 bg-[#07090c] text-[#a19c90]">
       <div className="mx-auto max-w-[1380px] px-5 py-16 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-6">
           {/* Brand Col: 2 Cols on large screens */}
@@ -19,13 +19,13 @@ export function V2Footer() {
                 alt="Krayirhan Studio Logosu"
                 width={36}
                 height={36}
-                className="h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(212,163,89,0.35)]"
+                className="h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]"
               />
               <div className="flex flex-col leading-tight">
-                <span className="font-serif text-lg font-bold tracking-[.25em] text-[#fff9ed]">
+                <span className="font-serif text-lg font-bold tracking-[.25em] text-white">
                   KRAYIRHAN
                 </span>
-                <span className="text-[8px] font-semibold tracking-[.48em] text-[#d4a359]">
+                <span className="text-[8px] font-semibold tracking-[.48em] text-neutral-400">
                   STUDIO
                 </span>
               </div>
@@ -37,14 +37,14 @@ export function V2Footer() {
 
             <div className="space-y-2 pt-2 text-xs text-[#ded9ce]">
               <div className="flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5 text-[#d4a359]" />
+                <MapPin className="h-3.5 w-3.5 text-white/70" />
                 <span>Ankara, Türkiye</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="h-3.5 w-3.5 text-[#d4a359]" />
+                <Mail className="h-3.5 w-3.5 text-white/70" />
                 <a
                   href="mailto:contact@krayirhan.com"
-                  className="transition hover:text-[#f7dc9f]"
+                  className="transition hover:text-white"
                 >
                   contact@krayirhan.com
                 </a>
@@ -61,7 +61,7 @@ export function V2Footer() {
               <li>
                 <Link
                   href="/products/blok-dunyasi"
-                  className="transition hover:text-[#f7dc9f]"
+                  className="transition hover:text-white"
                 >
                   Blok Dünyası
                 </Link>
@@ -69,7 +69,7 @@ export function V2Footer() {
               <li>
                 <Link
                   href="/products/lingorise"
-                  className="transition hover:text-[#f7dc9f]"
+                  className="transition hover:text-white"
                 >
                   LingoRise
                 </Link>
@@ -77,7 +77,7 @@ export function V2Footer() {
               <li>
                 <Link
                   href="/products/benim-notlarim"
-                  className="transition hover:text-[#f7dc9f]"
+                  className="transition hover:text-white"
                 >
                   Benim Notlarım
                 </Link>
@@ -85,7 +85,7 @@ export function V2Footer() {
               <li>
                 <Link
                   href="/products"
-                  className="font-semibold text-[#d4a359] transition hover:underline"
+                  className="font-semibold text-white transition hover:underline"
                 >
                   Tüm Ürünler
                 </Link>
@@ -100,22 +100,22 @@ export function V2Footer() {
             </p>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/about" className="transition hover:text-[#f7dc9f]">
+                <Link href="/about" className="transition hover:text-white">
                   Hakkında
                 </Link>
               </li>
               <li>
-                <a href="#felsefe" className="transition hover:text-[#f7dc9f]">
+                <a href="#felsefe" className="transition hover:text-white">
                   Değerlerimiz
                 </a>
               </li>
               <li>
-                <Link href="/about" className="transition hover:text-[#f7dc9f]">
+                <Link href="/about" className="transition hover:text-white">
                   Kariyer
                 </Link>
               </li>
               <li>
-                <Link href="/press" className="transition hover:text-[#f7dc9f]">
+                <Link href="/press" className="transition hover:text-white">
                   Basın Kiti
                 </Link>
               </li>
@@ -131,7 +131,7 @@ export function V2Footer() {
               <li>
                 <a
                   href="mailto:contact@krayirhan.com"
-                  className="transition hover:text-[#f7dc9f]"
+                  className="transition hover:text-white"
                 >
                   Yardım Merkezi
                 </a>
@@ -139,7 +139,7 @@ export function V2Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="transition hover:text-[#f7dc9f]"
+                  className="transition hover:text-white"
                 >
                   Gizlilik Politikası
                 </Link>
@@ -147,7 +147,7 @@ export function V2Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="transition hover:text-[#f7dc9f]"
+                  className="transition hover:text-white"
                 >
                   Kullanım Koşulları
                 </Link>
@@ -155,7 +155,7 @@ export function V2Footer() {
               <li>
                 <a
                   href="mailto:contact@krayirhan.com"
-                  className="transition hover:text-[#f7dc9f]"
+                  className="transition hover:text-white"
                 >
                   İletişim
                 </a>
@@ -174,7 +174,7 @@ export function V2Footer() {
                   href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-[#f7dc9f]"
+                  className="inline-flex items-center gap-1.5 transition hover:text-white"
                 >
                   <span>Google Play</span>
                   <ExternalLink className="h-3 w-3 opacity-60" />
@@ -185,7 +185,7 @@ export function V2Footer() {
                   href="https://youtube.com/@krayirhan"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-[#f7dc9f]"
+                  className="inline-flex items-center gap-1.5 transition hover:text-white"
                 >
                   <span>YouTube</span>
                   <ExternalLink className="h-3 w-3 opacity-60" />
@@ -196,7 +196,7 @@ export function V2Footer() {
                   href="https://instagram.com/krayirhan"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-[#f7dc9f]"
+                  className="inline-flex items-center gap-1.5 transition hover:text-white"
                 >
                   <span>Instagram</span>
                   <ExternalLink className="h-3 w-3 opacity-60" />
@@ -207,7 +207,7 @@ export function V2Footer() {
                   href="https://twitter.com/krayirhan"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-[#f7dc9f]"
+                  className="inline-flex items-center gap-1.5 transition hover:text-white"
                 >
                   <span>X (Twitter)</span>
                   <ExternalLink className="h-3 w-3 opacity-60" />
@@ -218,7 +218,7 @@ export function V2Footer() {
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-[#d4a359]/15 pt-8 text-xs text-[#827d73] sm:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-[#827d73] sm:flex-row">
           <p>© 2026 Krayirhan Studio. Tüm hakları saklıdır.</p>
           <p>
             Kurucu:{" "}
@@ -226,14 +226,14 @@ export function V2Footer() {
               href="https://muhsinfurkan.com"
               target="_blank"
               rel="noreferrer"
-              className="text-[#ded9ce] underline underline-offset-4 hover:text-[#f7dc9f]"
+              className="text-[#ded9ce] underline underline-offset-4 hover:text-white"
             >
               Muhsin Furkan Turan
             </a>
           </p>
           <p className="inline-flex items-center gap-1.5 text-[#ded9ce]">
             <span>Türkiye&apos;de geliştirildi</span>
-            <span>💛</span>
+            <span>🤍</span>
           </p>
         </div>
       </div>

@@ -9,7 +9,7 @@ export function V2Hero() {
       {/* Background Ambience: Subtle Dark Watermarks */}
       {/* Left side Seljuk Knot Watermark */}
       <div className="pointer-events-none absolute -left-20 top-24 -z-10 h-[500px] w-[500px] select-none opacity-[0.04] blur-[0.5px]">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full stroke-[#d4a359]" strokeWidth="2">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full stroke-white" strokeWidth="2">
           <path d="M100 10L190 100L100 190L10 100Z" />
           <path d="M100 30L170 100L100 170L30 100Z" strokeDasharray="4 4" />
           <circle cx="100" cy="100" r="45" />
@@ -27,8 +27,8 @@ export function V2Hero() {
         />
       </div>
 
-      {/* Ambient Warm Golden Glow behind phones */}
-      <div className="pointer-events-none absolute right-[5%] top-1/2 -z-10 h-[550px] w-[550px] -translate-y-1/2 rounded-full bg-radial from-[#d4a359]/16 via-[#9e6f28]/8 to-transparent blur-[140px]" />
+      {/* Ambient Cool Silver/White Glow behind phones */}
+      <div className="pointer-events-none absolute right-[5%] top-1/2 -z-10 h-[550px] w-[550px] -translate-y-1/2 rounded-full bg-radial from-white/10 via-white/5 to-transparent blur-[140px]" />
 
       <div className="mx-auto grid max-w-[1380px] grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
         {/* Left Column: Typography & Actions */}
@@ -55,7 +55,7 @@ export function V2Hero() {
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <a
               href="#projeler"
-              className="inline-flex items-center gap-3 rounded-lg bg-gradient-to-r from-[#dca757] via-[#eec578] to-[#cca04f] px-7 py-4 text-xs font-bold tracking-wide text-[#140e06] shadow-[0_8px_24px_rgba(212,163,89,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(212,163,89,0.4)]"
+              className="inline-flex items-center gap-3 rounded-lg bg-white px-7 py-4 text-xs font-bold tracking-wide text-black shadow-[0_8px_24px_rgba(255,255,255,0.18)] transition hover:-translate-y-0.5 hover:bg-neutral-200 hover:shadow-[0_12px_28px_rgba(255,255,255,0.28)]"
             >
               <span>Tüm Ürünleri Keşfet</span>
               <ArrowRight className="h-4 w-4" />
@@ -63,10 +63,10 @@ export function V2Hero() {
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-3 rounded-lg border border-[#d4a359]/35 bg-[#0f1217]/50 px-6 py-4 text-xs font-semibold tracking-wide text-[#f2ede4] backdrop-blur-sm transition hover:border-[#f1c479] hover:bg-[#d4a359]/10"
+              className="inline-flex items-center gap-3 rounded-lg border border-white/20 bg-white/[0.05] px-6 py-4 text-xs font-semibold tracking-wide text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10"
             >
               <span>Stüdyomuz Hakkında</span>
-              <ArrowRight className="h-4 w-4 text-[#d4a359]" />
+              <ArrowRight className="h-4 w-4 text-white" />
             </Link>
           </div>
 
@@ -79,7 +79,7 @@ export function V2Hero() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="X (Twitter)"
-                className="rounded-full p-1.5 transition-colors hover:text-[#eec578]"
+                className="rounded-full p-1.5 transition-colors hover:text-white"
               >
                 <IconX className="h-4 w-4" />
               </a>
@@ -88,7 +88,7 @@ export function V2Hero() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="rounded-full p-1.5 transition-colors hover:text-[#eec578]"
+                className="rounded-full p-1.5 transition-colors hover:text-white"
               >
                 <IconInstagram className="h-4 w-4" />
               </a>
@@ -97,7 +97,7 @@ export function V2Hero() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="YouTube"
-                className="rounded-full p-1.5 transition-colors hover:text-[#eec578]"
+                className="rounded-full p-1.5 transition-colors hover:text-white"
               >
                 <IconYouTube className="h-4 w-4" />
               </a>

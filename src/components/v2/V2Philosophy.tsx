@@ -12,7 +12,7 @@ export function V2Philosophy() {
             alt="Krayirhan Geyik Amblemi"
             width={44}
             height={44}
-            className="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(212,163,89,0.3)]"
+            className="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
           />
         </div>
       ),
@@ -21,7 +21,7 @@ export function V2Philosophy() {
     },
     {
       icon: (
-        <div className="flex h-12 w-12 items-center justify-center text-[#d4a359]">
+        <div className="flex h-12 w-12 items-center justify-center text-white">
           <SeljukKnotIcon className="h-10 w-10" />
         </div>
       ),
@@ -30,7 +30,7 @@ export function V2Philosophy() {
     },
     {
       icon: (
-        <div className="flex h-12 w-12 items-center justify-center text-[#d4a359]">
+        <div className="flex h-12 w-12 items-center justify-center text-white">
           <CalmFlowIcon className="h-10 w-10" />
         </div>
       ),
@@ -90,18 +90,18 @@ export function V2Philosophy() {
       </div>
 
       {/* Ornate Seljuk Metrics Banner */}
-      <div className="relative mt-20 overflow-hidden rounded-2xl border border-[#d4a359]/30 bg-gradient-to-r from-[#0c0f14] via-[#12161f] to-[#0c0f14] p-6 shadow-2xl sm:p-8 lg:p-10">
+      <div className="relative mt-20 overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-r from-[#0c0f14] via-[#12161f] to-[#0c0f14] p-6 shadow-2xl sm:p-8 lg:p-10">
         {/* Ornate Seljuk Motif Corner Accents */}
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-[#d4a359]/10 via-transparent to-transparent opacity-60" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-[#d4a359]/10 via-transparent to-transparent opacity-60" />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-60" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-60" />
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-6 items-center">
           {metrics.map(({ icon: Icon, value, label }) => (
             <div
               key={label}
-              className="flex items-center gap-4 border-l border-[#d4a359]/20 pl-4 first:border-l-0 md:pl-6"
+              className="flex items-center gap-4 border-l border-white/10 pl-4 first:border-l-0 md:pl-6"
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#d4a359]/30 bg-[#161a22] text-[#d4a359]">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.06] text-white">
                 <Icon className="h-5 w-5" strokeWidth={1.8} />
               </div>
               <div>

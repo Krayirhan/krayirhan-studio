@@ -12,13 +12,13 @@ export function StagEmblem(props: SVGProps<SVGSVGElement>) {
       {/* Outer subtle glow */}
       <defs>
         <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#f7dc9f" />
-          <stop offset="50%" stopColor="#d8a855" />
-          <stop offset="100%" stopColor="#ad7b30" />
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="50%" stopColor="#e4e4e7" />
+          <stop offset="100%" stopColor="#a1a1aa" />
         </linearGradient>
         <linearGradient id="goldBright" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#fff1d0" />
-          <stop offset="100%" stopColor="#e5b869" />
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="100%" stopColor="#f4f4f5" />
         </linearGradient>
       </defs>
 
@@ -104,8 +104,8 @@ export function SeljukOrnament({ title }: { title: string }) {
   return (
     <div className="inline-flex items-center gap-3 select-none">
       <div className="flex items-center gap-1.5 opacity-80">
-        <span className="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-[#d4a359]" />
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-[#d4a359]">
+        <span className="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-white/40" />
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-white/80">
           <path
             d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z"
             fill="currentColor"
@@ -114,19 +114,19 @@ export function SeljukOrnament({ title }: { title: string }) {
         </svg>
       </div>
 
-      <span className="text-[11px] sm:text-xs font-bold tracking-[.28em] text-[#d6a653] uppercase">
+      <span className="text-[11px] sm:text-xs font-bold tracking-[.28em] text-white/90 uppercase">
         {title}
       </span>
 
       <div className="flex items-center gap-1.5 opacity-80">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-[#d4a359]">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-white/80">
           <path
             d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z"
             fill="currentColor"
           />
           <circle cx="8" cy="8" r="1.8" fill="#090a0c" />
         </svg>
-        <span className="h-[1px] w-6 sm:w-10 bg-gradient-to-l from-transparent to-[#d4a359]" />
+        <span className="h-[1px] w-6 sm:w-10 bg-gradient-to-l from-transparent to-white/40" />
       </div>
     </div>
   );
@@ -138,7 +138,7 @@ export function SeljukKnotIcon(props: SVGProps<SVGSVGElement>) {
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M24 4L44 24L24 44L4 24L24 4Z"
-        stroke="#d4a359"
+        stroke="white"
         strokeWidth="2.5"
         strokeLinejoin="round"
       />
@@ -147,12 +147,12 @@ export function SeljukKnotIcon(props: SVGProps<SVGSVGElement>) {
         y="12"
         width="24"
         height="24"
-        stroke="#e5b869"
+        stroke="rgba(255,255,255,0.7)"
         strokeWidth="2"
         transform="rotate(45 24 24)"
       />
-      <circle cx="24" cy="24" r="5" stroke="#d4a359" strokeWidth="2" />
-      <path d="M24 10V38M10 24H38" stroke="#d4a359" strokeWidth="1.5" strokeDasharray="2 2" />
+      <circle cx="24" cy="24" r="5" stroke="white" strokeWidth="2" />
+      <path d="M24 10V38M10 24H38" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeDasharray="2 2" />
     </svg>
   );
 }
@@ -161,22 +161,22 @@ export function SeljukKnotIcon(props: SVGProps<SVGSVGElement>) {
 export function CalmFlowIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <circle cx="24" cy="18" r="7" stroke="#d4a359" strokeWidth="2" />
+      <circle cx="24" cy="18" r="7" stroke="white" strokeWidth="2" />
       <path
         d="M24 6V9M24 27V30M12 18H15M33 18H36M15.5 9.5L17.5 11.5M30.5 24.5L32.5 26.5M15.5 26.5L17.5 24.5M30.5 11.5L32.5 9.5"
-        stroke="#e5b869"
+        stroke="rgba(255,255,255,0.7)"
         strokeWidth="1.8"
         strokeLinecap="round"
       />
       <path
         d="M8 36C14 31 20 33 24 35C28 37 34 39 40 34"
-        stroke="#d4a359"
+        stroke="white"
         strokeWidth="2.2"
         strokeLinecap="round"
       />
       <path
         d="M10 42C16 37 22 39 26 41C30 43 36 43 40 40"
-        stroke="#ad7b30"
+        stroke="rgba(255,255,255,0.5)"
         strokeWidth="1.8"
         strokeLinecap="round"
       />

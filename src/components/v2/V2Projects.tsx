@@ -157,20 +157,20 @@ export function V2Projects() {
               onClick={() => setActiveId(item.id)}
               className={`inline-flex cursor-pointer items-center gap-2.5 rounded-xl border px-6 py-3 text-xs font-bold tracking-wider transition-all duration-300 ${
                 isActive
-                  ? "border-[#d4a359] bg-[#141820] text-[#f7dc9f] shadow-[0_0_20px_rgba(212,163,89,0.25)] scale-105"
-                  : "border-[#d4a359]/25 bg-[#0b0e12]/80 text-[#a8a398] hover:border-[#d4a359]/50 hover:bg-[#12161c] hover:text-[#f5f2eb]"
+                  ? "border-white bg-white text-black shadow-[0_4px_20px_rgba(255,255,255,0.2)] scale-105"
+                  : "border-white/15 bg-white/[0.03] text-neutral-400 hover:border-white/30 hover:bg-white/[0.08] hover:text-white"
               }`}
             >
               {item.type === "game" ? (
                 <Gamepad2
                   className={`h-4 w-4 ${
-                    isActive ? "text-[#d4a359]" : "text-[#7a766e]"
+                    isActive ? "text-black" : "text-neutral-500"
                   }`}
                 />
               ) : (
                 <Smartphone
                   className={`h-4 w-4 ${
-                    isActive ? "text-[#d4a359]" : "text-[#7a766e]"
+                    isActive ? "text-black" : "text-neutral-500"
                   }`}
                 />
               )}
@@ -192,11 +192,11 @@ export function V2Projects() {
             {showcase.tagline}
           </p>
 
-          {/* 4 Feature Checklist with Gold Icons */}
+          {/* 4 Feature Checklist with Clean White Icons */}
           <div className="space-y-4 pt-2">
             {showcase.features.map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-3.5">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-[#d4a359]/30 bg-[#161a22] text-[#d4a359]">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-white/15 bg-white/[0.06] text-white">
                   <Icon className="h-4 w-4" />
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-[#ded9ce]">
@@ -213,23 +213,23 @@ export function V2Projects() {
                 href={product.links.playStore}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-lg bg-gradient-to-r from-[#dca757] via-[#eec578] to-[#cca04f] px-6 py-3.5 text-xs font-bold text-[#140e06] shadow-[0_6px_20px_rgba(212,163,89,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(212,163,89,0.4)]"
+                className="inline-flex items-center gap-2.5 rounded-lg bg-white px-6 py-3.5 text-xs font-bold text-black shadow-[0_6px_20px_rgba(255,255,255,0.18)] transition hover:-translate-y-0.5 hover:bg-neutral-200 hover:shadow-[0_10px_25px_rgba(255,255,255,0.28)]"
               >
                 <Play className="h-3.5 w-3.5 fill-current" />
                 <span>Google Play&apos;de Oyna</span>
               </a>
             ) : (
-              <span className="inline-flex items-center gap-2 rounded-lg border border-[#d4a359]/30 bg-[#13161c] px-5 py-3 text-xs font-semibold text-[#a8a398]">
+              <span className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-[#13161c] px-5 py-3 text-xs font-semibold text-neutral-400">
                 <span>Geliştirme Aşamasında</span>
               </span>
             )}
 
             <Link
               href={`/products/${product.slug}`}
-              className="inline-flex items-center gap-2 rounded-lg border border-[#d4a359]/35 bg-[#0f1217]/60 px-5 py-3.5 text-xs font-semibold text-[#f5f2eb] backdrop-blur-sm transition hover:border-[#f1c479] hover:bg-[#d4a359]/10 hover:text-[#f7dc9f]"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/[0.05] px-5 py-3.5 text-xs font-semibold text-white backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 hover:text-white"
             >
               <span>Detayları Gör</span>
-              <ArrowRight className="h-4 w-4 text-[#d4a359]" />
+              <ArrowRight className="h-4 w-4 text-white" />
             </Link>
           </div>
         </div>

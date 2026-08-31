@@ -64,14 +64,14 @@ export function V2Header() {
             width={44}
             height={44}
             priority
-            className="h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(212,163,89,0.45)]"
+            className="h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]"
           />
         </div>
         <div className="flex flex-col leading-tight">
-          <span className="font-serif text-lg sm:text-xl font-bold tracking-[.25em] text-[#fff9ed] transition-colors group-hover:text-[#f8deb1]">
+          <span className="font-serif text-lg sm:text-xl font-bold tracking-[.25em] text-white transition-colors group-hover:text-neutral-300">
             KRAYIRHAN
           </span>
-          <span className="text-[9px] font-semibold tracking-[.48em] text-[#d4a359]">
+          <span className="text-[9px] font-semibold tracking-[.48em] text-neutral-400">
             STUDIO
           </span>
         </div>
@@ -88,36 +88,36 @@ export function V2Header() {
             type="button"
             onClick={() => setProductsOpen((prev) => !prev)}
             aria-expanded={productsOpen}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-[#f4d193]"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-white"
           >
             <span>Ürünler</span>
             <ChevronDown
               className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                productsOpen ? "rotate-180 text-[#d4a359]" : ""
+                productsOpen ? "rotate-180 text-white" : ""
               }`}
             />
           </button>
 
           {productsOpen && (
-            <div className="absolute left-0 top-full mt-3 w-52 rounded-xl border border-[#d4a359]/30 bg-[#0d1014]/95 p-2 shadow-2xl backdrop-blur-xl animate-[fadeIn_0.15s_ease-out]">
+            <div className="absolute left-0 top-full mt-3 w-52 rounded-xl border border-white/15 bg-[#0d1014]/95 p-2 shadow-2xl backdrop-blur-xl animate-[fadeIn_0.15s_ease-out]">
               <a
                 href="#projeler"
                 onClick={() => setProductsOpen(false)}
-                className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-[#d4a359]/15 hover:text-[#f7dc9f]"
+                className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-white/10 hover:text-white"
               >
                 🎮 Blok Dünyası
               </a>
               <a
                 href="#projeler"
                 onClick={() => setProductsOpen(false)}
-                className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-[#d4a359]/15 hover:text-[#f7dc9f]"
+                className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-white/10 hover:text-white"
               >
                 🌱 LingoRise
               </a>
               <a
                 href="#projeler"
                 onClick={() => setProductsOpen(false)}
-                className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-[#d4a359]/15 hover:text-[#f7dc9f]"
+                className="block rounded-lg px-3.5 py-2.5 text-xs text-[#f5f2eb] transition hover:bg-white/10 hover:text-white"
               >
                 ✍️ Benim Notlarım
               </a>
@@ -125,7 +125,7 @@ export function V2Header() {
               <Link
                 href="/products"
                 onClick={() => setProductsOpen(false)}
-                className="block rounded-lg px-3.5 py-2 text-[11px] font-semibold text-[#d4a359] hover:underline"
+                className="block rounded-lg px-3.5 py-2 text-[11px] font-semibold text-white hover:underline"
               >
                 Tüm Ürünleri Görüntüle →
               </Link>
@@ -133,15 +133,15 @@ export function V2Header() {
           )}
         </div>
 
-        <a href="#felsefe" className="transition-colors hover:text-[#f4d193]">
+        <a href="#felsefe" className="transition-colors hover:text-white">
           Stüdyo
         </a>
-        <Link href="/about" className="transition-colors hover:text-[#f4d193]">
+        <Link href="/about" className="transition-colors hover:text-white">
           Hakkında
         </Link>
         <a
           href="mailto:contact@krayirhan.com"
-          className="transition-colors hover:text-[#f4d193]"
+          className="transition-colors hover:text-white"
         >
           İletişim
         </a>
@@ -153,7 +153,7 @@ export function V2Header() {
           href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
           target="_blank"
           rel="noreferrer"
-          className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#dca757] via-[#eec578] to-[#cca04f] px-5 py-2.5 text-xs font-bold tracking-wide text-[#140e06] shadow-[0_4px_18px_rgba(212,163,89,0.3)] transition hover:brightness-110 hover:-translate-y-0.5"
+          className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-xs font-bold tracking-wide text-black shadow-[0_4px_18px_rgba(255,255,255,0.15)] transition hover:bg-neutral-200 hover:-translate-y-0.5"
         >
           <Play className="h-3.5 w-3.5 fill-current" />
           <span>Google Play</span>
@@ -165,7 +165,7 @@ export function V2Header() {
           ref={menuButtonRef}
           type="button"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          className="relative z-50 rounded-lg border border-[#d4a359]/50 bg-[#0d1014]/90 p-2 text-[#e4bb79] transition hover:border-[#f1c479] hover:text-[#fff0d0] lg:hidden"
+          className="relative z-50 rounded-lg border border-white/20 bg-[#0d1014]/90 p-2 text-white transition hover:border-white/40 hover:bg-white/10 lg:hidden"
           aria-label={mobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
           aria-expanded={mobileMenuOpen}
           aria-controls="v2-mobile-nav"
@@ -188,46 +188,46 @@ export function V2Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Mobil Gezinti"
-            className="fixed inset-x-0 top-0 z-45 max-h-[90vh] overflow-y-auto border-b border-[#d4a359]/30 bg-[#0a0c10] px-6 pb-8 pt-24 shadow-2xl lg:hidden"
+            className="fixed inset-x-0 top-0 z-45 max-h-[90vh] overflow-y-auto border-b border-white/15 bg-[#0a0c10] px-6 pb-8 pt-24 shadow-2xl lg:hidden"
           >
             <nav className="flex flex-col space-y-3">
               <a
                 href="#projeler"
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg border-l-2 border-[#d4a359] bg-[#12161d] px-4 py-3 text-sm font-semibold text-[#fff9ed]"
+                className="rounded-lg border-l-2 border-white bg-[#141820] px-4 py-3 text-sm font-semibold text-white"
               >
                 Ürünlerimiz (Blok Dünyası, LingoRise, Benim Notlarım)
               </a>
               <a
                 href="#felsefe"
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-[#d4a359] hover:bg-[#12161d]"
+                className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-white/50 hover:bg-[#12161d]"
               >
                 Stüdyo Felsefemiz
               </a>
               <Link
                 href="/about"
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-[#d4a359] hover:bg-[#12161d]"
+                className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-white/50 hover:bg-[#12161d]"
               >
                 Hakkımızda
               </Link>
               <a
                 href="mailto:contact@krayirhan.com"
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-[#d4a359] hover:bg-[#12161d]"
+                className="rounded-lg border-l-2 border-transparent px-4 py-3 text-sm font-medium text-[#d5d0c7] hover:border-white/50 hover:bg-[#12161d]"
               >
                 İletişim
               </a>
             </nav>
 
-            <div className="mt-6 border-t border-[#d4a359]/20 pt-6">
+            <div className="mt-6 border-t border-white/10 pt-6">
               <a
                 href="https://play.google.com/store/apps/details?id=com.krayirhanstudio.blokdunyasi"
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#dca757] via-[#eec578] to-[#cca04f] py-3.5 text-xs font-bold text-[#140e06] shadow-lg"
+                className="flex items-center justify-center gap-2 rounded-lg bg-white py-3.5 text-xs font-bold text-black shadow-lg hover:bg-neutral-200 transition"
               >
                 <Play className="h-3.5 w-3.5 fill-current" />
                 <span>Google Play Mağazası</span>

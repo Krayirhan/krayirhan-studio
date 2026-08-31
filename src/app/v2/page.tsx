@@ -58,7 +58,7 @@ const jsonLd = {
 
 export default function V2HomePage() {
   return (
-    <div className="v2-page min-h-screen bg-[#080a0d] text-[#f5f2eb] selection:bg-[#d4a359] selection:text-[#080a0d]">
+    <div className="v2-page min-h-screen bg-[#080a0d] text-[#f5f2eb] selection:bg-white selection:text-black">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
