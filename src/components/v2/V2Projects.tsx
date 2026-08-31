@@ -20,7 +20,6 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { PRODUCTS } from "@/data/games";
-import { SeljukOrnament } from "./V2Icons";
 
 interface ProductShowcaseConfig {
   id: string;
@@ -135,9 +134,14 @@ export function V2Projects() {
       <div id="oyunlar" className="absolute -top-24" aria-hidden="true" />
       <div id="uygulamalar" className="absolute -top-24" aria-hidden="true" />
 
-      {/* Eyebrow Header */}
-      <div className="mb-8 text-center">
-        <SeljukOrnament title="Öne Çıkan Ürünlerimiz" />
+      {/* Section Header */}
+      <div className="mb-12 text-center">
+        <h2 className="v2-serif text-3xl sm:text-4xl font-normal text-[#fbf8f2]">
+          Öne Çıkan Ürünlerimiz
+        </h2>
+        <p className="mt-2.5 text-xs sm:text-sm text-neutral-400">
+          Mobil dünyada oyunculara ve kullanıcılara dokunan deneyimler
+        </p>
       </div>
 
       {/* Switcher Tabs */}

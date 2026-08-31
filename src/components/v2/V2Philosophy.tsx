@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Gamepad2, Globe2, Smartphone, Users } from "lucide-react";
-import { CalmFlowIcon, SeljukKnotIcon, SeljukOrnament } from "./V2Icons";
+import { CalmFlowIcon, SeljukKnotIcon } from "./V2Icons";
 
 export function V2Philosophy() {
   const pillars = [
@@ -65,8 +65,13 @@ export function V2Philosophy() {
   return (
     <section id="felsefe" className="relative mx-auto max-w-[1380px] px-5 py-24 sm:px-8 lg:px-12">
       {/* Section Header */}
-      <div className="mb-14 text-center">
-        <SeljukOrnament title="Stüdyo Felsefemiz" />
+      <div className="mb-16 text-center">
+        <h2 className="v2-serif text-3xl sm:text-4xl font-normal text-[#fbf8f2]">
+          Stüdyo Felsefemiz
+        </h2>
+        <p className="mx-auto mt-2.5 max-w-lg text-xs sm:text-sm text-neutral-400">
+          Kullanışlı, estetik ve kalıcı dijital deneyimler üretme yaklaşımımız
+        </p>
       </div>
 
       {/* 3 Columns Philosophy Cards */}

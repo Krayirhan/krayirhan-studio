@@ -99,17 +99,6 @@ export function StagEmblem(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-// Modern Studio Section Eyebrow Badge (replaces generic AI sparkles and winged lines)
-export function StudioEyebrow({ title }: { title: string }) {
-  return (
-    <div className="inline-flex select-none items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.03] px-3.5 py-1 text-[11px] font-medium tracking-[0.2em] uppercase text-neutral-300 backdrop-blur-md transition-colors hover:border-white/25 hover:text-white">
-      <span className="h-1.5 w-1.5 rounded-full bg-white/60" />
-      <span>{title}</span>
-    </div>
-  );
-}
-
-export const SeljukOrnament = StudioEyebrow;
 
 // Seljuk Interlocking Knot Icon for "Ürün Kişiliği"
 export function SeljukKnotIcon(props: SVGProps<SVGSVGElement>) {

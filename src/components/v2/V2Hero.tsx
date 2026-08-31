@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { IconInstagram, IconX, IconYouTube, SeljukOrnament } from "./V2Icons";
+import { IconInstagram, IconX, IconYouTube } from "./V2Icons";
 
 export function V2Hero() {
   return (
@@ -33,10 +33,9 @@ export function V2Hero() {
       <div className="mx-auto grid max-w-[1380px] grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
         {/* Left Column: Typography & Actions */}
         <div className="z-10 space-y-7 lg:col-span-6 lg:pr-4">
-          {/* Eyebrow */}
-          <div>
-            <SeljukOrnament title="Bağımsız Mobil Stüdyo" />
-          </div>
+          <p className="text-xs font-semibold tracking-[0.24em] text-neutral-400 uppercase">
+            Bağımsız Mobil Stüdyo
+          </p>
 
           {/* Headline */}
           <h1 className="v2-serif text-5xl font-normal leading-[1.04] text-[#fbf8f2] sm:text-6xl lg:text-7xl">
