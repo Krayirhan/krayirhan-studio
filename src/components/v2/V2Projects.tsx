@@ -164,20 +164,14 @@ export function V2Projects() {
       <div id="uygulamalar" className="absolute -top-24" aria-hidden="true" />
 
       {/* Section Header */}
-      <div className="mb-12 flex flex-col items-center justify-between gap-6 border-b border-[#c89547]/20 pb-8 sm:flex-row sm:items-end">
-        <div>
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[.24em] text-[#d6a653]">
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>PORTFÖYÜMÜZ</span>
-          </div>
-          <h2 className="v2-serif mt-3 text-4xl sm:text-5xl">
-            Ürettiğimiz dünyalar.
-          </h2>
+      <div className="mb-10 text-center">
+        <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[.24em] text-[#d6a653]">
+          <Sparkles className="h-3.5 w-3.5" />
+          <span>PORTFÖYÜMÜZ</span>
         </div>
-        <p className="max-w-md text-sm leading-7 text-[#b9b6b0] sm:text-right">
-          Her proje farklı bir ihtiyaca, tek bir ortak ilkeye dayanır: sade,
-          etkili ve hatırlanmaya değer olmak.
-        </p>
+        <h2 className="v2-serif mt-3 text-4xl sm:text-5xl">
+          Ürettiğimiz dünyalar.
+        </h2>
       </div>
 
       {/* 1. Interactive Switcher Tabs with Synchronized Progress Line */}
@@ -196,10 +190,10 @@ export function V2Projects() {
               aria-selected={isActive}
               aria-controls={`featured-product-${item.id}`}
               id={`featured-tab-${item.id}`}
-              className={`relative cursor-pointer overflow-hidden rounded-xl border px-5 py-3 text-xs font-bold tracking-wider transition-all duration-300 sm:px-6 sm:py-3.5 sm:text-sm ${
+              className={`relative cursor-pointer overflow-hidden rounded-2xl border px-6 py-3.5 text-xs font-bold tracking-wider transition-all duration-300 sm:text-sm ${
                 isActive
-                  ? "border-[#d8a958] bg-[#0c1a26] text-[#fff8eb] shadow-xl shadow-black/80 scale-105"
-                  : "border-[#c39856]/25 bg-[#061019]/80 text-[#b9b6b0] hover:border-[#d8a958]/50 hover:bg-[#091520] hover:text-[#fff9ed]"
+                  ? "border-[#d8a958]/50 bg-white/10 text-[#fff8eb] shadow-2xl shadow-black scale-105"
+                  : "border-white/10 bg-white/[0.02] text-zinc-400 hover:border-white/20 hover:bg-white/5 hover:text-white"
               }`}
             >
               <div className="flex items-center gap-2.5">
@@ -239,7 +233,7 @@ export function V2Projects() {
           aria-label={
             isPaused ? "Otomatik geçişi başlat" : "Otomatik geçişi duraklat"
           }
-          className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl border border-[#c39856]/25 bg-[#061019]/80 text-[#b9b6b0] transition-all hover:border-[#d8a958]/60 hover:bg-[#091520] hover:text-[#fff9ed]"
+          className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-2xl border border-white/10 bg-white/[0.02] text-zinc-400 transition-all hover:border-white/20 hover:bg-white/5 hover:text-white"
         >
           {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
         </button>
@@ -250,13 +244,13 @@ export function V2Projects() {
         {product.title} gösteriliyor{isPaused ? ", duraklatıldı" : ""}.
       </div>
 
-      {/* 2. Cinematic Showcase Stage (Dual 3D Phones & Content) */}
+      {/* 2. Borderless Cinematic Showcase Stage (Seamless, no card container) */}
       <div
         key={product.id}
         id={`featured-product-${product.id}`}
         role="tabpanel"
         aria-labelledby={`featured-tab-${product.id}`}
-        className="relative grid grid-cols-1 items-center gap-12 rounded-2xl border border-[#c89547]/20 bg-[#061019]/60 p-6 sm:p-10 lg:grid-cols-12 lg:gap-16 lg:p-14"
+        className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16"
       >
         {/* Dynamic Ambient Aura Behind Phones */}
         {renderAura(product.id)}
