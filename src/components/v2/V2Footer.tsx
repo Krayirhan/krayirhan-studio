@@ -5,7 +5,7 @@ import { ExternalLink, Mail, MapPin } from "lucide-react";
 export function V2Footer() {
   return (
     <footer className="v2-footer border-t border-white/10 bg-[#07090c] text-[#a19c90]">
-      <div className="mx-auto max-w-[1380px] px-5 py-16 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-6">
           {/* Brand Col: 2 Cols on large screens */}
           <div className="space-y-4 sm:col-span-2">

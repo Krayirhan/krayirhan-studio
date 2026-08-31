@@ -16,7 +16,7 @@ export default function V2AboutPage() {
     <div className="v2-page min-h-screen bg-[#080a0d] text-[#f5f2eb] selection:bg-white selection:text-black flex flex-col justify-between">
       <V2Header />
 
-      <main className="v2-content mx-auto w-full max-w-[1380px] px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
+      <main className="v2-content mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <p className="text-xs font-semibold tracking-[0.24em] text-neutral-400 uppercase">

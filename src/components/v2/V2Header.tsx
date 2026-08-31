@@ -57,7 +57,7 @@ export function V2Header() {
 
   return (
     <header className="v2-header sticky top-0 z-50 w-full border-b border-white/10 bg-[#080a0d]/90 backdrop-blur-xl transition-all">
-      <div className="mx-auto flex h-20 max-w-[1380px] items-center justify-between px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
         {/* Brand: Gilded Stag Logo + Typography */}
         <Link
           href="/v2"
