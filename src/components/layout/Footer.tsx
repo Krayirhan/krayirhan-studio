@@ -86,11 +86,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/press" className="hover:text-white transition-colors">
-                  Press Kit
-                </Link>
-              </li>
-              <li>
                 <Link href="/privacy" className="hover:text-white transition-colors">
                   Gizlilik
                 </Link>

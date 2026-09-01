@@ -89,11 +89,3 @@ export interface StudioInfo {
   contactEmail: string;
   pressEmail: string;
 }
-
-export interface PressAsset {
-  title: string;
-  type: "Logo" | "Screenshots" | "Key Art" | "App Assets" | "Full Press Kit";
-  format: string;
-  fileSize: string;
-  downloadUrl: string;
-}

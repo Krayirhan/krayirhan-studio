@@ -4,7 +4,7 @@ import { PRODUCTS } from "@/data/games";
 const siteUrl = "https://studio.krayirhan.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/products", "/about", "/press", "/privacy"];
+  const staticRoutes = ["", "/products", "/about", "/privacy"];
 
   return [
     ...staticRoutes.map((route) => ({

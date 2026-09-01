@@ -28,7 +28,6 @@ export function Navbar() {
   ];
   const studioLinks = [
     { name: "Hakkında", href: "/about" },
-    { name: "Press Kit", href: "/press" },
   ];
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
@@ -158,7 +157,7 @@ export function Navbar() {
               aria-haspopup="menu"
               onClick={() => setOpenMenu(openMenu === "studio" ? null : "studio")}
               className={`inline-flex items-center gap-1.5 ${
-                isActive("/about") || isActive("/press")
+                isActive("/about")
                   ? "text-white font-semibold"
                   : "text-zinc-300 hover:text-white"
               } text-sm font-medium tracking-wide transition-colors cursor-pointer`}

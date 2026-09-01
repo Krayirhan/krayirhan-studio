@@ -92,11 +92,6 @@ export function V2Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/press" className="transition hover:text-white">
-                  Basın Kiti
-                </Link>
-              </li>
-              <li>
                 <Link href="/privacy" className="transition hover:text-white">
                   Gizlilik
                 </Link>
